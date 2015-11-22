@@ -17,7 +17,8 @@ GameAssetManager::GameAssetManager(ApplicationMode mode) {
     break;
   case TRANSFORM:
   default:
-    break;
+  break;
+
   };
 
   program_token = CreateGLProgram(vertex_shader, fragment_shader);

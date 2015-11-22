@@ -45,8 +45,8 @@ void Draw(const std::shared_ptr<SDL_Window> window, const std::shared_ptr<GameWo
 }
 
 std::shared_ptr<SDL_Window> InitWorld() {
-  Uint32 width = 1920;
-  Uint32 height = 1080;
+  Uint32 width = 1200;
+  Uint32 height = 800;
   SDL_Window * _window;
   std::shared_ptr<SDL_Window> window;
 
@@ -132,7 +132,6 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   if(vm.count("scale")) {
     return SCALE;
   }
-
   // The default
   return TRANSFORM;
 }
