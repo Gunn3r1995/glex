@@ -39,4 +39,6 @@ See
 
 for usage instructions.
 
-# Edited by Shane Smith, Arun Sharma and Max Chaplin #
+# Edited by #
+
+Shane Smith, Arun Sharma and Max Chaplin
