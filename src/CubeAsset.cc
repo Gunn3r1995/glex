@@ -1,16 +1,17 @@
 #include "CubeAsset.h"
+#include "GameWorld.h"
 
-CubeAsset::CubeAsset() {
+CubeAsset::CubeAsset(int x, int y) {
   // model coordinates, origin at centre.
   GLfloat vertex_buffer [] {
-    -0.5, -0.5, -0.5//0
-    , -0.5,  0.5, -0.5 //1
-    ,  0.5, -0.5, -0.5 //2
-    ,  0.5,  0.5, -0.5 //3
-    ,  -0.5, -0.5, -1.5//4
-    ,  -0.5, 0.5, -1.5 //5
-    ,  0.5, -0.5, -1.5 //6
-    ,  0.5, 0.5, -1.5  //7 = End of Cube
+      x,  y, -0.5//0
+    , x,  y, -0.5 //1
+    , x,  y, -0.5 //2
+    , x,  y, -0.5 //3
+    , x,  y, -1.5//4
+    , x,  y, -1.5 //5
+    , x,  y, -1.5 //6
+    , x,  y, -1.5  //7 = End of Cube
   };
 
   element_buffer_length = 36;
