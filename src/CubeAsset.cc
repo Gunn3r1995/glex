@@ -8,10 +8,10 @@ CubeAsset::CubeAsset(int x, int y) {
     ,(x+1)     ,y         , 0 //1
     ,x         ,(y+1)     , 0 //2
     ,x         ,y         , 0 //3
-    ,(x+1)     ,(y+1)     , 0.1 //4
-    ,(x+1)     ,y         , 0.1 //5
-    ,x         ,(y+1)     , 0.1 //6
-    ,x         ,y         , 0.1  //7 = End of Cube
+    ,(x+1)     ,(y+1)     , 1 //4
+    ,(x+1)     ,y         , 1 //5
+    ,x         ,(y+1)     , 1 //6
+    ,x         ,y         , 1  //7 = End of Cube
   };
 
   element_buffer_length = 36;
@@ -54,6 +54,7 @@ CubeAsset::~CubeAsset() {
 // define symbol to be nothing
 #define checkGLError()
 #endif
+
 
 void checkError(std::string file, int line) {
   GLenum gl_error = glGetError();
