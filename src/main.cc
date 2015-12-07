@@ -160,12 +160,10 @@ int main(int argc, char ** argv) {
     case SDL_USEREVENT:
       Draw(window, game_world);
       break;
-    
-
-    case SDL_KEYDOWN:
+    case SDL_KEYDOWN:			//At keyboard press
     switch (event.key.keysym.sym) {
-    case SDLK_q:
-	SDL_Quit();
+    case SDLK_q:		 	//when pressing q
+	SDL_Quit();			//Quit program
     break;
     }
     default:

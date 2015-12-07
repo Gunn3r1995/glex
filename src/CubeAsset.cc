@@ -8,10 +8,10 @@ CubeAsset::CubeAsset(int x, int y) {
     ,(x+1)     ,y         , 0 //1
     ,x         ,(y+1)     , 0 //2
     ,x         ,y         , 0 //3
-    ,(x+1)     ,(y+1)     , 0.2 //4
-    ,(x+1)     ,y         , 0.2 //5
-    ,x         ,(y+1)     , 0.2 //6
-    ,x         ,y         , 0.2  //7 = End of Cube
+    ,(x+1)     ,(y+1)     , 1 //4
+    ,(x+1)     ,y         , 1 //5
+    ,x         ,(y+1)     , 1 //6
+    ,x         ,y         , 1  //7 = End of Cube
   };
 
   element_buffer_length = 36;
