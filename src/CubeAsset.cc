@@ -1,21 +1,22 @@
 #include "CubeAsset.h"
+#include "GameWorld.h"
 
-CubeAsset::CubeAsset() {
+CubeAsset::CubeAsset(int x, int y) {
   // model coordinates, origin at centre.
   GLfloat vertex_buffer [] {
-    -0.5, -0.5, -0.5//0
-    , -0.5,  0.5, -0.5 //1
-    ,  0.5, -0.5, -0.5 //2
-    ,  0.5,  0.5, -0.5 //3
-    ,  -0.5, -0.5, -1.5//4
-    ,  -0.5, 0.5, -1.5 //5
-    ,  0.5, -0.5, -1.5 //6
-    ,  0.5, 0.5, -1.5  //7 = End of Cube
+     (x+1)     ,(y+1)     , 0//0
+    ,(x+1)     ,y         , 0 //1
+    ,x         ,(y+1)     , 0 //2
+    ,x         ,y         , 0 //3
+    ,(x+1)     ,(y+1)     , 1 //4
+    ,(x+1)     ,y         , 1 //5
+    ,x         ,(y+1)     , 1 //6
+    ,x         ,y         , 1  //7 = End of Cube
   };
 
   element_buffer_length = 36;
   GLuint element_buffer []  {
-    0, 1, 2	
+      0, 1, 2	
     , 1, 3, 2
     , 0, 4, 1	
     , 1, 5, 4	
@@ -37,7 +38,7 @@ CubeAsset::CubeAsset() {
 
   // immediately bind the buffer and transfer the data
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 12, vertex_buffer, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 24, vertex_buffer, GL_STATIC_DRAW);
 
   glGenBuffers(1, &element_buffer_token);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
@@ -53,6 +54,7 @@ CubeAsset::~CubeAsset() {
 // define symbol to be nothing
 #define checkGLError()
 #endif
+
 
 void checkError(std::string file, int line) {
   GLenum gl_error = glGetError();

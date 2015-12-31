@@ -5,6 +5,8 @@
 #include <iostream>
 #include <memory>
 
+using namespace std;
+
 #include <boost/program_options.hpp>
 
 #define RUN_GRAPHICS_DISPLAY 0x00;
@@ -45,8 +47,8 @@ void Draw(const std::shared_ptr<SDL_Window> window, const std::shared_ptr<GameWo
 }
 
 std::shared_ptr<SDL_Window> InitWorld() {
-  Uint32 width = 1200;
-  Uint32 height = 800;
+  Uint32 width = 1980;//1280;
+  Uint32 height = 1080;//720;
   SDL_Window * _window;
   std::shared_ptr<SDL_Window> window;
 
@@ -58,7 +60,7 @@ std::shared_ptr<SDL_Window> InitWorld() {
   // Do double buffering in GL
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
   SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-
+ 
   // Initialise SDL - when using C/C++ it's common to have to
   // initialise libraries by calling a function within them.
   if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO|SDL_INIT_TIMER)<0) {
@@ -136,18 +138,24 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   return TRANSFORM;
 }
 
-int main(int argc, char ** argv) {
-  Uint32 delay = 1000/60; // in milliseconds
+  int main(int argc, char ** argv) {
+    Uint32 delay = 1000/60; // in milliseconds
 
   auto mode = ParseOptions(argc, argv);
   auto window = InitWorld();
   auto game_world = std::make_shared<GameWorld>(mode);
   if(!window) {
     SDL_Quit();
-  }
+  } 
+  
+
+
+  
+  
 
   // Call the function "tick" every delay milliseconds
   SDL_AddTimer(delay, tick, NULL);
+	
 
   // Add the main event loop
   SDL_Event event;
@@ -158,10 +166,29 @@ int main(int argc, char ** argv) {
       break;
     case SDL_USEREVENT:
       Draw(window, game_world);
-
+      break;
+    case SDL_KEYDOWN:			//At keyboard press
+    switch (event.key.keysym.sym) {
+    case SDLK_q:		 	//when pressing q
+	SDL_Quit();			//Quit program
+	cout << "Key 'q' Pressed, Game closed" << endl;
+    break;
+    case SDLK_w:			//When pressing w
+      	cout << "Key 'w' Pressed" << endl;
+      break;
+    case SDLK_a:			//When pressing a
+      	cout << "Key 'a' Pressed" << endl;
+      break;
+    case SDLK_s:			//When pressing s
+	cout << "Key 's' Pressed" << endl;
+      break;
+    case SDLK_d:			//When pressing d
+      	cout << "Key 'd' Pressed" << endl;
       break;
     default:
       break;
+      }
     }
   }
 }
+
