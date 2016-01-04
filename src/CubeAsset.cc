@@ -1,17 +1,17 @@
 #include "CubeAsset.h"
 #include "GameWorld.h"
 
-CubeAsset::CubeAsset(int x, int y) {
+CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z) {
   // model coordinates, origin at centre.
   GLfloat vertex_buffer [] {
-     (x+1)     ,(y+1)     , 0//0
-    ,(x+1)     ,y         , 0 //1
-    ,x         ,(y+1)     , 0 //2
-    ,x         ,y         , 0 //3
-    ,(x+1)     ,(y+1)     , 1 //4
-    ,(x+1)     ,y         , 1 //5
-    ,x         ,(y+1)     , 1 //6
-    ,x         ,y         , 1  //7 = End of Cube
+     (x+1)     ,(y+1)     , z//0
+    ,(x+1)     ,y         , z //1
+    ,x         ,(y+1)     , z //2
+    ,x         ,y         , z //3
+    ,(x+1)     ,(y+1)     , z+1 //4
+    ,(x+1)     ,y         , z+1 //5
+    ,x         ,(y+1)     , z+1 //6
+    ,x         ,y         , z+1  //7 = End of Cube
   };
 
   element_buffer_length = 36;
@@ -38,7 +38,7 @@ CubeAsset::CubeAsset(int x, int y) {
 
   // immediately bind the buffer and transfer the data
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 24, vertex_buffer, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 72, vertex_buffer, GL_STATIC_DRAW);
 
   glGenBuffers(1, &element_buffer_token);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
