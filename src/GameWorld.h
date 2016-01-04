@@ -30,7 +30,10 @@ class GameWorld {
   void Draw();
   // Call Camera_Control will move in specfic direction
   void Camera_Control(char key);
+
  private:
   std::shared_ptr<GameAssetManager> asset_manager;
+
+
 };
 #endif // GAMEWORLD_H
