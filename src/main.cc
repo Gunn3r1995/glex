@@ -174,16 +174,16 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
 	cout << "Key 'q' Pressed, Game closed" << endl;
     break;
     case SDLK_w:			//When pressing w
-      	cout << "Key 'w' Pressed" << endl;
+        game_world -> Camera_Control('w');
       break;
     case SDLK_a:			//When pressing a
-      	cout << "Key 'a' Pressed" << endl;
+        game_world -> Camera_Control('a');
       break;
     case SDLK_s:			//When pressing s
-	cout << "Key 's' Pressed" << endl;
+        game_world -> Camera_Control('s');
       break;
     case SDLK_d:			//When pressing d
-      	cout << "Key 'd' Pressed" << endl;
+        game_world -> Camera_Control('d');
       break;
     default:
       break;
