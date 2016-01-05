@@ -156,8 +156,11 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   // Call the function "tick" every delay milliseconds
   SDL_AddTimer(delay, tick, NULL);
 	
-   int x;
-   int y;
+   int oldMouseX;
+   int oldMouseY;
+
+   int mouseX;
+   int mouseY;
   // Add the main event loop
   SDL_Event event;
   while (SDL_WaitEvent(&event)) {
@@ -169,20 +172,27 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
       Draw(window, game_world);
       break;
     case  SDL_MOUSEMOTION:
-	if (event.motion.xrel) {
-        cout << "Mouse X" << endl;
-        x = event.motion.xrel;
-	if ( x > event.motion.xrel ){
-	game_world -> Camera_Control('<');
-        }
-	else {
-	game_world -> Camera_Control('>');
-	}
-	}
-	else if (event.motion.yrel) {
-        cout << "Mouse y" << endl;
-	game_world -> Camera_Control('^');
-        }
+        // save old mouse coordinates X
+        oldMouseX = mouseX;
+        // get mouse coordinates X
+      mouseX = event.motion.x;
+        
+      if (mouseX > oldMouseX) {		// Mouse move Right
+              game_world -> Camera_Control('>');
+      }
+      else if (mouseX < oldMouseX) {	// Mouse move Left
+              game_world -> Camera_Control('<');
+      }
+        // save old mouse coordinates Y
+        oldMouseY = mouseY;
+        // get mouse coordinates Y
+        mouseY = event.motion.y;
+      if (mouseY < oldMouseY) {		// Mouse move Up 
+              game_world -> Camera_Control('^');
+      }
+      else if (mouseY > oldMouseY) {	// Mouse move Down
+              game_world -> Camera_Control('v');
+      }
       break;
     case SDL_KEYDOWN:			//At keyboard press
     switch (event.key.keysym.sym) {
@@ -202,16 +212,16 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
     case SDLK_d:			//When pressing d
         game_world -> Camera_Control('d');
       break;
-    case SDLK_UP:			//When pressing w
+    case SDLK_UP:			//When pressing Arrow Up
         game_world -> Camera_Control('^');
       break;
-    case SDLK_LEFT:			//When pressing a
+    case SDLK_LEFT:			//When pressing Arrow Left
         game_world -> Camera_Control('<');
       break;
-    case SDLK_DOWN:			//When pressing s
+    case SDLK_DOWN:			//When pressing Arrow down
         game_world -> Camera_Control('v');
       break;
-    case SDLK_RIGHT:			//When pressing d
+    case SDLK_RIGHT:			//When pressing Arrow right
         game_world -> Camera_Control('>');
       break;
     default:

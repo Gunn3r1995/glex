@@ -63,16 +63,16 @@ void GameWorld::Camera_Control(char key) {
         Camera_Position = Camera_Position + Movement_X;
  }
   if (key == '^') {
-		camera_y += 0.5f * 0.01;
- }
-  if (key == '>') {
-		camera_x += 0.5f * 0.01;
- }
-  if (key == 'v') {
-		camera_y -= 0.5f * 0.01;
+		camera_y += 0.5f * 0.05;
  }
   if (key == '<') {
-		camera_x -= 0.5f * 0.01;
+		camera_x += 0.5f * 0.05;
+ }
+  if (key == 'v') {
+		camera_y -= 0.5f * 0.05;
+ }
+  if (key == '>') {
+		camera_x -= 0.5f * 0.05;
  }
 }
 
