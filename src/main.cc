@@ -163,7 +163,71 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
    int mouseX;
    int mouseY;
 
-  
+   cout << "****************************************************************************************" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                                     Starting Game                                    *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*--------------------------------------------------------------------------------------*" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                               A simple Minecraft Like Game                           *" << endl;
+   cout << "*                          With Block Spawing , Player Moving and                      *" << endl;
+   cout << "*                                     Camera Control                                   *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*--------------------------------------------------------------------------------------*" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                                    Work In Progress                                  *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*--------------------------------------------------------------------------------------*" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                                       Controls                                       *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                 Player                                      Camera                   *" << endl;
+   cout << "*                Forward                                        Up                     *" << endl;
+   cout << "*                 _____                                        _____                   *" << endl;
+   cout << "*                |     |                                      |     |                  *" << endl;
+   cout << "*                |  w  |                                      |  ^  |                  *" << endl;
+   cout << "*                |_____|                                      |_____|                  *" << endl;
+   cout << "*          _____  _____  _____                          _____  _____  _____            *" << endl;
+   cout << "*  Player |     ||     ||     | Player         Camera  |     ||     ||     | Camera    *" << endl;
+   cout << "*   Left  |  a  ||  s  ||  d  |  Right          Left   |  <  ||  v  ||  >  |  Right    *" << endl;
+   cout << "*         |_____||_____||_____|                        |_____||_____||_____|           *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                 Player                                       Camera                  *" << endl;
+   cout << "*                Backwards                                      Down                   *" << endl;
+   cout << "*                                      Mouse                                           *" << endl;
+   cout << "*                                     _______                                          *" << endl;
+   cout << "*                                    |    |   |                                        *" << endl;
+   cout << "*                                   |     |    |                                       *" << endl;
+   cout << "*                                  |      |     |                                      *" << endl;
+   cout << "*                                  |      |     |                                      *" << endl;
+   cout << "*                                 |              |                                     *" << endl;
+   cout << "*                                 |              |                                     *" << endl;
+   cout << "*                                 |              |                                     *" << endl;
+   cout << "*                                  |            |                                      *" << endl;
+   cout << "*                                   |          |                                       *" << endl;
+   cout << "*                                    |________|                                        *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                          Camera Control Same as Arrow Keys                           *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                               Jump Up                         Drop Down              *" << endl;
+   cout << "*           ______________________________________________     ___________             *" << endl;
+   cout << "*          |                                              |   |           |            *" << endl;
+   cout << "*          |                     Space                    |   | -->|(tab) |            *" << endl;
+   cout << "*          |______________________________________________|   |___________|            *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                                       Quit Game                                      *" << endl;
+   cout << "*                                         _____                                        *" << endl;
+   cout << "*                                        |     |                                       *" << endl;
+   cout << "*                                        |  q  |                                       *" << endl;
+   cout << "*                                        |_____|                                       *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "*                                                                                      *" << endl;
+   cout << "****************************************************************************************" << endl;
+   cout << "" << endl;
 
   // Add the main event loop
   SDL_Event event;
@@ -228,6 +292,11 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
     case SDLK_RIGHT:			//When pressing Arrow right
         game_world -> Camera_Control('>');
       break;
+    case SDLK_SPACE:
+        game_world -> Camera_Control('+');
+      break;
+    case SDLK_TAB:
+        game_world -> Camera_Control('-');
     default:
       break;
       }

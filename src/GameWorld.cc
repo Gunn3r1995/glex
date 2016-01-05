@@ -4,10 +4,10 @@ using namespace std;
 
 GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAssetManager>(mode)){
   int pointX,pointY;
-  int pointZ = 50;
+  int pointZ = 1;
   int worldX = 16;
   int worldY = 16;
-  int world[worldY][worldX] = {
+  int world[worldX][worldY] = {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -30,10 +30,10 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
     if( world[pointY][pointX] == 1){
-    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-(pointY),(pointZ+1)));
+    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 2){
-    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-(pointY),(pointZ+2)));
+    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,(pointZ*pointY)));
    }
   }
  } 
@@ -63,6 +63,12 @@ void GameWorld::Camera_Control(char key) {
  }
   if (key == '>') {        //Camera look right
         Camera_Horizontal -= 0.5f * Mouse_Sensitivity;
+ }
+  if (key == '+') {        //Jump up by 2 blocks/ 2.0, Would like to improve it to a actually jump mechanic
+        Camera_Position += 2.0f;
+ }
+  if (key == '-') {       // Drop down by 2 blocks/ -2.0
+        Camera_Position -= 2.0f;
  }
 }
 
