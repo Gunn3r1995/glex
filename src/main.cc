@@ -51,6 +51,7 @@ std::shared_ptr<SDL_Window> InitWorld() {
   Uint32 height = 1080;//720;
   SDL_Window * _window;
   std::shared_ptr<SDL_Window> window;
+  
 
   // Glew will later ensure that OpenGL 3 *is* supported
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
@@ -161,6 +162,9 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
 
    int mouseX;
    int mouseY;
+
+  
+
   // Add the main event loop
   SDL_Event event;
   while (SDL_WaitEvent(&event)) {

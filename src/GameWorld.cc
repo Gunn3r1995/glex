@@ -1,15 +1,6 @@
 #include "GameWorld.h"
 
 using namespace std;
-// Credit http://www.opengl-tutorial.org/beginners-tutorials/tutorial-6-keyboard-and-mouse/ 
-GLfloat camera_speed = 0.1;
-
-		GLfloat camera_x = 0.0;
-		GLfloat camera_y = 0.0;
-
-glm::vec3 Camera_Position = glm::vec3(0, 0, 0);
-glm::vec3 Movement_Z;
-glm::vec3 Movement_X;
 
 GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAssetManager>(mode)){
   int pointX,pointY,pointZ;
@@ -47,32 +38,28 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
 
 void GameWorld::Camera_Control(char key) {
   if ( key == 'w' ) {        // W Key Pressed will move Camera forward
-        cout << "Key W Pressed" << endl;
-        Camera_Position =  Camera_Position + Movement_Z;
+        Camera_Position += Movement_Z * Player_Speed;
  }
   if ( key == 'a' ) {        // A Key Pressed will move Camera left
-        cout << "Key A Pressed" << endl;
-        Camera_Position = Camera_Position - Movement_X;
+        Camera_Position -= Movement_X * Player_Speed;
  }
   if ( key == 's' ) {        // S Key Pressed will move Camera down
-        cout << "Key S Pressed" << endl;
-        Camera_Position = Camera_Position - Movement_Z;
+        Camera_Position -= Movement_Z * Player_Speed;
  }
   if ( key == 'd' ) {        // D Key Pressed will move Camera right
-        cout << "Key D Pressed" << endl;
-        Camera_Position = Camera_Position + Movement_X;
+        Camera_Position += Movement_X * Player_Speed;
  }
-  if (key == '^') {
-		camera_y += 0.5f * 0.05;
+  if (key == '^') {         //Camera look Up
+        Camera_Vertical += 0.5f * Mouse_Sensitivity;
  }
-  if (key == '<') {
-		camera_x += 0.5f * 0.05;
+  if (key == '<') {         //Camera look left
+        Camera_Horizontal += 0.5f * Mouse_Sensitivity;
  }
-  if (key == 'v') {
-		camera_y -= 0.5f * 0.05;
+  if (key == 'v') {        //Camera look down
+        Camera_Vertical -= 0.5f * Mouse_Sensitivity;
  }
-  if (key == '>') {
-		camera_x -= 0.5f * 0.05;
+  if (key == '>') {        //Camera look right
+        Camera_Horizontal -= 0.5f * Mouse_Sensitivity;
  }
 }
 
@@ -80,26 +67,30 @@ void GameWorld::Draw() {
         asset_manager->Draw();
 
         glm::vec3 direction(
-		cos(camera_y) * sin(camera_x),
-		sin(camera_y),
-		cos(camera_y) * cos(camera_x)
+		cos(Camera_Vertical) * sin(Camera_Horizontal),
+		sin(Camera_Vertical),
+		cos(Camera_Vertical) * cos(Camera_Horizontal)
+	);
+	//Fixes camera going upside down.
+        glm::vec3 Movement_Direction(
+		cos(Camera_Vertical) * sin(Camera_Horizontal),
+		0,
+		cos(Camera_Vertical) * cos(Camera_Horizontal)
 	);
 
-	glm::vec3 Movement_Direction(
-		1 * 0,
-		0,
-		1 * 1
-	);
 	Movement_Z = Movement_Direction;
 
+
 	Movement_X = glm::vec3(
-		sin(0.0 - 3.14f/2.0f),
+		sin(Camera_Horizontal - 3.14f/2.0f),
 		0,
-		cos(0.0 - 3.14f/2.0f)
+		cos(Camera_Horizontal - 3.14f/2.0f)
 	);
 
 	glm::vec3 vup = glm::cross(Movement_X, direction);
-	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
+        // Projection matrix : degree = 45, Field of View = 16:9 ratio, display = 0.1 unit <-> 1000 units
+	glm::mat4 Camera_Projection = glm::perspective(45.0f, 16.0f/9.0f, 0.1f, 1000.0f);
+        //Where the Camera Looks at
 	glm::mat4 Camera_View = glm::lookAt(
 		Camera_Position,
 		Camera_Position + direction,

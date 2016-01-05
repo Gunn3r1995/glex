@@ -31,6 +31,16 @@ class GameWorld {
   // Call Camera_Control will move in specfic direction
   void Camera_Control(char key);
 
+        GLfloat Mouse_Sensitivity =  0.05f;
+        GLfloat Player_Speed = 1.0;
+
+        GLfloat Camera_Horizontal = 0.0;
+        GLfloat Camera_Vertical = 0.0;
+
+        glm::vec3 Camera_Position = glm::vec3(0, 0, 0);
+        glm::vec3 Movement_Z;
+        glm::vec3 Movement_X;
+
  private:
   std::shared_ptr<GameAssetManager> asset_manager;
 
