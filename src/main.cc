@@ -156,7 +156,8 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   // Call the function "tick" every delay milliseconds
   SDL_AddTimer(delay, tick, NULL);
 	
-
+   int x;
+   int y;
   // Add the main event loop
   SDL_Event event;
   while (SDL_WaitEvent(&event)) {
@@ -166,6 +167,22 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
       break;
     case SDL_USEREVENT:
       Draw(window, game_world);
+      break;
+    case  SDL_MOUSEMOTION:
+	if (event.motion.xrel) {
+        cout << "Mouse X" << endl;
+        x = event.motion.xrel;
+	if ( x > event.motion.xrel ){
+	game_world -> Camera_Control('<');
+        }
+	else {
+	game_world -> Camera_Control('>');
+	}
+	}
+	else if (event.motion.yrel) {
+        cout << "Mouse y" << endl;
+	game_world -> Camera_Control('^');
+        }
       break;
     case SDL_KEYDOWN:			//At keyboard press
     switch (event.key.keysym.sym) {
@@ -184,6 +201,18 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
       break;
     case SDLK_d:			//When pressing d
         game_world -> Camera_Control('d');
+      break;
+    case SDLK_UP:			//When pressing w
+        game_world -> Camera_Control('^');
+      break;
+    case SDLK_LEFT:			//When pressing a
+        game_world -> Camera_Control('<');
+      break;
+    case SDLK_DOWN:			//When pressing s
+        game_world -> Camera_Control('v');
+      break;
+    case SDLK_RIGHT:			//When pressing d
+        game_world -> Camera_Control('>');
       break;
     default:
       break;

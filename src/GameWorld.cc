@@ -2,6 +2,11 @@
 
 using namespace std;
 // Credit http://www.opengl-tutorial.org/beginners-tutorials/tutorial-6-keyboard-and-mouse/ 
+GLfloat camera_speed = 0.1;
+
+		GLfloat camera_x = 0.0;
+		GLfloat camera_y = 0.0;
+
 glm::vec3 Camera_Position = glm::vec3(0, 0, 0);
 glm::vec3 Movement_Z;
 glm::vec3 Movement_X;
@@ -57,10 +62,28 @@ void GameWorld::Camera_Control(char key) {
         cout << "Key D Pressed" << endl;
         Camera_Position = Camera_Position + Movement_X;
  }
+  if (key == '^') {
+		camera_y += 0.5f * 0.01;
+ }
+  if (key == '>') {
+		camera_x += 0.5f * 0.01;
+ }
+  if (key == 'v') {
+		camera_y -= 0.5f * 0.01;
+ }
+  if (key == '<') {
+		camera_x -= 0.5f * 0.01;
+ }
 }
 
 void GameWorld::Draw() {
         asset_manager->Draw();
+
+        glm::vec3 direction(
+		cos(camera_y) * sin(camera_x),
+		sin(camera_y),
+		cos(camera_y) * cos(camera_x)
+	);
 
 	glm::vec3 Movement_Direction(
 		1 * 0,
@@ -75,11 +98,11 @@ void GameWorld::Draw() {
 		cos(0.0 - 3.14f/2.0f)
 	);
 
-	glm::vec3 vup = glm::cross(Movement_X, Movement_Direction);
+	glm::vec3 vup = glm::cross(Movement_X, direction);
 	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
 	glm::mat4 Camera_View = glm::lookAt(
 		Camera_Position,
-		Camera_Position + Movement_Direction,
+		Camera_Position + direction,
 		vup
 	);
 	glm::mat4 Camera_Model(1.0f);
