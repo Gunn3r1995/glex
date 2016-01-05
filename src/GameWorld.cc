@@ -3,7 +3,8 @@
 using namespace std;
 
 GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAssetManager>(mode)){
-  int pointX,pointY,pointZ;
+  int pointX,pointY;
+  int pointZ = 50;
   int worldX = 16;
   int worldY = 16;
   int world[worldY][worldX] = {
@@ -11,10 +12,10 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-  {0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0},
-  {0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0},
-  {0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0},
-  {0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+  {0,0,0,0,0,0,0,2,2,0,0,0,1,0,0,0},
   {0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0},
   {0,0,0,1,0,0,0,0,1,0,0,1,1,0,0,0},
   {0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0},
@@ -24,13 +25,15 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   };
-  pointZ = 50;
   
 
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
-    if( world[pointY][pointX] <= 1){
-    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-(pointY),(pointZ)));
+    if( world[pointY][pointX] == 1){
+    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-(pointY),(pointZ+1)));
+   }
+    else if( world[pointY][pointX] == 2){
+    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-(pointY),(pointZ+2)));
    }
   }
  } 
