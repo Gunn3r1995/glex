@@ -140,7 +140,7 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
 }
 
   int main(int argc, char ** argv) {
-    Uint32 delay = 1000/60; // in milliseconds
+    Uint32 delay = 1000/30; // in milliseconds, Temporary change to 20fps to fix speed of the game.
 
   auto mode = ParseOptions(argc, argv);
   auto window = InitWorld();
@@ -157,11 +157,11 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   // Call the function "tick" every delay milliseconds
   SDL_AddTimer(delay, tick, NULL);
 	
-   int oldMouseX;
-   int oldMouseY;
+   int Old_Mouse_X;
+   int Old_Mouse_Y;
 
-   int mouseX;
-   int mouseY;
+   int Mouse_X;
+   int Mouse_Y;
 
    cout << "****************************************************************************************" << endl;
    cout << "*                                                                                      *" << endl;
@@ -222,7 +222,7 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
    cout << "*                                       Quit Game                                      *" << endl;
    cout << "*                                         _____                                        *" << endl;
    cout << "*                                        |     |                                       *" << endl;
-   cout << "*                                        |  q  |                                       *" << endl;
+   cout << "*                                        | esc |                                       *" << endl;
    cout << "*                                        |_____|                                       *" << endl;
    cout << "*                                                                                      *" << endl;
    cout << "*                                                                                      *" << endl;
@@ -241,30 +241,30 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
       break;
     case  SDL_MOUSEMOTION:
         // save old mouse coordinates X
-        oldMouseX = mouseX;
+        Old_Mouse_X = Mouse_X;
         // get mouse coordinates X
-      mouseX = event.motion.x;
+        Mouse_X = event.motion.x;
         
-      if (mouseX > oldMouseX) {		// Mouse move Right
+      if (Mouse_X > Old_Mouse_X) {              // Mouse move Right
               game_world -> Camera_Control('>');
       }
-      else if (mouseX < oldMouseX) {	// Mouse move Left
+      else if (Mouse_X < Old_Mouse_X) {         // Mouse move Left
               game_world -> Camera_Control('<');
       }
         // save old mouse coordinates Y
-        oldMouseY = mouseY;
+        Old_Mouse_Y = Mouse_Y;
         // get mouse coordinates Y
-        mouseY = event.motion.y;
-      if (mouseY < oldMouseY) {		// Mouse move Up 
+        Mouse_Y = event.motion.y;
+      if (Mouse_Y < Old_Mouse_Y) {		// Mouse move Up 
               game_world -> Camera_Control('^');
       }
-      else if (mouseY > oldMouseY) {	// Mouse move Down
+      else if (Mouse_Y > Old_Mouse_Y) {	// Mouse move Down
               game_world -> Camera_Control('v');
       }
       break;
     case SDL_KEYDOWN:			//At keyboard press
     switch (event.key.keysym.sym) {
-    case SDLK_q:		 	//when pressing q
+    case SDLK_ESCAPE:		 	//when pressing q
 	SDL_Quit();			//Quit program
 	cout << "Key 'q' Pressed, Game closed" << endl;
     break;

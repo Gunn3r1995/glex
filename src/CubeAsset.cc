@@ -2,6 +2,7 @@
 #include "GameWorld.h"
 
 CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z) {
+
   // model coordinates, origin at centre.
   GLfloat vertex_buffer [] {
      (x+1)     ,(y+1)     , z//0
