@@ -7,6 +7,8 @@ before_install:
   - sudo apt-get install -y libsdl* SDL2-devel libglew-dev libglm-dev libboost-all-dev libboost-program-options-dev autotools-dev
   - autoreconf -i
   - ./configure
+install:
+  - sudo apt-get install libXxf86vm-dev cmake libsdl2-dev
 branches:
   only:
     - master
