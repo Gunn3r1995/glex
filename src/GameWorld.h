@@ -37,7 +37,7 @@ class GameWorld {
         GLfloat Camera_Horizontal = 0.0;
         GLfloat Camera_Vertical = 0.0;
 
-        glm::vec3 Camera_Position = glm::vec3(2, 2, 0);
+        glm::vec3 Camera_Position = glm::vec3(1, 2, -1);
         glm::vec3 Movement_Z;
         glm::vec3 Movement_X;
 

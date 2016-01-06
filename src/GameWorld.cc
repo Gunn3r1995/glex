@@ -23,10 +23,10 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
     if( world[pointY][pointX] == 1){
-    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-1.00,(pointZ*pointY)));
+    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-1.00,10));
    }
     else if( world[pointY][pointX] == 2){
-    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,(pointZ*pointY)));
+    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,10));
    }
   }
  } 
@@ -66,7 +66,6 @@ void GameWorld::Camera_Control(char key) {
 }
 
 void GameWorld::Draw() {
-        asset_manager->Draw();
 
         glm::vec3 direction(
 		cos(Camera_Vertical) * sin(Camera_Horizontal),
@@ -89,7 +88,7 @@ void GameWorld::Draw() {
 		cos(Camera_Horizontal - 3.14f/2.0f)
 	);
 
-	glm::vec3 vup = glm::cross(Movement_X, direction);
+	glm::vec3 vup = glm::cross(Movement_X, Movement_Direction);
         // Projection matrix : degree = 45, Field of View = 16:9 ratio, display = 0.1 unit <-> 1000 units
 	glm::mat4 Camera_Projection = glm::perspective(45.0f, 16.0f/9.0f, 0.1f, 1000.0f);
         //Where the Camera Looks at
@@ -103,4 +102,6 @@ void GameWorld::Draw() {
 	glUniformMatrix4fv(0, 1, GL_FALSE, &Camera_Projection[0][0]);
 	glUniformMatrix4fv(1, 1, GL_FALSE, &Camera_View[0][0]);
 	glUniformMatrix4fv(2, 1, GL_FALSE, &Camera_Model[0][0]);
+
+        asset_manager->Draw();
 }
