@@ -31,6 +31,7 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z) {
     , 0, 2, 6	
   };
 
+
   // Transfer buffers to the GPU
   //
 

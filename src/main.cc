@@ -141,6 +141,9 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   int main(int argc, char ** argv) {
     Uint32 delay = 1000/30; // in milliseconds, Temporary change to 20fps to fix speed of the game.
 
+        int X;
+        int Y;
+
   auto mode = ParseOptions(argc, argv);
   auto window = InitWorld();
   auto game_world = std::make_shared<GameWorld>(mode);
@@ -217,6 +220,9 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
         cout << "****************************************************************************************" << endl;
         cout << "" << endl;
 
+	//SDL_SetRelativeMouseMode(SDL_TRUE);      
+	//SDL_GetRelativeMouseState(&X, &Y);
+
         int Old_Mouse_X;
         int Old_Mouse_Y;
 
@@ -234,6 +240,7 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
       Draw(window, game_world);
       break;
     case  SDL_MOUSEMOTION:
+      
         // save old mouse coordinates X
         Old_Mouse_X = Mouse_X;
         // get mouse coordinates X
