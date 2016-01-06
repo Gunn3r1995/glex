@@ -2,8 +2,9 @@ language: cpp
 compiler:
 - gcc
 before_install:
+  - sudo add-apt-repository -y ppa:kalakris/cmake
+  - sudo add-apt-repository -y ppa:team-xbmc/ppa
   - sudo apt-get update -qq
-  - sudo apt-get update
   - sudo apt-get install -y libsdl* libglew-dev libglm-dev libboost-all-dev libboost-program-options-dev autotools-dev
   - autoreconf -i
   - ./configure
