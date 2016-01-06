@@ -138,7 +138,6 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   // The default
   return TRANSFORM;
 }
-
   int main(int argc, char ** argv) {
     Uint32 delay = 1000/30; // in milliseconds, Temporary change to 20fps to fix speed of the game.
 
