@@ -239,7 +239,7 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
         // get mouse coordinates X
         Mouse_X = event.motion.x;
         
-      if (Mouse_X > Old_Mouse_X) {              // Mouse move Right
+      if (Mouse_X > Old_Mouse_X) {             // Mouse move Right
               game_world -> Camera_Control('>');
       }
       else if (Mouse_X < Old_Mouse_X) {         // Mouse move Left
