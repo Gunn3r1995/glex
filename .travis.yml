@@ -1,17 +1,18 @@
 language: cpp
 compiler:
 - gcc
-before_install:
-  - wget http://www.libsdl.org/release/SDL2-2.0.3.tar.gz
-  - tar -zxvf SDL2-2.0.3.tar.gz
-install:
-  - cd SDL2-2.0.3
-  - cd ..
+before:install:
+  -sudo apt-get install git libopenal-dev libopenscenegraph-dev \
+  -libsdl2-dev libqt4-dev libboost-filesystem-dev libboost-thread-dev \
+  -libboost-program-options-dev libboost-system-dev libav-tools \
+  -libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev \
+  -libbullet-dev libmygui-dev libunshield-dev libtinyxml-dev cmake build-essential \
+  -libqt4-opengl-dev
   - sudo apt-get update -qq
   - sudo apt-get install -y libsdl* libglew-dev libglm-dev libboost-all-dev libboost-program-options-dev autotools-dev
+install:
   - autoreconf -fi
   - ./configure
-
 branches:
   only:
     - master
