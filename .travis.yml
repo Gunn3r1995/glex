@@ -1,7 +1,7 @@
 language: cpp
 compiler:
 - gcc
-install:
+before:install:
   -brew update -qq
   -brew install -y libsdl* libsdl2* libglew-dev libglm-dev libboost-all-dev libboost-program-options-dev autotools-dev
   -autoreconf -fi
