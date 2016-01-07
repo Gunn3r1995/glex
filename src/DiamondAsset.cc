@@ -16,18 +16,15 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
   // Colour Buffer Red
   GLfloat colour_buffer[] = {
 
-     0.0f, 1.0f, 1.0f,
-     0.0f, 1.0f, 1.0f,
-     0.0f, 1.0f, 1.0f,
-     0.0f, 1.0f, 1.0f,
-     0.0f, 1.0f, 1.0f,
-     0.0f, 1.0f, 1.0f,
-     0.0f, 1.0f, 1.0f,
-     0.0f, 1.0f, 1.0f
-
+     1.0f, 0.0f, 0.0f,
+     1.0f, 0.0f, 0.0f,
+     1.0f, 0.0f, 0.0f,
+     1.0f, 0.0f, 0.0f,
+     1.0f, 0.0f, 0.0f,
+     1.0f, 0.0f, 0.0f
   };
-
-  element_buffer_length = 24;
+ colour_buffer_length = 18;
+  
   GLuint element_buffer []  {
       0, 3, 5	
     , 3, 1, 5
@@ -37,18 +34,17 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
     , 3, 1, 4
     , 0, 4, 2
     , 4, 1, 2
-
   };
+  element_buffer_length = 24;
 
   // Transfer buffers to the GPU
   //
 
   // create buffer
   glGenBuffers(1, &vertex_buffer_token);
-
   // immediately bind the buffer and transfer the data
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 48, vertex_buffer, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * colour_buffer_length, vertex_buffer, GL_STATIC_DRAW);
 
   // Colour buffer 
   glGenBuffers(1, &colour_buffer_token);

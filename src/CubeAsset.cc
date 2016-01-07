@@ -15,7 +15,20 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z) {
     ,x         ,y         , z+1  //7 = End of Cube
   };
 
-  element_buffer_length = 36;
+  // Colour Buffer Blue
+  GLfloat colour_buffer[] = {
+
+     0.0f, 1.0f, 0.0f,
+     0.0f, 1.0f, 0.0f,
+     0.0f, 1.0f, 0.0f,
+     0.0f, 1.0f, 0.0f,
+     0.0f, 1.0f, 0.0f,
+     0.0f, 1.0f, 0.0f,
+     0.0f, 1.0f, 0.0f,
+     0.0f, 1.0f, 0.0f
+  };
+  colour_buffer_length = 24;
+  
   GLuint element_buffer []  {
       0, 1, 2	
     , 1, 3, 2
@@ -30,7 +43,7 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z) {
     , 0, 4, 6	
     , 0, 2, 6	
   };
-
+  element_buffer_length = 36;
 
   // Transfer buffers to the GPU
   //
@@ -40,7 +53,13 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z) {
 
   // immediately bind the buffer and transfer the data
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 72, vertex_buffer, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * colour_buffer_length, vertex_buffer, GL_STATIC_DRAW);
+
+
+  // Colour buffer 
+  glGenBuffers(1, &colour_buffer_token);
+  glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
+  glBufferData(GL_ARRAY_BUFFER, colour_buffer_length, colour_buffer, GL_STATIC_DRAW);
 
   glGenBuffers(1, &element_buffer_token);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
@@ -108,6 +127,17 @@ void CubeAsset::Draw(GLuint program_token) {
                         );
   glEnableVertexAttribArray(position_attrib);
 
+  checkGLError();
+
+  glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
+  glVertexAttribPointer(
+                       1,        /* attribute */
+                       3,        /* size */
+                       GL_FLOAT,   /* type */
+                       GL_FALSE,   /* normalized? */
+                       0,        /* stride */
+                       (void*)0    /* array buffer offset */
+                       );
   checkGLError();
 
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
