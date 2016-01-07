@@ -8,6 +8,7 @@
 #include "common.h"
 #include "GameAssetManager.h"
 #include "CubeAsset.h"
+#include "DiamondAsset.h"
 
 
 /**
@@ -40,6 +41,7 @@ class GameWorld {
         glm::vec3 Camera_Position = glm::vec3(1, 2, -1);
         glm::vec3 Movement_Z;
         glm::vec3 Movement_X;
+
 
  private:
   std::shared_ptr<GameAssetManager> asset_manager;

@@ -13,7 +13,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,1,2,1,1,1,2,1},
   {1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1},
-  {1,1,1,5,1,1,1,1},
+  {1,1,1,2,1,1,1,1},
   {1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1},
@@ -27,6 +27,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    }
     else if( world[pointY][pointX] == 2){
     asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,(pointZ*pointY)));
+    asset_manager->AddAsset(std::make_shared<DiamondAsset>((pointX),1.00,(pointZ*pointY)));
    }
   }
  } 
@@ -58,10 +59,10 @@ void GameWorld::Camera_Control(char key) {
         Camera_Horizontal -= 0.5f * Mouse_Sensitivity;
  }
   if (key == '+') {        //Jump up by 2 blocks/ 2.0, Would like to improve it to a actually jump mechanic
-        Camera_Position += 2.0f;
+        Camera_Position += 0.1f;
  }
   if (key == '-') {       // Drop down by 2 blocks/ -2.0
-        Camera_Position -= 2.0f;
+        Camera_Position -= 0.1f;
  }
 }
 

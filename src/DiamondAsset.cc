@@ -8,6 +8,7 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
      -1    , 0    , 0//0
      ,1    , 0    , 0 //1
      ,0    ,-1    , 0 //2
+<<<<<<< HEAD
      ,0   , 1    , 0 //3
      ,0    ,0     ,-1 //4
      ,0    ,0     , 1 //5 = End of Diamond
@@ -27,6 +28,12 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
 
   };
     colour_buffer_length = 24;
+=======
+     ,0    , 1    , 0 //3
+     ,0    ,0     ,-1 //4
+     ,0    ,0     , 1 //5 = End of Diamond
+  };
+>>>>>>> Voxel
 
   element_buffer_length = 24;
   GLuint element_buffer []  {
@@ -51,11 +58,14 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 48, vertex_buffer, GL_STATIC_DRAW);
 
+<<<<<<< HEAD
   // Colour buffer 
   glGenBuffers(1, &colour_buffer_token);
   glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, colour_buffer_length, colour_buffer, GL_STATIC_DRAW);
 
+=======
+>>>>>>> Voxel
   glGenBuffers(1, &element_buffer_token);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * element_buffer_length, element_buffer, GL_STATIC_DRAW);
