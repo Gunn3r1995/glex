@@ -166,10 +166,10 @@ void GameWorld::Camera_Control(char key) {
   if (key == '>') {        //Camera look right
         Camera_Horizontal -= 0.5f * Mouse_Sensitivity;
  }
-  if (key == '+') {        //Jump up by 2 blocks/ 2.0, Would like to improve it to a actually jump mechanic
+  if (key == '+') {        //Jump up by 2 blocks/ 0.1, Would like to improve it to a actually jump mechanic
         Camera_Position += 0.1f;
  }
-  if (key == '-') {       // Drop down by 2 blocks/ -2.0
+  if (key == '-') {       // Drop down by 2 blocks/ -0.1
         Camera_Position -= 0.1f;
  }
 }
