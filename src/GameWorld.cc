@@ -10,10 +10,10 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   int worldY = 8;
   int world[worldX][worldY] = {
   {1,1,1,1,1,1,1,1},
-  {1,1,2,1,1,1,2,1},
+  {1,1,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1},
-  {1,1,1,2,1,1,1,1},
+  {1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1},
@@ -23,11 +23,11 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
     if( world[pointY][pointX] == 1){
-    asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-1.00,(pointZ*pointY)));
+    //asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-1.00,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 2){
     asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,(pointZ*pointY)));
-    asset_manager->AddAsset(std::make_shared<DiamondAsset>((pointX),1.00,(pointZ*pointY)));
+    asset_manager->AddAsset(std::make_shared<DiamondAsset>((pointX),1.5f,(pointZ*pointY)));
    }
   }
  } 

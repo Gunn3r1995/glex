@@ -5,25 +5,26 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
 
   // model coordinates, origin at centre.
   GLfloat vertex_buffer [] {
-     -1    , 0    , 0//0
-     ,1    , 0    , 0 //1
-     ,0    ,-1    , 0 //2
-     ,0   , 1     , 0 //3
-     ,0    ,0     ,-1 //4
-     ,0    ,0     , 1 //5 = End of Diamond
+     -1.0f + x  , 0.0f + y   , 0.0f + z//0
+     ,1.0f + x  , 0.0f + y   , 0.0f + z//1
+     ,0.0f + x  ,-1.0f + y   , 0.0f + z//2
+     ,0.0f + x  , 1.0f + y   , 0.0f + z//3
+     ,0.0f + x  , 0.0f + y   ,-1.0f + z//4
+     ,0.0f + x  , 0.0f + y   , 1.0f + z//5 = End of Diamond
   };
-  
+  GLfloat vertex_buffer_length = sizeof(vertex_buffer);
+
   // Colour Buffer Red
   GLfloat colour_buffer[] = {
 
-     1.0f, 0.0f, 0.0f,
-     1.0f, 0.0f, 0.0f,
-     1.0f, 0.0f, 0.0f,
-     1.0f, 0.0f, 0.0f,
-     1.0f, 0.0f, 0.0f,
-     1.0f, 0.0f, 0.0f
+     1.000f, 0.000f, 0.000f,
+     1.000f, 0.000f, 0.000f,
+     1.000f, 0.000f, 0.000f,
+     1.000f, 0.000f, 0.000f,
+     1.000f, 0.000f, 0.000f,
+     1.000f, 0.000f, 0.000f
   };
- colour_buffer_length = 18;
+ colour_buffer_length = sizeof(colour_buffer);
   
   GLuint element_buffer []  {
       0, 3, 5	
@@ -35,7 +36,9 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
     , 0, 4, 2
     , 4, 1, 2
   };
-  element_buffer_length = 24;
+  element_buffer_length = sizeof(element_buffer);
+
+
 
   // Transfer buffers to the GPU
   //
@@ -44,16 +47,17 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
   glGenBuffers(1, &vertex_buffer_token);
   // immediately bind the buffer and transfer the data
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * colour_buffer_length, vertex_buffer, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, vertex_buffer_length, vertex_buffer, GL_STATIC_DRAW);
 
-  // Colour buffer 
+
   glGenBuffers(1, &colour_buffer_token);
   glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, colour_buffer_length, colour_buffer, GL_STATIC_DRAW);
 
+
   glGenBuffers(1, &element_buffer_token);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * element_buffer_length, element_buffer, GL_STATIC_DRAW);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, element_buffer_length, element_buffer, GL_STATIC_DRAW);
 }
 
 DiamondAsset::~DiamondAsset() {
@@ -66,7 +70,6 @@ DiamondAsset::~DiamondAsset() {
 #define checkGLError()
 #endif
 
-
 void DiamondAsset::checkError(std::string file, int line) {
   GLenum gl_error = glGetError();
   if(GL_NO_ERROR != gl_error) {
@@ -77,7 +80,7 @@ void DiamondAsset::checkError(std::string file, int line) {
 
 void DiamondAsset::Draw(GLuint program_token) {
   if(!glIsProgram(program_token)) {
-    std::cerr << "Drawing Diamond with invalid program" << std::endl;
+    std::cerr << "Drawing Diamon with invalid program" << std::endl;
     return;
   }
   GLint validation_ok;
@@ -106,37 +109,37 @@ void DiamondAsset::Draw(GLuint program_token) {
 
   // use the previously transferred buffer as the vertex array.  This way
   // we transfer the buffer once -- at construction -- not on every frame.
+  glEnableVertexAttribArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glVertexAttribPointer(
-                        position_attrib,               /* attribute */
-                        3,                             /* size */
-                        GL_FLOAT,                      /* type */
-                        GL_FALSE,                      /* normalized? */
-                        0,                             /* stride */
-                        (void*)0                       /* array buffer offset */
-                        );
-  glEnableVertexAttribArray(position_attrib);
+    position_attrib,        /* attribute */
+    3,        /* size */
+    GL_FLOAT,   /* type */
+    GL_FALSE,   /* normalized? */
+    0,        /* stride */
+    (void*)0    /* array buffer offset */
+  );
+  glEnableVertexAttribArray(1);
   checkGLError();
 
   glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
   glVertexAttribPointer(
-                       1,        /* attribute */
-                       3,        /* size */
-                       GL_FLOAT,   /* type */
-                       GL_FALSE,   /* normalized? */
-                       0,        /* stride */
-                       (void*)0    /* array buffer offset */
-                       );
+    1,        /* attribute */
+    3,        /* size */
+    GL_FLOAT,   /* type */
+    GL_FALSE,   /* normalized? */
+    0,        /* stride */
+    (void*)0    /* array buffer offset */
+  );
   checkGLError();
 
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
   glDrawElements(
-                 GL_TRIANGLES,
-                 element_buffer_length,
-                 GL_UNSIGNED_INT,
-                 (GLvoid*) 0
-                 );
-
+    GL_TRIANGLES,
+    element_buffer_length,
+    GL_UNSIGNED_INT,
+    (GLvoid*) 0
+  );
   checkGLError();
 
   glDisableVertexAttribArray(position_attrib);
