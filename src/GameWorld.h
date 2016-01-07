@@ -9,6 +9,7 @@
 #include "GameAssetManager.h"
 #include "CubeAsset.h"
 #include "DiamondAsset.h"
+#include "GroundAsset.h"
 
 
 /**

@@ -1,5 +1,5 @@
-#ifndef DIAMONDASSET_H
-#define DIAMONDASSET_H
+#ifndef GROUNDASSET_H
+#define GROUNDASSET_H
 
 #include <vector>
 
@@ -11,10 +11,10 @@
 
 using namespace std;
 
-class DiamondAsset : public GameAsset {
+class GroundAsset : public GameAsset {
  public:
-  DiamondAsset(GLfloat x, GLfloat y, GLfloat z);
-  ~DiamondAsset();
+  GroundAsset(GLfloat x, GLfloat y, GLfloat z);
+  ~GroundAsset();
   virtual void Draw(GLuint);
 
  private:
@@ -23,4 +23,4 @@ class DiamondAsset : public GameAsset {
   void checkError(string file, int line);
 };
 
-#endif // DIAMONDASSET_H
+#endif // GROUNDASSET_H
