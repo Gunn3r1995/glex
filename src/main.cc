@@ -13,7 +13,6 @@ using namespace std;
 
 #include "common.h"
 #include "GameWorld.h"
-#include "Camera.h"
 
 /*
  * SDL timers run in separate threads.  In the timer thread
