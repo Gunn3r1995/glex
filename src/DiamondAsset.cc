@@ -5,24 +5,24 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
 
   // model coordinates, origin at centre.
   GLfloat vertex_buffer [] {
-     -2    ,1     , 1//0
-     ,2    ,1     , 1 //1
-     ,1    ,2     , 1 //2
-     ,1    ,-2    , 1 //3
-     ,1    ,1     , 2 //4
-     ,1    ,1     , 2 //5 = End of Diamond
+     -1    , 0    , 0//0
+     ,1    , 0    , 0 //1
+     ,0    ,-1    , 0 //2
+     ,0    , 1    , 0 //3
+     ,0    ,0     ,-1 //4
+     ,0    ,0     , 1 //5 = End of Diamond
   };
 
-  element_buffer_length = 18;
+  element_buffer_length = 24;
   GLuint element_buffer []  {
-      0, 1, 2	
-    , 0, 3, 2
-    , 0, 4, 3	
-    , 0, 4, 1
+      0, 3, 5	
+    , 3, 1, 5
+    , 0, 5, 2	
     , 5, 1, 2
-    , 5, 1, 4
-    , 5, 4, 3
-    , 5, 2, 3
+    , 0, 3, 4
+    , 3, 1, 4
+    , 0, 4, 2
+    , 4, 1, 2
 
   };
 
@@ -34,7 +34,7 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
 
   // immediately bind the buffer and transfer the data
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * sizeof(GLuint), vertex_buffer, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 48, vertex_buffer, GL_STATIC_DRAW);
 
   glGenBuffers(1, &element_buffer_token);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
