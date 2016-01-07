@@ -10,6 +10,7 @@
 #include "CubeAsset.h"
 #include "DiamondAsset.h"
 #include "GroundAsset.h"
+#include "LeavesAsset.h"
 
 
 /**

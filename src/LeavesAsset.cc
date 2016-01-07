@@ -1,10 +1,9 @@
-#include "GroundAsset.h"
+#include "LeavesAsset.h"
+#include "GameWorld.h"
 
+LeavesAsset::LeavesAsset(GLfloat x, GLfloat y, GLfloat z) {
 
-
-GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) {
   // model coordinates, origin at centre.
-  
   GLfloat vertex_buffer [] {
       0.5f + x  , 0.5f + y  , -0.5f + z//0
     , 0.5f + x  ,-0.5f + y  , -0.5f + z //1
@@ -16,19 +15,18 @@ GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) {
     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z  //7 = End of Cube
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
-  // Colour Ground Asset Lawn Green
+
+  // Colour Buffer Red
   GLfloat colour_buffer[] = {
 
-     0.124f, 0.252f, 0.000f,
-     0.124f, 0.252f, 0.000f,
-     0.124f, 0.252f, 0.000f,
-     0.124f, 0.252f, 0.000f,
-     0.124f, 0.252f, 0.000f,
-     0.124f, 0.252f, 0.000f,
-     0.124f, 0.252f, 0.000f,
-     0.124f, 0.252f, 0.000f
+     0.050f, 0.205f, 0.050f,
+     0.050f, 0.205f, 0.050f,
+     0.050f, 0.205f, 0.050f,
+     0.050f, 0.205f, 0.050f,
+     0.050f, 0.205f, 0.050f,
+     0.050f, 0.205f, 0.050f
   };
-  colour_buffer_length = sizeof(colour_buffer);
+ colour_buffer_length = sizeof(colour_buffer);
   
   GLuint element_buffer []  {
       0, 1, 2	
@@ -45,6 +43,7 @@ GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) {
     , 0, 2, 6	
   };
   element_buffer_length = sizeof(element_buffer);
+
 
 
   // Transfer buffers to the GPU
@@ -67,7 +66,7 @@ GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) {
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, element_buffer_length, element_buffer, GL_STATIC_DRAW);
 }
 
-GroundAsset::~GroundAsset() {
+LeavesAsset::~LeavesAsset() {
 }
 
 #ifdef DEBUG
@@ -77,7 +76,7 @@ GroundAsset::~GroundAsset() {
 #define checkGLError()
 #endif
 
-void GroundAsset::checkError(std::string file, int line) {
+void LeavesAsset::checkError(std::string file, int line) {
   GLenum gl_error = glGetError();
   if(GL_NO_ERROR != gl_error) {
     std::cerr << "GL error in " << file << " at line " << line << " error: " << gl_error << std::endl;
@@ -85,10 +84,9 @@ void GroundAsset::checkError(std::string file, int line) {
   }
 }
 
-
-void GroundAsset::Draw(GLuint program_token) {
+void LeavesAsset::Draw(GLuint program_token) {
   if(!glIsProgram(program_token)) {
-    std::cerr << "Drawing Cube with invalid program" << std::endl;
+    std::cerr << "Drawing Diamon with invalid program" << std::endl;
     return;
   }
   GLint validation_ok;

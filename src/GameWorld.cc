@@ -6,35 +6,136 @@ using namespace std;
 GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAssetManager>(mode)){
   int pointX,pointY;
   int pointZ = 1;
-  int worldX = 8;
-  int worldY = 8;
+  int worldX = 20;
+  int worldY = 20;
   int world[worldX][worldY] = {
-  {1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,2,1},
-  {1,1,1,1,1,1,1,1},
-  {1,1,1,2,1,1,1,1},
-  {1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,3,1},
-  {1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,2,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,2,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,2,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,2,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   };
   
 
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
     if( world[pointY][pointX] == 1){
-            asset_manager->AddAsset(std::make_shared<GroundAsset>((pointX),-1.00,(pointZ*pointY)));
+           asset_manager->AddAsset(std::make_shared<GroundAsset>((pointX),-1.00,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 2){
-            asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-1.00,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<GroundAsset>((pointX),-1.00,(pointZ*pointY)));
             asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,(pointZ*pointY)));
             asset_manager->AddAsset(std::make_shared<DiamondAsset>((pointX),1.5f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 3){
-           asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),-1.00,(pointZ*pointY)));
-           asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,(pointZ*pointY)));
-           asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),1.00,(pointZ*pointY)));
-           asset_manager->AddAsset(std::make_shared<DiamondAsset>((pointX),2.5f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<GroundAsset>((pointX),-1.00,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),1.00,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<DiamondAsset>((pointX),2.5f,(pointZ*pointY)));
+   }
+    else if( world[pointY][pointX] == 4){
+            //Tree
+            asset_manager->AddAsset(std::make_shared<GroundAsset>((pointX),-1.00,(pointZ*pointY)));
+            //Tree Trunk
+            asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),0.00,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),1.00,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),2.00,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),3.00,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<CubeAsset>((pointX),4.00,(pointZ*pointY)));
+            //Tree Leaves - Bottom Layer
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-1)));
+
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-2)));
+
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY))); 
+
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+1)));
+ 
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+2)));
+            //Tree Leaves - Second Layer
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-1)));
+ 
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-2)));
+ 
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY)));
+ 
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+1)));
+
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+2)));
+            //Tree Leaves - Third Layer
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY-1))); 
+
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY)));
+ 
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY+1)));
+
+            //Tree Leaves - Fourth Layer
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY-1)));
+
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX+1),6.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX-1),6.0f,(pointZ*pointY)));
+
+            asset_manager->AddAsset(std::make_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY+1)));
    }
   }
  } 
