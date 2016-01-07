@@ -16,17 +16,17 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z  //7 = End of Cube
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
-  // Colour Buffer Blue
+  // Colour Saddle Brown
   GLfloat colour_buffer[] = {
 
-     0.000f, 1.000f, 0.000f,
-     0.000f, 1.000f, 0.000f,
-     0.000f, 1.000f, 0.000f,
-     0.000f, 1.000f, 0.000f,
-     0.000f, 1.000f, 0.000f,
-     0.000f, 1.000f, 0.000f,
-     0.000f, 1.000f, 0.000f,
-     0.000f, 1.000f, 0.000f
+     0.139f, 0.069f, 0.019f,
+     0.139f, 0.069f, 0.019f,
+     0.139f, 0.069f, 0.019f,
+     0.139f, 0.069f, 0.019f,
+     0.139f, 0.069f, 0.019f,
+     0.139f, 0.069f, 0.019f,
+     0.139f, 0.069f, 0.019f,
+     0.139f, 0.069f, 0.019f
   };
   colour_buffer_length = sizeof(colour_buffer);
   
