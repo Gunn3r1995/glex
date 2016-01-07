@@ -2,15 +2,15 @@ language: cpp
 compiler:
 - gcc
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y libsdl* libglew-dev libglm-dev libboost-all-dev libboost-program-options-dev autotools-dev
   - wget http://www.libsdl.org/release/SDL2-2.0.3.tar.gz
   - tar -zxvf SDL2-2.0.3.tar.gz
+install:
   - cd SDL2-2.0.3
+  - cd ..
+  - sudo apt-get update -qq
+  - sudo apt-get install -y libsdl* libglew-dev libglm-dev libboost-all-dev libboost-program-options-dev autotools-dev
   - autoreconf -fi
   - ./configure
-install:
-
 
 branches:
   only:
