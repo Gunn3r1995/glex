@@ -141,9 +141,6 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   int main(int argc, char ** argv) {
     Uint32 delay = 1000/30; // in milliseconds, Temporary change to 20fps to fix speed of the game.
 
-        int X;
-        int Y;
-
   auto mode = ParseOptions(argc, argv);
   auto window = InitWorld();
   auto game_world = std::make_shared<GameWorld>(mode);
