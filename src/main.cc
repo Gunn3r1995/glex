@@ -161,7 +161,7 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
         cout << "*--------------------------------------------------------------------------------------*" << endl;
         cout << "*                                                                                      *" << endl;
         cout << "*                               A simple Minecraft Like Game                           *" << endl;
-        cout << "*                          With Block Spawing , Player Moving and                      *" << endl;
+        cout << "*                        With Block Spawing , Player Movement and                      *" << endl;
         cout << "*                                     Camera Control                                   *" << endl;
         cout << "*                                                                                      *" << endl;
         cout << "*--------------------------------------------------------------------------------------*" << endl;
