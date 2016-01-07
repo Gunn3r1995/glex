@@ -4,12 +4,12 @@ compiler:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y libsdl* libglew-dev libglm-dev libboost-all-dev libboost-program-options-dev autotools-dev
-  - autoreconf -i
-  - ./configure
 install:
   - wget http://www.libsdl.org/release/SDL2-2.0.3.tar.gz
   - tar -zxvf SDL2-2.0.3.tar.gz
   - cd SDL2-2.0.3
+  - autoreconf -i
+  - ./configure
 
 branches:
   only:
