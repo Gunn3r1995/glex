@@ -12,7 +12,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   int worldY = 20;
   int world[worldX][worldY] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,2,1},
+  {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -20,7 +20,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,2,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,2,1},
+  {1,5,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,5,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -29,7 +29,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,2,1},
+  {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   };
   
@@ -43,13 +43,13 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
     else if( world[pointY][pointX] == 2){
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<DiamondAsset>((pointX),1.5f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<DiamondAsset>((pointX),1.0f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 3){
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<DiamondAsset>((pointX),2.5f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<DiamondAsset>((pointX),2.0f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 4){
             //Tree Ground
@@ -139,6 +139,11 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),6.0f,(pointZ*pointY)));
 
             asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY+1)));
+   }
+    else if( world[pointY][pointX] == 5){
+            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<PyramidAsset>((pointX),1.0f,(pointZ*pointY)));
    }
   }
  }  

@@ -1,16 +1,15 @@
-#include "DiamondAsset.h"
+#include "PyramidAsset.h"
 #include "GameWorld.h"
 
-DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
+PyramidAsset::PyramidAsset(GLfloat x, GLfloat y, GLfloat z) {
 
   // model coordinates, origin at centre.
   GLfloat vertex_buffer [] {
-     -0.5f + x  , 0.0f + y   , 0.0f + z//0
-     ,0.5f + x  , 0.0f + y   , 0.0f + z//1
-     ,0.0f + x  ,-0.5f + y   , 0.0f + z//2
-     ,0.0f + x  , 0.5f + y   , 0.0f + z//3
-     ,0.0f + x  , 0.0f + y   ,-0.5f + z//4
-     ,0.0f + x  , 0.0f + y   , 0.5f + z//5 = End of Diamond
+      -0.5f + x  , 0.0f + y   ,-0.5f + z//0
+     , 0.5f + x  , 0.0f + y   ,-0.5f + z//1
+     ,-0.5f + x  , 0.0f + y   , 0.5f + z//2
+     , 0.5f + x  , 0.0f + y   , 0.5f + z//3
+     , 0.0f + x  , 1.0f + y   , 0.0f + z//5 = End of Pyramid
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
 
@@ -27,14 +26,12 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
  colour_buffer_length = sizeof(colour_buffer);
   
   GLuint element_buffer []  {
-      0, 3, 5	
-    , 3, 1, 5
-    , 0, 5, 2	
-    , 5, 1, 2
-    , 0, 3, 4
-    , 3, 1, 4
-    , 0, 4, 2
-    , 4, 1, 2
+      0, 4, 1	
+    , 1, 4, 3
+    , 2, 4, 3	
+    , 2, 4, 0
+    , 0, 2, 1
+    , 1, 2, 3
   };
   element_buffer_length = sizeof(element_buffer);
 
@@ -60,7 +57,7 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, element_buffer_length, element_buffer, GL_STATIC_DRAW);
 }
 
-DiamondAsset::~DiamondAsset() {
+PyramidAsset::~PyramidAsset() {
 }
 
 #ifdef DEBUG
@@ -70,7 +67,7 @@ DiamondAsset::~DiamondAsset() {
 #define checkGLError()
 #endif
 
-void DiamondAsset::checkError(std::string file, int line) {
+void PyramidAsset::checkError(std::string file, int line) {
   GLenum gl_error = glGetError();
   if(GL_NO_ERROR != gl_error) {
     std::cerr << "GL error in " << file << " at line " << line << " error: " << gl_error << std::endl;
@@ -78,9 +75,9 @@ void DiamondAsset::checkError(std::string file, int line) {
   }
 }
 
-void DiamondAsset::Draw(GLuint program_token) {
+void PyramidAsset::Draw(GLuint program_token) {
   if(!glIsProgram(program_token)) {
-    std::cerr << "Drawing Diamond with invalid program" << std::endl;
+    std::cerr << "Drawing Pyramid with invalid program" << std::endl;
     return;
   }
   GLint validation_ok;

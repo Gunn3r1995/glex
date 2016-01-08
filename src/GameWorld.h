@@ -11,6 +11,7 @@
 #include "DiamondAsset.h"
 #include "GroundAsset.h"
 #include "LeavesAsset.h"
+#include "PyramidAsset.h"
 
 
 /**
