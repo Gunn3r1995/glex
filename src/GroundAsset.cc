@@ -1,10 +1,8 @@
 #include "GroundAsset.h"
 
-
-
 GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) {
-  // model coordinates, origin at centre.
   
+  // model coordinates, origin at centre.
   GLfloat vertex_buffer [] {
       0.5f + x  , 0.5f + y  , -0.5f + z//0
     , 0.5f + x  ,-0.5f + y  , -0.5f + z //1
@@ -16,6 +14,7 @@ GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) {
     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z  //7 = End of Cube
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
+
   // Colour Ground Asset Lawn Green
   GLfloat colour_buffer[] = {
 

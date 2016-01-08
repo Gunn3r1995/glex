@@ -1,5 +1,4 @@
 #include "LeavesAsset.h"
-#include "GameWorld.h"
 
 LeavesAsset::LeavesAsset(GLfloat x, GLfloat y, GLfloat z) {
 
@@ -16,15 +15,18 @@ LeavesAsset::LeavesAsset(GLfloat x, GLfloat y, GLfloat z) {
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
 
-  // Colour Buffer Red
+  //2 Shades of green = Camarone green, Green leaf
   GLfloat colour_buffer[] = {
 
-     0.050f, 0.205f, 0.050f,
-     0.050f, 0.205f, 0.050f,
-     0.050f, 0.205f, 0.050f,
-     0.050f, 0.205f, 0.050f,
-     0.050f, 0.205f, 0.050f,
-     0.050f, 0.205f, 0.050f
+     0.000f, 0.090f, 0.004f,
+     0.058f, 0.095f, 0.011f,
+     0.000f, 0.090f, 0.004f,
+     0.058f, 0.095f, 0.011f,
+     0.000f, 0.090f, 0.004f,
+     0.058f, 0.095f, 0.011f,
+     0.000f, 0.090f, 0.004f,
+     0.058f, 0.095f, 0.011f,
+
   };
  colour_buffer_length = sizeof(colour_buffer);
   

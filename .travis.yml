@@ -1,17 +1,19 @@
 language: cpp
 compiler:
-- gcc
-before:install:
-  -brew update -qq
-  -brew install -y libsdl* libsdl2* libglew-dev libglm-dev libboost-all-dev libboost-program-options-dev autotools-dev
-  -autoreconf -fi
-  -./configure
-branches:
-  only:
-    - master
-notifications:
-  email: true
-os:
-- osx
+- gcc 4.8.0
 
-sudo: true
+before_install:
+- echo "yes" | sudo apt-add-repository ppa:zoogie/sdl2-snapshots
+- sudo apt-get update -qq
+- sudo apt-get install -y libsdl-* libglm-dev libglew-dev libboost-all-dev libsdl2-dev 
+- autoreconf -i
+- ./configure
+- make
+
+
+branches:
+only:
+- master
+
+os:
+- linux
