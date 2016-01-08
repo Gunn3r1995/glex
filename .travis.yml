@@ -1,12 +1,16 @@
 language: cpp
 compiler:
   - gcc
+  - g++
 
 before_install:
   - echo "yes" | sudo apt-add-repository ppa:zoogie/sdl2-snapshots
   - sudo apt-get update -qq
   - sudo apt-get install -y libsdl-* libglm-dev libglew-dev libboost-all-dev libsdl2-dev 
-  - gcc --version
+  - sudo update-alternatives --install /usr/bin/g++ g++
+  - brew install sdl2
+
+
   - autoreconf -i
   - ./configure
   - make
@@ -17,3 +21,4 @@ only:
 
 os:
   - linux
+  - osx
