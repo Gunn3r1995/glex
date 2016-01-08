@@ -17,11 +17,14 @@ PyramidAsset::PyramidAsset(GLfloat x, GLfloat y, GLfloat z) {
   GLfloat colour_buffer[] = {
 
      1.000f, 0.000f, 0.000f,
+     0.000f, 1.000f, 0.000f,
+     0.000f, 0.000f, 1.000f,
      1.000f, 0.000f, 0.000f,
+     0.000f, 1.000f, 0.000f,
+     0.000f, 0.000f, 1.000f,
      1.000f, 0.000f, 0.000f,
-     1.000f, 0.000f, 0.000f,
-     1.000f, 0.000f, 0.000f,
-     1.000f, 0.000f, 0.000f
+     0.000f, 1.000f, 0.000f,
+     0.000f, 0.000f, 1.000f
   };
  colour_buffer_length = sizeof(colour_buffer);
   
