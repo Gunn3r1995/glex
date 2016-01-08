@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAssetManager>(mode)){
   int pointX,pointY;
   int pointZ = 1;
