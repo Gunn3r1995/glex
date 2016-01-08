@@ -38,7 +38,3 @@ See
 > $ ./src/shaderexample --help
 
 for usage instructions.
-
-# Edited by #
-
-Shane Smith, Arun Sharma and Max Chaplin
