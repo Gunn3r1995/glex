@@ -9,7 +9,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   int pointZ = 1;
   int worldX = 20;
   int worldY = 20;
-  int world[worldX][worldY] = {
+  int world[20][20] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -29,8 +29,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  };
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},};
 
         asset_manager->AddAsset(make_shared<GroundAsset>( 1.0f ,2.00f, -4.0f));
         asset_manager->AddAsset(make_shared<CubeAsset>(   3.0f ,2.00f, -4.0f));
