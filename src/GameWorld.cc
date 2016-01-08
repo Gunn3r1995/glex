@@ -9,6 +9,17 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   int pointZ = 1;
   int worldX = 20;
   int worldY = 20;
+  /*2D array which acts like the world space for the game, so depending on what number is stored within the array 
+   would change which blocks spawn within this small 20 by 20 world, I would like to improve the size of the array 
+   in the future but as of now I don't think it's to important. 
+
+   1-> 2 high Ground Blocks
+   2-> A 1 high Cube with a Diamond on top
+   3-> A 2 high Cube with a Diamond on top
+   4-> A Tree
+   5-> A Cube with a Pyramid on top
+   6-> A Pyramid
+   */
   int world[20][20] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
@@ -46,10 +57,12 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    }
     else if( world[pointY][pointX] == 2){
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<DiamondAsset>((pointX),1.0f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 3){
+            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
@@ -57,6 +70,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    }
     else if( world[pointY][pointX] == 4){
             //Tree Ground
+            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             //Tree Trunk
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
@@ -146,10 +160,12 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    }
     else if( world[pointY][pointX] == 5){
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<PyramidAsset>((pointX),0.50f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 6){
+            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<PyramidAsset>((pointX),-0.50f,(pointZ*pointY)));
    }
@@ -185,7 +201,7 @@ void GameWorld::Camera_Control(char key) {
   if (key == '+') {        //Jump up/ 0.1, Would like to improve it to a actually jump mechanic
         Camera_Position += 0.1f * Player_Speed;
  }
-  if (key == '-') {       // Drop down by 2 blocks/ -0.1
+  if (key == '-') {       // Drop down/ -0.1
         Camera_Position -= 0.1f * Player_Speed;
  }
 }

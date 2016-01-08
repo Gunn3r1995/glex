@@ -18,7 +18,7 @@ LeavesAsset::LeavesAsset(GLfloat x, GLfloat y, GLfloat z) {
   //2 Shades of green = Camarone green, Green leaf
   GLfloat colour_buffer[] = {
 
-     0.000f, 0.090f, 0.004f,
+     0.000f, 0.090f, 0.004f, 
      0.058f, 0.095f, 0.011f,
      0.000f, 0.090f, 0.004f,
      0.058f, 0.095f, 0.011f,

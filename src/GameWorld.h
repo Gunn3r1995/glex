@@ -34,7 +34,7 @@ class GameWorld {
   void Draw();
   // Call Camera_Control will move in specfic direction
   void Camera_Control(char key);
-
+        //Camera Variables Controls Speed of Play/Camera
         GLfloat Mouse_Sensitivity =  0.05f;
         GLfloat Player_Speed = 1.0;
 
