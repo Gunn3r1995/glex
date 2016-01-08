@@ -216,8 +216,8 @@ void GameWorld::Draw() {
 	);
 
 	glm::vec3 vup = glm::cross(Movement_X, Movement_Direction);
-        // Projection matrix : degree = 45, Field of View = 16:9 ratio, display = 0.1 unit <-> 1000 units
-	glm::mat4 Camera_Projection = glm::perspective(45.0f, 16.0f/9.0f, 0.1f, 1000.0f);
+        // Projection matrix : degree = 45, Field of View = 4:3 ratio, display = 0.1 unit <-> 1000 units
+	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
         //Where the Camera Looks at
 	glm::mat4 Camera_View = glm::lookAt(
 		Camera_Position,
