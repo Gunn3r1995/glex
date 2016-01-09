@@ -173,7 +173,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
     else if( world[pointY][pointX] == 7){
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand()%10))));            
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand()%100))));            
             asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.30f),(pointZ*pointY-Random/(rand() % 100))));
             asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.45f),(pointZ*pointY-Random/(rand() % 100))));
             asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand() % 100))));
@@ -217,7 +217,7 @@ void GameWorld::Camera_Control(char key) {
 }
 
 void GameWorld::Draw() {
-
+        //Camera Direction
         glm::vec3 direction(
 		cos(Camera_Vertical) * sin(Camera_Horizontal),
 		sin(Camera_Vertical),
