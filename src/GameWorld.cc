@@ -20,6 +20,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    4-> A Tree
    5-> A Cube with a Pyramid on top
    6-> A Pyramid
+   7-> Somewhat Random Grass
    */
   int world[20][20] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
