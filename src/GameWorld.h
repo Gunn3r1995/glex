@@ -12,6 +12,7 @@
 #include "GroundAsset.h"
 #include "LeavesAsset.h"
 #include "PyramidAsset.h"
+#include "GrassAsset.h"
 
 
 /**

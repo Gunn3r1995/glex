@@ -22,23 +22,23 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    */
   int world[20][20] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
+  {1,2,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
+  {1,1,1,3,1,1,1,1,7,1,1,1,1,1,1,1,3,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,7,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,5,1,1,6,1,1,1,1,1,4,1,1,1,1,6,1,1,5,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1},
+  {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1},
   {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},};
 
@@ -168,6 +168,15 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<PyramidAsset>((pointX),-0.50f,(pointZ*pointY)));
+   }
+    else if( world[pointY][pointX] == 7){
+            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX),-0.50f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX+0.7f),-0.30f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-0.5f),-0.50f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX),-0.50f,(pointZ*pointY+0.3f)));
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX),-0.20f,(pointZ*pointY-0.5f)));
    }
   }
  }  
