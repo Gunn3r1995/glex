@@ -53,16 +53,19 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
     if( world[pointY][pointX] == 1){
+            // Ground Spawn
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-2.00f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 2){
+            // Small Diamond Tower
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<DiamondAsset>((pointX),1.0f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 3){
+            // Taller Diamond Tower
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
@@ -70,6 +73,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             asset_manager->AddAsset(make_shared<DiamondAsset>((pointX),2.0f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 4){
+            //Tree Spawn
             //Tree Ground
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
@@ -160,17 +164,20 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY+1)));
    }
     else if( world[pointY][pointX] == 5){
+            // Pyramid Tower
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<PyramidAsset>((pointX),0.50f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 6){
+            // Pyramid Spawn
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<PyramidAsset>((pointX),-0.50f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 7){
+            // Grass Spawn
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand()%100))));            
