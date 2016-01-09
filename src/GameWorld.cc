@@ -48,7 +48,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
         asset_manager->AddAsset(make_shared<LeavesAsset>( 5.0f ,2.00f, -4.0f));
         asset_manager->AddAsset(make_shared<DiamondAsset>(7.0f ,2.00f, -4.0f));
         asset_manager->AddAsset(make_shared<PyramidAsset>(9.0f ,1.50f, -4.0f)); 
-  
+        asset_manager->AddAsset(make_shared<GrassAsset>(  10.0f,1.50f, -4.0f));
 
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
