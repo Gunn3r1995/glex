@@ -1,22 +1,29 @@
 language: cpp
 compiler:
-- gcc
-install:
-  -sudo apt-get install git libopenal-dev libopenscenegraph-dev \
-   libsdl2-dev libqt4-dev libboost-filesystem-dev libboost-thread-dev \
-   libboost-program-options-dev libboost-system-dev libav-tools \
-   libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev \
-   libbullet-dev libmygui-dev libunshield-dev libtinyxml-dev cmake build-essential \
-   libqt4-opengl-dev
-  -sudo apt-get update -qq
-  -sudo apt-get install -y libsdl* libglew-dev libglm-dev libboost-all-dev libboost-program-options-dev autotools-dev
-  - autoreconf -fi
-  - ./configure
+ - gcc
+ - clang
+ - g++
+
+before_install:
+ - echo "yes" | sudo apt-add-repository ppa:zoogie/sdl2-snapshots
+ - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+ - sudo apt-get update -qq
+ - sudo apt-get install -y gcc-4.8 g++-4.8 libsdl-* libglm-dev libglew-dev libboost-all-dev libsdl2-dev 
+
+ - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
+
+script:
+ - autoreconf -i
+ - ./configure
+ - make
+
+# whitelist
 branches:
-  only:
-    - master
-notifications:
-  email: true
+only:
+ - master
+ - Voxel
+ - colour
+
 os:
 - linux
 
