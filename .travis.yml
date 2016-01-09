@@ -11,6 +11,8 @@ before_install:
  - sudo apt-get install -y gcc-4.8 g++-4.8 libsdl-* libglm-dev libglew-dev libboost-all-dev libsdl2-dev 
  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
 
+ - brew install -y gcc-4.8 g++-4.8 libsdl-* libglm-dev libglew-dev libboost-all-dev libsdl2-dev 
+
 script:
  - autoreconf -i
  - ./configure
@@ -24,6 +26,8 @@ only:
  - colour
 
 os:
-- linux
+ - linux
+ - osx
 
 sudo: true
+brew: true
