@@ -9,6 +9,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   int pointZ = 1;
   int worldX = 20;
   int worldY = 20;
+
   /*2D array which acts like the world space for the game, so depending on what number is stored within the array 
    would change which blocks spawn within this small 20 by 20 world, I would like to improve the size of the array 
    in the future but as of now I don't think it's to important. 
@@ -24,21 +25,21 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,2,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,3,1,1,1,1,7,1,1,1,1,1,1,1,3,1,1,1},
+  {1,1,1,3,7,1,1,1,7,1,1,1,1,1,1,1,3,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,7,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,7,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,5,1,1,6,1,1,1,1,1,4,1,1,1,1,6,1,1,5,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1},
   {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1},
   {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
-  {1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,7,1,1,1,1,1,1,7,7,1,1,1,1,1},
   {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},};
 
@@ -172,11 +173,11 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
     else if( world[pointY][pointX] == 7){
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX),-0.50f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX+0.7f),-0.30f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-0.5f),-0.50f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX),-0.50f,(pointZ*pointY+0.3f)));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX),-0.20f,(pointZ*pointY-0.5f)));
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand()%10))));            
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.30f),(pointZ*pointY-Random/(rand() % 100))));
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.45f),(pointZ*pointY-Random/(rand() % 100))));
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand() % 100))));
+            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.20f),(pointZ*pointY-Random/(rand() % 100))));
    }
   }
  }  
@@ -224,9 +225,9 @@ void GameWorld::Draw() {
 	);
 	//Fixes camera going upside down.
         glm::vec3 Movement_Direction(
-		cos(Camera_Vertical) * sin(Camera_Horizontal),
-		0,
-		cos(Camera_Vertical) * cos(Camera_Horizontal)
+		1.0f * sin(Camera_Horizontal),
+		0.0f,
+		1.0f * cos(Camera_Horizontal)
 	);
 
 	Movement_Z = Movement_Direction;

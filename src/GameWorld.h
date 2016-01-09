@@ -28,24 +28,26 @@ class GameWorld {
    * is preferable (in this case) to having some kind of global state.
    */
   GameWorld(ApplicationMode);
-
-  /**
+    
+          double MinimumNumber = 0.50;
+          double MaximumNumber = 1.00;
+          double Random = (double)rand() / RAND_MAX;      
+   /**
    * Calling Draw() will draw the entire world.
    */
   void Draw();
   // Call Camera_Control will move in specfic direction
   void Camera_Control(char key);
-        //Camera Variables Controls Speed of Play/Camera
-        GLfloat Mouse_Sensitivity =  0.05f;
-        GLfloat Player_Speed = 1.0;
+          //Camera Variables Controls Speed of Play/Camera
+          GLfloat Mouse_Sensitivity =  0.05f;
+          GLfloat Player_Speed = 1.0;
 
-        GLfloat Camera_Horizontal = 0.0;
-        GLfloat Camera_Vertical = 0.0;
+          GLfloat Camera_Horizontal = 0.0;
+          GLfloat Camera_Vertical = 0.0;
 
-        glm::vec3 Camera_Position = glm::vec3(1, 2, -1);
-        glm::vec3 Movement_Z;
-        glm::vec3 Movement_X;
-
+          glm::vec3 Camera_Position = glm::vec3(1, 2, -1);
+          glm::vec3 Movement_Z;
+          glm::vec3 Movement_X;
 
  private:
   std::shared_ptr<GameAssetManager> asset_manager;

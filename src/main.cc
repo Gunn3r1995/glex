@@ -226,6 +226,11 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
         int Mouse_X;
         int Mouse_Y;
 
+//double fRand(double fMin, double fMax)
+//{
+
+//}
+
   // Add the main event loop
   SDL_Event event;
   while (SDL_WaitEvent(&event)) {
@@ -237,7 +242,6 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
       Draw(window, game_world);
       break;
     case  SDL_MOUSEMOTION:
-      
         // save old mouse coordinates X
         Old_Mouse_X = Mouse_X;
         // get mouse coordinates X
