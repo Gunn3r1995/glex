@@ -17,7 +17,7 @@ script:
  - ./configure
  - make
 
-
+# whitelist
 branches:
 only:
  - master
