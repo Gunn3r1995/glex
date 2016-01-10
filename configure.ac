@@ -21,5 +21,6 @@ PKG_CHECK_MODULES([sdl2], [sdl2])
 
 AC_CONFIG_FILES([Makefile
     src/Makefile
-    shaders/Makefile])
+    shaders/Makefile]
+    )
 AC_OUTPUT
