@@ -3,8 +3,11 @@
 
 
 CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
-  // model coordinates, origin at centre.
-  
+  /// model coordinates, origin at centre.
+  /**
+  *  Sets cordinates to a cube with the center point 0.0 
+  *  but moved to where the x, y, z variables calls them
+  */
   GLfloat vertex_buffer [] {
       0.5f + x  , 0.5f + y  , -0.5f + z//0
     , 0.5f + x  ,-0.5f + y  , -0.5f + z //1
@@ -16,7 +19,10 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z  //7 = End of Cube
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
-  // Colour Cube Asset Saddle Brown
+  /** 
+  *  Colour of Cube Asset Saddle Brown
+  *  Uses RGB values
+  */
   GLfloat colour_buffer[] = {
 
      0.139f, 0.069f, 0.019f,
@@ -29,7 +35,10 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
      0.139f, 0.069f, 0.019f
   };
   colour_buffer_length = sizeof(colour_buffer);
-  
+  /** 
+  *  Draws the cube up of 12 Triangles
+  *  Two Triangles per Face
+  */
   GLuint element_buffer []  {
       0, 1, 2	
     , 1, 3, 2
@@ -56,8 +65,10 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
   // immediately bind the buffer and transfer the data
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, vertex_buffer_length, vertex_buffer, GL_STATIC_DRAW);
-
-
+  
+  /**
+  * Binds the buffer to transfer the data
+  */
   glGenBuffers(1, &colour_buffer_token);
   glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, colour_buffer_length, colour_buffer, GL_STATIC_DRAW);
@@ -115,8 +126,9 @@ void CubeAsset::Draw(GLuint program_token) {
   glUseProgram(program_token);
   checkGLError();
 
-  // use the previously transferred buffer as the vertex array.  This way
-  // we transfer the buffer once -- at construction -- not on every frame.
+  /** use the previously transferred buffer as the vertex array.  This way
+   * we transfer the buffer once -- at construction -- not on every frame.
+   */
   glEnableVertexAttribArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glVertexAttribPointer(
@@ -129,7 +141,10 @@ void CubeAsset::Draw(GLuint program_token) {
   );
   glEnableVertexAttribArray(1);
   checkGLError();
-
+   /**
+   * Uses the Previously transferred buffer as the color array. This way
+   * We transfer the buffer once -- at constuction -- not on every frame
+   */
   glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
   glVertexAttribPointer(
     1,        /* attribute */

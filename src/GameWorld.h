@@ -36,15 +36,26 @@ class GameWorld {
    * Calling Draw() will draw the entire world.
    */
   void Draw();
-  // Call Camera_Control will move in specfic direction
+  /**
+   * Call Camera_Control will move in specfic direction
+   */
   void Camera_Control(char key);
-          //Camera Variables Controls Speed of Play/Camera
+          /**
+           *  Camera Variables Controls Speed of Play/Camera
+           */
           GLfloat Mouse_Sensitivity =  0.05f;
           GLfloat Player_Speed = 1.0;
 
+          /**
+           *  Controls the distance each movement moves by
+           */
           GLfloat Camera_Horizontal = 0.0;
           GLfloat Camera_Vertical = 0.0;
-
+          
+          /**
+           * Sets where the starting positions of the camera 
+           * and the direction it is looking at
+           */
           glm::vec3 Camera_Position = glm::vec3(1, 2, -1);
           glm::vec3 Movement_Z;
           glm::vec3 Movement_X;

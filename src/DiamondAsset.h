@@ -9,8 +9,6 @@
 
 #include "GameAsset.h"
 
-using namespace std;
-
 class DiamondAsset : public GameAsset {
  public:
   DiamondAsset(GLfloat x, GLfloat y, GLfloat z);
@@ -20,7 +18,7 @@ class DiamondAsset : public GameAsset {
  private:
   GLuint element_buffer_length, colour_buffer_length;
   GLuint vertex_buffer_token, element_buffer_token, colour_buffer_token;
-  void checkError(string file, int line);
+  void checkError(std::string file, int line);
 };
 
 #endif // DIAMONDASSET_H
