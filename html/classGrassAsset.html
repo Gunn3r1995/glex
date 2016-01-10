@@ -151,17 +151,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>model coordinates, origin at centre.</p>
 <p>Sets cordinates to a Grass/Pyramid with the center point 0.0 but moved to where the x, y, z variables calls them</p>
 <p>Colour of Diamond Asset Green Uses RGB values</p>
-<p>Transfer buffers to the GPU</p>
-<p>create buffer</p>
-<p>immediately bind the buffer and transfer the data</p>
-<p>Binds the buffer and transfers the data </p>
 <div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                                      {</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  GLfloat vertex_buffer [] {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="comment">// model coordinates, origin at centre.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span>  GLfloat vertex_buffer [] {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;      -0.01f + x  , 0.00f + y   ,-0.01f + z</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;     , 0.01f + x  , 0.00f + y   ,-0.01f + z</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;     ,-0.01f + x  , 0.00f + y   , 0.01f + z</div>
@@ -191,11 +186,15 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="comment">// Transfer buffers to the GPU</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="comment">// create buffer</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  glGenBuffers(1, &amp;vertex_buffer_token);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="comment">// immediately bind the buffer and transfer the data</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  glBufferData(GL_ARRAY_BUFFER, vertex_buffer_length, vertex_buffer, GL_STATIC_DRAW);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">// Binds the buffer and transfers the data</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  glGenBuffers(1, &amp;colour_buffer_token);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  glBufferData(GL_ARRAY_BUFFER, colour_buffer_length, colour_buffer, GL_STATIC_DRAW);</div>
@@ -280,21 +279,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The maxLength includes the NULL character</p>
 <p>use the previously transferred buffer as the vertex array. This way we transfer the buffer once &ndash; at construction &ndash; not on every frame.</p>
-<p>attribute</p>
-<p>size</p>
-<p>type</p>
-<p>normalized?</p>
-<p>stride</p>
-<p>array buffer offset</p>
 <p>Uses the Previously transferred buffer as the color array. This way We transfer the buffer once &ndash; at constuction &ndash; not on every frame</p>
-<p>attribute</p>
-<p>size</p>
-<p>type</p>
-<p>normalized?</p>
-<p>stride</p>
-<p>array buffer offset </p>
 
 <p>Implements <a class="el" href="classGameAsset.html#a961aa51ca0a9961fc584c0b5d5431300">GameAsset</a>.</p>
 <div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                          {</div>
@@ -309,6 +295,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    GLint maxLength = 0;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    glGetProgramiv(program_token, GL_INFO_LOG_LENGTH, &amp;maxLength);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// The maxLength includes the NULL character</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    std::vector&lt;char&gt; errorLog(maxLength);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    glGetProgramInfoLog(program_token, maxLength, &amp;maxLength, &amp;errorLog[0]);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
@@ -324,27 +311,26 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  glUseProgram(program_token);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <a class="code" href="GrassAsset_8cc.html#a75f201b0e53e68726854997957322b8d">checkGLError</a>();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  glEnableVertexAttribArray(0);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  glVertexAttribPointer(</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    position_attrib,        </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    3,        </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    GL_FLOAT,   </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    GL_FALSE,   </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    0,        </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    (<span class="keywordtype">void</span>*)0    </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    position_attrib,        <span class="comment">/* attribute */</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    3,        <span class="comment">/* size */</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    GL_FLOAT,   <span class="comment">/* type */</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    GL_FALSE,   <span class="comment">/* normalized? */</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    0,        <span class="comment">/* stride */</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    (<span class="keywordtype">void</span>*)0    <span class="comment">/* array buffer offset */</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  );</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  glEnableVertexAttribArray(1);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <a class="code" href="GrassAsset_8cc.html#a75f201b0e53e68726854997957322b8d">checkGLError</a>();</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  glVertexAttribPointer(</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    1,        </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    3,        </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    GL_FLOAT,   </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    GL_FALSE,   </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    0,        </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    (<span class="keywordtype">void</span>*)0    </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    1,        <span class="comment">/* attribute */</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    3,        <span class="comment">/* size */</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    GL_FLOAT,   <span class="comment">/* type */</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    GL_FALSE,   <span class="comment">/* normalized? */</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    0,        <span class="comment">/* stride */</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    (<span class="keywordtype">void</span>*)0    <span class="comment">/* array buffer offset */</span></div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  );</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <a class="code" href="GrassAsset_8cc.html#a75f201b0e53e68726854997957322b8d">checkGLError</a>();</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
@@ -359,7 +345,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  glDisableVertexAttribArray(position_attrib);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
-<div class="ttc" id="GrassAsset_8cc_html_a75f201b0e53e68726854997957322b8d"><div class="ttname"><a href="GrassAsset_8cc.html#a75f201b0e53e68726854997957322b8d">checkGLError</a></div><div class="ttdeci">#define checkGLError()</div><div class="ttdoc">define symbol to be nothing </div><div class="ttdef"><b>Definition:</b> GrassAsset.cc:70</div></div>
+<div class="ttc" id="GrassAsset_8cc_html_a75f201b0e53e68726854997957322b8d"><div class="ttname"><a href="GrassAsset_8cc.html#a75f201b0e53e68726854997957322b8d">checkGLError</a></div><div class="ttdeci">#define checkGLError()</div><div class="ttdef"><b>Definition:</b> GrassAsset.cc:70</div></div>
 </div><!-- fragment -->
 </div>
 </div>

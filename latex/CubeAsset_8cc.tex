@@ -12,7 +12,7 @@ Include dependency graph for Cube\+Asset.\+cc\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{check\+G\+L\+Error}()
-\begin{DoxyCompactList}\small\item\em define symbol to be nothing \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,10 +30,6 @@ void \hyperlink{CubeAsset_8cc_abe4ebf09b25b6e092e65ce01e73987d7}{check\+Error} (
 )}\label{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}
 
 
-define symbol to be nothing 
-
-
-
 \subsection{Function Documentation}
 \hypertarget{CubeAsset_8cc_abe4ebf09b25b6e092e65ce01e73987d7}{}\index{Cube\+Asset.\+cc@{Cube\+Asset.\+cc}!check\+Error@{check\+Error}}
 \index{check\+Error@{check\+Error}!Cube\+Asset.\+cc@{Cube\+Asset.\+cc}}
@@ -45,11 +41,11 @@ define symbol to be nothing
 )}\label{CubeAsset_8cc_abe4ebf09b25b6e092e65ce01e73987d7}
 
 \begin{DoxyCode}
-91                                           \{
-92   GLenum gl\_error = glGetError();
-93   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
-94     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
-95     exit(-1);
-96   \}
-97 \}
+90                                           \{
+91   GLenum gl\_error = glGetError();
+92   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+93     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+94     exit(-1);
+95   \}
+96 \}
 \end{DoxyCode}

@@ -21,4 +21,4 @@ class DiamondAsset : public GameAsset {
   GLuint vertex_buffer_token, element_buffer_token, colour_buffer_token;
 };
 
-#endif /// DIAMONDASSET_H
+#endif // DIAMONDASSET_H

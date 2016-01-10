@@ -21,4 +21,4 @@ class LeavesAsset : public GameAsset {
   GLuint vertex_buffer_token, element_buffer_token, colour_buffer_token;
 };
 
-#endif /// LEAVESASSET_H
+#endif // LEAVESASSET_H

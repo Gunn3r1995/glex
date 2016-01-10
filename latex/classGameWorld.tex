@@ -10,9 +10,9 @@
 \hyperlink{classGameWorld_a17a84e57a80600961088afc753036f89}{Game\+World} (\hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0}{Application\+Mode})
 \item 
 void \hyperlink{classGameWorld_a275418607d8286979b276f165ad5876b}{Draw} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Calling \hyperlink{classGameWorld_a275418607d8286979b276f165ad5876b}{Draw()} will draw the entire world. \end{DoxyCompactList}\item 
 void \hyperlink{classGameWorld_a43080b1c693798b12f7faf28a6b45ab5}{Camera\+\_\+\+Control} (char key)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Call Camera\+\_\+\+Control will move in specfic direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -55,43 +55,13 @@ We thread the Application\+Mode through the \hyperlink{classGameWorld}{Game\+Wor
 
 Spawns all the Voxel assets I made just outside the array space, Just so you can view each voxel on it\textquotesingle{}s own
 
-Ground Spawn
-
 Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two tall ground world for the world
 
-Small Diamond Tower
-
 Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns the Cube \& Diamond asset on top to create a small tower with a diamond on top
-
-Taller Diamond Tower
 
 Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns the Cube \& Diamond asset on top to create a taller tower with a diamond on top
 
 Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns the multiple voxels to create a shape of a simple tree
-
-Tree Ground
-
-Tree Trunk
-
-Tree Leaves -\/ Bottom Layer
-
-Tree Leaves -\/ Second Layer
-
-Tree Leaves -\/ Third Layer
-
-Tree Leaves -\/ Fourth Layer
-
-Pyramid Tower
-
-Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns the Cube \& Pyramid asset on top to create a small tower with a diamond on top
-
-Pyramid Spawn
-
-Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns Pyramid asset on top of the ground asset
-
-Grass Spawn
-
-Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns somewhat randomly multiple grass assets on top/ slighlty inside the ground asset To create the view of grass.
 \begin{DoxyCode}
 7                                           : asset\_manager (make\_shared<GameAssetManager>(mode))\{
 8   \textcolor{keywordtype}{int} pointX,pointY;
@@ -99,174 +69,188 @@ Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two
 10   \textcolor{keywordtype}{int} worldX = 20;
 11   \textcolor{keywordtype}{int} worldY = 20;
 12 
-26   \textcolor{keywordtype}{int} world[20][20] = \{
-27   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-28   \{1,2,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,2,1\},
-29   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-30   \{1,1,1,3,7,1,1,1,7,1,1,1,1,1,1,1,3,1,1,1\},
-31   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-32   \{1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,7,1,1,1,1\},
-33   \{1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-34   \{1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,7,1,1\},
-35   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-36   \{1,5,1,1,6,1,1,1,1,1,4,1,1,1,1,6,1,1,5,1\},
-37   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1\},
-38   \{1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1\},
-39   \{1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-40   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1\},
-41   \{1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,1,1,1,1,1\},
-42   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-43   \{1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1\},
-44   \{1,1,1,1,1,1,7,1,1,1,1,1,1,7,7,1,1,1,1,1\},
-45   \{1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1\},
-46   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-47   \};
-48   
-54         asset\_manager->AddAsset(make\_shared<GroundAsset>( 1.0f ,2.00f, -4.0f));
-55         asset\_manager->AddAsset(make\_shared<CubeAsset>(   3.0f ,2.00f, -4.0f));
-56         asset\_manager->AddAsset(make\_shared<LeavesAsset>( 5.0f ,2.00f, -4.0f));
-57         asset\_manager->AddAsset(make\_shared<DiamondAsset>(7.0f ,2.00f, -4.0f));
-58         asset\_manager->AddAsset(make\_shared<PyramidAsset>(9.0f ,1.50f, -4.0f)); 
-59         asset\_manager->AddAsset(make\_shared<GrassAsset>(  10.0f,1.50f, -4.0f));
-60 
-61   \textcolor{keywordflow}{for}( pointX=0; pointX<worldX; pointX++)\{
-62    \textcolor{keywordflow}{for} (pointY=0; pointY<worldY; pointY++)\{
-63     \textcolor{keywordflow}{if}( world[pointY][pointX] == 1)\{
-65 
-68             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-69             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-2.00f,(pointZ*pointY)));
-70    \}
-71     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 2)\{
-73 
-77             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-78             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-79             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
-80             asset\_manager->AddAsset(make\_shared<DiamondAsset>((pointX),1.0f,(pointZ*pointY)));
-81    \}
-82     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 3)\{
-84 
-88             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-89             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-90             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
-91             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
-92             asset\_manager->AddAsset(make\_shared<DiamondAsset>((pointX),2.0f,(pointZ*pointY)));
-93    \}
-94     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 4)\{
-95             \textcolor{comment}{//Tree Spawn}
-100 \textcolor{comment}{}            asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+27   \textcolor{keywordtype}{int} world[20][20] = \{
+28   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+29   \{1,2,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,2,1\},
+30   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+31   \{1,1,1,3,7,1,1,1,7,1,1,1,1,1,1,1,3,1,1,1\},
+32   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+33   \{1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,7,1,1,1,1\},
+34   \{1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+35   \{1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,7,1,1\},
+36   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+37   \{1,5,1,1,6,1,1,1,1,1,4,1,1,1,1,6,1,1,5,1\},
+38   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1\},
+39   \{1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1\},
+40   \{1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+41   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1\},
+42   \{1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,1,1,1,1,1\},
+43   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+44   \{1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1\},
+45   \{1,1,1,1,1,1,7,1,1,1,1,1,1,7,7,1,1,1,1,1\},
+46   \{1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1\},
+47   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+48   \};
+49   
+54 
+55         asset\_manager->AddAsset(make\_shared<GroundAsset>( 1.0f ,2.00f, -4.0f));
+56         asset\_manager->AddAsset(make\_shared<CubeAsset>(   3.0f ,2.00f, -4.0f));
+57         asset\_manager->AddAsset(make\_shared<LeavesAsset>( 5.0f ,2.00f, -4.0f));
+58         asset\_manager->AddAsset(make\_shared<DiamondAsset>(7.0f ,2.00f, -4.0f));
+59         asset\_manager->AddAsset(make\_shared<PyramidAsset>(9.0f ,1.50f, -4.0f)); 
+60         asset\_manager->AddAsset(make\_shared<GrassAsset>(  10.0f,1.50f, -4.0f));
+61 
+62   \textcolor{keywordflow}{for}( pointX=0; pointX<worldX; pointX++)\{
+63    \textcolor{keywordflow}{for} (pointY=0; pointY<worldY; pointY++)\{
+64     \textcolor{keywordflow}{if}( world[pointY][pointX] == 1)\{
+65             \textcolor{comment}{// Ground Spawn           }
+69 \textcolor{comment}{}            asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+70             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-2.00f,(pointZ*pointY)));
+71    \}
+72     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 2)\{
+73             \textcolor{comment}{// Small Diamond Tower}
+78 \textcolor{comment}{}            asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+79             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+80             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
+81             asset\_manager->AddAsset(make\_shared<DiamondAsset>((pointX),1.0f,(pointZ*pointY)));
+82    \}
+83     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 3)\{
+84             \textcolor{comment}{// Taller Diamond Tower}
+89 \textcolor{comment}{}            asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+90             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+91             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
+92             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
+93             asset\_manager->AddAsset(make\_shared<DiamondAsset>((pointX),2.0f,(pointZ*pointY)));
+94    \}
+95     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 4)\{
+96             \textcolor{comment}{//Tree Spawn}
+101 \textcolor{comment}{}            \textcolor{comment}{// Tree Ground}
 102             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-104             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
-105             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
-106             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),2.00f,(pointZ*pointY)));
-107             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),3.00f,(pointZ*pointY)));
-108             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),4.00f,(pointZ*pointY)));
-110             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-1)));
-111             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-1)));
-112             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-1)));
-113             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-1)));
-114             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-1)));
-115 
-116             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-2)));
-117             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-2)));
-118             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-2)));
-119             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-2)));
-120             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-2)));
-121 
-122             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY)));
-123             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY)));
-124             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY)));
-125             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY))); 
-126 
-127             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+1)));
-128             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+1)));
-129             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+1)));
-130             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+1)));
-131             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+1)));
-132  
-133             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+2)));
-134             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+2)));
-135             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+2)));
-136             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+2)));
-137             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+2)));
-139             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-1)));
-140             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-1)));
-141             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-1)));
-142             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-1)));
-143             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-1)));
-144  
-145             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-2)));
-146             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-2)));
-147             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-2)));
-148             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-2)));
-149             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-2)));
-150  
-151             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY)));
-152             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY)));
-153             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY)));
-154             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY)));
-155  
-156             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+1)));
-157             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+1)));
-158             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+1)));
-159             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+1)));
-160             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+1)));
-161 
-162             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+2)));
-163             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+2)));
-164             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+2)));
-165             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+2)));
-166             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+2)));
-168             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY-1)));
-169             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY-1)));
-170             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY-1))); 
-171 
-172             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY)));
-173             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY)));
-174             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY)));
-175  
-176             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY+1)));
-177             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY+1)));
-178             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY+1)));
-179 
-181             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY-1)));
-182 
-183             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),6.0f,(pointZ*pointY)));
-184             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY)));
-185             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),6.0f,(pointZ*pointY)));
-186 
-187             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY+1)));
-188    \}
-189     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 5)\{
-191 
-195             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-196             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-197             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
-198             asset\_manager->AddAsset(make\_shared<PyramidAsset>((pointX),0.50f,(pointZ*pointY)));
-199    \}
-200     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 6)\{
-202 
-206             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-207             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-208             asset\_manager->AddAsset(make\_shared<PyramidAsset>((pointX),-0.50f,(pointZ*pointY)));
-209    \}
-210     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 7)\{
-212 
-217             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-218             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-219             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.50f),(
+103             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+104             \textcolor{comment}{// Tree Trunk}
+105             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
+106             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
+107             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),2.00f,(pointZ*pointY)));
+108             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),3.00f,(pointZ*pointY)));
+109             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),4.00f,(pointZ*pointY)));
+110             \textcolor{comment}{// Tree Leaves - Bottom Layer}
+111             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-1)));
+112             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-1)));
+113             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-1)));
+114             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-1)));
+115             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-1)));
+116 
+117             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-2)));
+118             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-2)));
+119             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-2)));
+120             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-2)));
+121             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-2)));
+122 
+123             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY)));
+124             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY)));
+125             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY)));
+126             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY))); 
+127 
+128             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+1)));
+129             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+1)));
+130             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+1)));
+131             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+1)));
+132             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+1)));
+133  
+134             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+2)));
+135             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+2)));
+136             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+2)));
+137             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+2)));
+138             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+2)));
+139             \textcolor{comment}{// Tree Leaves - Second Layer}
+140             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-1)));
+141             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-1)));
+142             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-1)));
+143             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-1)));
+144             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-1)));
+145  
+146             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-2)));
+147             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-2)));
+148             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-2)));
+149             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-2)));
+150             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-2)));
+151  
+152             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY)));
+153             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY)));
+154             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY)));
+155             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY)));
+156  
+157             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+1)));
+158             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+1)));
+159             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+1)));
+160             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+1)));
+161             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+1)));
+162 
+163             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+2)));
+164             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+2)));
+165             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+2)));
+166             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+2)));
+167             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+2)));
+168             \textcolor{comment}{// Tree Leaves - Third Layer}
+169             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY-1)));
+170             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY-1)));
+171             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY-1))); 
+172 
+173             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY)));
+174             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY)));
+175             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY)));
+176  
+177             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY+1)));
+178             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY+1)));
+179             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY+1)));
+180 
+181             \textcolor{comment}{// Tree Leaves - Fourth Layer}
+182             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY-1)));
+183 
+184             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),6.0f,(pointZ*pointY)));
+185             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY)));
+186             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),6.0f,(pointZ*pointY)));
+187 
+188             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY+1)));
+189    \}
+190     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 5)\{
+191             \textcolor{comment}{// Pyramid Tower}
+193 \textcolor{comment}{}            \textcolor{comment}{// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world}
+194             \textcolor{comment}{// Spawns the Cube & Pyramid asset on top to create a small tower with a diamond on top}
+196 \textcolor{comment}{}            asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+197             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+198             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
+199             asset\_manager->AddAsset(make\_shared<PyramidAsset>((pointX),0.50f,(pointZ*pointY)));
+200    \}
+201     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 6)\{
+202             \textcolor{comment}{// Pyramid Spawn}
+204 \textcolor{comment}{}            \textcolor{comment}{// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world}
+205             \textcolor{comment}{// Spawns Pyramid asset on top of the ground asset}
+207 \textcolor{comment}{}            asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+208             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+209             asset\_manager->AddAsset(make\_shared<PyramidAsset>((pointX),-0.50f,(pointZ*pointY)));
+210    \}
+211     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 7)\{
+212             \textcolor{comment}{// Grass Spawn}
+214 \textcolor{comment}{}            \textcolor{comment}{// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world}
+215             \textcolor{comment}{// Spawns somewhat randomly multiple grass assets on top/ slighlty inside the ground asset}
+216             \textcolor{comment}{// To create the view of grass.}
+218 \textcolor{comment}{}            asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+219             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+220             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.50f),(
       pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand()%100))));            
-220             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.30f),(
+221             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.30f),(
       pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
-221             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.45f),(
+222             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.45f),(
       pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
-222             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.50f),(
+223             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.50f),(
       pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
-223             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.20f),(
+224             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.20f),(
       pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
-224    \}
-225   \}
-226  \}  
-227 \}
+225    \}
+226   \}
+227  \}  
+228 \}
 \end{DoxyCode}
 
 
@@ -278,60 +262,44 @@ Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two
 \item[{char}]{key}
 \end{DoxyParamCaption}
 )}\label{classGameWorld_a43080b1c693798b12f7faf28a6b45ab5}
-Call Camera\+\_\+\+Control will move in specfic direction
 
-Controls all the movement and positions of the camera Uses keyboard and Mouse movements to move around the world space Tells the Camera matrix what position to look at and where to move W Key Pressed will move Camera forward
 
-A Key Pressed will move Camera left
+Call Camera\+\_\+\+Control will move in specfic direction. 
 
-S Key Pressed will move Camera down
-
-D Key Pressed will move Camera right
-
-Camera look Up
-
-Camera look left
-
-Camera look down
-
-Camera look right
-
-Jump up/ 0.\+1, Would like to improve it to a actually jump mechanic
-
-Drop down/ -\/0.\+1 
+Controls all the movement and positions of the camera Uses keyboard and Mouse movements to move around the world space Tells the Camera matrix what position to look at and where to move 
 \begin{DoxyCode}
-234                                        \{
-235   \textcolor{keywordflow}{if} ( key == \textcolor{charliteral}{'w'} ) \{        
-236         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} += \hyperlink{classGameWorld_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{Movement\_Z} * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
-237  \}
-238   \textcolor{keywordflow}{if} ( key == \textcolor{charliteral}{'a'} ) \{        
-239         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} -= \hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movement\_X} * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
-240  \}
-241   \textcolor{keywordflow}{if} ( key == \textcolor{charliteral}{'s'} ) \{        
-242         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} -= \hyperlink{classGameWorld_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{Movement\_Z} * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
-243  \}
-244   \textcolor{keywordflow}{if} ( key == \textcolor{charliteral}{'d'} ) \{        
-245         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} += \hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movement\_X} * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
-246  \}
-247   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'^'}) \{          
-248         \hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical} += 0.5f * \hyperlink{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\_Sensitivity};
-249  \}
-250   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'<'}) \{          
-251         \hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal} += 0.5f * \hyperlink{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\_Sensitivity};
-252  \}
-253   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'v'}) \{          
-254         \hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical} -= 0.5f * \hyperlink{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\_Sensitivity};
-255  \}
-256   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'>'}) \{          
-257         \hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal} -= 0.5f * \hyperlink{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\_Sensitivity};
-258  \}
-259   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'+'}) \{          
-260         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} += 0.1f * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
-261  \}
-262   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'-'}) \{          
-263         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} -= 0.1f * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
-264  \}
-265 \}
+235                                        \{
+236   \textcolor{keywordflow}{if} ( key == \textcolor{charliteral}{'w'} ) \{        \textcolor{comment}{// W Key Pressed will move Camera forward}
+237         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} += \hyperlink{classGameWorld_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{Movement\_Z} * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
+238  \}
+239   \textcolor{keywordflow}{if} ( key == \textcolor{charliteral}{'a'} ) \{        \textcolor{comment}{// A Key Pressed will move Camera left}
+240         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} -= \hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movement\_X} * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
+241  \}
+242   \textcolor{keywordflow}{if} ( key == \textcolor{charliteral}{'s'} ) \{        \textcolor{comment}{// S Key Pressed will move Camera down}
+243         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} -= \hyperlink{classGameWorld_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{Movement\_Z} * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
+244  \}
+245   \textcolor{keywordflow}{if} ( key == \textcolor{charliteral}{'d'} ) \{        \textcolor{comment}{// D Key Pressed will move Camera right}
+246         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} += \hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movement\_X} * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
+247  \}
+248   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'^'}) \{          \textcolor{comment}{// Camera look Up}
+249         \hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical} += 0.5f * \hyperlink{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\_Sensitivity};
+250  \}
+251   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'<'}) \{          \textcolor{comment}{// Camera look left}
+252         \hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal} += 0.5f * \hyperlink{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\_Sensitivity};
+253  \}
+254   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'v'}) \{          \textcolor{comment}{// Camera look down}
+255         \hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical} -= 0.5f * \hyperlink{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\_Sensitivity};
+256  \}
+257   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'>'}) \{          \textcolor{comment}{// Camera look right}
+258         \hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal} -= 0.5f * \hyperlink{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\_Sensitivity};
+259  \}
+260   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'+'}) \{          \textcolor{comment}{// Jump up/ 0.1, Would like to improve it to a actually jump mechanic}
+261         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} += 0.1f * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
+262  \}
+263   \textcolor{keywordflow}{if} (key == \textcolor{charliteral}{'-'}) \{          \textcolor{comment}{// Drop down/ -0.1}
+264         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} -= 0.1f * \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\_Speed};
+265  \}
+266 \}
 \end{DoxyCode}
 \hypertarget{classGameWorld_a275418607d8286979b276f165ad5876b}{}\index{Game\+World@{Game\+World}!Draw@{Draw}}
 \index{Draw@{Draw}!Game\+World@{Game\+World}}
@@ -340,50 +308,50 @@ Drop down/ -\/0.\+1
 {}
 \end{DoxyParamCaption}
 )}\label{classGameWorld_a275418607d8286979b276f165ad5876b}
-Calling \hyperlink{classGameWorld_a275418607d8286979b276f165ad5876b}{Draw()} will draw the entire world.
 
-Draws the assets to the world by calling \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} Sends the camera positions and movements to the translate shader 1 Calculates the distance each camera movement changes the camera direction
+
+Calling \hyperlink{classGameWorld_a275418607d8286979b276f165ad5876b}{Draw()} will draw the entire world. 
+
+Draws the assets to the world by calling \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} Sends the camera positions and movements to the translate shader Calculates the distance each camera movement changes the camera direction
 
 Projection matrix \+: degree = 45, Field of View = 4\+:3 ratio, display = 0.\+1 unit $<$-\/$>$ 1000 units
-
-Where the Camera Looks at
 
 changes where the camera position looks up to use the camera position changes the direction you look at Makes the world the correct orientation
 
 Sends the data to the translate.\+vs shader
 \begin{DoxyCode}
-271                      \{
-272         \textcolor{comment}{// Camera Direction}
-276 \textcolor{comment}{}        glm::vec3 direction(
-277         cos(\hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical}) * sin(\hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal}),
-278         sin(\hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical}),
-279         cos(\hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical}) * cos(\hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal})
-280     );
-281 
-282     \hyperlink{classGameWorld_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{Movement\_Z} = direction;
-283 
-284     \hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movement\_X} = glm::vec3(
-285         sin(\hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal} - 3.14f/2.0f),
-286         0,
-287         cos(\hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal} - 3.14f/2.0f)
-288     );
-289 
-290     glm::vec3 vup = glm::cross(\hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movement\_X}, direction);
-292     glm::mat4 Camera\_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
-294 
-299     glm::mat4 Camera\_View = glm::lookAt(
-300         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position},
-301         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} + direction,
-302         vup
-303     );
-304     glm::mat4 Camera\_Model(1.0f);
-305 
-309     glUniformMatrix4fv(0, 1, GL\_FALSE, &Camera\_Projection[0][0]);
-310     glUniformMatrix4fv(1, 1, GL\_FALSE, &Camera\_View[0][0]);
-311     glUniformMatrix4fv(2, 1, GL\_FALSE, &Camera\_Model[0][0]);
-312 
-313         asset\_manager->Draw();
-314 \}
+272                      \{
+273         \textcolor{comment}{// Camera Direction}
+277 \textcolor{comment}{}        glm::vec3 direction(
+278         cos(\hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical}) * sin(\hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal}),
+279         sin(\hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical}),
+280         cos(\hyperlink{classGameWorld_a26658e739c4d267b1be35ed820089931}{Camera\_Vertical}) * cos(\hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal})
+281     );
+282 
+283     \hyperlink{classGameWorld_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{Movement\_Z} = direction;
+284 
+285     \hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movement\_X} = glm::vec3(
+286         sin(\hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal} - 3.14f/2.0f),
+287         0,
+288         cos(\hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\_Horizontal} - 3.14f/2.0f)
+289     );
+290 
+291     glm::vec3 vup = glm::cross(\hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movement\_X}, direction);
+293     glm::mat4 Camera\_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
+294         \textcolor{comment}{// Where the Camera Looks at}
+300 \textcolor{comment}{}    glm::mat4 Camera\_View = glm::lookAt(
+301         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position},
+302         \hyperlink{classGameWorld_ad80e597474ea4c52a583e81788187571}{Camera\_Position} + direction,
+303         vup
+304     );
+305     glm::mat4 Camera\_Model(1.0f);
+306 
+310     glUniformMatrix4fv(0, 1, GL\_FALSE, &Camera\_Projection[0][0]);
+311     glUniformMatrix4fv(1, 1, GL\_FALSE, &Camera\_View[0][0]);
+312     glUniformMatrix4fv(2, 1, GL\_FALSE, &Camera\_Model[0][0]);
+313 
+314         asset\_manager->Draw();
+315 \}
 \end{DoxyCode}
 
 
@@ -391,10 +359,10 @@ Sends the data to the translate.\+vs shader
 \hypertarget{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{}\index{Game\+World@{Game\+World}!Camera\+\_\+\+Horizontal@{Camera\+\_\+\+Horizontal}}
 \index{Camera\+\_\+\+Horizontal@{Camera\+\_\+\+Horizontal}!Game\+World@{Game\+World}}
 \subsubsection[{Camera\+\_\+\+Horizontal}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lfloat Game\+World\+::\+Camera\+\_\+\+Horizontal = 0.\+0}\label{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}
-Controls the distance each movement moves by \hypertarget{classGameWorld_ad80e597474ea4c52a583e81788187571}{}\index{Game\+World@{Game\+World}!Camera\+\_\+\+Position@{Camera\+\_\+\+Position}}
+\hypertarget{classGameWorld_ad80e597474ea4c52a583e81788187571}{}\index{Game\+World@{Game\+World}!Camera\+\_\+\+Position@{Camera\+\_\+\+Position}}
 \index{Camera\+\_\+\+Position@{Camera\+\_\+\+Position}!Game\+World@{Game\+World}}
 \subsubsection[{Camera\+\_\+\+Position}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+World\+::\+Camera\+\_\+\+Position = glm\+::vec3(1, 2, -\/1)}\label{classGameWorld_ad80e597474ea4c52a583e81788187571}
-Sets where the starting positions of the camera and the direction it is looking at \hypertarget{classGameWorld_a26658e739c4d267b1be35ed820089931}{}\index{Game\+World@{Game\+World}!Camera\+\_\+\+Vertical@{Camera\+\_\+\+Vertical}}
+\hypertarget{classGameWorld_a26658e739c4d267b1be35ed820089931}{}\index{Game\+World@{Game\+World}!Camera\+\_\+\+Vertical@{Camera\+\_\+\+Vertical}}
 \index{Camera\+\_\+\+Vertical@{Camera\+\_\+\+Vertical}!Game\+World@{Game\+World}}
 \subsubsection[{Camera\+\_\+\+Vertical}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lfloat Game\+World\+::\+Camera\+\_\+\+Vertical = 0.\+0}\label{classGameWorld_a26658e739c4d267b1be35ed820089931}
 \hypertarget{classGameWorld_a1cddcf233625a98581eaeb9fd7c8c574}{}\index{Game\+World@{Game\+World}!Maximum\+Number@{Maximum\+Number}}
@@ -406,7 +374,7 @@ Sets where the starting positions of the camera and the direction it is looking 
 \hypertarget{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{}\index{Game\+World@{Game\+World}!Mouse\+\_\+\+Sensitivity@{Mouse\+\_\+\+Sensitivity}}
 \index{Mouse\+\_\+\+Sensitivity@{Mouse\+\_\+\+Sensitivity}!Game\+World@{Game\+World}}
 \subsubsection[{Mouse\+\_\+\+Sensitivity}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lfloat Game\+World\+::\+Mouse\+\_\+\+Sensitivity = 0.\+05f}\label{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}
-Camera Variables Controls Speed of Play/\+Camera \hypertarget{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{}\index{Game\+World@{Game\+World}!Movement\+\_\+\+X@{Movement\+\_\+\+X}}
+Camera Variables Controls Speed of Play/\+Camera Controls the distance each movement moves by Sets where the starting positions of the camera and the direction it is looking at \hypertarget{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{}\index{Game\+World@{Game\+World}!Movement\+\_\+\+X@{Movement\+\_\+\+X}}
 \index{Movement\+\_\+\+X@{Movement\+\_\+\+X}!Game\+World@{Game\+World}}
 \subsubsection[{Movement\+\_\+\+X}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+World\+::\+Movement\+\_\+\+X}\label{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}
 \hypertarget{classGameWorld_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{}\index{Game\+World@{Game\+World}!Movement\+\_\+\+Z@{Movement\+\_\+\+Z}}

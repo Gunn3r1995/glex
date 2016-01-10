@@ -1,8 +1,6 @@
 <map id="src/GameAssetManager.h" name="src/GameAssetManager.h">
-<area shape="rect" id="node2" href="$GameWorld_8h.html" title="src/GameWorld.h" alt="" coords="248,80,372,107"/>
-<area shape="rect" id="node7" href="$GameAssetManager_8cc.html" title="src/GameAssetManager.cc" alt="" coords="397,80,578,107"/>
-<area shape="rect" id="node3" href="$DiamondAsset_8cc.html" title="src/DiamondAsset.cc" alt="" coords="5,155,153,181"/>
-<area shape="rect" id="node4" href="$GameWorld_8cc.html" title="src/GameWorld.cc" alt="" coords="178,155,309,181"/>
-<area shape="rect" id="node5" href="$main_8cc.html" title="src/main.cc" alt="" coords="333,155,423,181"/>
-<area shape="rect" id="node6" href="$PyramidAsset_8cc.html" title="src/PyramidAsset.cc" alt="" coords="447,155,591,181"/>
+<area shape="rect" id="node2" href="$GameAssetManager_8cc.html" title="src/GameAssetManager.cc" alt="" coords="5,80,187,107"/>
+<area shape="rect" id="node3" href="$GameWorld_8h.html" title="src/GameWorld.h" alt="" coords="211,80,335,107"/>
+<area shape="rect" id="node4" href="$GameWorld_8cc.html" title="src/GameWorld.cc" alt="" coords="140,155,271,181"/>
+<area shape="rect" id="node5" href="$main_8cc.html" title="src/main.cc" alt="" coords="295,155,385,181"/>
 </map>

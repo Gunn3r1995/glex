@@ -45,72 +45,66 @@ void \hyperlink{classDiamondAsset_ad0eafff97cf565024dd085f3c8786a93}{check\+Erro
 \item[{G\+Lfloat}]{z}
 \end{DoxyParamCaption}
 )}\label{classDiamondAsset_a6140b65eb30ad5a4141fec20ec7f8fad}
-model coordinates, origin at centre.
-
 Sets cordinates to a diamond with the center point 0.\+0 but moved to where the x, y, z variables calls them
 
 Colour of Diamond Asset Red Uses R\+G\+B values
 
 Draws the Diamond up of 8 Triangles One Triangles per Face
-
-Transfer buffers to the G\+P\+U
-
-create buffer
-
-immediately bind the buffer and transfer the data
-
-Binds the buffer and transfers the data 
 \begin{DoxyCode}
-4                                                           \{
-5 
-7 
-11   GLfloat vertex\_buffer [] \{
-12      -0.5f + x  , 0.0f + y   , 0.0f + z
-13      ,0.5f + x  , 0.0f + y   , 0.0f + z
-14      ,0.0f + x  ,-0.5f + y   , 0.0f + z
-15      ,0.0f + x  , 0.5f + y   , 0.0f + z
-16      ,0.0f + x  , 0.0f + y   ,-0.5f + z
-17      ,0.0f + x  , 0.0f + y   , 0.5f + z
-18   \};
-19   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
-24   GLfloat colour\_buffer[] = \{
-25 
+3                                                           \{
+4 
+5   \textcolor{comment}{// model coordinates, origin at centre.}
+10 \textcolor{comment}{}  GLfloat vertex\_buffer [] \{
+11      -0.5f + x  , 0.0f + y   , 0.0f + z
+12      ,0.5f + x  , 0.0f + y   , 0.0f + z
+13      ,0.0f + x  ,-0.5f + y   , 0.0f + z
+14      ,0.0f + x  , 0.5f + y   , 0.0f + z
+15      ,0.0f + x  , 0.0f + y   ,-0.5f + z
+16      ,0.0f + x  , 0.0f + y   , 0.5f + z
+17   \};
+18   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+23   GLfloat colour\_buffer[] = \{
+24 
+25      1.000f, 0.000f, 0.000f,
 26      1.000f, 0.000f, 0.000f,
 27      1.000f, 0.000f, 0.000f,
 28      1.000f, 0.000f, 0.000f,
 29      1.000f, 0.000f, 0.000f,
-30      1.000f, 0.000f, 0.000f,
-31      1.000f, 0.000f, 0.000f
-32   \};
-33   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
-38   GLuint element\_buffer []  \{
-39       0, 3, 5   
-40     , 3, 1, 5
-41     , 0, 5, 2   
-42     , 5, 1, 2
-43     , 0, 3, 4
-44     , 3, 1, 4
-45     , 0, 4, 2
-46     , 4, 1, 2
-47   \};
-48   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+30      1.000f, 0.000f, 0.000f
+31   \};
+32   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+37   GLuint element\_buffer []  \{
+38       0, 3, 5   
+39     , 3, 1, 5
+40     , 0, 5, 2   
+41     , 5, 1, 2
+42     , 0, 3, 4
+43     , 3, 1, 4
+44     , 0, 4, 2
+45     , 4, 1, 2
+46   \};
+47   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+48 
 49 
 50 
-51 
-53 
-55   glGenBuffers(1, &vertex\_buffer\_token);
-57   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
-58   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
-59 
-61   glGenBuffers(1, &colour\_buffer\_token);
-62   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-63   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+51   \textcolor{comment}{// Transfer buffers to the GPU}
+52 
+53   \textcolor{comment}{// create buffer}
+54   glGenBuffers(1, &vertex\_buffer\_token);
+55   \textcolor{comment}{// immediately bind the buffer and transfer the data}
+56   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+57   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+58 
+59   \textcolor{comment}{// Binds the buffer and transfers the data}
+60   glGenBuffers(1, &colour\_buffer\_token);
+61   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+62   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+63 
 64 
-65 
-66   glGenBuffers(1, &element\_buffer\_token);
-67   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-68   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
-69 \}
+65   glGenBuffers(1, &element\_buffer\_token);
+66   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+67   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+68 \}
 \end{DoxyCode}
 \hypertarget{classDiamondAsset_a1b7bf6ba76651a9304943f2c41fe36b8}{}\index{Diamond\+Asset@{Diamond\+Asset}!````~Diamond\+Asset@{$\sim$\+Diamond\+Asset}}
 \index{````~Diamond\+Asset@{$\sim$\+Diamond\+Asset}!Diamond\+Asset@{Diamond\+Asset}}
@@ -121,8 +115,8 @@ Binds the buffer and transfers the data
 )}\label{classDiamondAsset_a1b7bf6ba76651a9304943f2c41fe36b8}
 
 \begin{DoxyCode}
-71                             \{
-72 \}
+70                             \{
+71 \}
 \end{DoxyCode}
 
 
@@ -137,13 +131,13 @@ Binds the buffer and transfers the data
 )}\label{classDiamondAsset_ad0eafff97cf565024dd085f3c8786a93}
 
 \begin{DoxyCode}
-81                                                       \{
-82   GLenum gl\_error = glGetError();
-83   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
-84     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
-85     exit(-1);
-86   \}
-87 \}
+80                                                       \{
+81   GLenum gl\_error = glGetError();
+82   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+83     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+84     exit(-1);
+85   \}
+86 \}
 \end{DoxyCode}
 \hypertarget{classDiamondAsset_a0c259031894623285b3b511321c73abb}{}\index{Diamond\+Asset@{Diamond\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Diamond\+Asset@{Diamond\+Asset}}
@@ -152,102 +146,76 @@ Binds the buffer and transfers the data
 \item[{G\+Luint}]{program\+\_\+token}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classDiamondAsset_a0c259031894623285b3b511321c73abb}
-The max\+Length includes the N\+U\+L\+L character
-
 use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
 
-attribute
-
-size
-
-type
-
-normalized?
-
-stride
-
-array buffer offset
-
 Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
-
-attribute
-
-size
-
-type
-
-normalized?
-
-stride
-
-array buffer offset 
 
 Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
 
 
 \begin{DoxyCode}
-89                                             \{
-90   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
-91     std::cerr << \textcolor{stringliteral}{"Drawing Diamond with invalid program"} << std::endl;
-92     \textcolor{keywordflow}{return};
-93   \}
-94   GLint validation\_ok;
-95   glValidateProgram(program\_token);
-96   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
-97   \textcolor{keywordflow}{if}(!validation\_ok) \{
-98     GLint maxLength = 0;
-99     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
-100 
-102     std::vector<char> errorLog(maxLength);
-103     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
-104 
-105     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
-106     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
-107       std::cerr << c;
-108     \}
-109     exit(-1);
-110   \}
-111 
-112   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
-113   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-114 
-115   glUseProgram(program\_token);
-116   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-117 
-121   glEnableVertexAttribArray(0);
-122   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
-123   glVertexAttribPointer(
-124     position\_attrib,        
-125     3,        
-126     GL\_FLOAT,   
-127     GL\_FALSE,   
-128     0,        
-129     (\textcolor{keywordtype}{void}*)0    
-130   );
-131   glEnableVertexAttribArray(1);
-132   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-137   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-138   glVertexAttribPointer(
-139     1,        
-140     3,        
-141     GL\_FLOAT,   
-142     GL\_FALSE,   
-143     0,        
-144     (\textcolor{keywordtype}{void}*)0    
-145   );
-146   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-147 
-148   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-149   glDrawElements(
-150     GL\_TRIANGLES,
-151     element\_buffer\_length,
-152     GL\_UNSIGNED\_INT,
-153     (GLvoid*) 0
-154   );
-155   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-156 
-157   glDisableVertexAttribArray(position\_attrib);
-158 \}
+88                                             \{
+89   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+90     std::cerr << \textcolor{stringliteral}{"Drawing Diamond with invalid program"} << std::endl;
+91     \textcolor{keywordflow}{return};
+92   \}
+93   GLint validation\_ok;
+94   glValidateProgram(program\_token);
+95   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+96   \textcolor{keywordflow}{if}(!validation\_ok) \{
+97     GLint maxLength = 0;
+98     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+99 
+100     \textcolor{comment}{// The maxLength includes the NULL character}
+101     std::vector<char> errorLog(maxLength);
+102     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+103 
+104     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+105     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+106       std::cerr << c;
+107     \}
+108     exit(-1);
+109   \}
+110 
+111   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+112   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+113 
+114   glUseProgram(program\_token);
+115   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+120   glEnableVertexAttribArray(0);
+121   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+122   glVertexAttribPointer(
+123     position\_attrib,        \textcolor{comment}{/* attribute */}
+124     3,        \textcolor{comment}{/* size */}
+125     GL\_FLOAT,   \textcolor{comment}{/* type */}
+126     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+127     0,        \textcolor{comment}{/* stride */}
+128     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+129   );
+130   glEnableVertexAttribArray(1);
+131   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+136   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+137   glVertexAttribPointer(
+138     1,        \textcolor{comment}{/* attribute */}
+139     3,        \textcolor{comment}{/* size */}
+140     GL\_FLOAT,   \textcolor{comment}{/* type */}
+141     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+142     0,        \textcolor{comment}{/* stride */}
+143     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+144   );
+145   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+146 
+147   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+148   glDrawElements(
+149     GL\_TRIANGLES,
+150     element\_buffer\_length,
+151     GL\_UNSIGNED\_INT,
+152     (GLvoid*) 0
+153   );
+154   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+155 
+156   glDisableVertexAttribArray(position\_attrib);
+157 \}
 \end{DoxyCode}
 
 

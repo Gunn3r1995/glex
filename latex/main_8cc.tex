@@ -60,7 +60,7 @@ int \hyperlink{main_8cc_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char
 \item[{const std\+::shared\+\_\+ptr$<$ {\bf Game\+World} $>$ \&}]{game\+\_\+world}
 \end{DoxyParamCaption}
 )}\label{main_8cc_ae1fc7acb89acd89e2d93d844387f73a8}
-Don\textquotesingle{}t forget to swap the buffers 
+
 \begin{DoxyCode}
 39                                                                                                  \{
 40   glClearColor(0.0f, 206.0f, 250.0f, 1.0f);
@@ -68,6 +68,7 @@ Don\textquotesingle{}t forget to swap the buffers
 42 
 43   game\_world->Draw();
 44 
+45   \textcolor{comment}{// Don't forget to swap the buffers}
 46   SDL\_GL\_SwapWindow(window.get());
 47 \}
 \end{DoxyCode}
@@ -78,45 +79,35 @@ Don\textquotesingle{}t forget to swap the buffers
 {}
 \end{DoxyParamCaption}
 )}\label{main_8cc_acab7ade71cf38099442ca5df2495223d}
-1280;
 
-800;
-
-Glew will later ensure that Open\+G\+L 3 {\itshape is} supported
-
-Do double buffering in G\+L
-
-Initialise S\+D\+L -\/ when using C/\+C++ it\textquotesingle{}s common to have to initialise libraries by calling a function within them.
-
-When we close a window quit the S\+D\+L application
-
-Create a new window with an Open\+G\+L surface
-
-Initialise G\+L\+E\+W -\/ an easy way to ensure Open\+Gl 3.\+0+ The {\itshape must} be done after we have set the video mode -\/ otherwise we have no Open\+G\+L context to test.
-
-Open\+G\+L settings 
 \begin{DoxyCode}
 49                                       \{
-50   Uint32 width = 1280;
-51   Uint32 height = 800;
+50   Uint32 width = 1280;\textcolor{comment}{//1280;}
+51   Uint32 height = 800;\textcolor{comment}{//800;}
 52   SDL\_Window * \_window;
 53   std::shared\_ptr<SDL\_Window> window;
 54   
 55 
+56   \textcolor{comment}{// Glew will later ensure that OpenGL 3 *is* supported}
 57   SDL\_GL\_SetAttribute(SDL\_GL\_CONTEXT\_PROFILE\_MASK, SDL\_GL\_CONTEXT\_PROFILE\_CORE);
 58   SDL\_GL\_SetAttribute(SDL\_GL\_CONTEXT\_MAJOR\_VERSION, 3);
 59   SDL\_GL\_SetAttribute(SDL\_GL\_CONTEXT\_MINOR\_VERSION, 0);
 60 
+61   \textcolor{comment}{// Do double buffering in GL}
 62   SDL\_GL\_SetAttribute(SDL\_GL\_DOUBLEBUFFER, 1);
 63   SDL\_GL\_SetAttribute(SDL\_GL\_DEPTH\_SIZE, 24);
 64  
+65   \textcolor{comment}{// Initialise SDL - when using C/C++ it's common to have to}
+66   \textcolor{comment}{// initialise libraries by calling a function within them.}
 67   \textcolor{keywordflow}{if} (SDL\_Init(SDL\_INIT\_VIDEO|SDL\_INIT\_AUDIO|SDL\_INIT\_TIMER)<0) \{
 68     std::cout << \textcolor{stringliteral}{"Failed to initialise SDL: "} << SDL\_GetError() << std::endl;
 69     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
 70   \}
 71 
+72   \textcolor{comment}{// When we close a window quit the SDL application}
 73   atexit(SDL\_Quit);
 74 
+75   \textcolor{comment}{// Create a new window with an OpenGL surface}
 76   \_window = SDL\_CreateWindow(\textcolor{stringliteral}{"Shader Example"}
 77                              , SDL\_WINDOWPOS\_CENTERED
 78                              , SDL\_WINDOWPOS\_CENTERED
@@ -134,12 +125,16 @@ Open\+G\+L settings
 90     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
 91   \}
 92 
+93   \textcolor{comment}{// Initialise GLEW - an easy way to ensure OpenGl 3.0+}
+94   \textcolor{comment}{// The *must* be done after we have set the video mode - otherwise we have no}
+95   \textcolor{comment}{// OpenGL context to test.}
 96   glewInit();
 97   \textcolor{keywordflow}{if} (!glewIsSupported(\textcolor{stringliteral}{"GL\_VERSION\_3\_0"})) \{
 98     std::cerr << \textcolor{stringliteral}{"OpenGL 3.0 not available"} << std::endl;
 99     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
 100   \}
 101 
+102   \textcolor{comment}{// OpenGL settings}
 103   glDisable(GL\_CULL\_FACE);
 104   glEnable(GL\_DEPTH\_TEST);
 105   glDepthFunc(GL\_LESS);
@@ -156,58 +151,12 @@ Open\+G\+L settings
 \item[{char $\ast$$\ast$}]{argv}
 \end{DoxyParamCaption}
 )}\label{main_8cc_a3c04138a5bfe5d72780bb7e82a18e627}
-in milliseconds, Temporary change to 30fps to fix speed of the game.
-
-Call the function \char`\"{}tick\char`\"{} every delay milliseconds
-
 Add the main event loop
 
 Detects Keyboard and Mouse Sends Data to \hyperlink{classGameWorld}{Game\+World} Camera Controls
-
-save old mouse coordinates X
-
-get mouse coordinates X
-
-Mouse move Right
-
-Mouse move Left
-
-save old mouse coordinates Y
-
-get mouse coordinates Y
-
-Mouse move Up
-
-Mouse move Down
-
-At keyboard press
-
-when pressing q
-
-Quit program
-
-When pressing w
-
-When pressing a
-
-When pressing s
-
-When pressing d
-
-When pressing Arrow Up
-
-When pressing Arrow Left
-
-When pressing Arrow down
-
-When pressing Arrow right
-
-When pressing Space Go Up
-
-When pressing Tab Go Down 
 \begin{DoxyCode}
 141                                    \{
-142     Uint32 delay = 1000/30; 
+142     Uint32 delay = 1000/30; \textcolor{comment}{// in milliseconds, Temporary change to 30fps to fix speed of the game.}
 143 
 144   \textcolor{keyword}{auto} mode = \hyperlink{main_8cc_aba227fab3b52f0ce7c5b89d75b88dcdc}{ParseOptions}(argc, argv);
 145   \textcolor{keyword}{auto} window = \hyperlink{main_8cc_acab7ade71cf38099442ca5df2495223d}{InitWorld}();
@@ -216,6 +165,7 @@ When pressing Tab Go Down
 148     SDL\_Quit();
 149   \} 
 150 
+151   \textcolor{comment}{// Call the function "tick" every delay milliseconds}
 152   SDL\_AddTimer(delay, \hyperlink{main_8cc_a70eaa727262f633037c3f4b7d3ff24c2}{tick}, NULL);
 153 
 154         cout << \textcolor{stringliteral}{"****************************************************************************************"} 
@@ -357,7 +307,6 @@ When pressing Tab Go Down
 226         \textcolor{keywordtype}{int} Mouse\_X;
 227         \textcolor{keywordtype}{int} Mouse\_Y;
 228 
-230 
 234   SDL\_Event event;
 235   \textcolor{keywordflow}{while} (SDL\_WaitEvent(&event)) \{
 236     \textcolor{keywordflow}{switch} (event.type) \{
@@ -368,58 +317,62 @@ When pressing Tab Go Down
 241       \hyperlink{main_8cc_ae1fc7acb89acd89e2d93d844387f73a8}{Draw}(window, game\_world);
 242       \textcolor{keywordflow}{break};
 243     \textcolor{keywordflow}{case}  SDL\_MOUSEMOTION:
+244         \textcolor{comment}{// save old mouse coordinates X}
 245         Old\_Mouse\_X = Mouse\_X;
+246         \textcolor{comment}{// get mouse coordinates X}
 247         Mouse\_X = \textcolor{keyword}{event}.motion.x;
 248         
-249       \textcolor{keywordflow}{if} (Mouse\_X > Old\_Mouse\_X) \{             
+249       \textcolor{keywordflow}{if} (Mouse\_X > Old\_Mouse\_X) \{             \textcolor{comment}{// Mouse move Right}
 250               game\_world -> Camera\_Control(\textcolor{charliteral}{'>'});
 251       \}
-252       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Mouse\_X < Old\_Mouse\_X) \{        
+252       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Mouse\_X < Old\_Mouse\_X) \{        \textcolor{comment}{// Mouse move Left}
 253               game\_world -> Camera\_Control(\textcolor{charliteral}{'<'});
 254       \}
+255         \textcolor{comment}{// save old mouse coordinates Y}
 256         Old\_Mouse\_Y = Mouse\_Y;
+257         \textcolor{comment}{// get mouse coordinates Y}
 258         Mouse\_Y = \textcolor{keyword}{event}.motion.y;
-259       \textcolor{keywordflow}{if} (Mouse\_Y < Old\_Mouse\_Y) \{             
+259       \textcolor{keywordflow}{if} (Mouse\_Y < Old\_Mouse\_Y) \{             \textcolor{comment}{// Mouse move Up }
 260               game\_world -> Camera\_Control(\textcolor{charliteral}{'^'});
 261       \}
-262       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Mouse\_Y > Old\_Mouse\_Y) \{ 
+262       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Mouse\_Y > Old\_Mouse\_Y) \{ \textcolor{comment}{// Mouse move Down}
 263               game\_world -> Camera\_Control(\textcolor{charliteral}{'v'});
 264       \}
 265       \textcolor{keywordflow}{break};
-266     \textcolor{keywordflow}{case} SDL\_KEYDOWN:           
+266     \textcolor{keywordflow}{case} SDL\_KEYDOWN:           \textcolor{comment}{// At keyboard press}
 267     \textcolor{keywordflow}{switch} (event.key.keysym.sym) \{
-268     \textcolor{keywordflow}{case} SDLK\_ESCAPE:           
-269     SDL\_Quit();         
+268     \textcolor{keywordflow}{case} SDLK\_ESCAPE:           \textcolor{comment}{// when pressing q}
+269     SDL\_Quit();         \textcolor{comment}{// Quit program}
 270     cout << \textcolor{stringliteral}{"Key 'q' Pressed, Game closed"} << endl;
 271     \textcolor{keywordflow}{break};
-272     \textcolor{keywordflow}{case} SDLK\_w:            
+272     \textcolor{keywordflow}{case} SDLK\_w:            \textcolor{comment}{// When pressing w}
 273         game\_world -> Camera\_Control(\textcolor{charliteral}{'w'});
 274       \textcolor{keywordflow}{break};
-275     \textcolor{keywordflow}{case} SDLK\_a:            
+275     \textcolor{keywordflow}{case} SDLK\_a:            \textcolor{comment}{// When pressing a}
 276         game\_world -> Camera\_Control(\textcolor{charliteral}{'a'});
 277       \textcolor{keywordflow}{break};
-278     \textcolor{keywordflow}{case} SDLK\_s:            
+278     \textcolor{keywordflow}{case} SDLK\_s:            \textcolor{comment}{// When pressing s}
 279         game\_world -> Camera\_Control(\textcolor{charliteral}{'s'});
 280       \textcolor{keywordflow}{break};
-281     \textcolor{keywordflow}{case} SDLK\_d:            
+281     \textcolor{keywordflow}{case} SDLK\_d:            \textcolor{comment}{// When pressing d}
 282         game\_world -> Camera\_Control(\textcolor{charliteral}{'d'});
 283       \textcolor{keywordflow}{break};
-284     \textcolor{keywordflow}{case} SDLK\_UP:           
+284     \textcolor{keywordflow}{case} SDLK\_UP:           \textcolor{comment}{// When pressing Arrow Up}
 285         game\_world -> Camera\_Control(\textcolor{charliteral}{'^'});
 286       \textcolor{keywordflow}{break};
-287     \textcolor{keywordflow}{case} SDLK\_LEFT:         
+287     \textcolor{keywordflow}{case} SDLK\_LEFT:         \textcolor{comment}{// When pressing Arrow Left}
 288         game\_world -> Camera\_Control(\textcolor{charliteral}{'<'});
 289       \textcolor{keywordflow}{break};
-290     \textcolor{keywordflow}{case} SDLK\_DOWN:         
+290     \textcolor{keywordflow}{case} SDLK\_DOWN:         \textcolor{comment}{// When pressing Arrow down}
 291         game\_world -> Camera\_Control(\textcolor{charliteral}{'v'});
 292       \textcolor{keywordflow}{break};
-293     \textcolor{keywordflow}{case} SDLK\_RIGHT:            
+293     \textcolor{keywordflow}{case} SDLK\_RIGHT:            \textcolor{comment}{// When pressing Arrow right}
 294         game\_world -> Camera\_Control(\textcolor{charliteral}{'>'});
 295       \textcolor{keywordflow}{break};
-296     \textcolor{keywordflow}{case} SDLK\_SPACE:                    
+296     \textcolor{keywordflow}{case} SDLK\_SPACE:                    \textcolor{comment}{// When pressing Space Go Up}
 297         game\_world -> Camera\_Control(\textcolor{charliteral}{'+'});
 298       \textcolor{keywordflow}{break};
-299     \textcolor{keywordflow}{case} SDLK\_TAB:                      
+299     \textcolor{keywordflow}{case} SDLK\_TAB:                      \textcolor{comment}{// When pressing Tab Go Down}
 300         game\_world -> Camera\_Control(\textcolor{charliteral}{'-'});
 301     \textcolor{keywordflow}{default}:
 302       \textcolor{keywordflow}{break};
@@ -436,7 +389,7 @@ When pressing Tab Go Down
 \item[{char $\ast$$\ast$}]{argv}
 \end{DoxyParamCaption}
 )}\label{main_8cc_aba227fab3b52f0ce7c5b89d75b88dcdc}
-The default 
+
 \begin{DoxyCode}
 111                                                       \{
 112   \textcolor{keyword}{namespace }po = boost::program\_options;
@@ -465,6 +418,7 @@ The default
 135   \textcolor{keywordflow}{if}(vm.count(\textcolor{stringliteral}{"scale"})) \{
 136     \textcolor{keywordflow}{return} \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a593be05a10070b4e7e0856e20590eaaf}{SCALE};
 137   \}
+138   \textcolor{comment}{// The default}
 139   \textcolor{keywordflow}{return} \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335}{TRANSFORM};
 140 \}
 \end{DoxyCode}

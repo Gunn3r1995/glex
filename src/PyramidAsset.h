@@ -21,4 +21,4 @@ class PyramidAsset : public GameAsset {
   GLuint vertex_buffer_token, element_buffer_token, colour_buffer_token;
 };
 
-#endif /// PYRAMIDASSET_H
+#endif // PYRAMIDASSET_H

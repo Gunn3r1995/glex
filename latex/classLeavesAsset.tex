@@ -45,24 +45,14 @@ void \hyperlink{classLeavesAsset_aa5ac41c76e9ed66570891ccf00b9c63a}{check\+Error
 \item[{G\+Lfloat}]{z}
 \end{DoxyParamCaption}
 )}\label{classLeavesAsset_a1fb1212e5399f16071f0be7ff42cc344}
-model coordinates, origin at centre.
-
 Sets cordinates to a Leaves with the center point 0.\+0 but moved to where the x, y, z variables calls them
 
 Colour of Diamond Asset Camerone Green \& Lawn Green Uses R\+G\+B values
-
-Transfer buffers to the G\+P\+U
-
-create buffer
-
-immediately bind the buffer and transfer the data
-
-Binds the buffer and transfers the data 
 \begin{DoxyCode}
 3                                                         \{
 4 
-6 
-10   GLfloat vertex\_buffer [] \{
+5   \textcolor{comment}{// model coordinates, origin at centre.}
+10 \textcolor{comment}{}  GLfloat vertex\_buffer [] \{
 11       0.5f + x  , 0.5f + y  , -0.5f + z
 12     , 0.5f + x  ,-0.5f + y  , -0.5f + z
 13     ,-0.5f + x  , 0.5f + y  , -0.5f + z
@@ -105,12 +95,16 @@ Binds the buffer and transfers the data
 54 
 55 
 56 
+57   \textcolor{comment}{// Transfer buffers to the GPU}
 58 
 59 
+60   \textcolor{comment}{// create buffer}
 61   glGenBuffers(1, &vertex\_buffer\_token);
+62   \textcolor{comment}{// immediately bind the buffer and transfer the data}
 63   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
 64   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
 65 
+66   \textcolor{comment}{// Binds the buffer and transfers the data}
 67   glGenBuffers(1, &colour\_buffer\_token);
 68   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
 69   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
@@ -161,35 +155,9 @@ Binds the buffer and transfers the data
 \item[{G\+Luint}]{program\+\_\+token}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classLeavesAsset_a807fd196b83e5adb131d489ef6645742}
-The max\+Length includes the N\+U\+L\+L character
-
 use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
 
-attribute
-
-size
-
-type
-
-normalized?
-
-stride
-
-array buffer offset
-
 Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
-
-attribute
-
-size
-
-type
-
-normalized?
-
-stride
-
-array buffer offset 
 
 Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
 
@@ -207,6 +175,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 104     GLint maxLength = 0;
 105     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
 106 
+107     \textcolor{comment}{// The maxLength includes the NULL character}
 108     std::vector<char> errorLog(maxLength);
 109     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
 110 
@@ -222,27 +191,26 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 120 
 121   glUseProgram(program\_token);
 122   \hyperlink{LeavesAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-123 
 127   glEnableVertexAttribArray(0);
 128   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
 129   glVertexAttribPointer(
-130     position\_attrib,        
-131     3,        
-132     GL\_FLOAT,   
-133     GL\_FALSE,   
-134     0,        
-135     (\textcolor{keywordtype}{void}*)0    
+130     position\_attrib,        \textcolor{comment}{/* attribute */}
+131     3,        \textcolor{comment}{/* size */}
+132     GL\_FLOAT,   \textcolor{comment}{/* type */}
+133     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+134     0,        \textcolor{comment}{/* stride */}
+135     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
 136   );
 137   glEnableVertexAttribArray(1);
 138   \hyperlink{LeavesAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 143   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
 144   glVertexAttribPointer(
-145     1,        
-146     3,        
-147     GL\_FLOAT,   
-148     GL\_FALSE,   
-149     0,        
-150     (\textcolor{keywordtype}{void}*)0    
+145     1,        \textcolor{comment}{/* attribute */}
+146     3,        \textcolor{comment}{/* size */}
+147     GL\_FLOAT,   \textcolor{comment}{/* type */}
+148     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+149     0,        \textcolor{comment}{/* stride */}
+150     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
 151   );
 152   \hyperlink{LeavesAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 153 

@@ -10,17 +10,17 @@
 \hyperlink{classGameAssetManager_aaa0d58e276cc10ad91a7457085598a71}{Game\+Asset\+Manager} (\hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0}{Application\+Mode})
 \item 
 virtual \hyperlink{classGameAssetManager_a1270bd61ecbcca563f079803e40c9b77}{$\sim$\+Game\+Asset\+Manager} ()
-\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\item 
 \hyperlink{classGameAssetManager_a2c9adcb72faa154c87eadc9bafe5269d}{Game\+Asset\+Manager} (\hyperlink{classGameAssetManager}{Game\+Asset\+Manager} const \&)
 \item 
 \hyperlink{classGameAssetManager_a44f6e2fd6b8ff1dd64e5697f1be7386d}{Game\+Asset\+Manager} (\hyperlink{classGameAssetManager}{Game\+Asset\+Manager} const \&\&)
-\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\item 
 void \hyperlink{classGameAssetManager_ac72678a4ad5378c685aa6bae84a4e712}{operator=} (\hyperlink{classGameAssetManager}{Game\+Asset\+Manager} const \&)
-\begin{DoxyCompactList}\small\item\em move constructor \end{DoxyCompactList}\item 
+\item 
 void \hyperlink{classGameAssetManager_ad3de8ff00d55ba04728b1de8213b2349}{Add\+Asset} (std\+::shared\+\_\+ptr$<$ \hyperlink{classGameAsset}{Game\+Asset} $>$)
-\begin{DoxyCompactList}\small\item\em assignment \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Adds a \hyperlink{classGameAsset}{Game\+Asset} to the scene graph. \end{DoxyCompactList}\item 
 void \hyperlink{classGameAssetManager_a32837132bd70a9a9ed537323c2d3d886}{Draw} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Draws each \hyperlink{classGameAsset}{Game\+Asset} in the scene graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -63,10 +63,6 @@ Creates a \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} to load the co
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classGameAssetManager_a1270bd61ecbcca563f079803e40c9b77}
-
-
-constructor 
-
 Deletes a \hyperlink{classGameAssetManager}{Game\+Asset\+Manager}, in particular it will clean up any modifications to the Open\+G\+L state. 
 \begin{DoxyCode}
 31                                     \{
@@ -80,9 +76,10 @@ Deletes a \hyperlink{classGameAssetManager}{Game\+Asset\+Manager}, in particular
 \item[{{\bf Game\+Asset\+Manager} const \&}]{the\+\_\+manager}
 \end{DoxyParamCaption}
 )}\label{classGameAssetManager_a2c9adcb72faa154c87eadc9bafe5269d}
-Unimplemented copy constructor -- this means that the \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} may not work as you\textquotesingle{}d expect when being copied. T\+O\+D\+O\+: implement this 
+Unimplemented copy constructor -- this means that the \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} may not work as you\textquotesingle{}d expect when being copied. 
 \begin{DoxyCode}
 39                                                                       \{
+40   \textcolor{comment}{// TODO: implement this}
 41 \}
 \end{DoxyCode}
 \hypertarget{classGameAssetManager_a44f6e2fd6b8ff1dd64e5697f1be7386d}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
@@ -92,13 +89,10 @@ Unimplemented copy constructor -- this means that the \hyperlink{classGameAssetM
 \item[{{\bf Game\+Asset\+Manager} const \&\&}]{the\+\_\+manager}
 \end{DoxyParamCaption}
 )}\label{classGameAssetManager_a44f6e2fd6b8ff1dd64e5697f1be7386d}
-
-
-copy constructor 
-
-Unimplemented move constructor -- this unimplemented method violates the C++11 move semantics for \hyperlink{classGameAssetManager}{Game\+Asset\+Manager}. T\+O\+D\+O\+: implement this 
+Unimplemented move constructor -- this unimplemented method violates the C++11 move semantics for \hyperlink{classGameAssetManager}{Game\+Asset\+Manager}. 
 \begin{DoxyCode}
 47                                                                        \{
+48   \textcolor{comment}{// TODO: implement this}
 49 \}
 \end{DoxyCode}
 
@@ -113,9 +107,9 @@ Unimplemented move constructor -- this unimplemented method violates the C++11 m
 )}\label{classGameAssetManager_ad3de8ff00d55ba04728b1de8213b2349}
 
 
-assignment 
-
 Adds a \hyperlink{classGameAsset}{Game\+Asset} to the scene graph. 
+
+
 \begin{DoxyCode}
 62                                                                   \{
 63   draw\_list.push\_back(the\_asset);
@@ -128,7 +122,11 @@ Adds a \hyperlink{classGameAsset}{Game\+Asset} to the scene graph.
 {}
 \end{DoxyParamCaption}
 )}\label{classGameAssetManager_a32837132bd70a9a9ed537323c2d3d886}
+
+
 Draws each \hyperlink{classGameAsset}{Game\+Asset} in the scene graph. 
+
+
 \begin{DoxyCode}
 69                             \{
 70   \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} ga: draw\_list) \{
@@ -143,13 +141,10 @@ Draws each \hyperlink{classGameAsset}{Game\+Asset} in the scene graph.
 \item[{{\bf Game\+Asset\+Manager} const \&}]{the\+\_\+manager}
 \end{DoxyParamCaption}
 )}\label{classGameAssetManager_ac72678a4ad5378c685aa6bae84a4e712}
-
-
-move constructor 
-
-Unimplemented assisgnment operator -- violates the expected semantics for assignment in C++11. T\+O\+D\+O\+: implement this 
+Unimplemented assisgnment operator -- violates the expected semantics for assignment in C++11. 
 \begin{DoxyCode}
 55                                                                     \{
+56   \textcolor{comment}{// TODO: implement this}
 57 \}
 \end{DoxyCode}
 
