@@ -1,7 +1,5 @@
 #include "CubeAsset.h"
 
-
-
 CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
   // model coordinates, origin at centre.
   //////////////////////////////////////////////////////////////////////////////////////////

@@ -15,10 +15,9 @@ class PyramidAsset : public GameAsset {
   ~PyramidAsset();
   virtual void Draw(GLuint);
   void checkError(std::string file, int line);
-
  private:
   GLuint element_buffer_length, colour_buffer_length;
   GLuint vertex_buffer_token, element_buffer_token, colour_buffer_token;
 };
 
-#endif // PYRAMIDASSET_H
+#endif /// PYRAMIDASSET_H
