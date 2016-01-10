@@ -21,4 +21,4 @@ class LeavesAsset : public GameAsset {
   void checkError(std::string file, int line);
 };
 
-#endif // LEAVESASSET_H
+#endif /// LEAVESASSET_H

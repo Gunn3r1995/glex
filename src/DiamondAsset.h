@@ -21,4 +21,4 @@ class DiamondAsset : public GameAsset {
   void checkError(std::string file, int line);
 };
 
-#endif // DIAMONDASSET_H
+#endif /// DIAMONDASSET_H

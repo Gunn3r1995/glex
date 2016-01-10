@@ -1,6 +1,6 @@
 #include "GameAssetManager.h"
 
-/**
+/*!
  * Creates a GameAssetManager to load the correct shaders based on the
  * ApplicationMode.
  */
@@ -24,7 +24,7 @@ GameAssetManager::GameAssetManager(ApplicationMode mode) {
   program_token = CreateGLProgram(vertex_shader, fragment_shader);
 }
 
-/**
+/*!
  * Deletes a GameAssetManager, in particular it will clean up any modifications
  * to the OpenGL state.
  */
@@ -32,38 +32,38 @@ GameAssetManager::~GameAssetManager() {
   glDeleteProgram(program_token);
 }
 
-/**
+/*!
  * Unimplemented copy constructor -- this means that the GameAssetManager
  * may not work as you'd expect when being copied.
  */
 GameAssetManager::GameAssetManager(GameAssetManager const& the_manager) {
-  // TODO: implement this
+  /// TODO: implement this
 }
 
-/**
+/*!
  * Unimplemented move constructor -- this unimplemented method violates the
  * C++11 move semantics for GameAssetManager.
  */
 GameAssetManager::GameAssetManager(GameAssetManager const&& the_manager) {
-  // TODO: implement this
+  /// TODO: implement this
 }
 
-/**
+/*!
  * Unimplemented assisgnment operator -- violates the expected semantics for
  * assignment in C++11.
  */
 void GameAssetManager::operator=(GameAssetManager const& the_manager) {
-  // TODO: implement this
+  /// TODO: implement this
 }
 
-/**
+/*!
  * Adds a GameAsset to the scene graph.
  */
 void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
   draw_list.push_back(the_asset);
 }
 
-/**
+/*!
  * Draws each GameAsset in the scene graph.
  */
 void GameAssetManager::Draw() {
@@ -72,7 +72,7 @@ void GameAssetManager::Draw() {
   }
 }
 
-/**
+/*!
  * When given the contents of a vertex shader and fragment shader
  * GameAssetManager::CreateGLProgram will compile and link them.  This
  * implementation will exit with -1 error if an error is detected.
@@ -101,7 +101,7 @@ GLuint GameAssetManager::CreateGLProgram(std::string & vertex_shader
   return program;
 }
 
-/**
+/*!
  * When given a type of shader to construct and the contents of a shader,
  * GameAssetManager::CreateGLESShader will create the shader or exit with
  * error -1.
@@ -126,11 +126,11 @@ GLuint GameAssetManager::CreateGLESShader(GLenum type, std::string & shader) {
     GLint maxLength = 0;
     glGetShaderiv(shader_token, GL_INFO_LOG_LENGTH, &maxLength);
 
-    //The maxLength includes the NULL character
+    ///The maxLength includes the NULL character
     std::vector<char> errorLog(maxLength);
     glGetShaderInfoLog(shader_token, maxLength, &maxLength, &errorLog[0]);
 
-    //Provide the infolog in whatever manor you deem best.
+    ///Provide the infolog in whatever manor you deem best.
     std::cerr << "Failed to compile " << shader << " with error code " << shader_ok << std::endl;
     for(auto c: errorLog) {
       std::cerr << c;
@@ -142,7 +142,7 @@ GLuint GameAssetManager::CreateGLESShader(GLenum type, std::string & shader) {
   return shader_token;
 }
 
-/**
+/*!
  * ReadShader reads the contents of a file and packs it into a null termintated
  * GLchar * which is suitable for sending to OpenGL.
  *
@@ -154,13 +154,13 @@ std::pair<GLchar *, GLint> GameAssetManager::ReadShader(std::string & shader) {
   GLint length;
   input_file.open(shader, std::ios::in);
 
-  input_file.seekg(0, std::ios::end);  // go to the end of the file
-  length = input_file.tellg();    // get length of the file
-  input_file.seekg(0, std::ios::beg);  // go to beginning of the file
+  input_file.seekg(0, std::ios::end);  /// go to the end of the file
+  length = input_file.tellg();    /// get length of the file
+  input_file.seekg(0, std::ios::beg);  /// go to beginning of the file
 
   GLchar * buffer = new GLchar[length+1];
   input_file.read(buffer, length);
-  buffer[length+1]='\0';  // Ensure null terminated
+  buffer[length+1]='\0';  /// Ensure null terminated
 
   input_file.close();
   return std::make_pair(buffer, length);

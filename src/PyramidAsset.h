@@ -21,4 +21,4 @@ class PyramidAsset : public GameAsset {
   void checkError(std::string file, int line);
 };
 
-#endif // PYRAMIDASSET_H
+#endif /// PYRAMIDASSET_H

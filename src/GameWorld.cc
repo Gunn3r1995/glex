@@ -10,7 +10,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   int worldX = 20;
   int worldY = 20;
 
-  /**
+  /*!
    *  2D array which acts like the world space for the game, so depending on what number is stored within the array 
    *  would change which blocks spawn within this small 20 by 20 world, I would like to improve the size of the array 
    *  in the future but as of now I don't think it's to important. 
@@ -46,7 +46,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   };
   
-  /**
+  /*!
    * Spawns all the Voxel assets I made just outside the array space,
    * Just so you can view each voxel on it's own
    */
@@ -62,7 +62,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    for (pointY=0; pointY<worldY; pointY++){
     if( world[pointY][pointX] == 1){
             /// Ground Spawn           
-            /**  
+            /*!  
             *  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             */
             asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
@@ -70,7 +70,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    }
     else if( world[pointY][pointX] == 2){
             /// Small Diamond Tower
-            /**  
+            /*!  
             *  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             *  Spawns the Cube & Diamond asset on top to create a small tower with a diamond on top
             */
@@ -81,7 +81,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    }
     else if( world[pointY][pointX] == 3){
             /// Taller Diamond Tower
-            /**  
+            /*!  
             *  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             *  Spawns the Cube & Diamond asset on top to create a taller tower with a diamond on top
             */
@@ -93,7 +93,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    }
     else if( world[pointY][pointX] == 4){
             //Tree Spawn
-            /**  
+            /*!  
             *  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             *  Spawns the multiple voxels to create a shape of a simple tree
             */
@@ -188,7 +188,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    }
     else if( world[pointY][pointX] == 5){
             /// Pyramid Tower
-            /**  
+            /*!  
             *  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             *  Spawns the Cube & Pyramid asset on top to create a small tower with a diamond on top
             */
@@ -199,7 +199,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    }
     else if( world[pointY][pointX] == 6){
             /// Pyramid Spawn
-            /**  
+            /*! 
             *  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             *  Spawns Pyramid asset on top of the ground asset
             */
@@ -208,8 +208,8 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             asset_manager->AddAsset(make_shared<PyramidAsset>((pointX),-0.50f,(pointZ*pointY)));
    }
     else if( world[pointY][pointX] == 7){
-            // Grass Spawn
-            /**  
+            /// Grass Spawn
+            /*!  
             *  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             *  Spawns somewhat randomly multiple grass assets on top/ slighlty inside the ground asset
             *  To create the view of grass.
@@ -226,7 +226,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
  }  
 }
 
-  /**
+  /*!
    *  Controls all the movement and positions of the camera 
    *  Uses keyboard and Mouse movements to move around the world space
    *  Tells the Camera matrix what position to look at and where to move
@@ -264,13 +264,13 @@ void GameWorld::Camera_Control(char key) {
  }
 }
 
-  /*
+  /*!
    * Draws the assets to the world by calling GameAssetManager
    * Sends the camera positions and movements to the translate shader
    */
 void GameWorld::Draw() {
-        /// Camera Direction
-        /**
+        // Camera Direction
+        /*!1
          *  Calculates the distance each camera movement changes the camera direction
          */
         glm::vec3 direction(
@@ -291,7 +291,7 @@ void GameWorld::Draw() {
         /// Projection matrix : degree = 45, Field of View = 4:3 ratio, display = 0.1 unit <-> 1000 units
 	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
         /// Where the Camera Looks at
-        /**
+        /*!
          *  changes where the camera position looks up to use the camera position
          *  changes the direction you look at
          *  Makes the world the correct orientation
@@ -303,7 +303,7 @@ void GameWorld::Draw() {
 	);
 	glm::mat4 Camera_Model(1.0f);
 
-        /**
+        /*!
          *  Sends the data to the translate.vs shader
          */
 	glUniformMatrix4fv(0, 1, GL_FALSE, &Camera_Projection[0][0]);

@@ -21,4 +21,4 @@ class GrassAsset : public GameAsset {
   void checkError(std::string file, int line);
 };
 
-#endif // GRASSASSET_H
+#endif /// GRASSASSET_H

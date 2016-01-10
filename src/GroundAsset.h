@@ -21,4 +21,4 @@ class GroundAsset : public GameAsset {
   void checkError(std::string file, int line);
 };
 
-#endif // GROUNDASSET_H
+#endif /// GROUNDASSET_H
