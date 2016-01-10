@@ -139,7 +139,7 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   return TRANSFORM;
 }
   int main(int argc, char ** argv) {
-    Uint32 delay = 1000/30; // in milliseconds, Temporary change to 20fps to fix speed of the game.
+    Uint32 delay = 1000/30; // in milliseconds, Temporary change to 30fps to fix speed of the game.
 
   auto mode = ParseOptions(argc, argv);
   auto window = InitWorld();
@@ -226,12 +226,11 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
         int Mouse_X;
         int Mouse_Y;
 
-//double fRand(double fMin, double fMax)
-//{
-
-//}
-
   // Add the main event loop
+  /**
+   *  Detects Keyboard and Mouse
+   *  Sends Data to GameWorld Camera Controls
+   */
   SDL_Event event;
   while (SDL_WaitEvent(&event)) {
     switch (event.type) {
@@ -294,10 +293,10 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
     case SDLK_RIGHT:			//When pressing Arrow right
         game_world -> Camera_Control('>');
       break;
-    case SDLK_SPACE:
+    case SDLK_SPACE:                    //When pressing Space Go Up
         game_world -> Camera_Control('+');
       break;
-    case SDLK_TAB:
+    case SDLK_TAB:                      //When pressing Tab Go Down
         game_world -> Camera_Control('-');
     default:
       break;

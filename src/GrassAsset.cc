@@ -2,17 +2,23 @@
 
 GrassAsset::GrassAsset(GLfloat x, GLfloat y, GLfloat z) {
 
-  // model coordinates, origin at centre.
+  /// model coordinates, origin at centre.
+  /**
+  *  Sets cordinates to a Grass/Pyramid with the center point 0.0 
+  *  but moved to where the x, y, z variables calls them
+  */
   GLfloat vertex_buffer [] {
-      -0.01f + x  , 0.00f + y   ,-0.01f + z//0
-     , 0.01f + x  , 0.00f + y   ,-0.01f + z//1
-     ,-0.01f + x  , 0.00f + y   , 0.01f + z//2
-     , 0.01f + x  , 0.00f + y   , 0.01f + z//3
-     , 0.00f + x  , 0.60f + y   , 0.00f + z//5 = End of Pyramid
+      -0.01f + x  , 0.00f + y   ,-0.01f + z
+     , 0.01f + x  , 0.00f + y   ,-0.01f + z
+     ,-0.01f + x  , 0.00f + y   , 0.01f + z
+     , 0.01f + x  , 0.00f + y   , 0.01f + z
+     , 0.00f + x  , 0.60f + y   , 0.00f + z
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
-
-  // Colour Buffer Red
+  /** 
+  *  Colour of Diamond Asset Green
+  *  Uses RGB values
+  */
   GLfloat colour_buffer[] = {
 
      0.000f, 1.000f, 0.000f,
@@ -44,7 +50,7 @@ GrassAsset::GrassAsset(GLfloat x, GLfloat y, GLfloat z) {
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, vertex_buffer_length, vertex_buffer, GL_STATIC_DRAW);
 
-
+  // Binds the buffer and transfers the data
   glGenBuffers(1, &colour_buffer_token);
   glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, colour_buffer_length, colour_buffer, GL_STATIC_DRAW);
@@ -102,8 +108,9 @@ void GrassAsset::Draw(GLuint program_token) {
   glUseProgram(program_token);
   checkGLError();
 
-  // use the previously transferred buffer as the vertex array.  This way
-  // we transfer the buffer once -- at construction -- not on every frame.
+  /** use the previously transferred buffer as the vertex array.  This way
+   * we transfer the buffer once -- at construction -- not on every frame.
+   */
   glEnableVertexAttribArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glVertexAttribPointer(
@@ -116,7 +123,10 @@ void GrassAsset::Draw(GLuint program_token) {
   );
   glEnableVertexAttribArray(1);
   checkGLError();
-
+  /**
+   * Uses the Previously transferred buffer as the color array. This way
+   * We transfer the buffer once -- at constuction -- not on every frame
+   */
   glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
   glVertexAttribPointer(
     1,        /* attribute */

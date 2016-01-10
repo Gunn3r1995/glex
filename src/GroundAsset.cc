@@ -2,20 +2,26 @@
 
 GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) {
   
-  // model coordinates, origin at centre.
+  /// model coordinates, origin at centre.
+  /**
+  *  Sets cordinates to a Ground with the center point 0.0 
+  *  but moved to where the x, y, z variables calls them
+  */
   GLfloat vertex_buffer [] {
-      0.5f + x  , 0.5f + y  , -0.5f + z//0
-    , 0.5f + x  ,-0.5f + y  , -0.5f + z //1
-    ,-0.5f + x  , 0.5f + y  , -0.5f + z //2
-    ,-0.5f + x  ,-0.5f + y  , -0.5f + z //3
-    , 0.5f + x  , 0.5f + y  ,  0.5f + z //4
-    , 0.5f + x  ,-0.5f + y  ,  0.5f + z //5
-    ,-0.5f + x  , 0.5f + y  ,  0.5f + z //6
-    ,-0.5f + x  ,-0.5f + y  ,  0.5f + z  //7 = End of Cube
+      0.5f + x  , 0.5f + y  , -0.5f + z
+    , 0.5f + x  ,-0.5f + y  , -0.5f + z
+    ,-0.5f + x  , 0.5f + y  , -0.5f + z
+    ,-0.5f + x  ,-0.5f + y  , -0.5f + z
+    , 0.5f + x  , 0.5f + y  ,  0.5f + z
+    , 0.5f + x  ,-0.5f + y  ,  0.5f + z
+    ,-0.5f + x  , 0.5f + y  ,  0.5f + z
+    ,-0.5f + x  ,-0.5f + y  ,  0.5f + z
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
-
-  // Colour Ground Asset Lawn Green
+  /** 
+  *  Colour of Diamond Asset Lawn Green
+  *  Uses RGB values
+  */
   GLfloat colour_buffer[] = {
 
      0.124f, 0.252f, 0.000f,
@@ -55,7 +61,7 @@ GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) {
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, vertex_buffer_length, vertex_buffer, GL_STATIC_DRAW);
 
-
+  // Binds the buffer and transfers the data
   glGenBuffers(1, &colour_buffer_token);
   glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, colour_buffer_length, colour_buffer, GL_STATIC_DRAW);
@@ -114,8 +120,9 @@ void GroundAsset::Draw(GLuint program_token) {
   glUseProgram(program_token);
   checkGLError();
 
-  // use the previously transferred buffer as the vertex array.  This way
-  // we transfer the buffer once -- at construction -- not on every frame.
+  /** use the previously transferred buffer as the vertex array.  This way
+   * we transfer the buffer once -- at construction -- not on every frame.
+   */
   glEnableVertexAttribArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glVertexAttribPointer(
@@ -128,7 +135,10 @@ void GroundAsset::Draw(GLuint program_token) {
   );
   glEnableVertexAttribArray(1);
   checkGLError();
-
+  /**
+   * Uses the Previously transferred buffer as the color array. This way
+   * We transfer the buffer once -- at constuction -- not on every frame
+   */
   glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
   glVertexAttribPointer(
     1,        /* attribute */

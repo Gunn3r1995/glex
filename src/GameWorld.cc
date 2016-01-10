@@ -43,7 +43,8 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
   {1,1,1,1,1,1,7,1,1,1,1,1,1,7,7,1,1,1,1,1},
   {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},};
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  };
   
   /**
    * Spawns all the Voxel assets I made just outside the array space,
@@ -269,6 +270,9 @@ void GameWorld::Camera_Control(char key) {
    */
 void GameWorld::Draw() {
         /// Camera Direction
+        /**
+         *  Calculates the distance each camera movement changes the camera direction
+         */
         glm::vec3 direction(
 		cos(Camera_Vertical) * sin(Camera_Horizontal),
 		sin(Camera_Vertical),
@@ -276,7 +280,6 @@ void GameWorld::Draw() {
 	);
 
 	Movement_Z = direction;
-
 
 	Movement_X = glm::vec3(
 		sin(Camera_Horizontal - 3.14f/2.0f),
@@ -288,6 +291,11 @@ void GameWorld::Draw() {
         /// Projection matrix : degree = 45, Field of View = 4:3 ratio, display = 0.1 unit <-> 1000 units
 	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
         /// Where the Camera Looks at
+        /**
+         *  changes where the camera position looks up to use the camera position
+         *  changes the direction you look at
+         *  Makes the world the correct orientation
+         */
 	glm::mat4 Camera_View = glm::lookAt(
 		Camera_Position,
 		Camera_Position + direction,
@@ -295,6 +303,9 @@ void GameWorld::Draw() {
 	);
 	glm::mat4 Camera_Model(1.0f);
 
+        /**
+         *  Sends the data to the translate.vs shader
+         */
 	glUniformMatrix4fv(0, 1, GL_FALSE, &Camera_Projection[0][0]);
 	glUniformMatrix4fv(1, 1, GL_FALSE, &Camera_View[0][0]);
 	glUniformMatrix4fv(2, 1, GL_FALSE, &Camera_Model[0][0]);
