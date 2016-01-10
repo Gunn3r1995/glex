@@ -1,0 +1,252 @@
+\hypertarget{classGrassAsset}{}\section{Grass\+Asset Class Reference}
+\label{classGrassAsset}\index{Grass\+Asset@{Grass\+Asset}}
+
+
+{\ttfamily \#include $<$Grass\+Asset.\+h$>$}
+
+
+
+Inheritance diagram for Grass\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classGrassAsset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Grass\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classGrassAsset__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGrassAsset_a961ec7133a9fc6f16a7347a122f95952}{Grass\+Asset} (G\+Lfloat x, G\+Lfloat y, G\+Lfloat z)
+\item 
+\hyperlink{classGrassAsset_a07e2206bacd2ec120f27f20e5df635b7}{$\sim$\+Grass\+Asset} ()
+\item 
+virtual void \hyperlink{classGrassAsset_a0178a72c5bf2f00bcc6a240b851f3a25}{Draw} (G\+Luint)
+\item 
+void \hyperlink{classGrassAsset_a06cf99092ea2217df1855e2d6375396b}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGrassAsset_a961ec7133a9fc6f16a7347a122f95952}{}\index{Grass\+Asset@{Grass\+Asset}!Grass\+Asset@{Grass\+Asset}}
+\index{Grass\+Asset@{Grass\+Asset}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{Grass\+Asset(\+G\+Lfloat x, G\+Lfloat y, G\+Lfloat z)}]{\setlength{\rightskip}{0pt plus 5cm}Grass\+Asset\+::\+Grass\+Asset (
+\begin{DoxyParamCaption}
+\item[{G\+Lfloat}]{x, }
+\item[{G\+Lfloat}]{y, }
+\item[{G\+Lfloat}]{z}
+\end{DoxyParamCaption}
+)}\label{classGrassAsset_a961ec7133a9fc6f16a7347a122f95952}
+model coordinates, origin at centre.
+
+Sets cordinates to a Grass/\+Pyramid with the center point 0.\+0 but moved to where the x, y, z variables calls them
+
+Colour of Diamond Asset Green Uses R\+G\+B values
+
+Transfer buffers to the G\+P\+U
+
+create buffer
+
+immediately bind the buffer and transfer the data
+
+Binds the buffer and transfers the data 
+\begin{DoxyCode}
+3                                                       \{
+4 
+6 
+10   GLfloat vertex\_buffer [] \{
+11       -0.01f + x  , 0.00f + y   ,-0.01f + z
+12      , 0.01f + x  , 0.00f + y   ,-0.01f + z
+13      ,-0.01f + x  , 0.00f + y   , 0.01f + z
+14      , 0.01f + x  , 0.00f + y   , 0.01f + z
+15      , 0.00f + x  , 0.60f + y   , 0.00f + z
+16   \};
+17   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+22   GLfloat colour\_buffer[] = \{
+23 
+24      0.000f, 1.000f, 0.000f,
+25      0.000f, 1.000f, 0.000f,
+26      0.000f, 1.000f, 0.000f,
+27      0.000f, 1.000f, 0.000f,
+28      0.000f, 1.000f, 0.000f
+29   \};
+30  colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+31   
+32   GLuint element\_buffer []  \{
+33       0, 4, 1   
+34     , 1, 4, 3
+35     , 2, 4, 3   
+36     , 2, 4, 0
+37     , 0, 2, 1
+38     , 1, 2, 3
+39   \};
+40   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+41 
+42 
+43 
+45 
+47   glGenBuffers(1, &vertex\_buffer\_token);
+49   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+50   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+51 
+53   glGenBuffers(1, &colour\_buffer\_token);
+54   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+55   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+56 
+57 
+58   glGenBuffers(1, &element\_buffer\_token);
+59   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+60   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+61 \}
+\end{DoxyCode}
+\hypertarget{classGrassAsset_a07e2206bacd2ec120f27f20e5df635b7}{}\index{Grass\+Asset@{Grass\+Asset}!````~Grass\+Asset@{$\sim$\+Grass\+Asset}}
+\index{````~Grass\+Asset@{$\sim$\+Grass\+Asset}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{$\sim$\+Grass\+Asset()}]{\setlength{\rightskip}{0pt plus 5cm}Grass\+Asset\+::$\sim$\+Grass\+Asset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGrassAsset_a07e2206bacd2ec120f27f20e5df635b7}
+
+\begin{DoxyCode}
+63                         \{
+64 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGrassAsset_a06cf99092ea2217df1855e2d6375396b}{}\index{Grass\+Asset@{Grass\+Asset}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Grass\+Asset\+::check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{classGrassAsset_a06cf99092ea2217df1855e2d6375396b}
+
+\begin{DoxyCode}
+73                                                     \{
+74   GLenum gl\_error = glGetError();
+75   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+76     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+77     exit(-1);
+78   \}
+79 \}
+\end{DoxyCode}
+\hypertarget{classGrassAsset_a0178a72c5bf2f00bcc6a240b851f3a25}{}\index{Grass\+Asset@{Grass\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Grass\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{program\+\_\+token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classGrassAsset_a0178a72c5bf2f00bcc6a240b851f3a25}
+The max\+Length includes the N\+U\+L\+L character
+
+use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
+
+attribute
+
+size
+
+type
+
+normalized?
+
+stride
+
+array buffer offset
+
+Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
+
+attribute
+
+size
+
+type
+
+normalized?
+
+stride
+
+array buffer offset 
+
+Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
+
+
+\begin{DoxyCode}
+81                                           \{
+82   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+83     std::cerr << \textcolor{stringliteral}{"Drawing Grass with invalid program"} << std::endl;
+84     \textcolor{keywordflow}{return};
+85   \}
+86   GLint validation\_ok;
+87   glValidateProgram(program\_token);
+88   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+89   \textcolor{keywordflow}{if}(!validation\_ok) \{
+90     GLint maxLength = 0;
+91     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+92 
+94     std::vector<char> errorLog(maxLength);
+95     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+96 
+97     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+98     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+99       std::cerr << c;
+100     \}
+101     exit(-1);
+102   \}
+103 
+104   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+105   \hyperlink{GrassAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+106 
+107   glUseProgram(program\_token);
+108   \hyperlink{GrassAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+109 
+113   glEnableVertexAttribArray(0);
+114   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+115   glVertexAttribPointer(
+116     position\_attrib,        
+117     3,        
+118     GL\_FLOAT,   
+119     GL\_FALSE,   
+120     0,        
+121     (\textcolor{keywordtype}{void}*)0    
+122   );
+123   glEnableVertexAttribArray(1);
+124   \hyperlink{GrassAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+129   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+130   glVertexAttribPointer(
+131     1,        
+132     3,        
+133     GL\_FLOAT,   
+134     GL\_FALSE,   
+135     0,        
+136     (\textcolor{keywordtype}{void}*)0    
+137   );
+138   \hyperlink{GrassAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+139 
+140   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+141   glDrawElements(
+142     GL\_TRIANGLES,
+143     element\_buffer\_length,
+144     GL\_UNSIGNED\_INT,
+145     (GLvoid*) 0
+146   );
+147   \hyperlink{GrassAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+148 
+149   glDisableVertexAttribArray(position\_attrib);
+150 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{GrassAsset_8h}{Grass\+Asset.\+h}\item 
+src/\hyperlink{GrassAsset_8cc}{Grass\+Asset.\+cc}\end{DoxyCompactItemize}

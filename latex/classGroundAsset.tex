@@ -1,0 +1,263 @@
+\hypertarget{classGroundAsset}{}\section{Ground\+Asset Class Reference}
+\label{classGroundAsset}\index{Ground\+Asset@{Ground\+Asset}}
+
+
+{\ttfamily \#include $<$Ground\+Asset.\+h$>$}
+
+
+
+Inheritance diagram for Ground\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classGroundAsset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ground\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classGroundAsset__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGroundAsset_a4b927d07732cb30f8d5b35047bc2de22}{Ground\+Asset} (G\+Lfloat x, G\+Lfloat y, G\+Lfloat z)
+\item 
+\hyperlink{classGroundAsset_a8f607f3cabded6280c5a5eb2cbfa8c79}{$\sim$\+Ground\+Asset} ()
+\item 
+virtual void \hyperlink{classGroundAsset_a440f983638c7a7ccb6a39718444dfe95}{Draw} (G\+Luint)
+\item 
+void \hyperlink{classGroundAsset_a4fad6edd0d2f5aee6acc9a5a872aea96}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGroundAsset_a4b927d07732cb30f8d5b35047bc2de22}{}\index{Ground\+Asset@{Ground\+Asset}!Ground\+Asset@{Ground\+Asset}}
+\index{Ground\+Asset@{Ground\+Asset}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{Ground\+Asset(\+G\+Lfloat x, G\+Lfloat y, G\+Lfloat z)}]{\setlength{\rightskip}{0pt plus 5cm}Ground\+Asset\+::\+Ground\+Asset (
+\begin{DoxyParamCaption}
+\item[{G\+Lfloat}]{x, }
+\item[{G\+Lfloat}]{y, }
+\item[{G\+Lfloat}]{z}
+\end{DoxyParamCaption}
+)}\label{classGroundAsset_a4b927d07732cb30f8d5b35047bc2de22}
+model coordinates, origin at centre.
+
+Sets cordinates to a Ground with the center point 0.\+0 but moved to where the x, y, z variables calls them
+
+Colour of Diamond Asset Lawn Green Uses R\+G\+B values
+
+Transfer buffers to the G\+P\+U
+
+create buffer
+
+immediately bind the buffer and transfer the data
+
+Binds the buffer and transfers the data 
+\begin{DoxyCode}
+3                                                          \{
+4   
+6 
+10   GLfloat vertex\_buffer [] \{
+11       0.5f + x  , 0.5f + y  , -0.5f + z
+12     , 0.5f + x  ,-0.5f + y  , -0.5f + z
+13     ,-0.5f + x  , 0.5f + y  , -0.5f + z
+14     ,-0.5f + x  ,-0.5f + y  , -0.5f + z
+15     , 0.5f + x  , 0.5f + y  ,  0.5f + z
+16     , 0.5f + x  ,-0.5f + y  ,  0.5f + z
+17     ,-0.5f + x  , 0.5f + y  ,  0.5f + z
+18     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z
+19   \};
+20   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+25   GLfloat colour\_buffer[] = \{
+26 
+27      0.124f, 0.252f, 0.000f,
+28      0.124f, 0.252f, 0.000f,
+29      0.124f, 0.252f, 0.000f,
+30      0.124f, 0.252f, 0.000f,
+31      0.124f, 0.252f, 0.000f,
+32      0.124f, 0.252f, 0.000f,
+33      0.124f, 0.252f, 0.000f,
+34      0.124f, 0.252f, 0.000f
+35   \};
+36   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+37   
+38   GLuint element\_buffer []  \{
+39       0, 1, 2   
+40     , 1, 3, 2
+41     , 0, 4, 1   
+42     , 1, 5, 4   
+43     , 5, 7, 4   
+44     , 7, 6, 4   
+45     , 3, 7, 6   
+46     , 2, 3, 6   
+47     , 1, 5, 7   
+48     , 1, 3, 7   
+49     , 0, 4, 6   
+50     , 0, 2, 6   
+51   \};
+52   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+53 
+54 
+56 
+58   glGenBuffers(1, &vertex\_buffer\_token);
+60   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+61   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+62 
+64   glGenBuffers(1, &colour\_buffer\_token);
+65   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+66   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+67 
+68 
+69   glGenBuffers(1, &element\_buffer\_token);
+70   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+71   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+72 \}
+\end{DoxyCode}
+\hypertarget{classGroundAsset_a8f607f3cabded6280c5a5eb2cbfa8c79}{}\index{Ground\+Asset@{Ground\+Asset}!````~Ground\+Asset@{$\sim$\+Ground\+Asset}}
+\index{````~Ground\+Asset@{$\sim$\+Ground\+Asset}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{$\sim$\+Ground\+Asset()}]{\setlength{\rightskip}{0pt plus 5cm}Ground\+Asset\+::$\sim$\+Ground\+Asset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGroundAsset_a8f607f3cabded6280c5a5eb2cbfa8c79}
+
+\begin{DoxyCode}
+74                           \{
+75 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGroundAsset_a4fad6edd0d2f5aee6acc9a5a872aea96}{}\index{Ground\+Asset@{Ground\+Asset}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Ground\+Asset\+::check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{classGroundAsset_a4fad6edd0d2f5aee6acc9a5a872aea96}
+
+\begin{DoxyCode}
+84                                                      \{
+85   GLenum gl\_error = glGetError();
+86   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+87     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+88     exit(-1);
+89   \}
+90 \}
+\end{DoxyCode}
+\hypertarget{classGroundAsset_a440f983638c7a7ccb6a39718444dfe95}{}\index{Ground\+Asset@{Ground\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Ground\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{program\+\_\+token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classGroundAsset_a440f983638c7a7ccb6a39718444dfe95}
+The max\+Length includes the N\+U\+L\+L character
+
+use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
+
+attribute
+
+size
+
+type
+
+normalized?
+
+stride
+
+array buffer offset
+
+Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
+
+attribute
+
+size
+
+type
+
+normalized?
+
+stride
+
+array buffer offset 
+
+Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
+
+
+\begin{DoxyCode}
+93                                            \{
+94   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+95     std::cerr << \textcolor{stringliteral}{"Drawing Cube with invalid program"} << std::endl;
+96     \textcolor{keywordflow}{return};
+97   \}
+98   GLint validation\_ok;
+99   glValidateProgram(program\_token);
+100   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+101   \textcolor{keywordflow}{if}(!validation\_ok) \{
+102     GLint maxLength = 0;
+103     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+104 
+106     std::vector<char> errorLog(maxLength);
+107     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+108 
+109     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+110     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+111       std::cerr << c;
+112     \}
+113     exit(-1);
+114   \}
+115 
+116   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+117   \hyperlink{GroundAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+118 
+119   glUseProgram(program\_token);
+120   \hyperlink{GroundAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+121 
+125   glEnableVertexAttribArray(0);
+126   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+127   glVertexAttribPointer(
+128     position\_attrib,        
+129     3,        
+130     GL\_FLOAT,   
+131     GL\_FALSE,   
+132     0,        
+133     (\textcolor{keywordtype}{void}*)0    
+134   );
+135   glEnableVertexAttribArray(1);
+136   \hyperlink{GroundAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+141   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+142   glVertexAttribPointer(
+143     1,        
+144     3,        
+145     GL\_FLOAT,   
+146     GL\_FALSE,   
+147     0,        
+148     (\textcolor{keywordtype}{void}*)0    
+149   );
+150   \hyperlink{GroundAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+151 
+152   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+153   glDrawElements(
+154     GL\_TRIANGLES,
+155     element\_buffer\_length,
+156     GL\_UNSIGNED\_INT,
+157     (GLvoid*) 0
+158   );
+159   \hyperlink{GroundAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+160 
+161   glDisableVertexAttribArray(position\_attrib);
+162 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{GroundAsset_8h}{Ground\+Asset.\+h}\item 
+src/\hyperlink{GroundAsset_8cc}{Ground\+Asset.\+cc}\end{DoxyCompactItemize}

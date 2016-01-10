@@ -1,0 +1,256 @@
+\hypertarget{classPyramidAsset}{}\section{Pyramid\+Asset Class Reference}
+\label{classPyramidAsset}\index{Pyramid\+Asset@{Pyramid\+Asset}}
+
+
+{\ttfamily \#include $<$Pyramid\+Asset.\+h$>$}
+
+
+
+Inheritance diagram for Pyramid\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classPyramidAsset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Pyramid\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classPyramidAsset__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPyramidAsset_a3f7c6fd658ed0d3e276d7fe6c1de95d1}{Pyramid\+Asset} (G\+Lfloat x, G\+Lfloat y, G\+Lfloat z)
+\item 
+\hyperlink{classPyramidAsset_afb388a196f43a3808b2d4f6fdb89ee84}{$\sim$\+Pyramid\+Asset} ()
+\item 
+virtual void \hyperlink{classPyramidAsset_aaea45da4956d79ec9ab96e9d0ccef3fe}{Draw} (G\+Luint)
+\item 
+void \hyperlink{classPyramidAsset_a34350044042e0098446dc9e0a260cb70}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPyramidAsset_a3f7c6fd658ed0d3e276d7fe6c1de95d1}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!Pyramid\+Asset@{Pyramid\+Asset}}
+\index{Pyramid\+Asset@{Pyramid\+Asset}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{Pyramid\+Asset(\+G\+Lfloat x, G\+Lfloat y, G\+Lfloat z)}]{\setlength{\rightskip}{0pt plus 5cm}Pyramid\+Asset\+::\+Pyramid\+Asset (
+\begin{DoxyParamCaption}
+\item[{G\+Lfloat}]{x, }
+\item[{G\+Lfloat}]{y, }
+\item[{G\+Lfloat}]{z}
+\end{DoxyParamCaption}
+)}\label{classPyramidAsset_a3f7c6fd658ed0d3e276d7fe6c1de95d1}
+model coordinates, origin at centre.
+
+Sets cordinates to a Pyramid with the center point 0.\+0 but moved to where the x, y, z variables calls them
+
+Colour of Diamond Asset Red, Green \& Blue Uses R\+G\+B values
+
+Transfer buffers to the G\+P\+U
+
+create buffer
+
+immediately bind the buffer and transfer the data
+
+Binds the buffer and transfers the data 
+\begin{DoxyCode}
+4                                                           \{
+5 
+7 
+11   GLfloat vertex\_buffer [] \{
+12       -0.5f + x  , 0.0f + y   ,-0.5f + z
+13      , 0.5f + x  , 0.0f + y   ,-0.5f + z
+14      ,-0.5f + x  , 0.0f + y   , 0.5f + z
+15      , 0.5f + x  , 0.0f + y   , 0.5f + z
+16      , 0.0f + x  , 1.0f + y   , 0.0f + z
+17   \};
+18   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+23   GLfloat colour\_buffer[] = \{
+24 
+25      1.000f, 0.000f, 0.000f,
+26      0.000f, 1.000f, 0.000f,
+27      0.000f, 0.000f, 1.000f,
+28      1.000f, 0.000f, 0.000f,
+29      0.000f, 1.000f, 0.000f,
+30      0.000f, 0.000f, 1.000f,
+31      1.000f, 0.000f, 0.000f,
+32      0.000f, 1.000f, 0.000f,
+33      0.000f, 0.000f, 1.000f
+34   \};
+35  colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+36   
+37   GLuint element\_buffer []  \{
+38       0, 4, 1   
+39     , 1, 4, 3
+40     , 2, 4, 3   
+41     , 2, 4, 0
+42     , 0, 2, 1
+43     , 1, 2, 3
+44   \};
+45   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+46 
+47 
+48 
+50 
+52   glGenBuffers(1, &vertex\_buffer\_token);
+54   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+55   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+56 
+58   glGenBuffers(1, &colour\_buffer\_token);
+59   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+60   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+61 
+62 
+63   glGenBuffers(1, &element\_buffer\_token);
+64   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+65   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+66 \}
+\end{DoxyCode}
+\hypertarget{classPyramidAsset_afb388a196f43a3808b2d4f6fdb89ee84}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!````~Pyramid\+Asset@{$\sim$\+Pyramid\+Asset}}
+\index{````~Pyramid\+Asset@{$\sim$\+Pyramid\+Asset}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{$\sim$\+Pyramid\+Asset()}]{\setlength{\rightskip}{0pt plus 5cm}Pyramid\+Asset\+::$\sim$\+Pyramid\+Asset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPyramidAsset_afb388a196f43a3808b2d4f6fdb89ee84}
+
+\begin{DoxyCode}
+68                             \{
+69 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPyramidAsset_a34350044042e0098446dc9e0a260cb70}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Pyramid\+Asset\+::check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{classPyramidAsset_a34350044042e0098446dc9e0a260cb70}
+
+\begin{DoxyCode}
+78                                                       \{
+79   GLenum gl\_error = glGetError();
+80   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+81     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+82     exit(-1);
+83   \}
+84 \}
+\end{DoxyCode}
+\hypertarget{classPyramidAsset_aaea45da4956d79ec9ab96e9d0ccef3fe}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Pyramid\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{program\+\_\+token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPyramidAsset_aaea45da4956d79ec9ab96e9d0ccef3fe}
+The max\+Length includes the N\+U\+L\+L character
+
+use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
+
+attribute
+
+size
+
+type
+
+normalized?
+
+stride
+
+array buffer offset
+
+Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
+
+attribute
+
+size
+
+type
+
+normalized?
+
+stride
+
+array buffer offset 
+
+Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
+
+
+\begin{DoxyCode}
+86                                             \{
+87   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+88     std::cerr << \textcolor{stringliteral}{"Drawing Pyramid with invalid program"} << std::endl;
+89     \textcolor{keywordflow}{return};
+90   \}
+91   GLint validation\_ok;
+92   glValidateProgram(program\_token);
+93   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+94   \textcolor{keywordflow}{if}(!validation\_ok) \{
+95     GLint maxLength = 0;
+96     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+97 
+99     std::vector<char> errorLog(maxLength);
+100     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+101 
+102     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+103     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+104       std::cerr << c;
+105     \}
+106     exit(-1);
+107   \}
+108 
+109   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+110   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+111 
+112   glUseProgram(program\_token);
+113   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+114 
+118   glEnableVertexAttribArray(0);
+119   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+120   glVertexAttribPointer(
+121     position\_attrib,        
+122     3,        
+123     GL\_FLOAT,   
+124     GL\_FALSE,   
+125     0,        
+126     (\textcolor{keywordtype}{void}*)0    
+127   );
+128   glEnableVertexAttribArray(1);
+129   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+134   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+135   glVertexAttribPointer(
+136     1,        
+137     3,        
+138     GL\_FLOAT,   
+139     GL\_FALSE,   
+140     0,        
+141     (\textcolor{keywordtype}{void}*)0    
+142   );
+143   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+144 
+145   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+146   glDrawElements(
+147     GL\_TRIANGLES,
+148     element\_buffer\_length,
+149     GL\_UNSIGNED\_INT,
+150     (GLvoid*) 0
+151   );
+152   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+153 
+154   glDisableVertexAttribArray(position\_attrib);
+155 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{PyramidAsset_8h}{Pyramid\+Asset.\+h}\item 
+src/\hyperlink{PyramidAsset_8cc}{Pyramid\+Asset.\+cc}\end{DoxyCompactItemize}
