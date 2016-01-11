@@ -1,11 +1,12 @@
 #include "CubeAsset.h"
 
 CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
-  // model coordinates, origin at centre.
+
   //////////////////////////////////////////////////////////////////////////////////////////
+  /// model coordinates, origin at centre.
   /// Sets cordinates to a cube with the center point 0.0 
   /// but moved to where the x, y, z variables calls them
-  /// from the gameworld class through the GLfloat x,y,z variables
+  /// from the gameworld class through the GLfloat x,y,z variables.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat vertex_buffer [] {
       0.5f + x  , 0.5f + y  , -0.5f + z
@@ -19,8 +20,9 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
   //////////////////////////////////////////////////////////////////////////////////////////
+  ///  Color Buffer.
   ///  Colour of Cube Asset Saddle Brown
-  ///  Uses RGB values to set the colour
+  ///  Uses RGB values to set the colour.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat colour_buffer[] = {
 
@@ -35,8 +37,9 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
   };
   colour_buffer_length = sizeof(colour_buffer);
   //////////////////////////////////////////////////////////////////////////////////////////
+  ///  Element buffer.
   ///  Draws the cube voxel up of 12 Triangles
-  ///  Two Triangles per Face
+  ///  Two Triangles per Face.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLuint element_buffer []  {
       0, 1, 2	

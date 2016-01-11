@@ -45,65 +45,64 @@ void \hyperlink{classPyramidAsset_a34350044042e0098446dc9e0a260cb70}{check\+Erro
 \item[{G\+Lfloat}]{z}
 \end{DoxyParamCaption}
 )}\label{classPyramidAsset_a3f7c6fd658ed0d3e276d7fe6c1de95d1}
-Sets cordinates to a Pyramid with the center point 0.\+0 but moved to where the x, y, z variables calls them
+model coordinates, origin at centre. Sets cordinates to a Pyramid with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
 
-Colour of Diamond Asset Red, Green \& Blue Uses R\+G\+B values
+Color Buffer. Colour of Cube Red, Green \& Blue. This creates a cool blend of colours Uses R\+G\+B values to set the colour.
 \begin{DoxyCode}
 3                                                           \{
 4 
-5   \textcolor{comment}{// model coordinates, origin at centre.}
-10 \textcolor{comment}{}  GLfloat vertex\_buffer [] \{
-11       -0.5f + x  , 0.0f + y   ,-0.5f + z
-12      , 0.5f + x  , 0.0f + y   ,-0.5f + z
-13      ,-0.5f + x  , 0.0f + y   , 0.5f + z
-14      , 0.5f + x  , 0.0f + y   , 0.5f + z
-15      , 0.0f + x  , 1.0f + y   , 0.0f + z
-16   \};
-17   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
-22   GLfloat colour\_buffer[] = \{
-23 
-24      1.000f, 0.000f, 0.000f,
-25      0.000f, 1.000f, 0.000f,
-26      0.000f, 0.000f, 1.000f,
-27      1.000f, 0.000f, 0.000f,
-28      0.000f, 1.000f, 0.000f,
-29      0.000f, 0.000f, 1.000f,
-30      1.000f, 0.000f, 0.000f,
-31      0.000f, 1.000f, 0.000f,
-32      0.000f, 0.000f, 1.000f
-33   \};
-34  colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
-35   
-36   GLuint element\_buffer []  \{
-37       0, 4, 1   
-38     , 1, 4, 3
-39     , 2, 4, 3   
-40     , 2, 4, 0
-41     , 0, 2, 1
-42     , 1, 2, 3
-43   \};
-44   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
-45 
-46 
+11   GLfloat vertex\_buffer [] \{
+12       -0.5f + x  , 0.0f + y   ,-0.5f + z
+13      , 0.5f + x  , 0.0f + y   ,-0.5f + z
+14      ,-0.5f + x  , 0.0f + y   , 0.5f + z
+15      , 0.5f + x  , 0.0f + y   , 0.5f + z
+16      , 0.0f + x  , 1.0f + y   , 0.0f + z
+17   \};
+18   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+24   GLfloat colour\_buffer[] = \{
+25 
+26      1.000f, 0.000f, 0.000f,
+27      0.000f, 1.000f, 0.000f,
+28      0.000f, 0.000f, 1.000f,
+29      1.000f, 0.000f, 0.000f,
+30      0.000f, 1.000f, 0.000f,
+31      0.000f, 0.000f, 1.000f,
+32      1.000f, 0.000f, 0.000f,
+33      0.000f, 1.000f, 0.000f,
+34      0.000f, 0.000f, 1.000f
+35   \};
+36  colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+37   
+38   GLuint element\_buffer []  \{
+39       0, 4, 1   
+40     , 1, 4, 3
+41     , 2, 4, 3   
+42     , 2, 4, 0
+43     , 0, 2, 1
+44     , 1, 2, 3
+45   \};
+46   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
 47 
-48   \textcolor{comment}{// Transfer buffers to the GPU}
+48 
 49 
-50   \textcolor{comment}{// create buffer}
-51   glGenBuffers(1, &vertex\_buffer\_token);
-52   \textcolor{comment}{// immediately bind the buffer and transfer the data}
-53   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
-54   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
-55 
-56   \textcolor{comment}{// Binds the buffer and transfers the data}
-57   glGenBuffers(1, &colour\_buffer\_token);
-58   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-59   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
-60 
-61 
-62   glGenBuffers(1, &element\_buffer\_token);
-63   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-64   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
-65 \}
+50   \textcolor{comment}{// Transfer buffers to the GPU}
+51 
+52   \textcolor{comment}{// create buffer}
+53   glGenBuffers(1, &vertex\_buffer\_token);
+54   \textcolor{comment}{// immediately bind the buffer and transfer the data}
+55   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+56   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+57 
+58   \textcolor{comment}{// Binds the buffer and transfers the data}
+59   glGenBuffers(1, &colour\_buffer\_token);
+60   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+61   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+62 
+63 
+64   glGenBuffers(1, &element\_buffer\_token);
+65   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+66   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+67 \}
 \end{DoxyCode}
 \hypertarget{classPyramidAsset_afb388a196f43a3808b2d4f6fdb89ee84}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!````~Pyramid\+Asset@{$\sim$\+Pyramid\+Asset}}
 \index{````~Pyramid\+Asset@{$\sim$\+Pyramid\+Asset}!Pyramid\+Asset@{Pyramid\+Asset}}
@@ -114,8 +113,8 @@ Colour of Diamond Asset Red, Green \& Blue Uses R\+G\+B values
 )}\label{classPyramidAsset_afb388a196f43a3808b2d4f6fdb89ee84}
 
 \begin{DoxyCode}
-67                             \{
-68 \}
+69                             \{
+70 \}
 \end{DoxyCode}
 
 
@@ -130,13 +129,13 @@ Colour of Diamond Asset Red, Green \& Blue Uses R\+G\+B values
 )}\label{classPyramidAsset_a34350044042e0098446dc9e0a260cb70}
 
 \begin{DoxyCode}
-77                                                       \{
-78   GLenum gl\_error = glGetError();
-79   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
-80     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
-81     exit(-1);
-82   \}
-83 \}
+79                                                       \{
+80   GLenum gl\_error = glGetError();
+81   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+82     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+83     exit(-1);
+84   \}
+85 \}
 \end{DoxyCode}
 \hypertarget{classPyramidAsset_aaea45da4956d79ec9ab96e9d0ccef3fe}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Pyramid\+Asset@{Pyramid\+Asset}}
@@ -153,69 +152,69 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 
 
 \begin{DoxyCode}
-85                                             \{
-86   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
-87     std::cerr << \textcolor{stringliteral}{"Drawing Pyramid with invalid program"} << std::endl;
-88     \textcolor{keywordflow}{return};
-89   \}
-90   GLint validation\_ok;
-91   glValidateProgram(program\_token);
-92   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
-93   \textcolor{keywordflow}{if}(!validation\_ok) \{
-94     GLint maxLength = 0;
-95     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
-96 
-97     \textcolor{comment}{// The maxLength includes the NULL character}
-98     std::vector<char> errorLog(maxLength);
-99     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
-100 
-101     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
-102     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
-103       std::cerr << c;
-104     \}
-105     exit(-1);
-106   \}
-107 
-108   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
-109   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-110 
-111   glUseProgram(program\_token);
-112   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-113 
-118   glEnableVertexAttribArray(0);
-119   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
-120   glVertexAttribPointer(
-121     position\_attrib,        \textcolor{comment}{/* attribute */}
-122     3,        \textcolor{comment}{/* size */}
-123     GL\_FLOAT,   \textcolor{comment}{/* type */}
-124     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
-125     0,        \textcolor{comment}{/* stride */}
-126     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
-127   );
-128   glEnableVertexAttribArray(1);
-129   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-134   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-135   glVertexAttribPointer(
-136     1,        \textcolor{comment}{/* attribute */}
-137     3,        \textcolor{comment}{/* size */}
-138     GL\_FLOAT,   \textcolor{comment}{/* type */}
-139     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
-140     0,        \textcolor{comment}{/* stride */}
-141     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
-142   );
-143   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-144 
-145   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-146   glDrawElements(
-147     GL\_TRIANGLES,
-148     element\_buffer\_length,
-149     GL\_UNSIGNED\_INT,
-150     (GLvoid*) 0
-151   );
-152   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-153 
-154   glDisableVertexAttribArray(position\_attrib);
-155 \}
+87                                             \{
+88   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+89     std::cerr << \textcolor{stringliteral}{"Drawing Pyramid with invalid program"} << std::endl;
+90     \textcolor{keywordflow}{return};
+91   \}
+92   GLint validation\_ok;
+93   glValidateProgram(program\_token);
+94   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+95   \textcolor{keywordflow}{if}(!validation\_ok) \{
+96     GLint maxLength = 0;
+97     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+98 
+99     \textcolor{comment}{// The maxLength includes the NULL character}
+100     std::vector<char> errorLog(maxLength);
+101     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+102 
+103     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+104     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+105       std::cerr << c;
+106     \}
+107     exit(-1);
+108   \}
+109 
+110   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+111   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+112 
+113   glUseProgram(program\_token);
+114   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+115 
+120   glEnableVertexAttribArray(0);
+121   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+122   glVertexAttribPointer(
+123     position\_attrib,        \textcolor{comment}{/* attribute */}
+124     3,        \textcolor{comment}{/* size */}
+125     GL\_FLOAT,   \textcolor{comment}{/* type */}
+126     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+127     0,        \textcolor{comment}{/* stride */}
+128     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+129   );
+130   glEnableVertexAttribArray(1);
+131   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+136   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+137   glVertexAttribPointer(
+138     1,        \textcolor{comment}{/* attribute */}
+139     3,        \textcolor{comment}{/* size */}
+140     GL\_FLOAT,   \textcolor{comment}{/* type */}
+141     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+142     0,        \textcolor{comment}{/* stride */}
+143     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+144   );
+145   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+146 
+147   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+148   glDrawElements(
+149     GL\_TRIANGLES,
+150     element\_buffer\_length,
+151     GL\_UNSIGNED\_INT,
+152     (GLvoid*) 0
+153   );
+154   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+155 
+156   glDisableVertexAttribArray(position\_attrib);
+157 \}
 \end{DoxyCode}
 
 

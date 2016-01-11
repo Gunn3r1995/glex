@@ -33,14 +33,15 @@ class GameWorld {
           double MaximumNumber = 1.00;
           double Random = (double)rand() / RAND_MAX;      
   //////////////////////////////////////////////////////////////////////////////////////////
-  /// Calling Draw() will draw the entire world.
+  /// Calling Draw(). will draw the entire world.
   //////////////////////////////////////////////////////////////////////////////////////////
   void Draw();
   //////////////////////////////////////////////////////////////////////////////////////////
-  /// Call Camera_Control will move in specfic direction
+  /// Call Camera_Control. will move in specfic direction
   //////////////////////////////////////////////////////////////////////////////////////////
   void Camera_Control(char key);
           //////////////////////////////////////////////////////////////////////////////////////////
+          /// Camera Variables.
           /// Camera Variables Controls Speed of Play/Camera
           /// Controls the distance each movement moves by
           /// Sets where the starting positions of the camera 
@@ -52,7 +53,7 @@ class GameWorld {
           GLfloat Camera_Horizontal = 0.0;
           GLfloat Camera_Vertical = 0.0;
 
-          glm::vec3 Camera_Position = glm::vec3(1, 2, -1);
+          glm::vec3 Camera_Position = glm::vec3(0, 2, 0);
           glm::vec3 Movement_Z;
           glm::vec3 Movement_X;
 

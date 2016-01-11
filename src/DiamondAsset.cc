@@ -2,10 +2,11 @@
 
 DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
 
-  // model coordinates, origin at centre.
   //////////////////////////////////////////////////////////////////////////////////////////
-  ///  Sets cordinates to a diamond with the center point 0.0 
-  ///  but moved to where the x, y, z variables calls them
+  /// model coordinates, origin at centre.
+  /// Sets cordinates to a Diamond with the center point 0.0 
+  /// but moved to where the x, y, z variables calls them
+  /// from the gameworld class through the GLfloat x,y,z variables.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat vertex_buffer [] {
      -0.5f + x  , 0.0f + y   , 0.0f + z
@@ -17,8 +18,9 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
   //////////////////////////////////////////////////////////////////////////////////////////
-  ///  Colour of Diamond Asset Red
-  ///  Uses RGB values
+  ///  Color Buffer.
+  ///  Colour of Cube Asset Red
+  ///  Uses RGB values to set the colour.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat colour_buffer[] = {
 
@@ -31,6 +33,7 @@ DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
   };
   colour_buffer_length = sizeof(colour_buffer);
   //////////////////////////////////////////////////////////////////////////////////////////
+  ///  Element buffer.
   ///  Draws the Diamond up of 8 Triangles
   ///  One Triangles per Face
   //////////////////////////////////////////////////////////////////////////////////////////

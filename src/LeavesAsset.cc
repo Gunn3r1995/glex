@@ -2,10 +2,11 @@
 
 LeavesAsset::LeavesAsset(GLfloat x, GLfloat y, GLfloat z) {
 
-  // model coordinates, origin at centre.
   //////////////////////////////////////////////////////////////////////////////////////////
-  /// Sets cordinates to a Leaves with the center point 0.0 
-  ///  but moved to where the x, y, z variables calls them
+  /// model coordinates, origin at centre.
+  /// Sets cordinates to a Cube with the center point 0.0 
+  /// but moved to where the x, y, z variables calls them
+  /// from the gameworld class through the GLfloat x,y,z variables.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat vertex_buffer [] {
       0.5f + x  , 0.5f + y  , -0.5f + z
@@ -18,9 +19,10 @@ LeavesAsset::LeavesAsset(GLfloat x, GLfloat y, GLfloat z) {
     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
-  ////////////////////////////////////////////////////////////////////////////////////////// 
-  /// Colour of Diamond Asset Camerone Green & Lawn Green
-  /// Uses RGB values
+  //////////////////////////////////////////////////////////////////////////////////////////
+  ///  Color Buffer.
+  ///  Colour of Cube Camerone Green & Lawn Green
+  ///  Uses RGB values to set the colour.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat colour_buffer[] = {
 

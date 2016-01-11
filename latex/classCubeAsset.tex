@@ -45,25 +45,25 @@ void \hyperlink{classCubeAsset_ac3855728a8d6c1612ebc85f82d3b535e}{check\+Error} 
 \item[{G\+Lfloat}]{z}
 \end{DoxyParamCaption}
 )}\label{classCubeAsset_a0252e564114a3cda7e3911ef95742a34}
-Sets cordinates to a cube with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables
+model coordinates, origin at centre. Sets cordinates to a cube with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
 
-Colour of Cube Asset Saddle Brown Uses R\+G\+B values to set the colour
+Color Buffer. Colour of Cube Asset Saddle Brown Uses R\+G\+B values to set the colour.
 
-Draws the cube voxel up of 12 Triangles Two Triangles per Face
+Element buffer. Draws the cube voxel up of 12 Triangles Two Triangles per Face.
 \begin{DoxyCode}
-5                                                      \{
-6   \textcolor{comment}{// model coordinates, origin at centre.}
-12 \textcolor{comment}{}  GLfloat vertex\_buffer [] \{
-13       0.5f + x  , 0.5f + y  , -0.5f + z
-14     , 0.5f + x  ,-0.5f + y  , -0.5f + z
-15     ,-0.5f + x  , 0.5f + y  , -0.5f + z
-16     ,-0.5f + x  ,-0.5f + y  , -0.5f + z
-17     , 0.5f + x  , 0.5f + y  ,  0.5f + z 
-18     , 0.5f + x  ,-0.5f + y  ,  0.5f + z
-19     ,-0.5f + x  , 0.5f + y  ,  0.5f + z
-20     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z
-21   \};
-22   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+3                                                      \{
+4 
+11   GLfloat vertex\_buffer [] \{
+12       0.5f + x  , 0.5f + y  , -0.5f + z
+13     , 0.5f + x  ,-0.5f + y  , -0.5f + z
+14     ,-0.5f + x  , 0.5f + y  , -0.5f + z
+15     ,-0.5f + x  ,-0.5f + y  , -0.5f + z
+16     , 0.5f + x  , 0.5f + y  ,  0.5f + z 
+17     , 0.5f + x  ,-0.5f + y  ,  0.5f + z
+18     ,-0.5f + x  , 0.5f + y  ,  0.5f + z
+19     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z
+20   \};
+21   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
 27   GLfloat colour\_buffer[] = \{
 28 
 29      0.139f, 0.069f, 0.019f,
@@ -76,42 +76,42 @@ Draws the cube voxel up of 12 Triangles Two Triangles per Face
 36      0.139f, 0.069f, 0.019f
 37   \};
 38   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
-43   GLuint element\_buffer []  \{
-44       0, 1, 2   
-45     , 1, 3, 2
-46     , 0, 4, 1   
-47     , 1, 5, 4   
-48     , 5, 7, 4   
-49     , 7, 6, 4   
-50     , 3, 7, 6   
-51     , 2, 3, 6   
-52     , 1, 5, 7   
-53     , 1, 3, 7   
-54     , 0, 4, 6   
-55     , 0, 2, 6   
-56   \};
-57   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
-58 
+44   GLuint element\_buffer []  \{
+45       0, 1, 2   
+46     , 1, 3, 2
+47     , 0, 4, 1   
+48     , 1, 5, 4   
+49     , 5, 7, 4   
+50     , 7, 6, 4   
+51     , 3, 7, 6   
+52     , 2, 3, 6   
+53     , 1, 5, 7   
+54     , 1, 3, 7   
+55     , 0, 4, 6   
+56     , 0, 2, 6   
+57   \};
+58   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
 59 
 60 
-61   \textcolor{comment}{// Transfer buffers to the GPU}
-62 
-63   \textcolor{comment}{// create buffer}
-64   glGenBuffers(1, &vertex\_buffer\_token);
-65   \textcolor{comment}{// immediately bind the buffer and transfer the data}
-66   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
-67   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
-68   
-69   \textcolor{comment}{// Binds the buffer to transfer the data}
-70   glGenBuffers(1, &colour\_buffer\_token);
-71   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-72   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
-73 
+61 
+62   \textcolor{comment}{// Transfer buffers to the GPU}
+63 
+64   \textcolor{comment}{// create buffer}
+65   glGenBuffers(1, &vertex\_buffer\_token);
+66   \textcolor{comment}{// immediately bind the buffer and transfer the data}
+67   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+68   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+69   
+70   \textcolor{comment}{// Binds the buffer to transfer the data}
+71   glGenBuffers(1, &colour\_buffer\_token);
+72   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+73   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
 74 
-75   glGenBuffers(1, &element\_buffer\_token);
-76   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-77   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
-78 \}
+75 
+76   glGenBuffers(1, &element\_buffer\_token);
+77   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+78   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+79 \}
 \end{DoxyCode}
 \hypertarget{classCubeAsset_ab3ab9a5da82cbf8537a28652410093b1}{}\index{Cube\+Asset@{Cube\+Asset}!````~Cube\+Asset@{$\sim$\+Cube\+Asset}}
 \index{````~Cube\+Asset@{$\sim$\+Cube\+Asset}!Cube\+Asset@{Cube\+Asset}}
@@ -122,8 +122,8 @@ Draws the cube voxel up of 12 Triangles Two Triangles per Face
 )}\label{classCubeAsset_ab3ab9a5da82cbf8537a28652410093b1}
 
 \begin{DoxyCode}
-80                       \{
-81 \}
+81                       \{
+82 \}
 \end{DoxyCode}
 
 
@@ -151,68 +151,68 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 
 
 \begin{DoxyCode}
-98                                          \{
-99   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
-100     std::cerr << \textcolor{stringliteral}{"Drawing Cube with invalid program"} << std::endl;
-101     \textcolor{keywordflow}{return};
-102   \}
-103   GLint validation\_ok;
-104   glValidateProgram(program\_token);
-105   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
-106   \textcolor{keywordflow}{if}(!validation\_ok) \{
-107     GLint maxLength = 0;
-108     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
-109 
-110     \textcolor{comment}{// The maxLength includes the NULL character}
-111     std::vector<char> errorLog(maxLength);
-112     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
-113 
-114     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
-115     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
-116       std::cerr << c;
-117     \}
-118     exit(-1);
-119   \}
-120 
-121   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
-122   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-123 
-124   glUseProgram(program\_token);
-125   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-130   glEnableVertexAttribArray(0);
-131   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
-132   glVertexAttribPointer(
-133     position\_attrib,        \textcolor{comment}{/* attribute */}
-134     3,        \textcolor{comment}{/* size */}
-135     GL\_FLOAT,   \textcolor{comment}{/* type */}
-136     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
-137     0,        \textcolor{comment}{/* stride */}
-138     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
-139   );
-140   glEnableVertexAttribArray(1);
-141   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-146   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-147   glVertexAttribPointer(
-148     1,        \textcolor{comment}{/* attribute */}
-149     3,        \textcolor{comment}{/* size */}
-150     GL\_FLOAT,   \textcolor{comment}{/* type */}
-151     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
-152     0,        \textcolor{comment}{/* stride */}
-153     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
-154   );
-155   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-156 
-157   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-158   glDrawElements(
-159     GL\_TRIANGLES,
-160     element\_buffer\_length,
-161     GL\_UNSIGNED\_INT,
-162     (GLvoid*) 0
-163   );
-164   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-165 
-166   glDisableVertexAttribArray(position\_attrib);
-167 \}
+99                                          \{
+100   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+101     std::cerr << \textcolor{stringliteral}{"Drawing Cube with invalid program"} << std::endl;
+102     \textcolor{keywordflow}{return};
+103   \}
+104   GLint validation\_ok;
+105   glValidateProgram(program\_token);
+106   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+107   \textcolor{keywordflow}{if}(!validation\_ok) \{
+108     GLint maxLength = 0;
+109     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+110 
+111     \textcolor{comment}{// The maxLength includes the NULL character}
+112     std::vector<char> errorLog(maxLength);
+113     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+114 
+115     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+116     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+117       std::cerr << c;
+118     \}
+119     exit(-1);
+120   \}
+121 
+122   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+123   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+124 
+125   glUseProgram(program\_token);
+126   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+131   glEnableVertexAttribArray(0);
+132   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+133   glVertexAttribPointer(
+134     position\_attrib,        \textcolor{comment}{/* attribute */}
+135     3,        \textcolor{comment}{/* size */}
+136     GL\_FLOAT,   \textcolor{comment}{/* type */}
+137     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+138     0,        \textcolor{comment}{/* stride */}
+139     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+140   );
+141   glEnableVertexAttribArray(1);
+142   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+147   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+148   glVertexAttribPointer(
+149     1,        \textcolor{comment}{/* attribute */}
+150     3,        \textcolor{comment}{/* size */}
+151     GL\_FLOAT,   \textcolor{comment}{/* type */}
+152     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+153     0,        \textcolor{comment}{/* stride */}
+154     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+155   );
+156   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+157 
+158   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+159   glDrawElements(
+160     GL\_TRIANGLES,
+161     element\_buffer\_length,
+162     GL\_UNSIGNED\_INT,
+163     (GLvoid*) 0
+164   );
+165   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+166 
+167   glDisableVertexAttribArray(position\_attrib);
+168 \}
 \end{DoxyCode}
 
 

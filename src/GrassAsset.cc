@@ -1,11 +1,11 @@
 #include "GrassAsset.h"
 
 GrassAsset::GrassAsset(GLfloat x, GLfloat y, GLfloat z) {
-
-  // model coordinates, origin at centre.
   //////////////////////////////////////////////////////////////////////////////////////////
+  /// model coordinates, origin at centre.
   /// Sets cordinates to a Grass/Pyramid with the center point 0.0 
-  ///  but moved to where the x, y, z variables calls them
+  /// but moved to where the x, y, z variables calls them
+  /// from the gameworld class through the GLfloat x,y,z variables.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat vertex_buffer [] {
       -0.01f + x  , 0.00f + y   ,-0.01f + z
@@ -16,8 +16,9 @@ GrassAsset::GrassAsset(GLfloat x, GLfloat y, GLfloat z) {
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
   //////////////////////////////////////////////////////////////////////////////////////////
-  ///  Colour of Diamond Asset Green
-  ///  Uses RGB values
+  ///  Color Buffer.
+  ///  Colour of Cube Asset Green
+  ///  Uses RGB values to set the colour.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat colour_buffer[] = {
 
