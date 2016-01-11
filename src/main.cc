@@ -1,6 +1,17 @@
 #define GLEW_STATIC /// Easier debugging
+
 #include <GL/glew.h>
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#include <GLUT/glut.h>
+#elif __linux__
 #include <GL/gl.h>
+#else
+#   error "Unknown compiler"
+#endif
+
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <memory>

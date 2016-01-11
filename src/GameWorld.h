@@ -3,7 +3,15 @@
 
 #include <memory>
 
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#include <GLUT/glut.h>
+#elif __linux__
 #include <GL/gl.h>
+#else
+#   error "Unknown compiler"
+#endif
 
 #include "common.h"
 #include "GameAssetManager.h"
