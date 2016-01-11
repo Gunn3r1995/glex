@@ -6,16 +6,16 @@ compiler:
 
 before_install:
  //Linux Install Dependencies
- - if [ "$TRAVIS_OS_NAME" == "linux" ]; echo "yes" |sudo apt-add-repository ppa:zoogie/sdl2-snapshots; fi
- - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y; fi
- - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo apt-get update -qq; fi
- - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo apt-get install -y gcc-4.8 g++-4.8 libsdl-* libglm-dev libglew-dev libboost-all-dev libsdl2-dev; fi
- - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90; fi
+ - if [ "$TRAVIS_OS_NAME" == "linux" ]; then echo "yes" |sudo apt-add-repository ppa:zoogie/sdl2-snapshots;
+ - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
+ - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update -qq;
+ - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install -y gcc-4.8 g++-4.8 libsdl-* libglm-dev libglew-dev libboost-all-dev libsdl2-dev;
+ - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90;
 
- - if [ "$TRAVIS_OS_NAME" == "osx"]; brew install sdl2;
- - if [ "$TRAVIS_OS_NAME" == "osx"]; brew install boost;
- - if [ "$TRAVIS_OS_NAME" == "osx"]; brew install glew;
- - if [ "$TRAVIS_OS_NAME" == "osx"]; brew install glm;
+ - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install sdl2;
+ - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install boost;
+ - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install glew;
+ - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install glm;
 
  
 script:
