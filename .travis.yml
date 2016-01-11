@@ -19,7 +19,7 @@ before_install:
  - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install glew; fi
  - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install gource; fi
  - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install glm; fi
- - if [ "$TRAVIS_OS_NAME" = osx ]; then brew install devil; else sudo apt-get install libdevil-dev; fi
+ - if [ "$TRAVIS_OS_NAME" = osx ]; then ./travis-tool.sh install_github GLEON/GLMr
 
 
 
