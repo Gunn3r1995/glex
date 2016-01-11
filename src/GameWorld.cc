@@ -17,13 +17,19 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   ///  20 by 20 world, I would like to improve the size of the array in the future but as of
   ///  now I don't think it's to important. 
   ///
-  ///  1-> 2 high Ground Blocks
-  ///  2-> A 1 high Cube with a Diamond on top
-  ///  3-> A 2 high Cube with a Diamond on top
-  ///  4-> A Tree
-  ///  5-> A Cube with a Pyramid on top
-  ///  6-> A Pyramid
-  ///  7-> Somewhat Random Grass
+  ///  1-> 2 high Ground Blocks.
+  ///
+  ///  2-> A 1 high Cube with a Diamond on top.
+  ///
+  ///  3-> A 2 high Cube with a Diamond on top.
+  ///
+  ///  4-> A Tree.
+  ///
+  ///  5-> A Cube with a Pyramid on top.
+  ///
+  ///  6-> A Pyramid.
+  ///
+  ///  7-> Somewhat Random Grass.
   //////////////////////////////////////////////////////////////////////////////////////////
   int world[20][20] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
