@@ -10,7 +10,9 @@ before_install:
  - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
  - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo apt-get update -qq;
  - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo apt-get install -y gcc-4.8 g++-4.8 libsdl-* libglm-dev libglew-dev libboost-all-dev libsdl2-dev;
- - if [ "$TRAVIS_OS_NAME" == "linux" ];sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90;
+ - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90;
+
+ - if [ "$TRAVIS_OS_NAME" == "osx"]; brew install sdl2;
  
 script:
  - autoreconf -i
