@@ -15,7 +15,6 @@ before_install:
  //osx Install Dependencies
 - if [ "$TRAVIS_OS_NAME" == "osx" ];
 - if [ "$TRAVIS_OS_NAME" == "osx" ];
-
 script:
  - autoreconf -i
  - ./configure
