@@ -18,6 +18,8 @@ before_install:
  - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install boost; fi
  - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install glew; fi
  - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install glm; fi
+ - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew install GLM; fi
+
  
 script:
  - autoreconf -i
