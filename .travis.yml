@@ -13,6 +13,10 @@ before_install:
  - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90;
 
  - if [ "$TRAVIS_OS_NAME" == "osx"]; brew install sdl2;
+ - if [ "$TRAVIS_OS_NAME" == "osx"]; brew install boost;
+ - if [ "$TRAVIS_OS_NAME" == "osx"]; brew install glew;
+ - if [ "$TRAVIS_OS_NAME" == "osx"]; brew install glm;
+
  
 script:
  - autoreconf -i
