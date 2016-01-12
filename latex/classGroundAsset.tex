@@ -4,10 +4,22 @@
 
 {\ttfamily \#include $<$Ground\+Asset.\+h$>$}
 
-Inheritance diagram for Ground\+Asset\+:\begin{figure}[H]
+
+
+Inheritance diagram for Ground\+Asset\+:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classGroundAsset}
+\includegraphics[width=154pt]{classGroundAsset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ground\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classGroundAsset__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -18,8 +30,6 @@ Inheritance diagram for Ground\+Asset\+:\begin{figure}[H]
 \hyperlink{classGroundAsset_a8f607f3cabded6280c5a5eb2cbfa8c79}{$\sim$\+Ground\+Asset} ()
 \item 
 virtual void \hyperlink{classGroundAsset_a440f983638c7a7ccb6a39718444dfe95}{Draw} (G\+Luint)
-\item 
-void \hyperlink{classGroundAsset_a4fad6edd0d2f5aee6acc9a5a872aea96}{check\+Error} (std\+::string file, int line)
 \end{DoxyCompactItemize}
 
 
@@ -114,24 +124,6 @@ Color Buffer. Colour of Cube Lawn Green Uses R\+G\+B values to set the colour.
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classGroundAsset_a4fad6edd0d2f5aee6acc9a5a872aea96}{}\index{Ground\+Asset@{Ground\+Asset}!check\+Error@{check\+Error}}
-\index{check\+Error@{check\+Error}!Ground\+Asset@{Ground\+Asset}}
-\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Ground\+Asset\+::check\+Error (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{file, }
-\item[{int}]{line}
-\end{DoxyParamCaption}
-)}\label{classGroundAsset_a4fad6edd0d2f5aee6acc9a5a872aea96}
-
-\begin{DoxyCode}
-86                                                      \{
-87   GLenum gl\_error = glGetError();
-88   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
-89     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
-90     exit(-1);
-91   \}
-92 \}
-\end{DoxyCode}
 \hypertarget{classGroundAsset_a440f983638c7a7ccb6a39718444dfe95}{}\index{Ground\+Asset@{Ground\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Ground\+Asset@{Ground\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Ground\+Asset\+::\+Draw (

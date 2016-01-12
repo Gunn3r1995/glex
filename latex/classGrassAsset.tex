@@ -4,10 +4,22 @@
 
 {\ttfamily \#include $<$Grass\+Asset.\+h$>$}
 
-Inheritance diagram for Grass\+Asset\+:\begin{figure}[H]
+
+
+Inheritance diagram for Grass\+Asset\+:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classGrassAsset}
+\includegraphics[width=148pt]{classGrassAsset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Grass\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classGrassAsset__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -18,8 +30,6 @@ Inheritance diagram for Grass\+Asset\+:\begin{figure}[H]
 \hyperlink{classGrassAsset_a07e2206bacd2ec120f27f20e5df635b7}{$\sim$\+Grass\+Asset} ()
 \item 
 virtual void \hyperlink{classGrassAsset_a0178a72c5bf2f00bcc6a240b851f3a25}{Draw} (G\+Luint)
-\item 
-void \hyperlink{classGrassAsset_a06cf99092ea2217df1855e2d6375396b}{check\+Error} (std\+::string file, int line)
 \end{DoxyCompactItemize}
 
 
@@ -102,24 +112,6 @@ Color Buffer. Colour of Cube Asset Green Uses R\+G\+B values to set the colour.
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classGrassAsset_a06cf99092ea2217df1855e2d6375396b}{}\index{Grass\+Asset@{Grass\+Asset}!check\+Error@{check\+Error}}
-\index{check\+Error@{check\+Error}!Grass\+Asset@{Grass\+Asset}}
-\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Grass\+Asset\+::check\+Error (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{file, }
-\item[{int}]{line}
-\end{DoxyParamCaption}
-)}\label{classGrassAsset_a06cf99092ea2217df1855e2d6375396b}
-
-\begin{DoxyCode}
-74                                                     \{
-75   GLenum gl\_error = glGetError();
-76   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
-77     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
-78     exit(-1);
-79   \}
-80 \}
-\end{DoxyCode}
 \hypertarget{classGrassAsset_a0178a72c5bf2f00bcc6a240b851f3a25}{}\index{Grass\+Asset@{Grass\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Grass\+Asset@{Grass\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Grass\+Asset\+::\+Draw (

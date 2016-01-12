@@ -4,10 +4,22 @@
 
 {\ttfamily \#include $<$Diamond\+Asset.\+h$>$}
 
-Inheritance diagram for Diamond\+Asset\+:\begin{figure}[H]
+
+
+Inheritance diagram for Diamond\+Asset\+:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classDiamondAsset}
+\includegraphics[width=161pt]{classDiamondAsset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Diamond\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{classDiamondAsset__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -18,8 +30,6 @@ Inheritance diagram for Diamond\+Asset\+:\begin{figure}[H]
 \hyperlink{classDiamondAsset_a1b7bf6ba76651a9304943f2c41fe36b8}{$\sim$\+Diamond\+Asset} ()
 \item 
 virtual void \hyperlink{classDiamondAsset_a0c259031894623285b3b511321c73abb}{Draw} (G\+Luint)
-\item 
-void \hyperlink{classDiamondAsset_ad0eafff97cf565024dd085f3c8786a93}{check\+Error} (std\+::string file, int line)
 \end{DoxyCompactItemize}
 
 
@@ -108,24 +118,6 @@ Element buffer. Draws the Diamond up of 8 Triangles One Triangles per Face
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classDiamondAsset_ad0eafff97cf565024dd085f3c8786a93}{}\index{Diamond\+Asset@{Diamond\+Asset}!check\+Error@{check\+Error}}
-\index{check\+Error@{check\+Error}!Diamond\+Asset@{Diamond\+Asset}}
-\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Diamond\+Asset\+::check\+Error (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{file, }
-\item[{int}]{line}
-\end{DoxyParamCaption}
-)}\label{classDiamondAsset_ad0eafff97cf565024dd085f3c8786a93}
-
-\begin{DoxyCode}
-83                                                       \{
-84   GLenum gl\_error = glGetError();
-85   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
-86     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
-87     exit(-1);
-88   \}
-89 \}
-\end{DoxyCode}
 \hypertarget{classDiamondAsset_a0c259031894623285b3b511321c73abb}{}\index{Diamond\+Asset@{Diamond\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Diamond\+Asset@{Diamond\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Diamond\+Asset\+::\+Draw (

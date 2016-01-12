@@ -4,10 +4,22 @@
 
 {\ttfamily \#include $<$Leaves\+Asset.\+h$>$}
 
-Inheritance diagram for Leaves\+Asset\+:\begin{figure}[H]
+
+
+Inheritance diagram for Leaves\+Asset\+:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classLeavesAsset}
+\includegraphics[width=154pt]{classLeavesAsset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Leaves\+Asset\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classLeavesAsset__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -18,8 +30,6 @@ Inheritance diagram for Leaves\+Asset\+:\begin{figure}[H]
 \hyperlink{classLeavesAsset_ae98d43a307f4c75cc8a661f0b36a213a}{$\sim$\+Leaves\+Asset} ()
 \item 
 virtual void \hyperlink{classLeavesAsset_a807fd196b83e5adb131d489ef6645742}{Draw} (G\+Luint)
-\item 
-void \hyperlink{classLeavesAsset_aa5ac41c76e9ed66570891ccf00b9c63a}{check\+Error} (std\+::string file, int line)
 \end{DoxyCompactItemize}
 
 
@@ -117,24 +127,6 @@ Color Buffer. Colour of Cube Camerone Green \& Lawn Green Uses R\+G\+B values to
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classLeavesAsset_aa5ac41c76e9ed66570891ccf00b9c63a}{}\index{Leaves\+Asset@{Leaves\+Asset}!check\+Error@{check\+Error}}
-\index{check\+Error@{check\+Error}!Leaves\+Asset@{Leaves\+Asset}}
-\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Leaves\+Asset\+::check\+Error (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{file, }
-\item[{int}]{line}
-\end{DoxyParamCaption}
-)}\label{classLeavesAsset_aa5ac41c76e9ed66570891ccf00b9c63a}
-
-\begin{DoxyCode}
-89                                                      \{
-90   GLenum gl\_error = glGetError();
-91   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
-92     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
-93     exit(-1);
-94   \}
-95 \}
-\end{DoxyCode}
 \hypertarget{classLeavesAsset_a807fd196b83e5adb131d489ef6645742}{}\index{Leaves\+Asset@{Leaves\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Leaves\+Asset@{Leaves\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Leaves\+Asset\+::\+Draw (

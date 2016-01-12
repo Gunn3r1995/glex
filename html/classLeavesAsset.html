@@ -65,7 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -97,12 +97,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for LeavesAsset:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classLeavesAsset.png" usemap="#LeavesAsset_map" alt=""/>
-  <map id="LeavesAsset_map" name="LeavesAsset_map">
-<area href="classGameAsset.html" alt="GameAsset" shape="rect" coords="0,0,84,24"/>
+<div class="center"><img src="classLeavesAsset__inherit__graph.png" border="0" usemap="#LeavesAsset_inherit__map" alt="Inheritance graph"/></div>
+<map name="LeavesAsset_inherit__map" id="LeavesAsset_inherit__map">
+<area shape="rect" id="node2" href="classGameAsset.html" title="GameAsset" alt="" coords="9,5,100,32"/>
 </map>
- </div></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for LeavesAsset:</div>
+<div class="dyncontent">
+<div class="center"><img src="classLeavesAsset__coll__graph.png" border="0" usemap="#LeavesAsset_coll__map" alt="Collaboration graph"/></div>
+<map name="LeavesAsset_coll__map" id="LeavesAsset_coll__map">
+<area shape="rect" id="node2" href="classGameAsset.html" title="GameAsset" alt="" coords="9,5,100,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -112,8 +119,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae98d43a307f4c75cc8a661f0b36a213a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a807fd196b83e5adb131d489ef6645742"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeavesAsset.html#a807fd196b83e5adb131d489ef6645742">Draw</a> (GLuint)</td></tr>
 <tr class="separator:a807fd196b83e5adb131d489ef6645742"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5ac41c76e9ed66570891ccf00b9c63a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeavesAsset.html#aa5ac41c76e9ed66570891ccf00b9c63a">checkError</a> (std::string file, int line)</td></tr>
-<tr class="separator:aa5ac41c76e9ed66570891ccf00b9c63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1fb1212e5399f16071f0be7ff42cc344"></a>
@@ -232,39 +237,6 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa5ac41c76e9ed66570891ccf00b9c63a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void LeavesAsset::checkError </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>line</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                                     {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  GLenum gl_error = glGetError();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span>(GL_NO_ERROR != gl_error) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;GL error in &quot;</span> &lt;&lt; file &lt;&lt; <span class="stringliteral">&quot; at line &quot;</span> &lt;&lt; line &lt;&lt; <span class="stringliteral">&quot; error: &quot;</span> &lt;&lt; gl_error &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    exit(-1);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-</div><!-- fragment -->
-</div>
-</div>
 <a class="anchor" id="a807fd196b83e5adb131d489ef6645742"></a>
 <div class="memitem">
 <div class="memproto">
