@@ -18,7 +18,6 @@ before_install:
  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install gource; fi
  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install glm; fi
  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install homebrew/x11/mesalib-glw; fi
- - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install libgl1-mesa-dev libglu1-mesa-dev; fi
 
 
 script:
