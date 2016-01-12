@@ -18,11 +18,10 @@ before_install:
  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install gource; fi
  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install glm; fi
  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install homebrew/x11/mesalib-glw; fi
+ - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install glw; fi
+ - if [ "$TRAVIS_OS_NAME" == "osx" ]; then sudo port install glew +universal; fi
 
 
-
-
- 
 script:
  - autoreconf -i
  - ./configure
