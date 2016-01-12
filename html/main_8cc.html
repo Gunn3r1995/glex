@@ -135,6 +135,7 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a70eaa727262f633037c3f4b7d3ff24c2"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cc.html#a70eaa727262f633037c3f4b7d3ff24c2">tick</a> (Uint32 interval, void *param)</td></tr>
+<tr class="memdesc:a70eaa727262f633037c3f4b7d3ff24c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDL timers run in separate threads.  <a href="#a70eaa727262f633037c3f4b7d3ff24c2">More...</a><br /></td></tr>
 <tr class="separator:a70eaa727262f633037c3f4b7d3ff24c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1fc7acb89acd89e2d93d844387f73a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cc.html#ae1fc7acb89acd89e2d93d844387f73a8">Draw</a> (const std::shared_ptr&lt; SDL_Window &gt; &amp;window, const std::shared_ptr&lt; <a class="el" href="classGameWorld.html">GameWorld</a> &gt; &amp;game_world)</td></tr>
 <tr class="separator:ae1fc7acb89acd89e2d93d844387f73a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -305,7 +306,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Add the main event loop. Detects Keyboard and Mouse Sends Data to <a class="el" href="classGameWorld.html">GameWorld</a> Camera Controls</p>
+<p>Add the main event loop. Detects Keyboard and Mouse Sends Data to <a class="el" href="classGameWorld.html" title="GameWorld allows us to separate the management of the game world from the nuts and bolts of game loop...">GameWorld</a> Camera Controls</p>
 <div class="fragment"><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                                   {</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    Uint32 delay = 1000/30; <span class="comment">// in milliseconds, Temporary change to 30fps to fix speed of the game.</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
@@ -468,7 +469,7 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  }</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;}</div>
 <div class="ttc" id="main_8cc_html_ae1fc7acb89acd89e2d93d844387f73a8"><div class="ttname"><a href="main_8cc.html#ae1fc7acb89acd89e2d93d844387f73a8">Draw</a></div><div class="ttdeci">void Draw(const std::shared_ptr&lt; SDL_Window &gt; &amp;window, const std::shared_ptr&lt; GameWorld &gt; &amp;game_world)</div><div class="ttdef"><b>Definition:</b> main.cc:50</div></div>
-<div class="ttc" id="main_8cc_html_a70eaa727262f633037c3f4b7d3ff24c2"><div class="ttname"><a href="main_8cc.html#a70eaa727262f633037c3f4b7d3ff24c2">tick</a></div><div class="ttdeci">Uint32 tick(Uint32 interval, void *param)</div><div class="ttdef"><b>Definition:</b> main.cc:34</div></div>
+<div class="ttc" id="main_8cc_html_a70eaa727262f633037c3f4b7d3ff24c2"><div class="ttname"><a href="main_8cc.html#a70eaa727262f633037c3f4b7d3ff24c2">tick</a></div><div class="ttdeci">Uint32 tick(Uint32 interval, void *param)</div><div class="ttdoc">SDL timers run in separate threads. </div><div class="ttdef"><b>Definition:</b> main.cc:34</div></div>
 <div class="ttc" id="main_8cc_html_aba227fab3b52f0ce7c5b89d75b88dcdc"><div class="ttname"><a href="main_8cc.html#aba227fab3b52f0ce7c5b89d75b88dcdc">ParseOptions</a></div><div class="ttdeci">ApplicationMode ParseOptions(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> main.cc:122</div></div>
 <div class="ttc" id="main_8cc_html_acab7ade71cf38099442ca5df2495223d"><div class="ttname"><a href="main_8cc.html#acab7ade71cf38099442ca5df2495223d">InitWorld</a></div><div class="ttdeci">std::shared_ptr&lt; SDL_Window &gt; InitWorld()</div><div class="ttdef"><b>Definition:</b> main.cc:60</div></div>
 </div><!-- fragment -->
@@ -556,7 +557,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>SDL timers run in separate threads. In the timer thread push an event onto the event queue. This event signifies to call display() from the thread in which the OpenGL context was created. </p>
+
+<p>SDL timers run in separate threads. </p>
+<p>In the timer thread push an event onto the event queue. This event signifies to call display() from the thread in which the OpenGL context was created. </p>
 <div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                          {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  SDL_Event event;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">event</span>.type = SDL_USEREVENT;</div>

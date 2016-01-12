@@ -31,6 +31,24 @@ Collaboration diagram for Grass\+Asset\+:\nopagebreak
 \item 
 virtual void \hyperlink{classGrassAsset_a0178a72c5bf2f00bcc6a240b851f3a25}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGrassAsset_a06cf99092ea2217df1855e2d6375396b}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{classGrassAsset_a3bb3e3d9ac2d7806f0c8d2c04559e4c9}{element\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classGrassAsset_aede615b26df4a5624f262a10bc000d92}{colour\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classGrassAsset_a7b98229bcd980cddf4435518c254322e}{vertex\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classGrassAsset_accd7a1c61ad5a5c29f9e8abf653e86a8}{element\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classGrassAsset_a96a3d9c956d29cd63308c7a97f6ac3bf}{colour\+\_\+buffer\+\_\+token}
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -64,7 +82,7 @@ Color Buffer. Colour of Cube Asset Green Uses R\+G\+B values to set the colour.
 28      0.000f, 1.000f, 0.000f,
 29      0.000f, 1.000f, 0.000f
 30   \};
-31  colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+31  \hyperlink{classGrassAsset_aede615b26df4a5624f262a10bc000d92}{colour\_buffer\_length} = \textcolor{keyword}{sizeof}(colour\_buffer);
 32   
 33   GLuint element\_buffer []  \{
 34       0, 4, 1   
@@ -74,27 +92,28 @@ Color Buffer. Colour of Cube Asset Green Uses R\+G\+B values to set the colour.
 38     , 0, 2, 1
 39     , 1, 2, 3
 40   \};
-41   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+41   \hyperlink{classGrassAsset_a3bb3e3d9ac2d7806f0c8d2c04559e4c9}{element\_buffer\_length} = \textcolor{keyword}{sizeof}(element\_buffer);
 42 
 43 
 44 
 45   \textcolor{comment}{// Transfer buffers to the GPU}
 46 
 47   \textcolor{comment}{// create buffer}
-48   glGenBuffers(1, &vertex\_buffer\_token);
+48   glGenBuffers(1, &\hyperlink{classGrassAsset_a7b98229bcd980cddf4435518c254322e}{vertex\_buffer\_token});
 49   \textcolor{comment}{// immediately bind the buffer and transfer the data}
-50   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+50   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classGrassAsset_a7b98229bcd980cddf4435518c254322e}{vertex\_buffer\_token});
 51   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
 52 
 53   \textcolor{comment}{// Binds the buffer and transfers the data}
-54   glGenBuffers(1, &colour\_buffer\_token);
-55   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-56   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+54   glGenBuffers(1, &\hyperlink{classGrassAsset_a96a3d9c956d29cd63308c7a97f6ac3bf}{colour\_buffer\_token});
+55   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classGrassAsset_a96a3d9c956d29cd63308c7a97f6ac3bf}{colour\_buffer\_token});
+56   glBufferData(GL\_ARRAY\_BUFFER, \hyperlink{classGrassAsset_aede615b26df4a5624f262a10bc000d92}{colour\_buffer\_length}, colour\_buffer, GL\_STATIC\_DRAW);
 57 
 58 
-59   glGenBuffers(1, &element\_buffer\_token);
-60   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-61   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+59   glGenBuffers(1, &\hyperlink{classGrassAsset_accd7a1c61ad5a5c29f9e8abf653e86a8}{element\_buffer\_token});
+60   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classGrassAsset_accd7a1c61ad5a5c29f9e8abf653e86a8}{element\_buffer\_token});
+61   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classGrassAsset_a3bb3e3d9ac2d7806f0c8d2c04559e4c9}{element\_buffer\_length}, element\_buffer, 
+      GL\_STATIC\_DRAW);
 62 \}
 \end{DoxyCode}
 \hypertarget{classGrassAsset_a07e2206bacd2ec120f27f20e5df635b7}{}\index{Grass\+Asset@{Grass\+Asset}!````~Grass\+Asset@{$\sim$\+Grass\+Asset}}
@@ -112,6 +131,24 @@ Color Buffer. Colour of Cube Asset Green Uses R\+G\+B values to set the colour.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classGrassAsset_a06cf99092ea2217df1855e2d6375396b}{}\index{Grass\+Asset@{Grass\+Asset}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Grass\+Asset\+::check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classGrassAsset_a06cf99092ea2217df1855e2d6375396b}
+
+\begin{DoxyCode}
+74                                                     \{
+75   GLenum gl\_error = glGetError();
+76   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+77     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+78     exit(-1);
+79   \}
+80 \}
+\end{DoxyCode}
 \hypertarget{classGrassAsset_a0178a72c5bf2f00bcc6a240b851f3a25}{}\index{Grass\+Asset@{Grass\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Grass\+Asset@{Grass\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Grass\+Asset\+::\+Draw (
@@ -156,7 +193,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 108   glUseProgram(program\_token);
 109   \hyperlink{GrassAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 114   glEnableVertexAttribArray(0);
-115   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+115   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classGrassAsset_a7b98229bcd980cddf4435518c254322e}{vertex\_buffer\_token});
 116   glVertexAttribPointer(
 117     position\_attrib,        \textcolor{comment}{/* attribute */}
 118     3,        \textcolor{comment}{/* size */}
@@ -167,7 +204,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 123   );
 124   glEnableVertexAttribArray(1);
 125   \hyperlink{GrassAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-130   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+130   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classGrassAsset_a96a3d9c956d29cd63308c7a97f6ac3bf}{colour\_buffer\_token});
 131   glVertexAttribPointer(
 132     1,        \textcolor{comment}{/* attribute */}
 133     3,        \textcolor{comment}{/* size */}
@@ -178,10 +215,10 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 138   );
 139   \hyperlink{GrassAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 140 
-141   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+141   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classGrassAsset_accd7a1c61ad5a5c29f9e8abf653e86a8}{element\_buffer\_token});
 142   glDrawElements(
 143     GL\_TRIANGLES,
-144     element\_buffer\_length,
+144     \hyperlink{classGrassAsset_a3bb3e3d9ac2d7806f0c8d2c04559e4c9}{element\_buffer\_length},
 145     GL\_UNSIGNED\_INT,
 146     (GLvoid*) 0
 147   );
@@ -190,6 +227,24 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 150   glDisableVertexAttribArray(position\_attrib);
 151 \}
 \end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGrassAsset_aede615b26df4a5624f262a10bc000d92}{}\index{Grass\+Asset@{Grass\+Asset}!colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}}
+\index{colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Grass\+Asset\+::colour\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classGrassAsset_aede615b26df4a5624f262a10bc000d92}
+\hypertarget{classGrassAsset_a96a3d9c956d29cd63308c7a97f6ac3bf}{}\index{Grass\+Asset@{Grass\+Asset}!colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}}
+\index{colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Grass\+Asset\+::colour\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classGrassAsset_a96a3d9c956d29cd63308c7a97f6ac3bf}
+\hypertarget{classGrassAsset_a3bb3e3d9ac2d7806f0c8d2c04559e4c9}{}\index{Grass\+Asset@{Grass\+Asset}!element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}}
+\index{element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Grass\+Asset\+::element\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classGrassAsset_a3bb3e3d9ac2d7806f0c8d2c04559e4c9}
+\hypertarget{classGrassAsset_accd7a1c61ad5a5c29f9e8abf653e86a8}{}\index{Grass\+Asset@{Grass\+Asset}!element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}}
+\index{element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Grass\+Asset\+::element\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classGrassAsset_accd7a1c61ad5a5c29f9e8abf653e86a8}
+\hypertarget{classGrassAsset_a7b98229bcd980cddf4435518c254322e}{}\index{Grass\+Asset@{Grass\+Asset}!vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}}
+\index{vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{vertex\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Grass\+Asset\+::vertex\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classGrassAsset_a7b98229bcd980cddf4435518c254322e}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

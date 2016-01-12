@@ -31,6 +31,24 @@ Collaboration diagram for Pyramid\+Asset\+:\nopagebreak
 \item 
 virtual void \hyperlink{classPyramidAsset_aaea45da4956d79ec9ab96e9d0ccef3fe}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classPyramidAsset_a34350044042e0098446dc9e0a260cb70}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{classPyramidAsset_a5566105859271b493eab3b5f9c02f866}{element\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classPyramidAsset_addd87a747d7bd186bd1b3e3070185c69}{colour\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classPyramidAsset_a54d9cec42bc77d07a66e6c1cd55049b0}{vertex\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classPyramidAsset_a6f7e2f50904d2941e33df8eb7f5f9c2d}{element\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classPyramidAsset_a1c82b429f52d92feefacb5755017aec0}{colour\+\_\+buffer\+\_\+token}
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -69,7 +87,7 @@ Color Buffer. Colour of Cube Red, Green \& Blue. This creates a cool blend of co
 33      0.000f, 1.000f, 0.000f,
 34      0.000f, 0.000f, 1.000f
 35   \};
-36  colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+36  \hyperlink{classPyramidAsset_addd87a747d7bd186bd1b3e3070185c69}{colour\_buffer\_length} = \textcolor{keyword}{sizeof}(colour\_buffer);
 37   
 38   GLuint element\_buffer []  \{
 39       0, 4, 1   
@@ -79,27 +97,28 @@ Color Buffer. Colour of Cube Red, Green \& Blue. This creates a cool blend of co
 43     , 0, 2, 1
 44     , 1, 2, 3
 45   \};
-46   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+46   \hyperlink{classPyramidAsset_a5566105859271b493eab3b5f9c02f866}{element\_buffer\_length} = \textcolor{keyword}{sizeof}(element\_buffer);
 47 
 48 
 49 
 50   \textcolor{comment}{// Transfer buffers to the GPU}
 51 
 52   \textcolor{comment}{// create buffer}
-53   glGenBuffers(1, &vertex\_buffer\_token);
+53   glGenBuffers(1, &\hyperlink{classPyramidAsset_a54d9cec42bc77d07a66e6c1cd55049b0}{vertex\_buffer\_token});
 54   \textcolor{comment}{// immediately bind the buffer and transfer the data}
-55   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+55   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classPyramidAsset_a54d9cec42bc77d07a66e6c1cd55049b0}{vertex\_buffer\_token});
 56   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
 57 
 58   \textcolor{comment}{// Binds the buffer and transfers the data}
-59   glGenBuffers(1, &colour\_buffer\_token);
-60   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-61   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+59   glGenBuffers(1, &\hyperlink{classPyramidAsset_a1c82b429f52d92feefacb5755017aec0}{colour\_buffer\_token});
+60   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classPyramidAsset_a1c82b429f52d92feefacb5755017aec0}{colour\_buffer\_token});
+61   glBufferData(GL\_ARRAY\_BUFFER, \hyperlink{classPyramidAsset_addd87a747d7bd186bd1b3e3070185c69}{colour\_buffer\_length}, colour\_buffer, GL\_STATIC\_DRAW);
 62 
 63 
-64   glGenBuffers(1, &element\_buffer\_token);
-65   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-66   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+64   glGenBuffers(1, &\hyperlink{classPyramidAsset_a6f7e2f50904d2941e33df8eb7f5f9c2d}{element\_buffer\_token});
+65   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classPyramidAsset_a6f7e2f50904d2941e33df8eb7f5f9c2d}{element\_buffer\_token});
+66   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classPyramidAsset_a5566105859271b493eab3b5f9c02f866}{element\_buffer\_length}, element\_buffer, 
+      GL\_STATIC\_DRAW);
 67 \}
 \end{DoxyCode}
 \hypertarget{classPyramidAsset_afb388a196f43a3808b2d4f6fdb89ee84}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!````~Pyramid\+Asset@{$\sim$\+Pyramid\+Asset}}
@@ -117,6 +136,24 @@ Color Buffer. Colour of Cube Red, Green \& Blue. This creates a cool blend of co
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classPyramidAsset_a34350044042e0098446dc9e0a260cb70}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Pyramid\+Asset\+::check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classPyramidAsset_a34350044042e0098446dc9e0a260cb70}
+
+\begin{DoxyCode}
+79                                                       \{
+80   GLenum gl\_error = glGetError();
+81   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+82     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+83     exit(-1);
+84   \}
+85 \}
+\end{DoxyCode}
 \hypertarget{classPyramidAsset_aaea45da4956d79ec9ab96e9d0ccef3fe}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Pyramid\+Asset@{Pyramid\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Pyramid\+Asset\+::\+Draw (
@@ -162,7 +199,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 114   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 115 
 120   glEnableVertexAttribArray(0);
-121   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+121   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classPyramidAsset_a54d9cec42bc77d07a66e6c1cd55049b0}{vertex\_buffer\_token});
 122   glVertexAttribPointer(
 123     position\_attrib,        \textcolor{comment}{/* attribute */}
 124     3,        \textcolor{comment}{/* size */}
@@ -173,7 +210,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 129   );
 130   glEnableVertexAttribArray(1);
 131   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-136   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+136   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classPyramidAsset_a1c82b429f52d92feefacb5755017aec0}{colour\_buffer\_token});
 137   glVertexAttribPointer(
 138     1,        \textcolor{comment}{/* attribute */}
 139     3,        \textcolor{comment}{/* size */}
@@ -184,10 +221,10 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 144   );
 145   \hyperlink{PyramidAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 146 
-147   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+147   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classPyramidAsset_a6f7e2f50904d2941e33df8eb7f5f9c2d}{element\_buffer\_token});
 148   glDrawElements(
 149     GL\_TRIANGLES,
-150     element\_buffer\_length,
+150     \hyperlink{classPyramidAsset_a5566105859271b493eab3b5f9c02f866}{element\_buffer\_length},
 151     GL\_UNSIGNED\_INT,
 152     (GLvoid*) 0
 153   );
@@ -196,6 +233,24 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 156   glDisableVertexAttribArray(position\_attrib);
 157 \}
 \end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classPyramidAsset_addd87a747d7bd186bd1b3e3070185c69}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}}
+\index{colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Pyramid\+Asset\+::colour\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classPyramidAsset_addd87a747d7bd186bd1b3e3070185c69}
+\hypertarget{classPyramidAsset_a1c82b429f52d92feefacb5755017aec0}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}}
+\index{colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Pyramid\+Asset\+::colour\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classPyramidAsset_a1c82b429f52d92feefacb5755017aec0}
+\hypertarget{classPyramidAsset_a5566105859271b493eab3b5f9c02f866}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}}
+\index{element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Pyramid\+Asset\+::element\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classPyramidAsset_a5566105859271b493eab3b5f9c02f866}
+\hypertarget{classPyramidAsset_a6f7e2f50904d2941e33df8eb7f5f9c2d}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}}
+\index{element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Pyramid\+Asset\+::element\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classPyramidAsset_a6f7e2f50904d2941e33df8eb7f5f9c2d}
+\hypertarget{classPyramidAsset_a54d9cec42bc77d07a66e6c1cd55049b0}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}}
+\index{vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{vertex\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Pyramid\+Asset\+::vertex\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classPyramidAsset_a54d9cec42bc77d07a66e6c1cd55049b0}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

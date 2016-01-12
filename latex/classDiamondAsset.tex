@@ -31,6 +31,24 @@ Collaboration diagram for Diamond\+Asset\+:\nopagebreak
 \item 
 virtual void \hyperlink{classDiamondAsset_a0c259031894623285b3b511321c73abb}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classDiamondAsset_ad0eafff97cf565024dd085f3c8786a93}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{classDiamondAsset_a3fe4461f114f4370a9d800e4425f1c8a}{element\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classDiamondAsset_a19cc055d55437b1d93bea8e11ddaf845}{colour\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classDiamondAsset_ac1965c61c0cfd5719c5c01bac98fd312}{vertex\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classDiamondAsset_aa2ad44c331156835eba1ed5175bde2e6}{element\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classDiamondAsset_a500edbd99d521120d7028f3bf4c24743}{colour\+\_\+buffer\+\_\+token}
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -69,7 +87,7 @@ Element buffer. Draws the Diamond up of 8 Triangles One Triangles per Face
 31      1.000f, 0.000f, 0.000f,
 32      1.000f, 0.000f, 0.000f
 33   \};
-34   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+34   \hyperlink{classDiamondAsset_a19cc055d55437b1d93bea8e11ddaf845}{colour\_buffer\_length} = \textcolor{keyword}{sizeof}(colour\_buffer);
 40   GLuint element\_buffer []  \{
 41       0, 3, 5   
 42     , 3, 1, 5
@@ -80,27 +98,28 @@ Element buffer. Draws the Diamond up of 8 Triangles One Triangles per Face
 47     , 0, 4, 2
 48     , 4, 1, 2
 49   \};
-50   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+50   \hyperlink{classDiamondAsset_a3fe4461f114f4370a9d800e4425f1c8a}{element\_buffer\_length} = \textcolor{keyword}{sizeof}(element\_buffer);
 51 
 52 
 53 
 54   \textcolor{comment}{// Transfer buffers to the GPU}
 55 
 56   \textcolor{comment}{// create buffer}
-57   glGenBuffers(1, &vertex\_buffer\_token);
+57   glGenBuffers(1, &\hyperlink{classDiamondAsset_ac1965c61c0cfd5719c5c01bac98fd312}{vertex\_buffer\_token});
 58   \textcolor{comment}{// immediately bind the buffer and transfer the data}
-59   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+59   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classDiamondAsset_ac1965c61c0cfd5719c5c01bac98fd312}{vertex\_buffer\_token});
 60   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
 61 
 62   \textcolor{comment}{// Binds the buffer and transfers the data}
-63   glGenBuffers(1, &colour\_buffer\_token);
-64   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-65   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+63   glGenBuffers(1, &\hyperlink{classDiamondAsset_a500edbd99d521120d7028f3bf4c24743}{colour\_buffer\_token});
+64   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classDiamondAsset_a500edbd99d521120d7028f3bf4c24743}{colour\_buffer\_token});
+65   glBufferData(GL\_ARRAY\_BUFFER, \hyperlink{classDiamondAsset_a19cc055d55437b1d93bea8e11ddaf845}{colour\_buffer\_length}, colour\_buffer, GL\_STATIC\_DRAW);
 66 
 67 
-68   glGenBuffers(1, &element\_buffer\_token);
-69   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-70   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+68   glGenBuffers(1, &\hyperlink{classDiamondAsset_aa2ad44c331156835eba1ed5175bde2e6}{element\_buffer\_token});
+69   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classDiamondAsset_aa2ad44c331156835eba1ed5175bde2e6}{element\_buffer\_token});
+70   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classDiamondAsset_a3fe4461f114f4370a9d800e4425f1c8a}{element\_buffer\_length}, element\_buffer, 
+      GL\_STATIC\_DRAW);
 71 \}
 \end{DoxyCode}
 \hypertarget{classDiamondAsset_a1b7bf6ba76651a9304943f2c41fe36b8}{}\index{Diamond\+Asset@{Diamond\+Asset}!````~Diamond\+Asset@{$\sim$\+Diamond\+Asset}}
@@ -118,6 +137,24 @@ Element buffer. Draws the Diamond up of 8 Triangles One Triangles per Face
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classDiamondAsset_ad0eafff97cf565024dd085f3c8786a93}{}\index{Diamond\+Asset@{Diamond\+Asset}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Diamond\+Asset@{Diamond\+Asset}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Diamond\+Asset\+::check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classDiamondAsset_ad0eafff97cf565024dd085f3c8786a93}
+
+\begin{DoxyCode}
+83                                                       \{
+84   GLenum gl\_error = glGetError();
+85   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+86     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+87     exit(-1);
+88   \}
+89 \}
+\end{DoxyCode}
 \hypertarget{classDiamondAsset_a0c259031894623285b3b511321c73abb}{}\index{Diamond\+Asset@{Diamond\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Diamond\+Asset@{Diamond\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Diamond\+Asset\+::\+Draw (
@@ -162,7 +199,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 117   glUseProgram(program\_token);
 118   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 123   glEnableVertexAttribArray(0);
-124   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+124   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classDiamondAsset_ac1965c61c0cfd5719c5c01bac98fd312}{vertex\_buffer\_token});
 125   glVertexAttribPointer(
 126     position\_attrib,        \textcolor{comment}{/* attribute */}
 127     3,        \textcolor{comment}{/* size */}
@@ -173,7 +210,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 132   );
 133   glEnableVertexAttribArray(1);
 134   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-139   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+139   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classDiamondAsset_a500edbd99d521120d7028f3bf4c24743}{colour\_buffer\_token});
 140   glVertexAttribPointer(
 141     1,        \textcolor{comment}{/* attribute */}
 142     3,        \textcolor{comment}{/* size */}
@@ -184,10 +221,10 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 147   );
 148   \hyperlink{DiamondAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 149 
-150   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+150   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classDiamondAsset_aa2ad44c331156835eba1ed5175bde2e6}{element\_buffer\_token});
 151   glDrawElements(
 152     GL\_TRIANGLES,
-153     element\_buffer\_length,
+153     \hyperlink{classDiamondAsset_a3fe4461f114f4370a9d800e4425f1c8a}{element\_buffer\_length},
 154     GL\_UNSIGNED\_INT,
 155     (GLvoid*) 0
 156   );
@@ -196,6 +233,24 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 159   glDisableVertexAttribArray(position\_attrib);
 160 \}
 \end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classDiamondAsset_a19cc055d55437b1d93bea8e11ddaf845}{}\index{Diamond\+Asset@{Diamond\+Asset}!colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}}
+\index{colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}!Diamond\+Asset@{Diamond\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Diamond\+Asset\+::colour\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classDiamondAsset_a19cc055d55437b1d93bea8e11ddaf845}
+\hypertarget{classDiamondAsset_a500edbd99d521120d7028f3bf4c24743}{}\index{Diamond\+Asset@{Diamond\+Asset}!colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}}
+\index{colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}!Diamond\+Asset@{Diamond\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Diamond\+Asset\+::colour\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classDiamondAsset_a500edbd99d521120d7028f3bf4c24743}
+\hypertarget{classDiamondAsset_a3fe4461f114f4370a9d800e4425f1c8a}{}\index{Diamond\+Asset@{Diamond\+Asset}!element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}}
+\index{element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}!Diamond\+Asset@{Diamond\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Diamond\+Asset\+::element\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classDiamondAsset_a3fe4461f114f4370a9d800e4425f1c8a}
+\hypertarget{classDiamondAsset_aa2ad44c331156835eba1ed5175bde2e6}{}\index{Diamond\+Asset@{Diamond\+Asset}!element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}}
+\index{element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}!Diamond\+Asset@{Diamond\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Diamond\+Asset\+::element\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classDiamondAsset_aa2ad44c331156835eba1ed5175bde2e6}
+\hypertarget{classDiamondAsset_ac1965c61c0cfd5719c5c01bac98fd312}{}\index{Diamond\+Asset@{Diamond\+Asset}!vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}}
+\index{vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}!Diamond\+Asset@{Diamond\+Asset}}
+\subsubsection[{vertex\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Diamond\+Asset\+::vertex\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classDiamondAsset_ac1965c61c0cfd5719c5c01bac98fd312}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

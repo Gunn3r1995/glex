@@ -31,6 +31,24 @@ Collaboration diagram for Cube\+Asset\+:\nopagebreak
 \item 
 virtual void \hyperlink{classCubeAsset_a1af568486056e254ffcf98fd99947bfe}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classCubeAsset_ac3855728a8d6c1612ebc85f82d3b535e}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{classCubeAsset_ac66c2ec869f392515dad4ebda1fe4792}{element\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classCubeAsset_a12de81acb020b82bd26cda6284910012}{colour\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classCubeAsset_a31bd098f60e2c24988316a9cc9335987}{vertex\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classCubeAsset_a4fae699256e7c5633a8174a93ca8a0ec}{element\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classCubeAsset_a75f98d346175cd91cdee04f1885f5327}{colour\+\_\+buffer\+\_\+token}
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -73,7 +91,7 @@ Element buffer. Draws the cube voxel up of 12 Triangles Two Triangles per Face.
 35      0.139f, 0.069f, 0.019f,
 36      0.139f, 0.069f, 0.019f
 37   \};
-38   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+38   \hyperlink{classCubeAsset_a12de81acb020b82bd26cda6284910012}{colour\_buffer\_length} = \textcolor{keyword}{sizeof}(colour\_buffer);
 44   GLuint element\_buffer []  \{
 45       0, 1, 2   
 46     , 1, 3, 2
@@ -88,27 +106,28 @@ Element buffer. Draws the cube voxel up of 12 Triangles Two Triangles per Face.
 55     , 0, 4, 6   
 56     , 0, 2, 6   
 57   \};
-58   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+58   \hyperlink{classCubeAsset_ac66c2ec869f392515dad4ebda1fe4792}{element\_buffer\_length} = \textcolor{keyword}{sizeof}(element\_buffer);
 59 
 60 
 61 
 62   \textcolor{comment}{// Transfer buffers to the GPU}
 63 
 64   \textcolor{comment}{// create buffer}
-65   glGenBuffers(1, &vertex\_buffer\_token);
+65   glGenBuffers(1, &\hyperlink{classCubeAsset_a31bd098f60e2c24988316a9cc9335987}{vertex\_buffer\_token});
 66   \textcolor{comment}{// immediately bind the buffer and transfer the data}
-67   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+67   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classCubeAsset_a31bd098f60e2c24988316a9cc9335987}{vertex\_buffer\_token});
 68   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
 69   
 70   \textcolor{comment}{// Binds the buffer to transfer the data}
-71   glGenBuffers(1, &colour\_buffer\_token);
-72   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-73   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+71   glGenBuffers(1, &\hyperlink{classCubeAsset_a75f98d346175cd91cdee04f1885f5327}{colour\_buffer\_token});
+72   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classCubeAsset_a75f98d346175cd91cdee04f1885f5327}{colour\_buffer\_token});
+73   glBufferData(GL\_ARRAY\_BUFFER, \hyperlink{classCubeAsset_a12de81acb020b82bd26cda6284910012}{colour\_buffer\_length}, colour\_buffer, GL\_STATIC\_DRAW);
 74 
 75 
-76   glGenBuffers(1, &element\_buffer\_token);
-77   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-78   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+76   glGenBuffers(1, &\hyperlink{classCubeAsset_a4fae699256e7c5633a8174a93ca8a0ec}{element\_buffer\_token});
+77   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classCubeAsset_a4fae699256e7c5633a8174a93ca8a0ec}{element\_buffer\_token});
+78   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classCubeAsset_ac66c2ec869f392515dad4ebda1fe4792}{element\_buffer\_length}, element\_buffer, 
+      GL\_STATIC\_DRAW);
 79 \}
 \end{DoxyCode}
 \hypertarget{classCubeAsset_ab3ab9a5da82cbf8537a28652410093b1}{}\index{Cube\+Asset@{Cube\+Asset}!````~Cube\+Asset@{$\sim$\+Cube\+Asset}}
@@ -126,6 +145,14 @@ Element buffer. Draws the cube voxel up of 12 Triangles Two Triangles per Face.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classCubeAsset_ac3855728a8d6c1612ebc85f82d3b535e}{}\index{Cube\+Asset@{Cube\+Asset}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Cube\+Asset@{Cube\+Asset}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Cube\+Asset\+::check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classCubeAsset_ac3855728a8d6c1612ebc85f82d3b535e}
 \hypertarget{classCubeAsset_a1af568486056e254ffcf98fd99947bfe}{}\index{Cube\+Asset@{Cube\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Cube\+Asset@{Cube\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Cube\+Asset\+::\+Draw (
@@ -170,7 +197,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 125   glUseProgram(program\_token);
 126   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 131   glEnableVertexAttribArray(0);
-132   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+132   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classCubeAsset_a31bd098f60e2c24988316a9cc9335987}{vertex\_buffer\_token});
 133   glVertexAttribPointer(
 134     position\_attrib,        \textcolor{comment}{/* attribute */}
 135     3,        \textcolor{comment}{/* size */}
@@ -181,7 +208,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 140   );
 141   glEnableVertexAttribArray(1);
 142   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-147   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+147   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classCubeAsset_a75f98d346175cd91cdee04f1885f5327}{colour\_buffer\_token});
 148   glVertexAttribPointer(
 149     1,        \textcolor{comment}{/* attribute */}
 150     3,        \textcolor{comment}{/* size */}
@@ -192,10 +219,10 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 155   );
 156   \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 157 
-158   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+158   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classCubeAsset_a4fae699256e7c5633a8174a93ca8a0ec}{element\_buffer\_token});
 159   glDrawElements(
 160     GL\_TRIANGLES,
-161     element\_buffer\_length,
+161     \hyperlink{classCubeAsset_ac66c2ec869f392515dad4ebda1fe4792}{element\_buffer\_length},
 162     GL\_UNSIGNED\_INT,
 163     (GLvoid*) 0
 164   );
@@ -204,6 +231,24 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 167   glDisableVertexAttribArray(position\_attrib);
 168 \}
 \end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classCubeAsset_a12de81acb020b82bd26cda6284910012}{}\index{Cube\+Asset@{Cube\+Asset}!colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}}
+\index{colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}!Cube\+Asset@{Cube\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Cube\+Asset\+::colour\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classCubeAsset_a12de81acb020b82bd26cda6284910012}
+\hypertarget{classCubeAsset_a75f98d346175cd91cdee04f1885f5327}{}\index{Cube\+Asset@{Cube\+Asset}!colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}}
+\index{colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}!Cube\+Asset@{Cube\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Cube\+Asset\+::colour\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classCubeAsset_a75f98d346175cd91cdee04f1885f5327}
+\hypertarget{classCubeAsset_ac66c2ec869f392515dad4ebda1fe4792}{}\index{Cube\+Asset@{Cube\+Asset}!element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}}
+\index{element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}!Cube\+Asset@{Cube\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Cube\+Asset\+::element\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classCubeAsset_ac66c2ec869f392515dad4ebda1fe4792}
+\hypertarget{classCubeAsset_a4fae699256e7c5633a8174a93ca8a0ec}{}\index{Cube\+Asset@{Cube\+Asset}!element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}}
+\index{element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}!Cube\+Asset@{Cube\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Cube\+Asset\+::element\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classCubeAsset_a4fae699256e7c5633a8174a93ca8a0ec}
+\hypertarget{classCubeAsset_a31bd098f60e2c24988316a9cc9335987}{}\index{Cube\+Asset@{Cube\+Asset}!vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}}
+\index{vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}!Cube\+Asset@{Cube\+Asset}}
+\subsubsection[{vertex\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Cube\+Asset\+::vertex\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classCubeAsset_a31bd098f60e2c24988316a9cc9335987}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

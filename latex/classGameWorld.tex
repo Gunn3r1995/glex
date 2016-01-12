@@ -2,13 +2,18 @@
 \label{classGameWorld}\index{Game\+World@{Game\+World}}
 
 
+\hyperlink{classGameWorld}{Game\+World} allows us to separate the management of the game world from the nuts and bolts of game loop initialisation.  
+
+
+
+
 {\ttfamily \#include $<$Game\+World.\+h$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classGameWorld_a17a84e57a80600961088afc753036f89}{Game\+World} (\hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0}{Application\+Mode})
-\item 
+\begin{DoxyCompactList}\small\item\em We thread the Application\+Mode through the \hyperlink{classGameWorld}{Game\+World} ss we want to read it in from the user. \end{DoxyCompactList}\item 
 void \hyperlink{classGameWorld_a275418607d8286979b276f165ad5876b}{Draw} ()
 \begin{DoxyCompactList}\small\item\em Calling \hyperlink{classGameWorld_a275418607d8286979b276f165ad5876b}{Draw()}. will draw the entire world. \end{DoxyCompactList}\item 
 void \hyperlink{classGameWorld_a43080b1c693798b12f7faf28a6b45ab5}{Camera\+\_\+\+Control} (char key)
@@ -23,7 +28,7 @@ double \hyperlink{classGameWorld_a1cddcf233625a98581eaeb9fd7c8c574}{Maximum\+Num
 double \hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random} = (double)rand() / R\+A\+N\+D\+\_\+\+M\+A\+X
 \item 
 G\+Lfloat \hyperlink{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\+\_\+\+Sensitivity} = 0.\+05f
-\item 
+\begin{DoxyCompactList}\small\item\em Camera Variables. \end{DoxyCompactList}\item 
 G\+Lfloat \hyperlink{classGameWorld_ae8ab2ac372729cec44ea316f6bdf45ca}{Player\+\_\+\+Speed} = 1.\+0
 \item 
 G\+Lfloat \hyperlink{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{Camera\+\_\+\+Horizontal} = 0.\+0
@@ -36,10 +41,17 @@ glm\+::vec3 \hyperlink{classGameWorld_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{Movemen
 \item 
 glm\+::vec3 \hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movement\+\_\+\+X}
 \end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} $>$ \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\+\_\+manager}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{classGameWorld}{Game\+World} allows us to separate the management of the game world from the nuts and bolts of game loop initialisation. The \hyperlink{classGameWorld}{Game\+World} currently has a very simplified scene graph consisiting of a single \hyperlink{classGameAssetManager}{Game\+Asset\+Manager}. 
+\hyperlink{classGameWorld}{Game\+World} allows us to separate the management of the game world from the nuts and bolts of game loop initialisation. 
+
+The \hyperlink{classGameWorld}{Game\+World} currently has a very simplified scene graph consisiting of a single \hyperlink{classGameAssetManager}{Game\+Asset\+Manager}. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classGameWorld_a17a84e57a80600961088afc753036f89}{}\index{Game\+World@{Game\+World}!Game\+World@{Game\+World}}
@@ -49,7 +61,11 @@ glm\+::vec3 \hyperlink{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{Movemen
 \item[{{\bf Application\+Mode}}]{mode}
 \end{DoxyParamCaption}
 )}\label{classGameWorld_a17a84e57a80600961088afc753036f89}
-We thread the Application\+Mode through the \hyperlink{classGameWorld}{Game\+World} ss we want to read it in from the user. Threading the state through the various function calls is preferable (in this case) to having some kind of global state. 2\+D array for world space. 2\+D array which acts like the world space for the game, so depending on what number is stored within the array would change which blocks spawn within this small 20 by 20 world, I would like to improve the size of the array in the future but as of now I don\textquotesingle{}t think it\textquotesingle{}s to important.
+
+
+We thread the Application\+Mode through the \hyperlink{classGameWorld}{Game\+World} ss we want to read it in from the user. 
+
+Threading the state through the various function calls is preferable (in this case) to having some kind of global state. 2\+D array for world space. 2\+D array which acts like the world space for the game, so depending on what number is stored within the array would change which blocks spawn within this small 20 by 20 world, I would like to improve the size of the array in the future but as of now I don\textquotesingle{}t think it\textquotesingle{}s to important.
 
 1-\/$>$ 2 high Ground Blocks.
 
@@ -81,7 +97,8 @@ Spawns Pyramid. Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so 
 
 Grass Spawn. Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns somewhat randomly multiple grass assets on top/ slighlty inside the ground asset To create the view of grass.
 \begin{DoxyCode}
-7                                           : asset\_manager (make\_shared<GameAssetManager>(mode))\{
+7                                           : \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager} (make\_shared<GameAssetManager>(mode)
+      )\{
 8   \textcolor{keywordtype}{int} pointX,pointY;
 9   \textcolor{keywordtype}{int} pointZ = 1;
 10   \textcolor{keywordtype}{int} worldX = 20;
@@ -111,146 +128,224 @@ Grass Spawn. Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it 
 55   \};
 56   
 62 
-63         asset\_manager->AddAsset(make\_shared<GroundAsset>( 1.0f ,2.00f, -4.0f));
-64         asset\_manager->AddAsset(make\_shared<CubeAsset>(   3.0f ,2.00f, -4.0f));
-65         asset\_manager->AddAsset(make\_shared<LeavesAsset>( 5.0f ,2.00f, -4.0f));
-66         asset\_manager->AddAsset(make\_shared<DiamondAsset>(7.0f ,2.00f, -4.0f));
-67         asset\_manager->AddAsset(make\_shared<PyramidAsset>(9.0f ,1.50f, -4.0f)); 
-68         asset\_manager->AddAsset(make\_shared<GrassAsset>(  10.0f,1.50f, -4.0f));
+63         \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>( 1.0f ,2.00f, -4.0f));
+64         \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>(   3.0f ,2.00f, -4.0f));
+65         \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>( 5.0f ,2.00f, -4.0f));
+66         \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<DiamondAsset>(7.0f ,2.00f, -4.0f));
+67         \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<PyramidAsset>(9.0f ,1.50f, -4.0f)); 
+68         \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GrassAsset>(  10.0f,1.50f, -4.0f));
 69 
 70   \textcolor{keywordflow}{for}( pointX=0; pointX<worldX; pointX++)\{
 71    \textcolor{keywordflow}{for} (pointY=0; pointY<worldY; pointY++)\{
 72     \textcolor{keywordflow}{if}( world[pointY][pointX] == 1)\{          
-77             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-78             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-2.00f,(pointZ*pointY)));
+77             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+78             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-2.00f,(pointZ*pointY)))
+      ;
 79    \}
 80     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 2)\{
-86             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-87             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-88             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
-89             asset\_manager->AddAsset(make\_shared<DiamondAsset>((pointX),1.0f,(pointZ*pointY)));
+86             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+87             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+88             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
+89             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<DiamondAsset>((pointX),1.0f,(pointZ*pointY)));
 90    \}
 91     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 3)\{
-97             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-98             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-99             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
-100             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
-101             asset\_manager->AddAsset(make\_shared<DiamondAsset>((pointX),2.0f,(pointZ*pointY)));
+97             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+98             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+99             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
+100             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
+101             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<DiamondAsset>((pointX),2.0f,(pointZ*pointY)));
 102    \}
 103     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 4)\{
 110             \textcolor{comment}{// Tree Ground}
-111             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-112             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+111             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+112             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
 113             \textcolor{comment}{// Tree Trunk}
-114             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
-115             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
-116             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),2.00f,(pointZ*pointY)));
-117             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),3.00f,(pointZ*pointY)));
-118             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX),4.00f,(pointZ*pointY)));
+114             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
+115             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
+116             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>((pointX),2.00f,(pointZ*pointY)));
+117             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>((pointX),3.00f,(pointZ*pointY)));
+118             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>((pointX),4.00f,(pointZ*pointY)));
 119             \textcolor{comment}{// Tree Leaves - Bottom Layer}
-120             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-1)));
-121             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-1)));
-122             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-1)));
-123             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-1)));
-124             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-1)));
+120             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-1)
+      ));
+121             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-1)
+      ));
+122             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-1)
+      ));
+123             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-1)
+      ));
+124             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-1)
+      ));
 125 
-126             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-2)));
-127             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-2)));
-128             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-2)));
-129             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-2)));
-130             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-2)));
+126             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-2)
+      ));
+127             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-2)
+      ));
+128             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-2)
+      ));
+129             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-2)
+      ));
+130             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-2)
+      ));
 131 
-132             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY)));
-133             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY)));
-134             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY)));
-135             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY))); 
+132             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY)))
+      ;
+133             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY)))
+      ;
+134             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY)))
+      ;
+135             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY)))
+      ; 
 136 
-137             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+1)));
-138             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+1)));
-139             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+1)));
-140             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+1)));
-141             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+1)));
+137             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+1)
+      ));
+138             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+1)
+      ));
+139             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+1)
+      ));
+140             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+1)
+      ));
+141             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+1)
+      ));
 142  
-143             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+2)));
-144             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+2)));
-145             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+2)));
-146             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+2)));
-147             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+2)));
+143             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+2)
+      ));
+144             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+2)
+      ));
+145             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+2)
+      ));
+146             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+2)
+      ));
+147             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+2)
+      ));
 148             \textcolor{comment}{// Tree Leaves - Second Layer}
-149             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-1)));
-150             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-1)));
-151             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-1)));
-152             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-1)));
-153             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-1)));
+149             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-1)
+      ));
+150             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-1)
+      ));
+151             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-1)
+      ));
+152             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-1)
+      ));
+153             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-1)
+      ));
 154  
-155             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-2)));
-156             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-2)));
-157             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-2)));
-158             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-2)));
-159             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-2)));
+155             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-2)
+      ));
+156             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-2)
+      ));
+157             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-2)
+      ));
+158             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-2)
+      ));
+159             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-2)
+      ));
 160  
-161             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY)));
-162             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY)));
-163             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY)));
-164             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY)));
+161             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY)))
+      ;
+162             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY)))
+      ;
+163             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY)))
+      ;
+164             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY)))
+      ;
 165  
-166             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+1)));
-167             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+1)));
-168             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+1)));
-169             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+1)));
-170             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+1)));
+166             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+1)
+      ));
+167             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+1)
+      ));
+168             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+1)
+      ));
+169             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+1)
+      ));
+170             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+1)
+      ));
 171 
-172             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+2)));
-173             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+2)));
-174             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+2)));
-175             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+2)));
-176             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+2)));
+172             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+2)
+      ));
+173             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+2)
+      ));
+174             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+2)
+      ));
+175             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+2)
+      ));
+176             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+2)
+      ));
 177             \textcolor{comment}{// Tree Leaves - Third Layer}
-178             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY-1)));
-179             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY-1)));
-180             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY-1))); 
+178             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY-1)
+      ));
+179             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY-1)
+      ));
+180             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY-1)
+      )); 
 181 
-182             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY)));
-183             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY)));
-184             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY)));
+182             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY)))
+      ;
+183             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY)))
+      ;
+184             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY)))
+      ;
 185  
-186             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY+1)));
-187             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY+1)));
-188             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY+1)));
+186             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY+1)
+      ));
+187             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY+1)
+      ));
+188             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY+1)
+      ));
 189 
 190             \textcolor{comment}{// Tree Leaves - Fourth Layer}
-191             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY-1)));
+191             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY-1)
+      ));
 192 
-193             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX+1),6.0f,(pointZ*pointY)));
-194             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY)));
-195             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX-1),6.0f,(pointZ*pointY)));
+193             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX+1),6.0f,(pointZ*pointY)))
+      ;
+194             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY)))
+      ;
+195             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX-1),6.0f,(pointZ*pointY)))
+      ;
 196 
-197             asset\_manager->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY+1)));
+197             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY+1)
+      ));
 198    \}
 199     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 5)\{
-205             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-206             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-207             asset\_manager->AddAsset(make\_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
-208             asset\_manager->AddAsset(make\_shared<PyramidAsset>((pointX),0.50f,(pointZ*pointY)));
+205             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+206             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+207             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
+208             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<PyramidAsset>((pointX),0.50f,(pointZ*pointY)))
+      ;
 209    \}
 210     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 6)\{
-216             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-217             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-218             asset\_manager->AddAsset(make\_shared<PyramidAsset>((pointX),-0.50f,(pointZ*pointY)));
+216             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+217             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+218             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<PyramidAsset>((pointX),-0.50f,(pointZ*pointY))
+      );
 219    \}
 220     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 7)\{
-227             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-228             asset\_manager->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-229             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.80f),(
-      pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand()%100))));            
-230             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.70f),(
-      pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
-231             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.75f),(
-      pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
-232             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.60f),(
-      pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
-233             asset\_manager->AddAsset(make\_shared<GrassAsset>((pointX-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.50f),(
-      pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
+227             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+228             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)))
+      ;
+229             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GrassAsset>((pointX-
+      \hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.80f),(pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand()%100))));            
+230             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GrassAsset>((pointX-
+      \hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.70f),(pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
+231             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GrassAsset>((pointX-
+      \hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.75f),(pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
+232             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GrassAsset>((pointX-
+      \hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.60f),(pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
+233             \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->AddAsset(make\_shared<GrassAsset>((pointX-
+      \hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.50f),(pointZ*pointY-\hyperlink{classGameWorld_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))));
 234    \}
 235   \}
 236  \}  
@@ -270,7 +365,7 @@ Grass Spawn. Spawns the Voxel \hyperlink{classGroundAsset}{Ground\+Asset} so it 
 
 Call Camera\+\_\+\+Control. will move in specfic direction. 
 
-Controls calculations Controls all the movement and positions of the camera Uses keyboard and Mouse movements to move around the world space Tells the Camera matrix what position to look at and where to move 
+Controls calculations Controls all the movement and positions of the camera Uses keyboard and Mouse movements to move around the world space Tells the Camera matrix what position to look at and where to move. 
 \begin{DoxyCode}
 245                                        \{
 246   \textcolor{keywordflow}{if} ( key == \textcolor{charliteral}{'w'} ) \{        \textcolor{comment}{// W Key Pressed will move Camera forward}
@@ -316,7 +411,9 @@ Controls calculations Controls all the movement and positions of the camera Uses
 
 Calling \hyperlink{classGameWorld_a275418607d8286979b276f165ad5876b}{Draw()}. will draw the entire world. 
 
-Drawing the world. Draws the assets to the world by calling \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} Sends the camera positions and movements to the translate shader Camera Direction Calculates the distance each camera movement changes the camera direction
+Drawing the world.
+
+Draws the assets to the world by calling \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} Sends the camera positions and movements to the translate shader Camera Direction Calculates the distance each camera movement changes the camera direction
 
 Projection matrix. \+: degree = 45, Field of View = 4\+:3 ratio, display = 0.\+1 unit $<$-\/$>$ 1000 units
 
@@ -353,12 +450,15 @@ Send data to Uniform Variable. Sends the data to the translate.\+vs shader
 326     glUniformMatrix4fv(1, 1, GL\_FALSE, &Camera\_View[0][0]);
 327     glUniformMatrix4fv(2, 1, GL\_FALSE, &Camera\_Model[0][0]);
 328 
-329         asset\_manager->Draw();
+329         \hyperlink{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{asset\_manager}->Draw();
 330 \}
 \end{DoxyCode}
 
 
 \subsection{Member Data Documentation}
+\hypertarget{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}{}\index{Game\+World@{Game\+World}!asset\+\_\+manager@{asset\+\_\+manager}}
+\index{asset\+\_\+manager@{asset\+\_\+manager}!Game\+World@{Game\+World}}
+\subsubsection[{asset\+\_\+manager}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf Game\+Asset\+Manager}$>$ Game\+World\+::asset\+\_\+manager\hspace{0.3cm}{\ttfamily [private]}}\label{classGameWorld_aec5c0bca4fb5a41e4aac2dce2871266d}
 \hypertarget{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}{}\index{Game\+World@{Game\+World}!Camera\+\_\+\+Horizontal@{Camera\+\_\+\+Horizontal}}
 \index{Camera\+\_\+\+Horizontal@{Camera\+\_\+\+Horizontal}!Game\+World@{Game\+World}}
 \subsubsection[{Camera\+\_\+\+Horizontal}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lfloat Game\+World\+::\+Camera\+\_\+\+Horizontal = 0.\+0}\label{classGameWorld_a7f4911dda9b3b4e4eb03ece87e16cd96}
@@ -377,7 +477,11 @@ Send data to Uniform Variable. Sends the data to the translate.\+vs shader
 \hypertarget{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}{}\index{Game\+World@{Game\+World}!Mouse\+\_\+\+Sensitivity@{Mouse\+\_\+\+Sensitivity}}
 \index{Mouse\+\_\+\+Sensitivity@{Mouse\+\_\+\+Sensitivity}!Game\+World@{Game\+World}}
 \subsubsection[{Mouse\+\_\+\+Sensitivity}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lfloat Game\+World\+::\+Mouse\+\_\+\+Sensitivity = 0.\+05f}\label{classGameWorld_a9bf4eb977e6ab9299aaef1345c4fa4dd}
-Camera Variables. Camera Variables Controls Speed of Play/\+Camera Controls the distance each movement moves by Sets where the starting positions of the camera and the direction it is looking at \hypertarget{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{}\index{Game\+World@{Game\+World}!Movement\+\_\+\+X@{Movement\+\_\+\+X}}
+
+
+Camera Variables. 
+
+Camera Variables Controls Speed of Play/\+Camera Controls the distance each movement moves by Sets where the starting positions of the camera and the direction it is looking at \hypertarget{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}{}\index{Game\+World@{Game\+World}!Movement\+\_\+\+X@{Movement\+\_\+\+X}}
 \index{Movement\+\_\+\+X@{Movement\+\_\+\+X}!Game\+World@{Game\+World}}
 \subsubsection[{Movement\+\_\+\+X}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+World\+::\+Movement\+\_\+\+X}\label{classGameWorld_a968eb29424b68f7cd79a5896c62e944d}
 \hypertarget{classGameWorld_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{}\index{Game\+World@{Game\+World}!Movement\+\_\+\+Z@{Movement\+\_\+\+Z}}

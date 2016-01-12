@@ -31,6 +31,24 @@ Collaboration diagram for Leaves\+Asset\+:\nopagebreak
 \item 
 virtual void \hyperlink{classLeavesAsset_a807fd196b83e5adb131d489ef6645742}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classLeavesAsset_aa5ac41c76e9ed66570891ccf00b9c63a}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{classLeavesAsset_a6a09aacce21f8ce5a6b80da9f40bc9d5}{element\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classLeavesAsset_aa98b368598e1181d85d9797e07506ecb}{colour\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classLeavesAsset_a360df8eb2239e2f4ed069522d0de7629}{vertex\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classLeavesAsset_a2a47b7b2ad8a35f4499a12db80073efb}{element\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classLeavesAsset_a7e586bea0f5a80b9a262f11e31a5faac}{colour\+\_\+buffer\+\_\+token}
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -72,7 +90,7 @@ Color Buffer. Colour of Cube Camerone Green \& Lawn Green Uses R\+G\+B values to
 36      0.058f, 0.095f, 0.011f,
 37 
 38   \};
-39  colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+39  \hyperlink{classLeavesAsset_aa98b368598e1181d85d9797e07506ecb}{colour\_buffer\_length} = \textcolor{keyword}{sizeof}(colour\_buffer);
 40   
 41   GLuint element\_buffer []  \{
 42       0, 1, 2   
@@ -88,7 +106,7 @@ Color Buffer. Colour of Cube Camerone Green \& Lawn Green Uses R\+G\+B values to
 52     , 0, 4, 6   
 53     , 0, 2, 6   
 54   \};
-55   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+55   \hyperlink{classLeavesAsset_a6a09aacce21f8ce5a6b80da9f40bc9d5}{element\_buffer\_length} = \textcolor{keyword}{sizeof}(element\_buffer);
 56 
 57 
 58 
@@ -96,20 +114,21 @@ Color Buffer. Colour of Cube Camerone Green \& Lawn Green Uses R\+G\+B values to
 60 
 61 
 62   \textcolor{comment}{// create buffer}
-63   glGenBuffers(1, &vertex\_buffer\_token);
+63   glGenBuffers(1, &\hyperlink{classLeavesAsset_a360df8eb2239e2f4ed069522d0de7629}{vertex\_buffer\_token});
 64   \textcolor{comment}{// immediately bind the buffer and transfer the data}
-65   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+65   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classLeavesAsset_a360df8eb2239e2f4ed069522d0de7629}{vertex\_buffer\_token});
 66   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
 67 
 68   \textcolor{comment}{// Binds the buffer and transfers the data}
-69   glGenBuffers(1, &colour\_buffer\_token);
-70   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-71   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+69   glGenBuffers(1, &\hyperlink{classLeavesAsset_a7e586bea0f5a80b9a262f11e31a5faac}{colour\_buffer\_token});
+70   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classLeavesAsset_a7e586bea0f5a80b9a262f11e31a5faac}{colour\_buffer\_token});
+71   glBufferData(GL\_ARRAY\_BUFFER, \hyperlink{classLeavesAsset_aa98b368598e1181d85d9797e07506ecb}{colour\_buffer\_length}, colour\_buffer, GL\_STATIC\_DRAW);
 72 
 73 
-74   glGenBuffers(1, &element\_buffer\_token);
-75   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-76   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+74   glGenBuffers(1, &\hyperlink{classLeavesAsset_a2a47b7b2ad8a35f4499a12db80073efb}{element\_buffer\_token});
+75   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classLeavesAsset_a2a47b7b2ad8a35f4499a12db80073efb}{element\_buffer\_token});
+76   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classLeavesAsset_a6a09aacce21f8ce5a6b80da9f40bc9d5}{element\_buffer\_length}, element\_buffer, 
+      GL\_STATIC\_DRAW);
 77 \}
 \end{DoxyCode}
 \hypertarget{classLeavesAsset_ae98d43a307f4c75cc8a661f0b36a213a}{}\index{Leaves\+Asset@{Leaves\+Asset}!````~Leaves\+Asset@{$\sim$\+Leaves\+Asset}}
@@ -127,6 +146,24 @@ Color Buffer. Colour of Cube Camerone Green \& Lawn Green Uses R\+G\+B values to
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classLeavesAsset_aa5ac41c76e9ed66570891ccf00b9c63a}{}\index{Leaves\+Asset@{Leaves\+Asset}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Leaves\+Asset@{Leaves\+Asset}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Leaves\+Asset\+::check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classLeavesAsset_aa5ac41c76e9ed66570891ccf00b9c63a}
+
+\begin{DoxyCode}
+89                                                      \{
+90   GLenum gl\_error = glGetError();
+91   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+92     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+93     exit(-1);
+94   \}
+95 \}
+\end{DoxyCode}
 \hypertarget{classLeavesAsset_a807fd196b83e5adb131d489ef6645742}{}\index{Leaves\+Asset@{Leaves\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Leaves\+Asset@{Leaves\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Leaves\+Asset\+::\+Draw (
@@ -171,7 +208,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 123   glUseProgram(program\_token);
 124   \hyperlink{LeavesAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 129   glEnableVertexAttribArray(0);
-130   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+130   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classLeavesAsset_a360df8eb2239e2f4ed069522d0de7629}{vertex\_buffer\_token});
 131   glVertexAttribPointer(
 132     position\_attrib,        \textcolor{comment}{/* attribute */}
 133     3,        \textcolor{comment}{/* size */}
@@ -182,7 +219,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 138   );
 139   glEnableVertexAttribArray(1);
 140   \hyperlink{LeavesAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-145   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+145   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classLeavesAsset_a7e586bea0f5a80b9a262f11e31a5faac}{colour\_buffer\_token});
 146   glVertexAttribPointer(
 147     1,        \textcolor{comment}{/* attribute */}
 148     3,        \textcolor{comment}{/* size */}
@@ -193,10 +230,10 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 153   );
 154   \hyperlink{LeavesAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 155 
-156   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+156   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classLeavesAsset_a2a47b7b2ad8a35f4499a12db80073efb}{element\_buffer\_token});
 157   glDrawElements(
 158     GL\_TRIANGLES,
-159     element\_buffer\_length,
+159     \hyperlink{classLeavesAsset_a6a09aacce21f8ce5a6b80da9f40bc9d5}{element\_buffer\_length},
 160     GL\_UNSIGNED\_INT,
 161     (GLvoid*) 0
 162   );
@@ -205,6 +242,24 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 165   glDisableVertexAttribArray(position\_attrib);
 166 \}
 \end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classLeavesAsset_aa98b368598e1181d85d9797e07506ecb}{}\index{Leaves\+Asset@{Leaves\+Asset}!colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}}
+\index{colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}!Leaves\+Asset@{Leaves\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Leaves\+Asset\+::colour\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classLeavesAsset_aa98b368598e1181d85d9797e07506ecb}
+\hypertarget{classLeavesAsset_a7e586bea0f5a80b9a262f11e31a5faac}{}\index{Leaves\+Asset@{Leaves\+Asset}!colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}}
+\index{colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}!Leaves\+Asset@{Leaves\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Leaves\+Asset\+::colour\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classLeavesAsset_a7e586bea0f5a80b9a262f11e31a5faac}
+\hypertarget{classLeavesAsset_a6a09aacce21f8ce5a6b80da9f40bc9d5}{}\index{Leaves\+Asset@{Leaves\+Asset}!element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}}
+\index{element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}!Leaves\+Asset@{Leaves\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Leaves\+Asset\+::element\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classLeavesAsset_a6a09aacce21f8ce5a6b80da9f40bc9d5}
+\hypertarget{classLeavesAsset_a2a47b7b2ad8a35f4499a12db80073efb}{}\index{Leaves\+Asset@{Leaves\+Asset}!element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}}
+\index{element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}!Leaves\+Asset@{Leaves\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Leaves\+Asset\+::element\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classLeavesAsset_a2a47b7b2ad8a35f4499a12db80073efb}
+\hypertarget{classLeavesAsset_a360df8eb2239e2f4ed069522d0de7629}{}\index{Leaves\+Asset@{Leaves\+Asset}!vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}}
+\index{vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}!Leaves\+Asset@{Leaves\+Asset}}
+\subsubsection[{vertex\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Leaves\+Asset\+::vertex\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classLeavesAsset_a360df8eb2239e2f4ed069522d0de7629}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

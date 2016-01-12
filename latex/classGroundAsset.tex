@@ -31,6 +31,24 @@ Collaboration diagram for Ground\+Asset\+:\nopagebreak
 \item 
 virtual void \hyperlink{classGroundAsset_a440f983638c7a7ccb6a39718444dfe95}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGroundAsset_a4fad6edd0d2f5aee6acc9a5a872aea96}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{classGroundAsset_a68cd956ec94f65cd5def56e3e442cd55}{element\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classGroundAsset_aa7808332316a2ba6f7fd0efd7ec5bdb2}{colour\+\_\+buffer\+\_\+length}
+\item 
+G\+Luint \hyperlink{classGroundAsset_a32dbd8507aff2931228318f84160e493}{vertex\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classGroundAsset_af9612e4d7ba49cbacc2ee93266c2b89e}{element\+\_\+buffer\+\_\+token}
+\item 
+G\+Luint \hyperlink{classGroundAsset_acae5e4f08e295851822c3dbb3c10f2ee}{colour\+\_\+buffer\+\_\+token}
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -71,7 +89,7 @@ Color Buffer. Colour of Cube Lawn Green Uses R\+G\+B values to set the colour.
 35      0.124f, 0.252f, 0.000f,
 36      0.124f, 0.252f, 0.000f
 37   \};
-38   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+38   \hyperlink{classGroundAsset_aa7808332316a2ba6f7fd0efd7ec5bdb2}{colour\_buffer\_length} = \textcolor{keyword}{sizeof}(colour\_buffer);
 39   
 40   GLuint element\_buffer []  \{
 41       0, 1, 2   
@@ -87,26 +105,27 @@ Color Buffer. Colour of Cube Lawn Green Uses R\+G\+B values to set the colour.
 51     , 0, 4, 6   
 52     , 0, 2, 6   
 53   \};
-54   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+54   \hyperlink{classGroundAsset_a68cd956ec94f65cd5def56e3e442cd55}{element\_buffer\_length} = \textcolor{keyword}{sizeof}(element\_buffer);
 55 
 56 
 57   \textcolor{comment}{// Transfer buffers to the GPU}
 58 
 59   \textcolor{comment}{// create buffer}
-60   glGenBuffers(1, &vertex\_buffer\_token);
+60   glGenBuffers(1, &\hyperlink{classGroundAsset_a32dbd8507aff2931228318f84160e493}{vertex\_buffer\_token});
 61   \textcolor{comment}{// immediately bind the buffer and transfer the data}
-62   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+62   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classGroundAsset_a32dbd8507aff2931228318f84160e493}{vertex\_buffer\_token});
 63   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
 64 
 65   \textcolor{comment}{// Binds the buffer and transfers the data}
-66   glGenBuffers(1, &colour\_buffer\_token);
-67   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
-68   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+66   glGenBuffers(1, &\hyperlink{classGroundAsset_acae5e4f08e295851822c3dbb3c10f2ee}{colour\_buffer\_token});
+67   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classGroundAsset_acae5e4f08e295851822c3dbb3c10f2ee}{colour\_buffer\_token});
+68   glBufferData(GL\_ARRAY\_BUFFER, \hyperlink{classGroundAsset_aa7808332316a2ba6f7fd0efd7ec5bdb2}{colour\_buffer\_length}, colour\_buffer, GL\_STATIC\_DRAW);
 69 
 70 
-71   glGenBuffers(1, &element\_buffer\_token);
-72   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
-73   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+71   glGenBuffers(1, &\hyperlink{classGroundAsset_af9612e4d7ba49cbacc2ee93266c2b89e}{element\_buffer\_token});
+72   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classGroundAsset_af9612e4d7ba49cbacc2ee93266c2b89e}{element\_buffer\_token});
+73   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classGroundAsset_a68cd956ec94f65cd5def56e3e442cd55}{element\_buffer\_length}, element\_buffer, 
+      GL\_STATIC\_DRAW);
 74 \}
 \end{DoxyCode}
 \hypertarget{classGroundAsset_a8f607f3cabded6280c5a5eb2cbfa8c79}{}\index{Ground\+Asset@{Ground\+Asset}!````~Ground\+Asset@{$\sim$\+Ground\+Asset}}
@@ -124,6 +143,24 @@ Color Buffer. Colour of Cube Lawn Green Uses R\+G\+B values to set the colour.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classGroundAsset_a4fad6edd0d2f5aee6acc9a5a872aea96}{}\index{Ground\+Asset@{Ground\+Asset}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void Ground\+Asset\+::check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classGroundAsset_a4fad6edd0d2f5aee6acc9a5a872aea96}
+
+\begin{DoxyCode}
+86                                                      \{
+87   GLenum gl\_error = glGetError();
+88   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+89     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+90     exit(-1);
+91   \}
+92 \}
+\end{DoxyCode}
 \hypertarget{classGroundAsset_a440f983638c7a7ccb6a39718444dfe95}{}\index{Ground\+Asset@{Ground\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Ground\+Asset@{Ground\+Asset}}
 \subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Ground\+Asset\+::\+Draw (
@@ -168,7 +205,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 121   glUseProgram(program\_token);
 122   \hyperlink{GroundAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 127   glEnableVertexAttribArray(0);
-128   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+128   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classGroundAsset_a32dbd8507aff2931228318f84160e493}{vertex\_buffer\_token});
 129   glVertexAttribPointer(
 130     position\_attrib,        \textcolor{comment}{/* attribute */}
 131     3,        \textcolor{comment}{/* size */}
@@ -179,7 +216,7 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 136   );
 137   glEnableVertexAttribArray(1);
 138   \hyperlink{GroundAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
-143   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+143   glBindBuffer(GL\_ARRAY\_BUFFER, \hyperlink{classGroundAsset_acae5e4f08e295851822c3dbb3c10f2ee}{colour\_buffer\_token});
 144   glVertexAttribPointer(
 145     1,        \textcolor{comment}{/* attribute */}
 146     3,        \textcolor{comment}{/* size */}
@@ -190,10 +227,10 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 151   );
 152   \hyperlink{GroundAsset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
 153 
-154   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+154   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, \hyperlink{classGroundAsset_af9612e4d7ba49cbacc2ee93266c2b89e}{element\_buffer\_token});
 155   glDrawElements(
 156     GL\_TRIANGLES,
-157     element\_buffer\_length,
+157     \hyperlink{classGroundAsset_a68cd956ec94f65cd5def56e3e442cd55}{element\_buffer\_length},
 158     GL\_UNSIGNED\_INT,
 159     (GLvoid*) 0
 160   );
@@ -202,6 +239,24 @@ Implements \hyperlink{classGameAsset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+As
 163   glDisableVertexAttribArray(position\_attrib);
 164 \}
 \end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGroundAsset_aa7808332316a2ba6f7fd0efd7ec5bdb2}{}\index{Ground\+Asset@{Ground\+Asset}!colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}}
+\index{colour\+\_\+buffer\+\_\+length@{colour\+\_\+buffer\+\_\+length}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Ground\+Asset\+::colour\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classGroundAsset_aa7808332316a2ba6f7fd0efd7ec5bdb2}
+\hypertarget{classGroundAsset_acae5e4f08e295851822c3dbb3c10f2ee}{}\index{Ground\+Asset@{Ground\+Asset}!colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}}
+\index{colour\+\_\+buffer\+\_\+token@{colour\+\_\+buffer\+\_\+token}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{colour\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Ground\+Asset\+::colour\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classGroundAsset_acae5e4f08e295851822c3dbb3c10f2ee}
+\hypertarget{classGroundAsset_a68cd956ec94f65cd5def56e3e442cd55}{}\index{Ground\+Asset@{Ground\+Asset}!element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}}
+\index{element\+\_\+buffer\+\_\+length@{element\+\_\+buffer\+\_\+length}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Ground\+Asset\+::element\+\_\+buffer\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\label{classGroundAsset_a68cd956ec94f65cd5def56e3e442cd55}
+\hypertarget{classGroundAsset_af9612e4d7ba49cbacc2ee93266c2b89e}{}\index{Ground\+Asset@{Ground\+Asset}!element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}}
+\index{element\+\_\+buffer\+\_\+token@{element\+\_\+buffer\+\_\+token}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{element\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Ground\+Asset\+::element\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classGroundAsset_af9612e4d7ba49cbacc2ee93266c2b89e}
+\hypertarget{classGroundAsset_a32dbd8507aff2931228318f84160e493}{}\index{Ground\+Asset@{Ground\+Asset}!vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}}
+\index{vertex\+\_\+buffer\+\_\+token@{vertex\+\_\+buffer\+\_\+token}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{vertex\+\_\+buffer\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Ground\+Asset\+::vertex\+\_\+buffer\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}\label{classGroundAsset_a32dbd8507aff2931228318f84160e493}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

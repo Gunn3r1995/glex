@@ -87,6 +87,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classLeavesAsset-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">LeavesAsset Class Reference</div>  </div>
@@ -119,6 +121,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae98d43a307f4c75cc8a661f0b36a213a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a807fd196b83e5adb131d489ef6645742"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeavesAsset.html#a807fd196b83e5adb131d489ef6645742">Draw</a> (GLuint)</td></tr>
 <tr class="separator:a807fd196b83e5adb131d489ef6645742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa5ac41c76e9ed66570891ccf00b9c63a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeavesAsset.html#aa5ac41c76e9ed66570891ccf00b9c63a">checkError</a> (std::string file, int line)</td></tr>
+<tr class="separator:aa5ac41c76e9ed66570891ccf00b9c63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6a09aacce21f8ce5a6b80da9f40bc9d5"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeavesAsset.html#a6a09aacce21f8ce5a6b80da9f40bc9d5">element_buffer_length</a></td></tr>
+<tr class="separator:a6a09aacce21f8ce5a6b80da9f40bc9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98b368598e1181d85d9797e07506ecb"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeavesAsset.html#aa98b368598e1181d85d9797e07506ecb">colour_buffer_length</a></td></tr>
+<tr class="separator:aa98b368598e1181d85d9797e07506ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a360df8eb2239e2f4ed069522d0de7629"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeavesAsset.html#a360df8eb2239e2f4ed069522d0de7629">vertex_buffer_token</a></td></tr>
+<tr class="separator:a360df8eb2239e2f4ed069522d0de7629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a47b7b2ad8a35f4499a12db80073efb"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeavesAsset.html#a2a47b7b2ad8a35f4499a12db80073efb">element_buffer_token</a></td></tr>
+<tr class="separator:a2a47b7b2ad8a35f4499a12db80073efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e586bea0f5a80b9a262f11e31a5faac"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeavesAsset.html#a7e586bea0f5a80b9a262f11e31a5faac">colour_buffer_token</a></td></tr>
+<tr class="separator:a7e586bea0f5a80b9a262f11e31a5faac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1fb1212e5399f16071f0be7ff42cc344"></a>
@@ -177,7 +197,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;     0.058f, 0.095f, 0.011f,</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  };</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; colour_buffer_length = <span class="keyword">sizeof</span>(colour_buffer);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <a class="code" href="classLeavesAsset.html#aa98b368598e1181d85d9797e07506ecb">colour_buffer_length</a> = <span class="keyword">sizeof</span>(colour_buffer);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  GLuint element_buffer []  {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      0, 1, 2   </div>
@@ -193,7 +213,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    , 0, 4, 6   </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    , 0, 2, 6   </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  };</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  element_buffer_length = <span class="keyword">sizeof</span>(element_buffer);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <a class="code" href="classLeavesAsset.html#a6a09aacce21f8ce5a6b80da9f40bc9d5">element_buffer_length</a> = <span class="keyword">sizeof</span>(element_buffer);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
@@ -201,21 +221,26 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// create buffer</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  glGenBuffers(1, &amp;vertex_buffer_token);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  glGenBuffers(1, &amp;<a class="code" href="classLeavesAsset.html#a360df8eb2239e2f4ed069522d0de7629">vertex_buffer_token</a>);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">// immediately bind the buffer and transfer the data</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, <a class="code" href="classLeavesAsset.html#a360df8eb2239e2f4ed069522d0de7629">vertex_buffer_token</a>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  glBufferData(GL_ARRAY_BUFFER, vertex_buffer_length, vertex_buffer, GL_STATIC_DRAW);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">// Binds the buffer and transfers the data</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  glGenBuffers(1, &amp;colour_buffer_token);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  glBufferData(GL_ARRAY_BUFFER, colour_buffer_length, colour_buffer, GL_STATIC_DRAW);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  glGenBuffers(1, &amp;<a class="code" href="classLeavesAsset.html#a7e586bea0f5a80b9a262f11e31a5faac">colour_buffer_token</a>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, <a class="code" href="classLeavesAsset.html#a7e586bea0f5a80b9a262f11e31a5faac">colour_buffer_token</a>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  glBufferData(GL_ARRAY_BUFFER, <a class="code" href="classLeavesAsset.html#aa98b368598e1181d85d9797e07506ecb">colour_buffer_length</a>, colour_buffer, GL_STATIC_DRAW);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  glGenBuffers(1, &amp;element_buffer_token);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  glBufferData(GL_ELEMENT_ARRAY_BUFFER, element_buffer_length, element_buffer, GL_STATIC_DRAW);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  glGenBuffers(1, &amp;<a class="code" href="classLeavesAsset.html#a2a47b7b2ad8a35f4499a12db80073efb">element_buffer_token</a>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, <a class="code" href="classLeavesAsset.html#a2a47b7b2ad8a35f4499a12db80073efb">element_buffer_token</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  glBufferData(GL_ELEMENT_ARRAY_BUFFER, <a class="code" href="classLeavesAsset.html#a6a09aacce21f8ce5a6b80da9f40bc9d5">element_buffer_length</a>, element_buffer, GL_STATIC_DRAW);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="ttc" id="classLeavesAsset_html_a6a09aacce21f8ce5a6b80da9f40bc9d5"><div class="ttname"><a href="classLeavesAsset.html#a6a09aacce21f8ce5a6b80da9f40bc9d5">LeavesAsset::element_buffer_length</a></div><div class="ttdeci">GLuint element_buffer_length</div><div class="ttdef"><b>Definition:</b> LeavesAsset.h:30</div></div>
+<div class="ttc" id="classLeavesAsset_html_a2a47b7b2ad8a35f4499a12db80073efb"><div class="ttname"><a href="classLeavesAsset.html#a2a47b7b2ad8a35f4499a12db80073efb">LeavesAsset::element_buffer_token</a></div><div class="ttdeci">GLuint element_buffer_token</div><div class="ttdef"><b>Definition:</b> LeavesAsset.h:31</div></div>
+<div class="ttc" id="classLeavesAsset_html_a360df8eb2239e2f4ed069522d0de7629"><div class="ttname"><a href="classLeavesAsset.html#a360df8eb2239e2f4ed069522d0de7629">LeavesAsset::vertex_buffer_token</a></div><div class="ttdeci">GLuint vertex_buffer_token</div><div class="ttdef"><b>Definition:</b> LeavesAsset.h:31</div></div>
+<div class="ttc" id="classLeavesAsset_html_aa98b368598e1181d85d9797e07506ecb"><div class="ttname"><a href="classLeavesAsset.html#aa98b368598e1181d85d9797e07506ecb">LeavesAsset::colour_buffer_length</a></div><div class="ttdeci">GLuint colour_buffer_length</div><div class="ttdef"><b>Definition:</b> LeavesAsset.h:30</div></div>
+<div class="ttc" id="classLeavesAsset_html_a7e586bea0f5a80b9a262f11e31a5faac"><div class="ttname"><a href="classLeavesAsset.html#a7e586bea0f5a80b9a262f11e31a5faac">LeavesAsset::colour_buffer_token</a></div><div class="ttdeci">GLuint colour_buffer_token</div><div class="ttdef"><b>Definition:</b> LeavesAsset.h:31</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -237,6 +262,47 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa5ac41c76e9ed66570891ccf00b9c63a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LeavesAsset::checkError </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                                     {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  GLenum gl_error = glGetError();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span>(GL_NO_ERROR != gl_error) {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;GL error in &quot;</span> &lt;&lt; file &lt;&lt; <span class="stringliteral">&quot; at line &quot;</span> &lt;&lt; line &lt;&lt; <span class="stringliteral">&quot; error: &quot;</span> &lt;&lt; gl_error &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    exit(-1);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a807fd196b83e5adb131d489ef6645742"></a>
 <div class="memitem">
 <div class="memproto">
@@ -291,7 +357,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  glUseProgram(program_token);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <a class="code" href="LeavesAsset_8cc.html#a75f201b0e53e68726854997957322b8d">checkGLError</a>();</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  glEnableVertexAttribArray(0);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, <a class="code" href="classLeavesAsset.html#a360df8eb2239e2f4ed069522d0de7629">vertex_buffer_token</a>);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  glVertexAttribPointer(</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    position_attrib,        <span class="comment">/* attribute */</span></div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    3,        <span class="comment">/* size */</span></div>
@@ -302,7 +368,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  );</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  glEnableVertexAttribArray(1);</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <a class="code" href="LeavesAsset_8cc.html#a75f201b0e53e68726854997957322b8d">checkGLError</a>();</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  glBindBuffer(GL_ARRAY_BUFFER, <a class="code" href="classLeavesAsset.html#a7e586bea0f5a80b9a262f11e31a5faac">colour_buffer_token</a>);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  glVertexAttribPointer(</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    1,        <span class="comment">/* attribute */</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    3,        <span class="comment">/* size */</span></div>
@@ -313,10 +379,10 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  );</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <a class="code" href="LeavesAsset_8cc.html#a75f201b0e53e68726854997957322b8d">checkGLError</a>();</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, <a class="code" href="classLeavesAsset.html#a2a47b7b2ad8a35f4499a12db80073efb">element_buffer_token</a>);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  glDrawElements(</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    GL_TRIANGLES,</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    element_buffer_length,</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="classLeavesAsset.html#a6a09aacce21f8ce5a6b80da9f40bc9d5">element_buffer_length</a>,</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    GL_UNSIGNED_INT,</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    (GLvoid*) 0</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  );</div>
@@ -324,8 +390,113 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  glDisableVertexAttribArray(position_attrib);</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
+<div class="ttc" id="classLeavesAsset_html_a6a09aacce21f8ce5a6b80da9f40bc9d5"><div class="ttname"><a href="classLeavesAsset.html#a6a09aacce21f8ce5a6b80da9f40bc9d5">LeavesAsset::element_buffer_length</a></div><div class="ttdeci">GLuint element_buffer_length</div><div class="ttdef"><b>Definition:</b> LeavesAsset.h:30</div></div>
 <div class="ttc" id="LeavesAsset_8cc_html_a75f201b0e53e68726854997957322b8d"><div class="ttname"><a href="LeavesAsset_8cc.html#a75f201b0e53e68726854997957322b8d">checkGLError</a></div><div class="ttdeci">#define checkGLError()</div><div class="ttdef"><b>Definition:</b> LeavesAsset.cc:86</div></div>
+<div class="ttc" id="classLeavesAsset_html_a2a47b7b2ad8a35f4499a12db80073efb"><div class="ttname"><a href="classLeavesAsset.html#a2a47b7b2ad8a35f4499a12db80073efb">LeavesAsset::element_buffer_token</a></div><div class="ttdeci">GLuint element_buffer_token</div><div class="ttdef"><b>Definition:</b> LeavesAsset.h:31</div></div>
+<div class="ttc" id="classLeavesAsset_html_a360df8eb2239e2f4ed069522d0de7629"><div class="ttname"><a href="classLeavesAsset.html#a360df8eb2239e2f4ed069522d0de7629">LeavesAsset::vertex_buffer_token</a></div><div class="ttdeci">GLuint vertex_buffer_token</div><div class="ttdef"><b>Definition:</b> LeavesAsset.h:31</div></div>
+<div class="ttc" id="classLeavesAsset_html_a7e586bea0f5a80b9a262f11e31a5faac"><div class="ttname"><a href="classLeavesAsset.html#a7e586bea0f5a80b9a262f11e31a5faac">LeavesAsset::colour_buffer_token</a></div><div class="ttdeci">GLuint colour_buffer_token</div><div class="ttdef"><b>Definition:</b> LeavesAsset.h:31</div></div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aa98b368598e1181d85d9797e07506ecb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint LeavesAsset::colour_buffer_length</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7e586bea0f5a80b9a262f11e31a5faac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint LeavesAsset::colour_buffer_token</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6a09aacce21f8ce5a6b80da9f40bc9d5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint LeavesAsset::element_buffer_length</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2a47b7b2ad8a35f4499a12db80073efb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint LeavesAsset::element_buffer_token</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a360df8eb2239e2f4ed069522d0de7629"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint LeavesAsset::vertex_buffer_token</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

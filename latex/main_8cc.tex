@@ -30,7 +30,7 @@ struct \hyperlink{structSDLWindowDeleter}{S\+D\+L\+Window\+Deleter}
 \begin{DoxyCompactItemize}
 \item 
 Uint32 \hyperlink{main_8cc_a70eaa727262f633037c3f4b7d3ff24c2}{tick} (Uint32 interval, void $\ast$param)
-\item 
+\begin{DoxyCompactList}\small\item\em S\+D\+L timers run in separate threads. \end{DoxyCompactList}\item 
 void \hyperlink{main_8cc_ae1fc7acb89acd89e2d93d844387f73a8}{Draw} (const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&window, const std\+::shared\+\_\+ptr$<$ \hyperlink{classGameWorld}{Game\+World} $>$ \&game\+\_\+world)
 \item 
 std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \hyperlink{main_8cc_acab7ade71cf38099442ca5df2495223d}{Init\+World} ()
@@ -427,7 +427,11 @@ Add the main event loop. Detects Keyboard and Mouse Sends Data to \hyperlink{cla
 \item[{void $\ast$}]{param}
 \end{DoxyParamCaption}
 )}\label{main_8cc_a70eaa727262f633037c3f4b7d3ff24c2}
-S\+D\+L timers run in separate threads. In the timer thread push an event onto the event queue. This event signifies to call display() from the thread in which the Open\+G\+L context was created. 
+
+
+S\+D\+L timers run in separate threads. 
+
+In the timer thread push an event onto the event queue. This event signifies to call display() from the thread in which the Open\+G\+L context was created. 
 \begin{DoxyCode}
 34                                           \{
 35   SDL\_Event event;
