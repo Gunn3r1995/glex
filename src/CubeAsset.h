@@ -9,6 +9,7 @@
 #include <OpenGL/glu.h>
 #include <GLUT/glut.h>
 #include <glm/glm.hpp>
+#include <glm/ext.hpp>
 #elif __linux__
 #include <GL/gl.h>
 #else
