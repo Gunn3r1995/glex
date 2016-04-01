@@ -328,3 +328,9 @@ void GameWorld::Draw() {
 
         asset_manager->Draw();
 }
+
+void GameWorld::CameraUpdate(Movement movement, int Mouse_X, int Mouse_Y){
+	asset_manager->CameraUpdate(movement, Mouse_X, Mouse_Y);
+}
+
+

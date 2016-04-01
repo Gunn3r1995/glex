@@ -236,6 +236,8 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
 
         int Mouse_X;
         int Mouse_Y;
+        //Enum variable in common.h to store movement value
+        Movement movement = STOPPED;
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// Add the main event loop.
@@ -249,6 +251,7 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
       SDL_Quit();
       break;
     case SDL_USEREVENT:
+      game_world->CameraUpdate(movement, Mouse_X, Mouse_Y);
       Draw(window, game_world);
       break;
     case  SDL_MOUSEMOTION:

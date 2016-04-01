@@ -24,6 +24,12 @@ GameAssetManager::GameAssetManager(ApplicationMode mode) {
   program_token = CreateGLProgram(vertex_shader, fragment_shader);
 }
 
+void GameAssetManager::CameraUpdate(Movement movement, int Mouse_X, int Mouse_Y){
+
+	//Use the camera class to update the view matrix.
+	//view_matrix = camera.UpdateCameraPosition(input_direction, mouse_x, mouse_y, world_array);
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Deletes a GameAssetManager, in particular it will clean up any modifications
 /// to the OpenGL state.

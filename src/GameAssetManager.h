@@ -7,6 +7,8 @@
 #include <utility>
 #include <fstream>
 #include <iostream>
+#include <glm/ext.hpp>
+
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -20,6 +22,8 @@
 
 #include "common.h"
 #include "GameAsset.h"
+#include "Camera.h"
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// GameAssetManager is a container for GameAssets.  It also provides utility
@@ -35,6 +39,7 @@ class GameAssetManager {
   void operator = (GameAssetManager); // assignment
   void AddAsset(std::shared_ptr<GameAsset>);
   void Draw();
+  void CameraUpdate(Movement, int Mouse_X, int Mouse_Y);
 
  private:
   GLuint CreateGLProgram(std::string &, std::string &);
@@ -45,6 +50,20 @@ class GameAssetManager {
   // The internal scene graph is a simple list.
   std::vector<std::shared_ptr<GameAsset>> draw_list;
   GLuint program_token;
+
+  Camera camera;
+
+  //Uniform variables used to communicate with the shaders.
+  GLuint camera_x_position;
+  GLuint camera_z_position;
+  GLuint projection_matrix_link;
+  GLuint translate_matrix_link;
+  GLuint view_matrix_link;
+
+  glm::mat4 Camera_Position;
+  glm::mat4 Camera_Model;
+  glm::mat4 Camera_View;
+
 };
 
 #endif // GAMEASSETMANAGER_H
