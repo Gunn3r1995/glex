@@ -11,6 +11,7 @@ class Camera{
 
 public:
   Camera();
+  glm::mat4 CameraUpdate(Movement movement, int Mouse_X, int Mouse_Y);
 private:
 
 };

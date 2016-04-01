@@ -285,6 +285,8 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
     break;
     case SDLK_w:			// When pressing w
         game_world -> Camera_Control('w');
+        movement = UP;
+game_world->CameraUpdate(movement, Mouse_X, Mouse_Y);
       break;
     case SDLK_a:			// When pressing a
         game_world -> Camera_Control('a');

@@ -1,4 +1,7 @@
 #include "GameAssetManager.h"
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Creates a GameAssetManager to load the correct shaders based on the
@@ -27,7 +30,7 @@ GameAssetManager::GameAssetManager(ApplicationMode mode) {
 void GameAssetManager::CameraUpdate(Movement movement, int Mouse_X, int Mouse_Y){
 
 	//Use the camera class to update the view matrix.
-	//view_matrix = camera.UpdateCameraPosition(input_direction, mouse_x, mouse_y, world_array);
+	Camera_View = camera.CameraUpdate(movement, Mouse_X, Mouse_Y);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
