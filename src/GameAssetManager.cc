@@ -1,7 +1,4 @@
 #include "GameAssetManager.h"
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Creates a GameAssetManager to load the correct shaders based on the
@@ -25,12 +22,6 @@ GameAssetManager::GameAssetManager(ApplicationMode mode) {
   };
 
   program_token = CreateGLProgram(vertex_shader, fragment_shader);
-}
-
-void GameAssetManager::CameraUpdate(Movement movement, int Mouse_X, int Mouse_Y){
-
-	//Use the camera class to update the view matrix.
-	Camera_View = camera.CameraUpdate(movement, Mouse_X, Mouse_Y);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////

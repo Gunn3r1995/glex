@@ -13,5 +13,5 @@ uniform mat4 Camera_Model;
 void main() 
 {
       gl_Position = (Camera_Projection * Camera_View * Camera_Model) * vec4(position, 1.0f);
-      frag_color =  color;
+      frag_color =  color; //vec3(0.0, 1.0, 0.0); // Green
 }
