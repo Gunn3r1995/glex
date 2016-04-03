@@ -78,6 +78,7 @@ class GameWorld {
           glm::vec3 Movement_Z;
 
           glm::vec3 Movement_X;
+
  private:
   std::shared_ptr<GameAssetManager> asset_manager;
 
