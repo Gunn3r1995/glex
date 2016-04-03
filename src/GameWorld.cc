@@ -243,6 +243,13 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   /// Tells the Camera matrix what position to look at and where to move
   //////////////////////////////////////////////////////////////////////////////////////////
 void GameWorld::Camera_Control(char key) {
+
+        Old_Camera_Position = Camera_Position;
+	Old_Camera_X_Position = Camera_X_Position;
+	Old_Camera_Y_Position = Camera_Y_Position;
+	Old_Camera_Z_Position = Camera_Z_Position;
+
+
   if ( key == 'w' ) {        // W Key Pressed will move Camera forward
         Camera_Position += Movement_Z * Player_Speed;
  }
@@ -273,6 +280,15 @@ void GameWorld::Camera_Control(char key) {
   if (key == '-') {          // Drop down/ -0.1
         Camera_Position -= 0.1f * Player_Speed;
  }
+        if(Camera_Position == Old_Camera_Position){
+               cout << "SAME" << endl;
+        }
+
+
+
+        cout << "Current Pos = " << glm::to_string(Camera_Position) << endl;
+        cout << "Old Pos = " << glm::to_string(Old_Camera_Position) << endl;
+        
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -281,6 +297,8 @@ void GameWorld::Camera_Control(char key) {
 /// Sends the camera positions and movements to the translate shader
 //////////////////////////////////////////////////////////////////////////////////////////
 void GameWorld::Draw() {
+
+
         //////////////////////////////////////////////////////////////////////////////////////////
         /// Camera Direction
         ///  Calculates the distance each camera movement changes the camera direction
@@ -303,6 +321,7 @@ void GameWorld::Draw() {
         //////////////////////////////////////////////////////////////////////////////////////////
         /// Projection matrix. : degree = 45, Field of View = 4:3 ratio, display = 0.1 unit <-> 1000 units
         //////////////////////////////////////////////////////////////////////////////////////////
+
 	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
         // Where the Camera Looks at
         //////////////////////////////////////////////////////////////////////////////////////////

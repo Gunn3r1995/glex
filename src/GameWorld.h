@@ -2,6 +2,7 @@
 #define GAMEWORLD_H
 
 #include <memory>
+#include "glm/gtx/string_cast.hpp"
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -61,10 +62,22 @@ class GameWorld {
           GLfloat Camera_Horizontal = 0.0;
           GLfloat Camera_Vertical = 0.0;
 
-          glm::vec3 Camera_Position = glm::vec3(0, 2, 0);
-          glm::vec3 Movement_Z;
-          glm::vec3 Movement_X;
+          GLfloat Camera_X_Position = 0;
+          GLfloat Camera_Y_Position = 2;
+          GLfloat Camera_Z_Position = 0;
 
+          GLfloat Old_Camera_X_Position;
+          GLfloat Old_Camera_Y_Position;
+          GLfloat Old_Camera_Z_Position;
+
+
+          glm::vec3 Camera_Position = glm::vec3(Camera_X_Position, Camera_Y_Position, Camera_Z_Position);
+          glm::vec3 Old_Camera_Position = Camera_Position;
+
+          
+          glm::vec3 Movement_Z;
+
+          glm::vec3 Movement_X;
  private:
   std::shared_ptr<GameAssetManager> asset_manager;
 
