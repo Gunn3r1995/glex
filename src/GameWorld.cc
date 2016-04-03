@@ -249,9 +249,8 @@ void GameWorld::Camera_Control(char key) {
 	Old_Camera_Y_Position = Camera_Y_Position;
 	Old_Camera_Z_Position = Camera_Z_Position;
 
-
   if ( key == 'w' ) {        // W Key Pressed will move Camera forward
-        Camera_Position += Movement_Z * Player_Speed;
+        Camera_Position +=  Movement_Z * Player_Speed;
  }
   if ( key == 'a' ) {        // A Key Pressed will move Camera left
         Camera_Position -= Movement_X * Player_Speed;
@@ -280,14 +279,10 @@ void GameWorld::Camera_Control(char key) {
   if (key == '-') {          // Drop down/ -0.1
         Camera_Position -= 0.1f * Player_Speed;
  }
-        if(Camera_Position == Old_Camera_Position){
-               cout << "SAME" << endl;
-        }
 
-
-
-        cout << "Current Pos = " << glm::to_string(Camera_Position) << endl;
-        cout << "Old Pos = " << glm::to_string(Old_Camera_Position) << endl;
+        //cout << "Current Pos = " << glm::to_string(Camera_Position) << endl;
+        //cout << "Old Pos = " << glm::to_string(Old_Camera_Position) << endl;
+        cout << Camera_Vertical << endl;
         
 }
 
@@ -318,10 +313,22 @@ void GameWorld::Draw() {
 	);
 
 	glm::vec3 vup = glm::cross(Movement_X, direction);
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        /// Restrict the View
+        /// These If statements stop the Camera Vertical going above 2.0 or below -2.0
+        //////////////////////////////////////////////////////////////////////////////////////////
+        if(Camera_Vertical >= 2.0f){
+                Camera_Vertical = 1.975f;
+        }
+        else if(Camera_Vertical <= -2.0f){
+                Camera_Vertical = -1.975f;
+        }
+
         //////////////////////////////////////////////////////////////////////////////////////////
         /// Projection matrix. : degree = 45, Field of View = 4:3 ratio, display = 0.1 unit <-> 1000 units
         //////////////////////////////////////////////////////////////////////////////////////////
-
 	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
         // Where the Camera Looks at
         //////////////////////////////////////////////////////////////////////////////////////////
