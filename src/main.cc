@@ -309,6 +309,9 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
       break;
     case SDLK_TAB:                      // When pressing Tab Go Down
         game_world -> Camera_Control('-');
+      break;
+    case SDLK_i:
+        game_world -> Camera_Control('i');
     default:
       break;
       }

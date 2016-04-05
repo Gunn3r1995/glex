@@ -279,10 +279,18 @@ void GameWorld::Camera_Control(char key) {
   if (key == '-') {          // Drop down/ -0.1
         Camera_Position -= 0.1f * Player_Speed;
  }
+  if (key == 'i') {
+        cout << "Bounding Box Left: "<< GetLeftBoundingBox() << endl;
+        cout << "Bounding Box Right: "<< GetRightBoundingBox() << endl;
+        cout << "Bounding Box Top: "<< GetTopBoundingBox() << endl;
+        cout << "Bounding Box Bottom: "<< GetBottomBoundingBox() << endl;
+        cout << "Bounding Box Front: "<< GetFrontBoundingBox() << endl;
+        cout << "Bounding Box Back: "<< GetBackBoundingBox() << endl;        
+ }
 
         //cout << "Current Pos = " << glm::to_string(Camera_Position) << endl;
         //cout << "Old Pos = " << glm::to_string(Old_Camera_Position) << endl;
-        cout << Camera_Vertical << endl;
+        //cout << Camera_Vertical << endl;
         
 }
 
@@ -314,6 +322,9 @@ void GameWorld::Draw() {
 
 	glm::vec3 vup = glm::cross(Movement_X, direction);
 
+        Camera_X_Position = -Camera_Position[0];
+	Camera_Y_Position = Camera_Position[1];
+	Camera_Z_Position = Camera_Position[2];
 
         //////////////////////////////////////////////////////////////////////////////////////////
         /// Restrict the View
@@ -330,7 +341,7 @@ void GameWorld::Draw() {
         /// Projection matrix. : degree = 45, Field of View = 4:3 ratio, display = 0.1 unit <-> 1000 units
         //////////////////////////////////////////////////////////////////////////////////////////
 	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
-        // Where the Camera Looks at
+     
         //////////////////////////////////////////////////////////////////////////////////////////
         ///  Camera view matrix.
         ///  changes where the camera position looks up to use the camera position
@@ -353,8 +364,36 @@ void GameWorld::Draw() {
 	glUniformMatrix4fv(2, 1, GL_FALSE, &Camera_Model[0][0]);
 
         asset_manager->Draw();
+
+   
 }
 
+float GameWorld::GetLeftBoundingBox(){
+        Left = Camera_X_Position - 0.5;
+        return Left;
+}
+
+float GameWorld::GetRightBoundingBox(){
+        Right = Camera_X_Position + 0.5;
+        return Right;    
+}
+
+float GameWorld::GetTopBoundingBox(){
+        Top = Camera_Y_Position + 0.5;
+        return Top;       
+}
+float GameWorld::GetBottomBoundingBox(){
+        Bottom = Camera_Y_Position - 0.5;
+        return Bottom;        
+}
+float GameWorld::GetFrontBoundingBox(){
+        Front = Camera_Z_Position + 0.5;
+        return Front; 
+}
+float GameWorld::GetBackBoundingBox(){
+        Back = Camera_Z_Position - 0.5;
+        return Back;        
+}
 
 
 
