@@ -243,7 +243,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   /// Tells the Camera matrix what position to look at and where to move
   //////////////////////////////////////////////////////////////////////////////////////////
 void GameWorld::Camera_Control(char key) {
-
+        
         Old_Camera_Position = Camera_Position;
 	Old_Camera_X_Position = Camera_X_Position;
 	Old_Camera_Y_Position = Camera_Y_Position;
@@ -322,6 +322,7 @@ void GameWorld::Draw() {
 
 	glm::vec3 vup = glm::cross(Movement_X, direction);
 
+        
         Camera_X_Position = -Camera_Position[0];
 	Camera_Y_Position = Camera_Position[1];
 	Camera_Z_Position = Camera_Position[2];
@@ -331,7 +332,7 @@ void GameWorld::Draw() {
         /// These If statements stop the Camera Vertical going above 2.0 or below -2.0
         //////////////////////////////////////////////////////////////////////////////////////////
         if(Camera_Vertical >= 2.0f){
-                Camera_Vertical = 1.975f;
+                Camera_Vertical = 1.975f;     
         }
         else if(Camera_Vertical <= -2.0f){
                 Camera_Vertical = -1.975f;
@@ -394,7 +395,3 @@ float GameWorld::GetBackBoundingBox(){
         Back = Camera_Z_Position - 0.5;
         return Back;        
 }
-
-
-
-

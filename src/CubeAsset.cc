@@ -8,7 +8,7 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
   /// but moved to where the x, y, z variables calls them
   /// from the gameworld class through the GLfloat x,y,z variables.
   //////////////////////////////////////////////////////////////////////////////////////////
-  GLfloat vertex_buffer [] {
+  GLfloat vertex_buffer[]{
       0.5f + x  , 0.5f + y  , -0.5f + z
     , 0.5f + x  ,-0.5f + y  , -0.5f + z
     ,-0.5f + x  , 0.5f + y  , -0.5f + z
@@ -18,7 +18,10 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
     ,-0.5f + x  , 0.5f + y  ,  0.5f + z
     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z
   };
+
+
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
+
   //////////////////////////////////////////////////////////////////////////////////////////
   ///  Color Buffer.
   ///  Colour of Cube Asset Saddle Brown
@@ -76,7 +79,31 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
   glGenBuffers(1, &element_buffer_token);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, element_buffer_length, element_buffer, GL_STATIC_DRAW);
+
+  /*  GLfloat
+    min_x, max_x,
+    min_y, max_y,
+    min_z, max_z;
+  min_x = max_x = vertex_buffer[0].x;
+  min_y = max_y = vertex_buffer[0].y;
+  min_z = max_z = vertex_buffer[0].z;
+  for (int i = 0; i < vertex_buffer.size(); i++) {
+    if (vertex_buffer[i].x < min_x) min_x = vertex_buffer[i].x;
+    if (vertex_buffer[i].x > max_x) max_x = vertex_buffer[i].x;
+    if (vertex_buffer[i].y < min_y) min_y = vertex_buffer[i].y;
+    if (vertex_buffer[i].y > max_y) max_y = vertex_buffer[i].y;
+    if (vertex_buffer[i].z < min_z) min_z = vertex_buffer[i].z;
+    if (vertex_buffer[i].z > max_z) max_z = vertex_buffer[i].z;
+  }
+  glm::vec3 size = glm::vec3(max_x-min_x, max_y-min_y, max_z-min_z);
+  glm::vec3 center = glm::vec3((min_x+max_x)/2, (min_y+max_y)/2, (min_z+max_z)/2);
+
+*/
 }
+
+
+
+
 
 CubeAsset::~CubeAsset() {
 }

@@ -80,20 +80,19 @@ class GameWorld {
           glm::vec3 Movement_X;
 
   float GetBoundingBox();
-
   float GetLeftBoundingBox();
-        float Left;
   float GetRightBoundingBox();
-        float Right;
   float GetTopBoundingBox();
-        float Top;
   float GetBottomBoundingBox();
-        float Bottom;
   float GetFrontBoundingBox();
-        float Front;
   float GetBackBoundingBox();
-        float Back;
         
+        float Left;
+        float Right;
+        float Top;
+        float Bottom;
+        float Front;
+        float Back;
 
  private:
   std::shared_ptr<GameAssetManager> asset_manager;

@@ -3,6 +3,7 @@
 
 #include <vector>
 
+using namespace std;
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
