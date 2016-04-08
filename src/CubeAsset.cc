@@ -19,7 +19,6 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
     ,-0.5f + x  ,-0.5f + y  ,  0.5f + z
   };
 
-
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
 
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -60,8 +59,6 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
   };
   element_buffer_length = sizeof(element_buffer);
 
-
-
   // Transfer buffers to the GPU
 
   // create buffer
@@ -99,10 +96,24 @@ CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z ) {
   glm::vec3 center = glm::vec3((min_x+max_x)/2, (min_y+max_y)/2, (min_z+max_z)/2);
 
 */
+
+  XBoundingBox = x;
+  YBoundingBox = y;
+  ZBoundingBox = z;
+
+  cout << "X = " << XBoundingBox << endl;
+  cout << "Y = " << YBoundingBox << endl;
+  cout << "Z = " << ZBoundingBox << endl;
+
+  LeftBoundingBox = XBoundingBox - 0.5;
+  RightBoundingBox = XBoundingBox + 0.5;
+  TopBoundingBox = YBoundingBox + 0.5;
+  BottomBoundingBox = YBoundingBox - 0.5;
+  FrontBoundingBox = ZBoundingBox + 0.5;
+  BackBoundingBox = ZBoundingBox - 0.5;
+
+  asset_manager->CollisionDetectionCubeAsset(LeftBoundingBox, RightBoundingBox, TopBoundingBox, BottomBoundingBox, FrontBoundingBox, BackBoundingBox);
 }
-
-
-
 
 
 CubeAsset::~CubeAsset() {

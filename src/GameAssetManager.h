@@ -21,6 +21,8 @@
 #include "common.h"
 #include "GameAsset.h"
 
+using namespace std;
+
 //////////////////////////////////////////////////////////////////////////////////////////
 /// GameAssetManager is a container for GameAssets.  It also provides utility
 /// functions to to create a simple OpenGL program that can be used to draw a
@@ -34,6 +36,8 @@ class GameAssetManager {
   GameAssetManager(GameAssetManager const&&); // move constructor
   void operator = (GameAssetManager); // assignment
   void AddAsset(std::shared_ptr<GameAsset>);
+  void CollisionDetectionCamera(float CameraLeft, float CameraRight, float CameraTop, float CameraBottom, float CameraFront, float CameraBack);
+  void CollisionDetectionCubeAsset(float CubeLeft, float CubeRight, float CubeTop, float CubeBottom, float CubeFront, float CubeBacks);
   void Draw();
 
  private:

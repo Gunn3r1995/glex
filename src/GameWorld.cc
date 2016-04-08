@@ -1,8 +1,4 @@
 #include "GameWorld.h"
-#include "common.h"
-
-
-using namespace std;
 
 GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAssetManager>(mode)){
   int pointX,pointY;
@@ -243,7 +239,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   /// Tells the Camera matrix what position to look at and where to move
   //////////////////////////////////////////////////////////////////////////////////////////
 void GameWorld::Camera_Control(char key) {
-        
+
         Old_Camera_Position = Camera_Position;
 	Old_Camera_X_Position = Camera_X_Position;
 	Old_Camera_Y_Position = Camera_Y_Position;
@@ -285,9 +281,10 @@ void GameWorld::Camera_Control(char key) {
         cout << "Bounding Box Top: "<< GetTopBoundingBox() << endl;
         cout << "Bounding Box Bottom: "<< GetBottomBoundingBox() << endl;
         cout << "Bounding Box Front: "<< GetFrontBoundingBox() << endl;
-        cout << "Bounding Box Back: "<< GetBackBoundingBox() << endl;        
- }
-
+        cout << "Bounding Box Back: "<< GetBackBoundingBox() << endl;
+               
+}
+        asset_manager->CollisionDetectionCamera(GetLeftBoundingBox(), GetRightBoundingBox(), GetTopBoundingBox(), GetBottomBoundingBox(), GetFrontBoundingBox(), GetBackBoundingBox());
         //cout << "Current Pos = " << glm::to_string(Camera_Position) << endl;
         //cout << "Old Pos = " << glm::to_string(Old_Camera_Position) << endl;
         //cout << Camera_Vertical << endl;
@@ -365,7 +362,6 @@ void GameWorld::Draw() {
 	glUniformMatrix4fv(2, 1, GL_FALSE, &Camera_Model[0][0]);
 
         asset_manager->Draw();
-
    
 }
 

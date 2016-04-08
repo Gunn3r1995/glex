@@ -4,6 +4,9 @@
 #include <memory>
 #include "glm/gtx/string_cast.hpp"
 
+using namespace std;
+
+
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
@@ -31,6 +34,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 class GameWorld {
  public:
+
   //////////////////////////////////////////////////////////////////////////////////////////
   /// We thread the ApplicationMode through the GameWorld ss we want to read it
   /// in from the user.  Threading the state through the various function calls
@@ -96,7 +100,6 @@ class GameWorld {
 
  private:
   std::shared_ptr<GameAssetManager> asset_manager;
-
 
 };
 #endif // GAMEWORLD_H

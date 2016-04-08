@@ -72,6 +72,29 @@ void GameAssetManager::Draw() {
   }
 }
 
+void GameAssetManager::CollisionDetectionCamera(float CameraLeft, float CameraRight, float CameraTop, float CameraBottom, float CameraFront, float CameraBack){
+
+        cout << "Bounding Box Left: "<< CameraLeft << endl;
+        cout << "Bounding Box Right: "<< CameraRight << endl;
+        cout << "Bounding Box Top: "<< CameraTop << endl;
+        cout << "Bounding Box Bottom: "<< CameraBottom << endl;
+        cout << "Bounding Box Front: "<< CameraFront << endl;
+        cout << "Bounding Box Back: "<< CameraBack << endl;
+        cout << "***************************************************" << endl;
+
+}
+
+void GameAssetManager::CollisionDetectionCubeAsset(float CubeLeft, float CubeRight, float CubeTop, float CubeBottom, float CubeFront, float CubeBack){
+
+        cout << "Cube Bounding Box Left: "<< CubeLeft << endl;
+        cout << "Cube Bounding Box Right: "<< CubeRight << endl;
+        cout << "Cube Bounding Box Top: "<< CubeTop << endl;
+        cout << "Cube Bounding Box Bottom: "<< CubeBottom << endl;
+        cout << "Cube Bounding Box Front: "<< CubeFront << endl;
+        cout << "Cube Bounding Box Back: "<< CubeBack << endl;
+        cout << "***************************************************" << endl;
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////
 /// When given the contents of a vertex shader and fragment shader
 /// GameAssetManager::CreateGLProgram will compile and link them.  This
