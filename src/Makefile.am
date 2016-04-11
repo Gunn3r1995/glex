@@ -1,7 +1,7 @@
-EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h DiamondAsset.h GroundAsset.h LeavesAsset.h PyramidAsset.h GrassAsset.h CollisionDetection.h
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h DiamondAsset.h GroundAsset.h LeavesAsset.h PyramidAsset.h GrassAsset.h
 
 bin_PROGRAMS = shaderexample
-shaderexample_SOURCES = main.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc DiamondAsset.cc GroundAsset.cc LeavesAsset.cc PyramidAsset.cc GrassAsset.cc CollisionDetection.cc
+shaderexample_SOURCES = main.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc DiamondAsset.cc GroundAsset.cc LeavesAsset.cc PyramidAsset.cc GrassAsset.cc
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES
 AM_CPPFLAGS += -std=c++11
