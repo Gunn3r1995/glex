@@ -38,6 +38,7 @@ class GameAssetManager {
   void AddAsset(std::shared_ptr<GameAsset>);
   void CollisionDetectionCamera(float CameraLeft, float CameraRight, float CameraTop, float CameraBottom, float CameraFront, float CameraBack);
   void CollisionDetectionCubeAsset(float CubeLeft, float CubeRight, float CubeTop, float CubeBottom, float CubeFront, float CubeBacks);
+  void CollisionDetection();
   void Draw();
 
  private:

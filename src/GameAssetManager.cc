@@ -81,6 +81,7 @@ void GameAssetManager::CollisionDetectionCamera(float CameraLeft, float CameraRi
         cout << "Bounding Box Front: "<< CameraFront << endl;
         cout << "Bounding Box Back: "<< CameraBack << endl;
         cout << "***************************************************" << endl;
+      
 
 }
 
@@ -94,6 +95,7 @@ void GameAssetManager::CollisionDetectionCubeAsset(float CubeLeft, float CubeRig
         cout << "Cube Bounding Box Back: "<< CubeBack << endl;
         cout << "***************************************************" << endl;
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// When given the contents of a vertex shader and fragment shader
