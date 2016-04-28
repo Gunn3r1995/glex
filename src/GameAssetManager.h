@@ -36,12 +36,23 @@ class GameAssetManager {
   GameAssetManager(GameAssetManager const&&); // move constructor
   void operator = (GameAssetManager); // assignment
   void AddAsset(std::shared_ptr<GameAsset>);
-  void CollisionDetectionCamera(float CameraLeft, float CameraRight, float CameraTop, float CameraBottom, float CameraFront, float CameraBack);
-  void CollisionDetectionCubeAsset(float CubeLeft, float CubeRight, float CubeTop, float CubeBottom, float CubeFront, float CubeBacks);
   void CollisionDetection();
   void Draw();
 
  private:
+
+        // variables to communicate with the shader(Camera)
+
+
+  GLuint translateMatrix_link;
+  GLuint viewMatrix_link;
+  GLuint projectionMatrix_link;
+
+  glm::mat4 translateMatrix; 
+  glm::mat4 viewMatrix;	
+  glm::mat4 projectionMatrix;
+
+
   GLuint CreateGLProgram(std::string &, std::string &);
   GLuint CreateGLESShader(GLenum, std::string &);
   // As this is private and we're writing to the GPU, we will use raw pointers.

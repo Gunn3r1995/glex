@@ -19,6 +19,7 @@ using namespace std;
 
 #include "common.h"
 #include "GameAssetManager.h"
+#include "GameAsset.h"
 #include "CubeAsset.h"
 #include "DiamondAsset.h"
 #include "GroundAsset.h"
@@ -100,6 +101,7 @@ class GameWorld {
 
  private:
   std::shared_ptr<GameAssetManager> asset_manager;
+  std::shared_ptr<GameAsset> Game_Asset;
 
 };
 #endif // GAMEWORLD_H

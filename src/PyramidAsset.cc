@@ -1,6 +1,6 @@
 #include "PyramidAsset.h"
 
-PyramidAsset::PyramidAsset(GLfloat x, GLfloat y, GLfloat z) {
+PyramidAsset::PyramidAsset(GLfloat x, GLfloat y, GLfloat z) : GameAsset(x, y, z) {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.

@@ -49,6 +49,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   };
+
   
   //////////////////////////////////////////////////////////////////////////////////////////
   /// Spawning different Voxels.
@@ -229,7 +230,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand() % 100))));
    }
   }
- }  
+ }
 }
 
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -284,7 +285,8 @@ void GameWorld::Camera_Control(char key) {
         cout << "Bounding Box Back: "<< GetBackBoundingBox() << endl;
                
 }
-        asset_manager->CollisionDetectionCamera(GetLeftBoundingBox(), GetRightBoundingBox(), GetTopBoundingBox(), GetBottomBoundingBox(), GetFrontBoundingBox(), GetBackBoundingBox());
+        Game_Asset->Camera(GetLeftBoundingBox(), GetRightBoundingBox(), GetTopBoundingBox(), GetBottomBoundingBox(), GetFrontBoundingBox(), GetBackBoundingBox());
+
         //cout << "Current Pos = " << glm::to_string(Camera_Position) << endl;
         //cout << "Old Pos = " << glm::to_string(Old_Camera_Position) << endl;
         //cout << Camera_Vertical << endl;

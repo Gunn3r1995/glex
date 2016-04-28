@@ -1,6 +1,6 @@
 #include "LeavesAsset.h"
 
-LeavesAsset::LeavesAsset(GLfloat x, GLfloat y, GLfloat z) {
+LeavesAsset::LeavesAsset(GLfloat x, GLfloat y, GLfloat z) : GameAsset(x, y, z) {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.

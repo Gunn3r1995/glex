@@ -1,6 +1,6 @@
 #include "DiamondAsset.h"
 
-DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) {
+DiamondAsset::DiamondAsset(GLfloat x, GLfloat y, GLfloat z) : GameAsset(x, y, z) {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.

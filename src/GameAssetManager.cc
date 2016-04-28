@@ -22,6 +22,13 @@ GameAssetManager::GameAssetManager(ApplicationMode mode) {
   };
 
   program_token = CreateGLProgram(vertex_shader, fragment_shader);
+
+ // link to the uniform variables in the translate shader
+
+ projectionMatrix_link = glGetUniformLocation(program_token, "projectionMatrix");
+ translateMatrix_link = glGetUniformLocation(program_token, "translateMatrix");
+ viewMatrix_link = glGetUniformLocation(program_token, "viewMatrix");
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -68,34 +75,15 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
 //////////////////////////////////////////////////////////////////////////////////////////
 void GameAssetManager::Draw() {
   for(auto ga: draw_list) {
+
+        /// before drawing an asset , update the matrix values in the translate shader
+	glUniformMatrix4fv(projectionMatrix_link, 1, GL_FALSE, &projectionMatrix[0][0]);
+	glUniformMatrix4fv(viewMatrix_link, 1, GL_FALSE, &viewMatrix[0][0]);
+	glUniformMatrix4fv(translateMatrix_link, 1, GL_FALSE, &translateMatrix[0][0]);
+
     ga->Draw(program_token);
   }
 }
-
-void GameAssetManager::CollisionDetectionCamera(float CameraLeft, float CameraRight, float CameraTop, float CameraBottom, float CameraFront, float CameraBack){
-
-        cout << "Bounding Box Left: "<< CameraLeft << endl;
-        cout << "Bounding Box Right: "<< CameraRight << endl;
-        cout << "Bounding Box Top: "<< CameraTop << endl;
-        cout << "Bounding Box Bottom: "<< CameraBottom << endl;
-        cout << "Bounding Box Front: "<< CameraFront << endl;
-        cout << "Bounding Box Back: "<< CameraBack << endl;
-        cout << "***************************************************" << endl;
-      
-
-}
-
-void GameAssetManager::CollisionDetectionCubeAsset(float CubeLeft, float CubeRight, float CubeTop, float CubeBottom, float CubeFront, float CubeBack){
-
-        cout << "Cube Bounding Box Left: "<< CubeLeft << endl;
-        cout << "Cube Bounding Box Right: "<< CubeRight << endl;
-        cout << "Cube Bounding Box Top: "<< CubeTop << endl;
-        cout << "Cube Bounding Box Bottom: "<< CubeBottom << endl;
-        cout << "Cube Bounding Box Front: "<< CubeFront << endl;
-        cout << "Cube Bounding Box Back: "<< CubeBack << endl;
-        cout << "***************************************************" << endl;
-}
-
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// When given the contents of a vertex shader and fragment shader

@@ -1,6 +1,6 @@
 #include "GrassAsset.h"
 
-GrassAsset::GrassAsset(GLfloat x, GLfloat y, GLfloat z) {
+GrassAsset::GrassAsset(GLfloat x, GLfloat y, GLfloat z) : GameAsset(x, y, z) {
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.
   /// Sets cordinates to a Grass/Pyramid with the center point 0.0 

@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
@@ -13,9 +15,16 @@
 #   error "Unknown compiler"
 #endif
 
+#include "BoundingBox.h"
+
 class GameAsset {
  public:
+  GameAsset(float, float, float);
+  void Camera(float LeftBoundingBox, float RightBoundingBox, float TopBoundingBox, float BottomBoundingBox, float FrontBoundingBox, float BackBoundingBox);
   virtual void Draw(GLuint) = 0;
+
+  std::shared_ptr<BoundingBox> Bounding_Box;
+  glm::mat4 GetTranslationMatrix();
 
 };
 

@@ -1,6 +1,6 @@
 #include "GroundAsset.h"
 
-GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) {
+GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) : GameAsset(x, y, z) {
   
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.
