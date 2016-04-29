@@ -1,6 +1,6 @@
 #include "CubeAsset.h"
 
-CubeAsset::CubeAsset(glm::vec3 xyzPosition): GameAsset(xyzPosition) {
+CubeAsset::CubeAsset(glm::vec3 xyzPosition, glm::vec3 rotate): GameAsset(xyzPosition, rotate) {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.

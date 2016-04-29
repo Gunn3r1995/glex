@@ -51,16 +51,10 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   };
 
   
-/*
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(3.0f ,2.00f, -4.0f)));
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(4.0f ,2.00f, -4.0f)));
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(5.0f ,2.00f, -4.0f)));
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(6.0f ,2.00f, -4.0f)));
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(7.0f ,2.00f, -4.0f)));
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(8.0f ,2.00f, -4.0f)));
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(9.0f ,2.00f, -4.0f)));
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(10.0f ,2.00f, -4.0f)));
-        */
+
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(0.0f ,0.00f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(0.0f ,2.00f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+        
   //////////////////////////////////////////////////////////////////////////////////////////
   /// Spawning different Voxels.
   /// Spawns all the Voxel assets I made just outside the array space,
@@ -73,7 +67,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
         //asset_manager->AddAsset(make_shared<DiamondAsset>(glm::vec3(7.0f ,2.00f, -4.0f)));
         //asset_manager->AddAsset(make_shared<PyramidAsset>(glm::vec3(9.0f ,1.50f, -4.0f))); 
         //asset_manager->AddAsset(make_shared<GrassAsset>(  glm::vec3(10.0f,1.50f, -4.0f)));
-
+/*
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
     if( world[pointY][pointX] == 1){          
@@ -240,7 +234,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             asset_manager->AddAsset(make_shared<GrassAsset>(glm::vec3((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand() % 100)))));
    }
   }
- }
+ }*/
 }
 
   //////////////////////////////////////////////////////////////////////////////////////////

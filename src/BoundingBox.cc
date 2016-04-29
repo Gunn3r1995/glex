@@ -1,8 +1,9 @@
 #include "BoundingBox.h"
 
-BoundingBox::BoundingBox(glm::vec3 xyzPosition)
+BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 rotate)
 {
 	this->xyzPosition = xyzPosition;
+        this->rotate = rotate;
 
 	//cout << "Bounding Box Created at: " << xyzPosition.x << endl;
 }

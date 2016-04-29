@@ -8,12 +8,13 @@ using namespace std;
 
 class BoundingBox{
 	public:
-		BoundingBox(glm::vec3 xyzPosition);
+		BoundingBox(glm::vec3 xyzPosition, glm::vec3 rotate);
 		glm::mat4 GetTranslationMatrix();
                 glm::vec3 GetxyzPosition();
 
 	private:
                 glm::vec3 xyzPosition;
+                glm::vec3 rotate;
 
 		glm::mat4 translate_matrix;
 
