@@ -20,7 +20,7 @@ using namespace std;
 class GameAsset {
  public:
   GameAsset(float, float, float);
-  void Camera(float LeftBoundingBox, float RightBoundingBox, float TopBoundingBox, float BottomBoundingBox, float FrontBoundingBox, float BackBoundingBox);
+  //void Camera(float LeftBoundingBox, float RightBoundingBox, float TopBoundingBox, float BottomBoundingBox, float FrontBoundingBox, float BackBoundingBox);
   virtual void Draw(GLuint) = 0;
 
   std::shared_ptr<BoundingBox> Bounding_Box;

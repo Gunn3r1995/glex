@@ -1,23 +1,8 @@
 #include "GameAsset.h"
 
-GameAsset::GameAsset(float positionX, float positionY, float positionZ)
+GameAsset::GameAsset(float x, float y, float z)
 {
-	Bounding_Box = std::make_shared<BoundingBox>(positionX, positionY, positionZ);
-
-        cout << "BoundingBox: " << positionX << ", " << positionY << ", " << positionZ << endl;
-
-}
-
-void GameAsset::Camera(float LeftBoundingBox, float RightBoundingBox, float TopBoundingBox, float BottomBoundingBox, float FrontBoundingBox, float BackBoundingBox)
-{
-        cout << "Bounding Box Left: "<< LeftBoundingBox<< endl;
-        cout << "Bounding Box Right: "<< RightBoundingBox << endl;
-        cout << "Bounding Box Top: "<< TopBoundingBox << endl;
-        cout << "Bounding Box Bottom: "<< BottomBoundingBox << endl;
-        cout << "Bounding Box Front: "<< FrontBoundingBox << endl;
-        cout << "Bounding Box Back: "<< BackBoundingBox << endl;
-        cout << "***************************************************" << endl;
-
+	Bounding_Box = std::make_shared<BoundingBox>(x, y, z);
 }
 
 glm::mat4 GameAsset::GetTranslationMatrix()

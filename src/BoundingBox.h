@@ -4,6 +4,8 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
+using namespace std;
+
 class BoundingBox{
 	public:
 		BoundingBox(float x, float y, float z);

@@ -285,7 +285,7 @@ void GameWorld::Camera_Control(char key) {
         cout << "Bounding Box Back: "<< GetBackBoundingBox() << endl;
                
 }
-        Game_Asset->Camera(GetLeftBoundingBox(), GetRightBoundingBox(), GetTopBoundingBox(), GetBottomBoundingBox(), GetFrontBoundingBox(), GetBackBoundingBox());
+        //Game_Asset->Camera(GetLeftBoundingBox(), GetRightBoundingBox(), GetTopBoundingBox(), GetBottomBoundingBox(), GetFrontBoundingBox(), GetBackBoundingBox());
 
         //cout << "Current Pos = " << glm::to_string(Camera_Position) << endl;
         //cout << "Old Pos = " << glm::to_string(Old_Camera_Position) << endl;

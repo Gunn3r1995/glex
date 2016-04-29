@@ -5,6 +5,8 @@ BoundingBox::BoundingBox(float x, float y, float z)
 	this->x = x;
 	this->y = y;
 	this->z = z;
+
+	cout << "Bounding Box Created at:  X: " << x << " Y: " << y << " Z: " << z << endl;
 }
 
 glm::mat4 BoundingBox::GetTranslationMatrix()
