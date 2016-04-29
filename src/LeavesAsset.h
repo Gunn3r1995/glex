@@ -22,7 +22,7 @@
 
 class LeavesAsset : public GameAsset {
  public:
-  LeavesAsset(GLfloat x, GLfloat y, GLfloat z);
+  LeavesAsset(glm::vec3 xyzPosition);
   ~LeavesAsset();
   virtual void Draw(GLuint);
 

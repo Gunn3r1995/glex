@@ -25,7 +25,7 @@ using namespace std;
 
 class CubeAsset : public GameAsset {
  public:
-  CubeAsset(GLfloat x, GLfloat y, GLfloat z);
+  CubeAsset(glm::vec3 xyzPosition);
   ~CubeAsset();
   virtual void Draw(GLuint);
 

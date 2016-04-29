@@ -51,18 +51,28 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   };
 
   
+/*
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(3.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(4.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(5.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(6.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(7.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(8.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(9.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(10.0f ,2.00f, -4.0f)));
+        */
   //////////////////////////////////////////////////////////////////////////////////////////
   /// Spawning different Voxels.
   /// Spawns all the Voxel assets I made just outside the array space,
   /// Just so you can view each voxel on it's own
   //////////////////////////////////////////////////////////////////////////////////////////
 
-        asset_manager->AddAsset(make_shared<GroundAsset>( 1.0f ,2.00f, -4.0f));
-        asset_manager->AddAsset(make_shared<CubeAsset>(   3.0f ,2.00f, -4.0f));
-        asset_manager->AddAsset(make_shared<LeavesAsset>( 5.0f ,2.00f, -4.0f));
-        asset_manager->AddAsset(make_shared<DiamondAsset>(7.0f ,2.00f, -4.0f));
-        asset_manager->AddAsset(make_shared<PyramidAsset>(9.0f ,1.50f, -4.0f)); 
-        asset_manager->AddAsset(make_shared<GrassAsset>(  10.0f,1.50f, -4.0f));
+        //asset_manager->AddAsset(make_shared<GroundAsset>( glm::vec3(1.0f ,2.00f, -4.0f)));
+        //asset_manager->AddAsset(make_shared<CubeAsset>(   glm::vec3(3.0f ,2.00f, -4.0f)));
+        //asset_manager->AddAsset(make_shared<LeavesAsset>( glm::vec3(5.0f ,2.00f, -4.0f)));
+        //asset_manager->AddAsset(make_shared<DiamondAsset>(glm::vec3(7.0f ,2.00f, -4.0f)));
+        //asset_manager->AddAsset(make_shared<PyramidAsset>(glm::vec3(9.0f ,1.50f, -4.0f))); 
+        //asset_manager->AddAsset(make_shared<GrassAsset>(  glm::vec3(10.0f,1.50f, -4.0f)));
 
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
@@ -71,8 +81,8 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             ///  Spawns Ground.
             ///  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-2.00f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-2.00f,(pointZ*pointY))));
    }
     else if( world[pointY][pointX] == 2){
             ////////////////////////////////////////////////////////////////////////////////////////// 
@@ -80,10 +90,10 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             ///  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             ///  Spawns the Cube & Diamond asset on top to create a small tower with a diamond on top
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<DiamondAsset>((pointX),1.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3((pointX)  ,0.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<DiamondAsset>(glm::vec3((pointX),1.0f,(pointZ*pointY))));
    }
     else if( world[pointY][pointX] == 3){
             ////////////////////////////////////////////////////////////////////////////////////////// 
@@ -91,11 +101,11 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             /// Spawns the Cube & Diamond asset on top to create a taller tower with a diamond on top
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<DiamondAsset>((pointX),2.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3((pointX),0.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3((pointX),1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<DiamondAsset>(glm::vec3((pointX),2.0f,(pointZ*pointY))));
    }
     else if( world[pointY][pointX] == 4){
             ////////////////////////////////////////////////////////////////////////////////////////// 
@@ -105,93 +115,93 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// layers to get each seperate part to spawn.
             //////////////////////////////////////////////////////////////////////////////////////////
             // Tree Ground
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
             // Tree Trunk
-            asset_manager->AddAsset(make_shared<CubeAsset>((pointX),0.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<CubeAsset>((pointX),1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<CubeAsset>((pointX),2.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<CubeAsset>((pointX),3.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<CubeAsset>((pointX),4.00f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3((pointX),0.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3((pointX),1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3((pointX),2.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3((pointX),3.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3((pointX),4.00f,(pointZ*pointY))));
             // Tree Leaves - Bottom Layer
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),3.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),3.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,3.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),3.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),3.0f,(pointZ*pointY-1))));
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY-2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY-2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY-2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY-2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),3.0f,(pointZ*pointY-2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),3.0f,(pointZ*pointY-2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,3.0f,(pointZ*pointY-2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),3.0f,(pointZ*pointY-2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),3.0f,(pointZ*pointY-2))));
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY))); 
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),3.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),3.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),3.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),3.0f,(pointZ*pointY)))); 
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),3.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),3.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,3.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),3.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),3.0f,(pointZ*pointY+1))));
  
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),3.0f,(pointZ*pointY+2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),3.0f,(pointZ*pointY+2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,3.0f,(pointZ*pointY+2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),3.0f,(pointZ*pointY+2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),3.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),3.0f,(pointZ*pointY+2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),3.0f,(pointZ*pointY+2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,3.0f,(pointZ*pointY+2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),3.0f,(pointZ*pointY+2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),3.0f,(pointZ*pointY+2))));
             // Tree Leaves - Second Layer
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),4.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),4.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,4.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),4.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),4.0f,(pointZ*pointY-1))));
  
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY-2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY-2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY-2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY-2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY-2)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),4.0f,(pointZ*pointY-2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),4.0f,(pointZ*pointY-2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,4.0f,(pointZ*pointY-2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),4.0f,(pointZ*pointY-2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),4.0f,(pointZ*pointY-2))));
  
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),4.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),4.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),4.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),4.0f,(pointZ*pointY))));
  
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),4.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),4.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,4.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),4.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),4.0f,(pointZ*pointY+1))));
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+2),4.0f,(pointZ*pointY+2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),4.0f,(pointZ*pointY+2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,4.0f,(pointZ*pointY+2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),4.0f,(pointZ*pointY+2)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-2),4.0f,(pointZ*pointY+2)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+2),4.0f,(pointZ*pointY+2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),4.0f,(pointZ*pointY+2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,4.0f,(pointZ*pointY+2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),4.0f,(pointZ*pointY+2))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-2),4.0f,(pointZ*pointY+2))));
             // Tree Leaves - Third Layer
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY-1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY-1))); 
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),5.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,5.0f,(pointZ*pointY-1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),5.0f,(pointZ*pointY-1)))); 
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),5.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,5.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),5.0f,(pointZ*pointY))));
  
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),5.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,5.0f,(pointZ*pointY+1)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),5.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),5.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,5.0f,(pointZ*pointY+1))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),5.0f,(pointZ*pointY+1))));
 
             // Tree Leaves - Fourth Layer
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY-1)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,6.0f,(pointZ*pointY-1))));
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX+1),6.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX-1),6.0f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX+1),6.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,6.0f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX-1),6.0f,(pointZ*pointY))));
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>((pointX)  ,6.0f,(pointZ*pointY+1)));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(glm::vec3((pointX)  ,6.0f,(pointZ*pointY+1))));
    }
     else if( world[pointY][pointX] == 5){
             //////////////////////////////////////////////////////////////////////////////////////////
@@ -199,10 +209,10 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             /// Spawns the Cube & Pyramid asset on top to create a small tower with a diamond on top
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<CubeAsset>((pointX)  ,0.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<PyramidAsset>((pointX),0.50f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3((pointX)  ,0.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<PyramidAsset>(glm::vec3((pointX),0.50f,(pointZ*pointY))));
    }
     else if( world[pointY][pointX] == 6){
             ////////////////////////////////////////////////////////////////////////////////////////// 
@@ -210,9 +220,9 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             /// Spawns Pyramid asset on top of the ground asset
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<PyramidAsset>((pointX),-0.50f,(pointZ*pointY)));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<PyramidAsset>(glm::vec3((pointX),-0.50f,(pointZ*pointY))));
    }
     else if( world[pointY][pointX] == 7){
             ////////////////////////////////////////////////////////////////////////////////////////// 
@@ -221,13 +231,13 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// Spawns somewhat randomly multiple grass assets on top/ slighlty inside the ground asset
             /// To create the view of grass.
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GroundAsset>((pointX),-1.00f,(pointZ*pointY)));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.80f),(pointZ*pointY-Random/(rand()%100))));            
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.70f),(pointZ*pointY-Random/(rand() % 100))));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.75f),(pointZ*pointY-Random/(rand() % 100))));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.60f),(pointZ*pointY-Random/(rand() % 100))));
-            asset_manager->AddAsset(make_shared<GrassAsset>((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand() % 100))));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3((pointX),-1.00f,(pointZ*pointY))));
+            asset_manager->AddAsset(make_shared<GrassAsset>(glm::vec3((pointX-Random/(rand() % 100)),(-0.80f),(pointZ*pointY-Random/(rand()%100)))));            
+            asset_manager->AddAsset(make_shared<GrassAsset>(glm::vec3((pointX-Random/(rand() % 100)),(-0.70f),(pointZ*pointY-Random/(rand() % 100)))));
+            asset_manager->AddAsset(make_shared<GrassAsset>(glm::vec3((pointX-Random/(rand() % 100)),(-0.75f),(pointZ*pointY-Random/(rand() % 100)))));
+            asset_manager->AddAsset(make_shared<GrassAsset>(glm::vec3((pointX-Random/(rand() % 100)),(-0.60f),(pointZ*pointY-Random/(rand() % 100)))));
+            asset_manager->AddAsset(make_shared<GrassAsset>(glm::vec3((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand() % 100)))));
    }
   }
  }

@@ -22,7 +22,7 @@
 
 class PyramidAsset : public GameAsset {
  public:
-  PyramidAsset(GLfloat x, GLfloat y, GLfloat z);
+  PyramidAsset(glm::vec3 xyzPosition);
   ~PyramidAsset();
   virtual void Draw(GLuint);
 

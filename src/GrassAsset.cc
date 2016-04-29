@@ -1,6 +1,6 @@
 #include "GrassAsset.h"
 
-GrassAsset::GrassAsset(GLfloat x, GLfloat y, GLfloat z) : GameAsset(x, y, z) {
+GrassAsset::GrassAsset(glm::vec3 xyzPosition) : GameAsset(xyzPosition) {
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.
   /// Sets cordinates to a Grass/Pyramid with the center point 0.0 
@@ -8,11 +8,11 @@ GrassAsset::GrassAsset(GLfloat x, GLfloat y, GLfloat z) : GameAsset(x, y, z) {
   /// from the gameworld class through the GLfloat x,y,z variables.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat vertex_buffer [] {
-      -0.01f + x  , 0.00f + y   ,-0.01f + z
-     , 0.01f + x  , 0.00f + y   ,-0.01f + z
-     ,-0.01f + x  , 0.00f + y   , 0.01f + z
-     , 0.01f + x  , 0.00f + y   , 0.01f + z
-     , 0.00f + x  , 0.60f + y   , 0.00f + z
+      -0.01f + xyzPosition.x  , 0.00f + xyzPosition.y   ,-0.01f + xyzPosition.z
+     , 0.01f + xyzPosition.x  , 0.00f + xyzPosition.y   ,-0.01f + xyzPosition.z
+     ,-0.01f + xyzPosition.x  , 0.00f + xyzPosition.y   , 0.01f + xyzPosition.z
+     , 0.01f + xyzPosition.x  , 0.00f + xyzPosition.y   , 0.01f + xyzPosition.z
+     , 0.00f + xyzPosition.x  , 0.60f + xyzPosition.y   , 0.00f + xyzPosition.z
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
   //////////////////////////////////////////////////////////////////////////////////////////

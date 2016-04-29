@@ -1,6 +1,6 @@
 #include "PyramidAsset.h"
 
-PyramidAsset::PyramidAsset(GLfloat x, GLfloat y, GLfloat z) : GameAsset(x, y, z) {
+PyramidAsset::PyramidAsset(glm::vec3 xyzPosition) : GameAsset(xyzPosition) {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.
@@ -9,11 +9,11 @@ PyramidAsset::PyramidAsset(GLfloat x, GLfloat y, GLfloat z) : GameAsset(x, y, z)
   /// from the gameworld class through the GLfloat x,y,z variables.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat vertex_buffer [] {
-      -0.5f + x  , 0.0f + y   ,-0.5f + z
-     , 0.5f + x  , 0.0f + y   ,-0.5f + z
-     ,-0.5f + x  , 0.0f + y   , 0.5f + z
-     , 0.5f + x  , 0.0f + y   , 0.5f + z
-     , 0.0f + x  , 1.0f + y   , 0.0f + z
+      -0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   ,-0.5f + xyzPosition.z
+     , 0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   ,-0.5f + xyzPosition.z
+     ,-0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   , 0.5f + xyzPosition.z
+     , 0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   , 0.5f + xyzPosition.z
+     , 0.0f + xyzPosition.x  , 1.0f + xyzPosition.y   , 0.0f + xyzPosition.z
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
   //////////////////////////////////////////////////////////////////////////////////////////

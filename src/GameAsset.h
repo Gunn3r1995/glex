@@ -19,7 +19,7 @@ using namespace std;
 
 class GameAsset {
  public:
-  GameAsset(float, float, float);
+  GameAsset(glm::vec3 xyzPosition);
   //void Camera(float LeftBoundingBox, float RightBoundingBox, float TopBoundingBox, float BottomBoundingBox, float FrontBoundingBox, float BackBoundingBox);
   virtual void Draw(GLuint) = 0;
 

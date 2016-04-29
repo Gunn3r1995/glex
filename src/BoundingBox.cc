@@ -1,17 +1,20 @@
 #include "BoundingBox.h"
 
-BoundingBox::BoundingBox(float x, float y, float z)
+BoundingBox::BoundingBox(glm::vec3 xyzPosition)
 {
-	this->x = x;
-	this->y = y;
-	this->z = z;
+	this->xyzPosition = xyzPosition;
 
-	cout << "Bounding Box Created at:  X: " << x << " Y: " << y << " Z: " << z << endl;
+	//cout << "Bounding Box Created at: " << xyzPosition.x << endl;
 }
 
 glm::mat4 BoundingBox::GetTranslationMatrix()
 {
-	translate_matrix = glm::translate(glm::mat4(), glm::vec3(-x, y, z));
+	translate_matrix = glm::translate(glm::mat4(), glm::vec3(this->xyzPosition));
 
 	return translate_matrix;
+}
+
+glm::vec3 BoundingBox::GetxyzPosition()
+{
+	return xyzPosition;
 }

@@ -1,6 +1,6 @@
 #include "GroundAsset.h"
 
-GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) : GameAsset(x, y, z) {
+GroundAsset::GroundAsset(glm::vec3 xyzPosition ) : GameAsset(xyzPosition) {
   
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.
@@ -9,14 +9,14 @@ GroundAsset::GroundAsset(GLfloat x, GLfloat y, GLfloat z ) : GameAsset(x, y, z) 
   /// from the gameworld class through the GLfloat x,y,z variables.
   //////////////////////////////////////////////////////////////////////////////////////////
   GLfloat vertex_buffer [] {
-      0.5f + x  , 0.5f + y  , -0.5f + z
-    , 0.5f + x  ,-0.5f + y  , -0.5f + z
-    ,-0.5f + x  , 0.5f + y  , -0.5f + z
-    ,-0.5f + x  ,-0.5f + y  , -0.5f + z
-    , 0.5f + x  , 0.5f + y  ,  0.5f + z
-    , 0.5f + x  ,-0.5f + y  ,  0.5f + z
-    ,-0.5f + x  , 0.5f + y  ,  0.5f + z
-    ,-0.5f + x  ,-0.5f + y  ,  0.5f + z
+      0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+    , 0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+    ,-0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+    ,-0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+    , 0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+    , 0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+    ,-0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+    ,-0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
   };
   GLfloat vertex_buffer_length = sizeof(vertex_buffer);
   //////////////////////////////////////////////////////////////////////////////////////////

@@ -23,7 +23,7 @@
 
 class GrassAsset : public GameAsset {
  public:
-  GrassAsset(GLfloat x, GLfloat y, GLfloat z);
+  GrassAsset(glm::vec3 xyzPosition);
   ~GrassAsset();
   virtual void Draw(GLuint);
 
