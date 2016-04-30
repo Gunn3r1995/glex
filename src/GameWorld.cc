@@ -71,30 +71,40 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
         //asset_manager->AddAsset(make_shared<PyramidAsset>(glm::vec3(7.0f ,1.50f, -4.0f), 3, glm::vec3(2.0f,2.0f,2.0f), glm::vec3(0.0f, 0.0f, 0.0f))); 
         //asset_manager->AddAsset(make_shared<GrassAsset>(  glm::vec3(9.0f,1.50f, -4.0f), 0, glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
 
+   /////////////////////////////////////////////////////////////////////////////////////////
+   //AddAsset Layout 
+   //This adds the asset to the game asset manager which draws it to the screen
+   //
+   //  asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
+   //                                                 Translate, 
+   //                                                 Rotation,
+   //                                                 Scale));  
+   /////////////////////////////////////////////////////////////////////////////////////////
+        
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
                                                        glm::vec3 (1.0f ,2.00f, -4.0f), 
-                                                       glm::vec3(0.8f ,0.08f, 0.8f),
-                                                       glm::vec3(1.0f ,1.0f, 1.0f)));
+                                                       Normal_Rotation,
+                                                       Normal_Size));
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
                                                        glm::vec3(2.0f ,2.00f, -4.0f), 
-                                                       glm::vec3(0.0f ,0.00f, 0.0f),
-                                                       glm::vec3(2.0f ,2.0f, 2.0f)));
+                                                       No_Rotation,
+                                                       Normal_Size));
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
-                                                       glm::vec3(3.0f ,2.00f, -4.0f), 
-                                                       glm::vec3(0.0f ,0.00f, 0.0f),
-                                                       glm::vec3(1.0f ,1.0f, 1.0f)));
+                                                       glm::vec3(4.0f ,2.00f, -4.0f), 
+                                                       No_Rotation,
+                                                       Double_Size));
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
-                                                       glm::vec3(4.0f ,2.00f, -4.0f), 
-                                                       glm::vec3(0.2f ,0.02f, 0.2f),
-                                                       glm::vec3(1.0f ,1.0f, 1.0f)));
+                                                       glm::vec3(6.0f ,2.00f, -4.0f), 
+                                                       No_Rotation,
+                                                       Normal_Size));
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
-                                                       glm::vec3(5.0f ,2.00f, -4.0f),
-                                                       glm::vec3(0.0f ,0.00f, 0.0f),
-                                                       glm::vec3(1.0f ,1.0f, 1.0f)));
+                                                       glm::vec3(7.0f ,2.00f, -4.0f),
+                                                       Normal_Rotation,
+                                                       Normal_Size));
 
        // asset_manager->AddAsset(make_shared<DiamondAsset>(glm::vec3(0.0f ,0.00f, 0.0f), 2, glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0.2f, 0.2f, 0.2f)));
 /*

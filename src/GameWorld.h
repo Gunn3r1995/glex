@@ -34,78 +34,85 @@ using namespace std;
 /// a very simplified scene graph consisiting of a single GameAssetManager.
 //////////////////////////////////////////////////////////////////////////////////////////
 class GameWorld {
- public:
+        public:
 
-  //////////////////////////////////////////////////////////////////////////////////////////
-  /// We thread the ApplicationMode through the GameWorld ss we want to read it
-  /// in from the user.  Threading the state through the various function calls
-  /// is preferable (in this case) to having some kind of global state.
-  //////////////////////////////////////////////////////////////////////////////////////////
-  GameWorld(ApplicationMode);
-    
-          double MinimumNumber = 0.50;
-          double MaximumNumber = 1.00;
-          double Random = (double)rand() / RAND_MAX;      
-  //////////////////////////////////////////////////////////////////////////////////////////
-  /// Calling Draw(). will draw the entire world.
-  //////////////////////////////////////////////////////////////////////////////////////////
-  void Draw();
-  //////////////////////////////////////////////////////////////////////////////////////////
-  /// Call Camera_Control. will move in specfic direction
-  //////////////////////////////////////////////////////////////////////////////////////////
-  void Camera_Control(char key);
-          //////////////////////////////////////////////////////////////////////////////////////////
-          /// Camera Variables.
-          /// Camera Variables Controls Speed of Play/Camera
-          /// Controls the distance each movement moves by
-          /// Sets where the starting positions of the camera 
-          /// and the direction it is looking at
-          ////////////////////////////////////////////////////////////////////////////////////////// 
-          GLfloat Mouse_Sensitivity =  0.05f;
-          GLfloat Player_Speed = 1.0;
+                //////////////////////////////////////////////////////////////////////////////////////////
+                /// We thread the ApplicationMode through the GameWorld ss we want to read it
+                /// in from the user.  Threading the state through the various function calls
+                /// is preferable (in this case) to having some kind of global state.
+                //////////////////////////////////////////////////////////////////////////////////////////
+                GameWorld(ApplicationMode);
+            
+                double MinimumNumber = 0.50;
+                double MaximumNumber = 1.00;
+                double Random = (double)rand() / RAND_MAX; 
+             
+                //////////////////////////////////////////////////////////////////////////////////////////
+                /// Calling Draw(). will draw the entire world.
+                //////////////////////////////////////////////////////////////////////////////////////////
+                void Draw();
 
-          GLfloat Camera_Horizontal = 0.0;
-          GLfloat Camera_Vertical = 0.0;
+                //////////////////////////////////////////////////////////////////////////////////////////
+                /// Call Camera_Control. will move in specfic direction
+                //////////////////////////////////////////////////////////////////////////////////////////
+                void Camera_Control(char key);
 
-          GLfloat Camera_X_Position = 0;
-          GLfloat Camera_Y_Position = 2;
-          GLfloat Camera_Z_Position = 0;
+                //////////////////////////////////////////////////////////////////////////////////////////
+                /// Camera Variables.
+                /// Camera Variables Controls Speed of Play/Camera
+                /// Controls the distance each movement moves by
+                /// Sets where the starting positions of the camera 
+                /// and the direction it is looking at
+                ////////////////////////////////////////////////////////////////////////////////////////// 
+                GLfloat Mouse_Sensitivity =  0.05f;
+                GLfloat Player_Speed = 1.0;
 
-          GLfloat Old_Camera_X_Position;
-          GLfloat Old_Camera_Y_Position;
-          GLfloat Old_Camera_Z_Position;
+                GLfloat Camera_Horizontal = 0.0;
+                GLfloat Camera_Vertical = 0.0;
 
+                GLfloat Camera_X_Position = 0;
+                GLfloat Camera_Y_Position = 2;
+                GLfloat Camera_Z_Position = 0;
 
-          glm::vec3 Camera_Position = glm::vec3(Camera_X_Position, Camera_Y_Position, Camera_Z_Position);
-          glm::vec3 Old_Camera_Position = Camera_Position;
+                GLfloat Old_Camera_X_Position;
+                GLfloat Old_Camera_Y_Position;
+                GLfloat Old_Camera_Z_Position;
 
-          
-          glm::vec3 Movement_Z;
+                glm::vec3 Camera_Position = glm::vec3(Camera_X_Position, Camera_Y_Position, Camera_Z_Position);
+                glm::vec3 Old_Camera_Position = Camera_Position;
 
-          glm::vec3 Movement_X;
+                glm::vec3 Movement_Z;
 
-  float GetBoundingBox();
-  float GetLeftBoundingBox();
-  float GetRightBoundingBox();
-  float GetTopBoundingBox();
-  float GetBottomBoundingBox();
-  float GetFrontBoundingBox();
-  float GetBackBoundingBox();
-        
-        float Left;
-        float Right;
-        float Top;
-        float Bottom;
-        float Front;
-        float Back;
+                glm::vec3 Movement_X;
 
- private:
+                float GetBoundingBox();
+                float GetLeftBoundingBox();
+                float GetRightBoundingBox();
+                float GetTopBoundingBox();
+                float GetBottomBoundingBox();
+                float GetFrontBoundingBox();
+                float GetBackBoundingBox();
+                
+        private:
+                float Left;
+                float Right;
+                float Top;
+                float Bottom;
+                float Front;
+                float Back;
 
-  glm::vec3 Spawn = glm::vec3(0.0f,0.0f,0.0f);
+                glm::vec3 Spawn = glm::vec3(0.0f,0.0f,0.0f);
 
-  std::shared_ptr<GameAssetManager> asset_manager;
-  std::shared_ptr<GameAsset> Game_Asset;
-  std::shared_ptr<CubeAsset> test_asset;
+                glm::vec3 No_Rotation = glm::vec3(0.0f,0.0f,0.0f);
+                glm::vec3 Normal_Rotation = glm::vec3(0.2f,0.2f,0.2f);
+                glm::vec3 Fast_Rotation = glm::vec3(1.0f,1.0f,1.0f);
 
+                glm::vec3 Normal_Size = glm::vec3(1.0f,1.0f,1.0f);
+                glm::vec3 Double_Size = glm::vec3(2.0f,2.0f,2.0f); 
+                glm::vec3 Giant_Size = glm::vec3(10.0f,10.0f,10.0f);
+
+                std::shared_ptr<GameAssetManager> asset_manager;
+                std::shared_ptr<GameAsset> Game_Asset;
+                std::shared_ptr<CubeAsset> test_asset;
 };
 #endif // GAMEWORLD_H
