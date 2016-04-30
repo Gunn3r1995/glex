@@ -13,7 +13,10 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3
 
 glm::mat4 BoundingBox::GetModel() {
         
-        if(this->rotate.x > 0.0f) {
+        if(this->scale.x > 1.0f && this->scale.y > 1.0f && this->scale.z > 1.0f) {
+                Scale(glm::vec3(0.1f,0.1f,0.1f));
+        }
+        else if(this->rotate.x > 0.0f && this->rotate.y > 0.0f && this->rotate.z > 0.0f) {
                 Rotate(glm::vec3(0.1f, 0.1f, 0.1f));
         }
 
@@ -46,7 +49,13 @@ void BoundingBox::Rotate(glm::vec3 rotate) {
 
 void BoundingBox::Scale(glm::vec3 scale) {
 
-        //Implement This Later
+	float Increased_Scale;
+	if(this->scale.x < 5.0f) {
+		this->scale = this->scale + scale;
+	}
+	else {
+		this->scale = glm::vec3(1.1f,1.1f,1.1f);
+	}
 }
 
 glm::vec3 BoundingBox::GetxyzPosition() {
