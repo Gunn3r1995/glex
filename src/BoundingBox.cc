@@ -19,7 +19,10 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, bool tran
 }
 
 glm::mat4 BoundingBox::GetModel() {
-        
+
+        if(translate_bool == true) {
+                Translate(glm::vec3(0.1f,0.1f,0.1f));
+        }        
         if(scale_bool == true) {
                 Scale(glm::vec3(0.1f,0.1f,0.1f));
         }
@@ -40,12 +43,12 @@ glm::mat4 BoundingBox::GetModel() {
 }
 
 void BoundingBox::Translate(glm::vec3 translateTo) {
-
-	if(this->translateTo.x < 2.0f, this->translateTo.y < 2.0f, this->translateTo.z < 2.0f) {
+        
+	if(this->translateTo.x < 10.0f && this->translateTo.y < 10.0f && this->translateTo.z < 10.0f) {
                 this->translateTo = this->translateTo + translateTo;
 	}
 	else {
-                trajectory = translateTo;
+                this->translateTo = translateTo;
 	}
 }
 
@@ -62,7 +65,7 @@ void BoundingBox::Rotate(glm::vec3 rotate) {
 void BoundingBox::Scale(glm::vec3 scale) {
 
 	float Increased_Scale;
-	if(this->scale.x < 5.0f) {
+	if(this->scale.x < 5.0f && this->scale.y < 5.0f && this->scale.z < 5.0f) {
 		this->scale = this->scale + scale;
 	}
 	else {
