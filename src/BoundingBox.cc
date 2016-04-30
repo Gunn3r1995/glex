@@ -41,16 +41,21 @@ glm::mat4 BoundingBox::GetModel() {
 
 void BoundingBox::Translate(glm::vec3 translateTo) {
 
-        //Implement This Later
+	if(this->translateTo.x < 2.0f, this->translateTo.y < 2.0f, this->translateTo.z < 2.0f) {
+                this->translateTo = this->translateTo + translateTo;
+	}
+	else {
+                trajectory = translateTo;
+	}
 }
 
 void BoundingBox::Rotate(glm::vec3 rotate) {
         
-        if(this->rotate.x <= 5.0f && this->rotate.y <= 5.0f && this->rotate.z <= 5.0f) {
-                this->rotate += this->rotate + glm::vec3(0.01f , 0.1f, 0.1f);
+        if(this->rotate.x <= 100.1f && this->rotate.y <= 100.1f && this->rotate.z <= 100.1f) {
+                this->rotate = this->rotate + glm::vec3(0.1f , 0.1f, 0.1f);
         }
         else {
-                this->rotate = glm::vec3(0.01f, 0.1f, 0.1f);
+                this->rotate = glm::vec3(0.1f, 0.1f, 0.1f);
         }
 }
 

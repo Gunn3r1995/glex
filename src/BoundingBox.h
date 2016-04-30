@@ -24,6 +24,7 @@ class BoundingBox {
                 glm::vec3 xyzPosition;
                 glm::vec3 translateTo;
                 bool translate_bool;
+                glm::vec3 trajectory;
 
                 glm::vec3 rotate;
                 bool rotate_bool;                
