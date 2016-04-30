@@ -18,7 +18,12 @@ glm::mat4 BoundingBox::GetModel() {
 
 void BoundingBox::Translate(glm::vec3 translateTo) {
 
-	//this->xyzPosition = translateXYZ - xyzPosition;
+        //Implement This Later
+}
+
+void BoundingBox::Rotate(glm::vec3 rotate) {
+
+        //Implement This Later
 }
 
 glm::vec3 BoundingBox::GetxyzPosition() {
