@@ -1,6 +1,6 @@
 #include "PyramidAsset.h"
 
-PyramidAsset::PyramidAsset(glm::vec3 xyzPosition, glm::vec3 rotate) : GameAsset(xyzPosition, rotate) {
+PyramidAsset::PyramidAsset(glm::vec3 xyzPosition) : GameAsset(xyzPosition) {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.

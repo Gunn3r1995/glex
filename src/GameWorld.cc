@@ -50,10 +50,13 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   };
 
-  
+  /*
 
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(0.0f ,0.00f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
-        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(0.0f ,2.00f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(0.0f ,0.00f, 0.0f), 2, 1, glm::vec3(0.2f, 0.2f, 0.2f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(0.0f ,2.00f, 0.0f), 0, 1,  glm::vec3(0.0f, 0.0f, 0.0f)));
+        //asset_manager->AddAsset(make_shared<GroundAsset>(glm::vec3(2.0f ,4.00f, 0.0f), 2, 1, glm::vec3(0.2f,0.2f,0.2)));
+
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(0.0f ,1.00f, 0.0f), 2, 1, glm::vec3(0.2f, 0.2f, 0.2f)));*/
         
   //////////////////////////////////////////////////////////////////////////////////////////
   /// Spawning different Voxels.
@@ -61,12 +64,21 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   /// Just so you can view each voxel on it's own
   //////////////////////////////////////////////////////////////////////////////////////////
 
-        //asset_manager->AddAsset(make_shared<GroundAsset>( glm::vec3(1.0f ,2.00f, -4.0f)));
-        //asset_manager->AddAsset(make_shared<CubeAsset>(   glm::vec3(3.0f ,2.00f, -4.0f)));
-        //asset_manager->AddAsset(make_shared<LeavesAsset>( glm::vec3(5.0f ,2.00f, -4.0f)));
-        //asset_manager->AddAsset(make_shared<DiamondAsset>(glm::vec3(7.0f ,2.00f, -4.0f)));
-        //asset_manager->AddAsset(make_shared<PyramidAsset>(glm::vec3(9.0f ,1.50f, -4.0f))); 
-        //asset_manager->AddAsset(make_shared<GrassAsset>(  glm::vec3(10.0f,1.50f, -4.0f)));
+       // asset_manager->AddAsset(make_shared<GroundAsset>( glm::vec3(1.0f ,2.00f, -4.0f), 0, glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+        //asset_manager->AddAsset(make_shared<CubeAsset>(   glm::vec3(3.0f ,2.00f, -4.0f), 3, glm::vec3(2.0f,2.0f,2.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+        //asset_manager->AddAsset(make_shared<LeavesAsset>( glm::vec3(5.0f ,2.00f, -4.0f), 0, glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+        //asset_manager->AddAsset(make_shared<DiamondAsset>(glm::vec3(0.0f ,0.00f, 0.0f), 2, glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+        //asset_manager->AddAsset(make_shared<PyramidAsset>(glm::vec3(7.0f ,1.50f, -4.0f), 3, glm::vec3(2.0f,2.0f,2.0f), glm::vec3(0.0f, 0.0f, 0.0f))); 
+        //asset_manager->AddAsset(make_shared<GrassAsset>(  glm::vec3(9.0f,1.50f, -4.0f), 0, glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+
+
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(1.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(2.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(3.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(4.0f ,2.00f, -4.0f)));
+        asset_manager->AddAsset(make_shared<CubeAsset>(glm::vec3(5.0f ,2.00f, -4.0f)));
+
+       // asset_manager->AddAsset(make_shared<DiamondAsset>(glm::vec3(0.0f ,0.00f, 0.0f), 2, glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0.2f, 0.2f, 0.2f)));
 /*
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
@@ -367,7 +379,7 @@ void GameWorld::Draw() {
 	glUniformMatrix4fv(1, 1, GL_FALSE, &Camera_View[0][0]);
 	glUniformMatrix4fv(2, 1, GL_FALSE, &Camera_Model[0][0]);
 
-        asset_manager->Draw();
+        asset_manager->Draw(Camera_Projection, Camera_View);
    
 }
 

@@ -25,11 +25,13 @@ using namespace std;
 
 class CubeAsset : public GameAsset {
  public:
-  CubeAsset(glm::vec3 xyzPosition, glm::vec3 rotate);
+  CubeAsset(glm::vec3 xyzPosition);
   ~CubeAsset();
   virtual void Draw(GLuint);
+  glm::vec3 GetVec3();
 
  private:
+  glm::vec3 Position;
   GLuint element_buffer_length, colour_buffer_length;
   GLuint vertex_buffer_token, element_buffer_token, colour_buffer_token;
   void checkError(std::string file, int line);

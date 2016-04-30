@@ -1,21 +1,27 @@
 #include <memory>
 #include <iostream>
+#include <utility>
+#include <ostream>
 
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
 using namespace std;
 
-class BoundingBox{
+class BoundingBox {
 	public:
-		BoundingBox(glm::vec3 xyzPosition, glm::vec3 rotate);
+		BoundingBox(glm::vec3 xyzPosition);
 		glm::mat4 GetTranslationMatrix();
-                glm::vec3 GetxyzPosition();
+                glm::mat4 GetModel();
 
+                void Translate(glm::vec3 translate);
+                glm::vec3 GetxyzPosition();
 	private:
                 glm::vec3 xyzPosition;
-                glm::vec3 rotate;
+                glm::vec3 translateXYZ;
 
 		glm::mat4 translate_matrix;
-
+                glm::mat4 model_matrix;
 };
+
+

@@ -1,7 +1,8 @@
 #include "CubeAsset.h"
 
-CubeAsset::CubeAsset(glm::vec3 xyzPosition, glm::vec3 rotate): GameAsset(xyzPosition, rotate) {
+CubeAsset::CubeAsset(glm::vec3 xyzPosition): GameAsset(xyzPosition) {
 
+  Position = xyzPosition;
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.
   /// Sets cordinates to a cube with the center point 0.0 
@@ -166,4 +167,9 @@ void CubeAsset::Draw(GLuint program_token) {
   checkGLError();
 
   glDisableVertexAttribArray(position_attrib);
+}
+
+glm::vec3 CubeAsset::GetVec3()
+{
+	return Position;
 }

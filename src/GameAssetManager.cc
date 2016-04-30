@@ -5,30 +5,22 @@
 /// ApplicationMode.
 //////////////////////////////////////////////////////////////////////////////////////////
 GameAssetManager::GameAssetManager(ApplicationMode mode) {
-  std::string vertex_shader("shaders/translate.vs");
-  std::string fragment_shader("shaders/fragment.fs");
+        std::string vertex_shader("shaders/translate.vs");
+        std::string fragment_shader("shaders/fragment.fs");
 
-  switch(mode) {
-  case ROTATE:
-    vertex_shader = "shaders/rotate.vs";
-    break;
-  case SCALE:
-    vertex_shader = "shaders/scale.vs";
-    break;
-  case TRANSFORM:
-  default:
-  break;
-
+        switch(mode) {
+        case ROTATE:
+                vertex_shader = "shaders/rotate.vs";
+                break;
+        case SCALE:
+                vertex_shader = "shaders/scale.vs";
+                break;
+        case TRANSFORM:
+        default:
+                break;
   };
 
-  program_token = CreateGLProgram(vertex_shader, fragment_shader);
-
- // link to the uniform variables in the translate shader
-
- projectionMatrix_link = glGetUniformLocation(program_token, "projectionMatrix");
- translateMatrix_link = glGetUniformLocation(program_token, "translateMatrix");
- viewMatrix_link = glGetUniformLocation(program_token, "viewMatrix");
-
+        program_token = CreateGLProgram(vertex_shader, fragment_shader);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -36,7 +28,7 @@ GameAssetManager::GameAssetManager(ApplicationMode mode) {
 /// to the OpenGL state.
 //////////////////////////////////////////////////////////////////////////////////////////
 GameAssetManager::~GameAssetManager() {
-  glDeleteProgram(program_token);
+        glDeleteProgram(program_token);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -66,23 +58,28 @@ void GameAssetManager::operator=(GameAssetManager) {
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Adds a GameAsset to the scene graph.
 //////////////////////////////////////////////////////////////////////////////////////////
-void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
-  draw_list.push_back(the_asset);
+void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> game_asset) {
+        draw_list.push_back(game_asset);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Draws each GameAsset in the scene graph.
 //////////////////////////////////////////////////////////////////////////////////////////
-void GameAssetManager::Draw() {
-  for(auto ga: draw_list) {
+void GameAssetManager::Draw(glm::mat4 Camera_Projection, glm::mat4 Camera_View) {
+	for(auto ga: draw_list)
+	{
+		glm::mat4 Camera_Model(1.0f);
 
-        /// before drawing an asset , update the matrix values in the translate shader
-	glUniformMatrix4fv(projectionMatrix_link, 1, GL_FALSE, &projectionMatrix[0][0]);
-	glUniformMatrix4fv(viewMatrix_link, 1, GL_FALSE, &viewMatrix[0][0]);
-	glUniformMatrix4fv(translateMatrix_link, 1, GL_FALSE, &translateMatrix[0][0]);
+		GLuint Camera_Projection_Link = glGetUniformLocation(program_token, "Camera_Projection");
+		GLuint Camera_View_Link = glGetUniformLocation(program_token, "Camera_View");
+		GLuint Camera_Model_Link = glGetUniformLocation(program_token, "Camera_Model");
 
-    ga->Draw(program_token);
-  }
+		glUniformMatrix4fv(Camera_Projection_Link, 1, GL_FALSE, &Camera_Projection[0][0]);
+		glUniformMatrix4fv(Camera_View_Link, 1, GL_FALSE, &Camera_View[0][0]);
+		glUniformMatrix4fv(Camera_Model_Link, 1, GL_FALSE, &Camera_Model[0][0]);
+
+		ga->Draw(program_token);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////

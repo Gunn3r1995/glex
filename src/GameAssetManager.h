@@ -20,6 +20,7 @@
 
 #include "common.h"
 #include "GameAsset.h"
+#include "CubeAsset.h"
 
 using namespace std;
 
@@ -30,37 +31,24 @@ using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////
 class GameAssetManager {
  public:
-  explicit GameAssetManager(ApplicationMode); // constructor
-  virtual ~GameAssetManager();
-  GameAssetManager(GameAssetManager const&); // copy constructor
-  GameAssetManager(GameAssetManager const&&); // move constructor
-  void operator = (GameAssetManager); // assignment
-  void AddAsset(std::shared_ptr<GameAsset>);
-  void CollisionDetection();
-  void Draw();
+        explicit GameAssetManager(ApplicationMode); // constructor
+        virtual ~GameAssetManager();
+        GameAssetManager(GameAssetManager const&); // copy constructor
+        GameAssetManager(GameAssetManager const&&); // move constructor
+        void operator = (GameAssetManager); // assignment
+        void AddAsset(std::shared_ptr<GameAsset>);
+        void CollisionDetection();
+        void Draw(glm::mat4, glm::mat4);
 
  private:
+        GLuint CreateGLProgram(std::string &, std::string &);
+        GLuint CreateGLESShader(GLenum, std::string &);
+        // As this is private and we're writing to the GPU, we will use raw pointers.
+        std::pair<GLchar *, GLint>  ReadShader(std::string &);
 
-        // variables to communicate with the shader(Camera)
-
-
-  GLuint translateMatrix_link;
-  GLuint viewMatrix_link;
-  GLuint projectionMatrix_link;
-
-  glm::mat4 translateMatrix; 
-  glm::mat4 viewMatrix;	
-  glm::mat4 projectionMatrix;
-
-
-  GLuint CreateGLProgram(std::string &, std::string &);
-  GLuint CreateGLESShader(GLenum, std::string &);
-  // As this is private and we're writing to the GPU, we will use raw pointers.
-  std::pair<GLchar *, GLint>  ReadShader(std::string &);
-
-  // The internal scene graph is a simple list.
-  std::vector<std::shared_ptr<GameAsset>> draw_list;
-  GLuint program_token;
+        // The internal scene graph is a simple list.
+        std::vector<std::shared_ptr<GameAsset>> draw_list;
+        std::vector<std::shared_ptr<CubeAsset>> asset_list;
+        GLuint program_token;
 };
-
 #endif // GAMEASSETMANAGER_H

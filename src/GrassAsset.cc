@@ -1,6 +1,6 @@
 #include "GrassAsset.h"
 
-GrassAsset::GrassAsset(glm::vec3 xyzPosition, glm::vec3 rotate) : GameAsset(xyzPosition, rotate) {
+GrassAsset::GrassAsset(glm::vec3 xyzPosition) : GameAsset(xyzPosition) {
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.
   /// Sets cordinates to a Grass/Pyramid with the center point 0.0 

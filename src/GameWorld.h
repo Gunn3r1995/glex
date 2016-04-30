@@ -102,6 +102,7 @@ class GameWorld {
  private:
   std::shared_ptr<GameAssetManager> asset_manager;
   std::shared_ptr<GameAsset> Game_Asset;
+  std::shared_ptr<CubeAsset> test_asset;
 
 };
 #endif // GAMEWORLD_H

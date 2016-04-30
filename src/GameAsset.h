@@ -18,13 +18,16 @@ using namespace std;
 #include "BoundingBox.h"
 
 class GameAsset {
- public:
-  GameAsset(glm::vec3 xyzPosition, glm::vec3 rotate);
-  //void Camera(float LeftBoundingBox, float RightBoundingBox, float TopBoundingBox, float BottomBoundingBox, float FrontBoundingBox, float BackBoundingBox);
+  public:
+  GameAsset(glm::vec3 xyzPosition);
   virtual void Draw(GLuint) = 0;
 
+  glm::mat4 GetModel();
+
+  void Translate(glm::vec3);
+
+  private:
   std::shared_ptr<BoundingBox> Bounding_Box;
-  glm::mat4 GetTranslationMatrix();
 
 };
 

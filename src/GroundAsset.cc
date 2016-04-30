@@ -1,6 +1,6 @@
 #include "GroundAsset.h"
 
-GroundAsset::GroundAsset(glm::vec3 xyzPosition, glm::vec3 rotate ) : GameAsset(xyzPosition, rotate) {
+GroundAsset::GroundAsset(glm::vec3 xyzPosition) : GameAsset(xyzPosition) {
   
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.

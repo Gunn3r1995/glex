@@ -23,7 +23,7 @@
 
 class GrassAsset : public GameAsset {
  public:
-  GrassAsset(glm::vec3 xyzPosition, glm::vec3 rotate);
+  GrassAsset(glm::vec3 xyzPosition);
   ~GrassAsset();
   virtual void Draw(GLuint);
 
