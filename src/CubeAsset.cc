@@ -1,6 +1,6 @@
 #include "CubeAsset.h"
 
-CubeAsset::CubeAsset(glm::vec3 xyzPosition, glm::vec3 translateTo): GameAsset(xyzPosition, translateTo) {
+CubeAsset::CubeAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate): GameAsset(xyzPosition, translateTo, rotate) {
 
   Position = xyzPosition;
   //////////////////////////////////////////////////////////////////////////////////////////

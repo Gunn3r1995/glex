@@ -10,7 +10,7 @@ using namespace std;
 
 class BoundingBox {
 	public:
-		BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo);
+		BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate);
 		glm::mat4 GetTranslationMatrix();
                 glm::mat4 GetModel();
 
@@ -20,7 +20,7 @@ class BoundingBox {
 	private:
                 glm::vec3 xyzPosition;
                 glm::vec3 translateTo;
-                glm::vec3 translateXYZ;
+                glm::vec3 rotate;
 
 		glm::mat4 translate_matrix;
                 glm::mat4 model_matrix;

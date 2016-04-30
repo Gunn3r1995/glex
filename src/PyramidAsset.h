@@ -22,7 +22,7 @@
 
 class PyramidAsset : public GameAsset {
  public:
-  PyramidAsset(glm::vec3 xyzPosition, glm::vec3 translateTo);
+  PyramidAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate);
   ~PyramidAsset();
   virtual void Draw(GLuint);
 

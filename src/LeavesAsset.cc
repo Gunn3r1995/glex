@@ -1,6 +1,6 @@
 #include "LeavesAsset.h"
 
-LeavesAsset::LeavesAsset(glm::vec3 xyzPosition, glm::vec3 translateTo) : GameAsset(xyzPosition, translateTo) {
+LeavesAsset::LeavesAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate) : GameAsset(xyzPosition, translateTo, rotate) {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.
