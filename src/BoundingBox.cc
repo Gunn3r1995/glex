@@ -1,9 +1,12 @@
 #include "BoundingBox.h"
 
-BoundingBox::BoundingBox(glm::vec3 xyzPosition) {
+BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo) {
 	
+        cout<<"translate Created at: X:"<<translateTo.x<<" Y: "<<translateTo.y<<" Z: "<<translateTo.z<<endl;
         this->xyzPosition = xyzPosition;
-        cout<<"Bounding Box Created at: X:"<<xyzPosition.x<<" Y: "<<xyzPosition.y<<" Z: "<<xyzPosition.z<<endl;
+        this->translateTo = translateTo;
+        cout<<"Bounding Box Created at: X:"<<xyzPosition.x<<" Y: "<<xyzPosition.y<<" Z: "<<xyzPosition.z<<endl; 
+        cout<<"translate Created at: X:"<<translateTo.x<<" Y: "<<translateTo.y<<" Z: "<<translateTo.z<<endl;
 }
 
 glm::mat4 BoundingBox::GetModel() {
@@ -13,7 +16,7 @@ glm::mat4 BoundingBox::GetModel() {
         return model_matrix;
 }
 
-void BoundingBox::Translate(glm::vec3 translate) {
+void BoundingBox::Translate(glm::vec3 translateTo) {
 
 	this->xyzPosition = translateXYZ - xyzPosition;
 }

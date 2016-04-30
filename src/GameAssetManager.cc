@@ -76,6 +76,8 @@ void GameAssetManager::Draw(glm::mat4 Camera_Projection, glm::mat4 Camera_View) 
 
 		glUniformMatrix4fv(Camera_Projection_Link, 1, GL_FALSE, &Camera_Projection[0][0]);
 		glUniformMatrix4fv(Camera_View_Link, 1, GL_FALSE, &Camera_View[0][0]);
+
+                Camera_Model = ga->GetModel();
 		glUniformMatrix4fv(Camera_Model_Link, 1, GL_FALSE, &Camera_Model[0][0]);
 
 		ga->Draw(program_token);

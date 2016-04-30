@@ -1,6 +1,6 @@
 #include "DiamondAsset.h"
 
-DiamondAsset::DiamondAsset(glm::vec3 xyzPosition) : GameAsset(xyzPosition) {
+DiamondAsset::DiamondAsset(glm::vec3 xyzPosition, glm::vec3 translateTo) : GameAsset(xyzPosition, translateTo) {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.

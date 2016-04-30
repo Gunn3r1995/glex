@@ -10,14 +10,15 @@ using namespace std;
 
 class BoundingBox {
 	public:
-		BoundingBox(glm::vec3 xyzPosition);
+		BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo);
 		glm::mat4 GetTranslationMatrix();
                 glm::mat4 GetModel();
 
-                void Translate(glm::vec3 translate);
+                void Translate(glm::vec3 translateTo);
                 glm::vec3 GetxyzPosition();
 	private:
                 glm::vec3 xyzPosition;
+                glm::vec3 translateTo;
                 glm::vec3 translateXYZ;
 
 		glm::mat4 translate_matrix;

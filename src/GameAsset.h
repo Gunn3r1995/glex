@@ -19,12 +19,12 @@ using namespace std;
 
 class GameAsset {
   public:
-  GameAsset(glm::vec3 xyzPosition);
+  GameAsset(glm::vec3 xyzPosition, glm::vec3 translateTo);
   virtual void Draw(GLuint) = 0;
 
   glm::mat4 GetModel();
 
-  void Translate(glm::vec3);
+  void Translate(glm::vec3 translateTo);
 
   private:
   std::shared_ptr<BoundingBox> Bounding_Box;
