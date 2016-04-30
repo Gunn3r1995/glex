@@ -6,19 +6,24 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, bool tran
 
         this->xyzPosition = xyzPosition;
         this->translateTo = translateTo;
+        this->translate_bool = translate_bool;
+
         this->rotate = rotate;
+        this->rotate_bool = rotate_bool;
+ 
         this->scale = scale;
-        
+        this->scale_bool = scale_bool;        
+
         cout<<"SCALE X: "<<scale.x<<" Y: "<<scale.y<<" Z: "<<scale.z<<endl;
         cout<<"Bounding Box Created at: X:"<<xyzPosition.x<<" Y: "<<xyzPosition.y<<" Z: "<<xyzPosition.z<<endl; 
 }
 
 glm::mat4 BoundingBox::GetModel() {
         
-        if(this->scale.x > 1.0f && this->scale.y > 1.0f && this->scale.z > 1.0f) {
+        if(scale_bool == true) {
                 Scale(glm::vec3(0.1f,0.1f,0.1f));
         }
-        else if(this->rotate.x > 0.0f && this->rotate.y > 0.0f && this->rotate.z > 0.0f) {
+        if(rotate_bool == true) {
                 Rotate(glm::vec3(0.1f, 0.1f, 0.1f));
         }
 
