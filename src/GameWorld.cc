@@ -80,11 +80,17 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    //                                                 Rotation,
    //                                                 Scale));  
    /////////////////////////////////////////////////////////////////////////////////////////
-        /*
-        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
+        
+
+        asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, 
                                                        glm::vec3(1.0f ,2.00f, -4.0f), false,
                                                        Normal_Rotation, true,
                                                        Double_Size, false));
+
+        //asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
+        //                                               glm::vec3(1.0f ,2.00f, -4.0f), false,
+        //                                               Normal_Rotation, true,
+        //                                               Double_Size, false));
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
                                                        glm::vec3(2.0f ,2.00f, -4.0f), false,
@@ -105,7 +111,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                        glm::vec3(7.0f ,2.00f, -4.0f), false,
                                                        Normal_Rotation, true,
                                                        Normal_Size, false));
-        */
+        
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
                                                        glm::vec3(4.0f ,2.00f, -4.0f), true,

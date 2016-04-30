@@ -16,7 +16,7 @@ class BoundingBox {
 		glm::mat4 GetTranslationMatrix();
                 glm::mat4 GetModel();
 
-                void Translate(glm::vec3 translateTo);
+                void Translate(glm::vec3 translate);
                 void Rotate(glm::vec3 rotate);
                 void Scale(glm::vec3 scale);
                 glm::vec3 GetxyzPosition();
@@ -24,6 +24,7 @@ class BoundingBox {
                 glm::vec3 xyzPosition;
                 glm::vec3 translateTo;
                 bool translate_bool;
+                glm::vec3 trajectory;
 
                 glm::vec3 rotate;
                 bool rotate_bool;                

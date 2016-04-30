@@ -42,8 +42,8 @@ glm::mat4 BoundingBox::GetModel() {
         return Model_Matrix;
 }
 
-void BoundingBox::Translate(glm::vec3 translateTo) {
-        
+void BoundingBox::Translate(glm::vec3 translate) {
+        //Need To Fix
 	if(this->translateTo.x < 10.0f && this->translateTo.y < 10.0f && this->translateTo.z < 10.0f) {
                 this->translateTo = this->translateTo + translateTo;
 	}
@@ -53,7 +53,7 @@ void BoundingBox::Translate(glm::vec3 translateTo) {
 }
 
 void BoundingBox::Rotate(glm::vec3 rotate) {
-        
+        //Needs Improving
         if(this->rotate.x <= 100.1f && this->rotate.y <= 100.1f && this->rotate.z <= 100.1f) {
                 this->rotate = this->rotate + glm::vec3(0.1f , 0.1f, 0.1f);
         }
@@ -63,7 +63,7 @@ void BoundingBox::Rotate(glm::vec3 rotate) {
 }
 
 void BoundingBox::Scale(glm::vec3 scale) {
-
+        //Needs Improving
 	float Increased_Scale;
 	if(this->scale.x < 5.0f && this->scale.y < 5.0f && this->scale.z < 5.0f) {
 		this->scale = this->scale + scale;
