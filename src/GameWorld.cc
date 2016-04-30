@@ -73,23 +73,28 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
                                                        glm::vec3 (1.0f ,2.00f, -4.0f), 
-                                                       glm::vec3(0.8f ,0.08f, 0.8f)));
+                                                       glm::vec3(0.8f ,0.08f, 0.8f),
+                                                       glm::vec3(1.0f ,1.0f, 1.0f)));
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
                                                        glm::vec3(2.0f ,2.00f, -4.0f), 
-                                                       glm::vec3(0.0f ,0.00f, 0.0f)));
+                                                       glm::vec3(0.0f ,0.00f, 0.0f),
+                                                       glm::vec3(2.0f ,2.0f, 2.0f)));
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
                                                        glm::vec3(3.0f ,2.00f, -4.0f), 
-                                                       glm::vec3(0.0f ,0.00f, 0.0f)));
+                                                       glm::vec3(0.0f ,0.00f, 0.0f),
+                                                       glm::vec3(1.0f ,1.0f, 1.0f)));
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
                                                        glm::vec3(4.0f ,2.00f, -4.0f), 
-                                                       glm::vec3(0.2f ,0.02f, 0.2f)));
+                                                       glm::vec3(0.2f ,0.02f, 0.2f),
+                                                       glm::vec3(1.0f ,1.0f, 1.0f)));
 
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
                                                        glm::vec3(5.0f ,2.00f, -4.0f),
-                                                       glm::vec3(0.0f ,0.00f, 0.0f)));
+                                                       glm::vec3(0.0f ,0.00f, 0.0f),
+                                                       glm::vec3(1.0f ,1.0f, 1.0f)));
 
        // asset_manager->AddAsset(make_shared<DiamondAsset>(glm::vec3(0.0f ,0.00f, 0.0f), 2, glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0.2f, 0.2f, 0.2f)));
 /*

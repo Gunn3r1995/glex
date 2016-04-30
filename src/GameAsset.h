@@ -19,7 +19,7 @@ using namespace std;
 
 class GameAsset {
   public:
-  GameAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate);
+  GameAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate, glm::vec3 scale);
   virtual void Draw(GLuint) = 0;
 
   glm::mat4 GetModel();
