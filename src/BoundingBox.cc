@@ -14,6 +14,10 @@ glm::mat4 BoundingBox::GetModel() {
 
         glm::mat4 translate_matrix = glm::translate(glm::mat4(), glm::vec3(this->translateTo));
         model_matrix = translate_matrix;
+
+        model_matrix = glm::rotate(model_matrix, this->rotate.x, glm::vec3(1, 0, 0));
+        model_matrix = glm::rotate(model_matrix, this->rotate.y, glm::vec3(0, 1, 0));
+        model_matrix = glm::rotate(model_matrix, this->rotate.z, glm::vec3(0, 0, 1));
         return model_matrix;
 }
 
