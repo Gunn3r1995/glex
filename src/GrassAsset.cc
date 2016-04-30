@@ -1,6 +1,9 @@
 #include "GrassAsset.h"
 
-GrassAsset::GrassAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate, glm::vec3 scale) : GameAsset(xyzPosition, translateTo, rotate, scale) {
+GrassAsset::GrassAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, bool translate_bool, 
+                     glm::vec3 rotate, bool rotate_bool,
+                     glm::vec3 scale, bool scale_bool)
+: GameAsset(xyzPosition, translateTo, translate_bool, rotate, rotate_bool, scale, scale_bool){
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.
   /// Sets cordinates to a Grass/Pyramid with the center point 0.0 

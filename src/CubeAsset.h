@@ -25,7 +25,9 @@ using namespace std;
 
 class CubeAsset : public GameAsset {
  public:
-  CubeAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate, glm::vec3 scale);
+  CubeAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, bool translate_bool, 
+            glm::vec3 rotate, bool rotate_bool,
+            glm::vec3 scale, bool scale_bool);
   ~CubeAsset();
   virtual void Draw(GLuint);
   glm::vec3 GetVec3();

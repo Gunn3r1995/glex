@@ -22,7 +22,9 @@
 
 class GroundAsset : public GameAsset {
  public:
-  GroundAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate, glm::vec3 scale);
+  GroundAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, bool translate_bool, 
+              glm::vec3 rotate, bool rotate_bool,
+              glm::vec3 scale, bool scale_bool);
   ~GroundAsset();
   virtual void Draw(GLuint);
 

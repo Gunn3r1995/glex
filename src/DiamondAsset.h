@@ -21,7 +21,9 @@
 
 class DiamondAsset : public GameAsset {
  public:
-  DiamondAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 rotate, glm::vec3 scale);
+  DiamondAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, bool translate_bool, 
+               glm::vec3 rotate, bool rotate_bool,
+               glm::vec3 scale, bool scale_bool);
   ~DiamondAsset();
   virtual void Draw(GLuint);
 
