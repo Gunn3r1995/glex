@@ -18,18 +18,20 @@ using namespace std;
 #include "BoundingBox.h"
 
 class GameAsset {
-  public:
-  GameAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, bool translate_bool, 
-            glm::vec3 rotate, bool rotate_bool,
-            glm::vec3 scale, bool scale_bool);
-  virtual void Draw(GLuint) = 0;
+        public:
+                GameAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, bool translate_bool, 
+                          glm::vec3 rotate, bool rotate_bool,
+                          glm::vec3 scale, bool scale_bool);
+                virtual void Draw(GLuint) = 0;
 
-  glm::mat4 GetModel();
+                glm::mat4 GetModel();
 
-  void Translate(glm::vec3 translateTo);
+                void Translate(glm::vec3 translateTo);
+                void BoundingBoxCollision(glm::vec3 translate_To);
 
-  private:
-  std::shared_ptr<BoundingBox> Bounding_Box;
+        private:
+                glm::vec3 translateTo;
+                std::shared_ptr<BoundingBox> Bounding_Box;
 
 };
 

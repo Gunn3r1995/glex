@@ -17,8 +17,8 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, bool tran
         scaleTo = scale;
         this->scale_bool = scale_bool;        
 
-        cout<<"SCALE X: "<<scale.x<<" Y: "<<scale.y<<" Z: "<<scale.z<<endl;
-        cout<<"Bounding Box Created at: X:"<<xyzPosition.x<<" Y: "<<xyzPosition.y<<" Z: "<<xyzPosition.z<<endl; 
+        //cout<<"SCALE X: "<<scale.x<<" Y: "<<scale.y<<" Z: "<<scale.z<<endl;
+        //cout<<"Bounding Box Created at: X:"<<xyzPosition.x<<" Y: "<<xyzPosition.y<<" Z: "<<xyzPosition.z<<endl; 
 }
 
 glm::mat4 BoundingBox::GetModel() {
@@ -46,7 +46,7 @@ glm::mat4 BoundingBox::GetModel() {
 }
 
 void BoundingBox::Translate(glm::vec3 translate) {
-        //Need To Fix
+        //Temp
 	if(this->translateTo.y < 10.0f) {
                 this->translateTo = this->translateTo + glm::vec3(0.0f,0.1f,0.0f);
 	}
@@ -73,7 +73,7 @@ void BoundingBox::Scale(glm::vec3 scaleTo) {
 	}
 }
 
-glm::vec3 BoundingBox::GetxyzPosition() {
+glm::vec3 BoundingBox::GetTranslateTo() {
 
-	return xyzPosition;
+	return translateTo;
 }

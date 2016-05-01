@@ -19,7 +19,7 @@ class BoundingBox {
                 void Translate(glm::vec3 translate);
                 void Rotate(glm::vec3 rotate);
                 void Scale(glm::vec3 scale);
-                glm::vec3 GetxyzPosition();
+                glm::vec3 GetTranslateTo();
 	private:
                 glm::vec3 xyzPosition;
                 glm::vec3 translateTo;
