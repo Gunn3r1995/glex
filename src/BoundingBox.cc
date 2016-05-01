@@ -6,12 +6,15 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, bool tran
 
         this->xyzPosition = xyzPosition;
         this->translateTo = translateTo;
+        translateToSave = translateTo;
         this->translate_bool = translate_bool;
 
         this->rotate = rotate;
+        rotateTo = rotate;
         this->rotate_bool = rotate_bool;
  
         this->scale = scale;
+        scaleTo = scale;
         this->scale_bool = scale_bool;        
 
         cout<<"SCALE X: "<<scale.x<<" Y: "<<scale.y<<" Z: "<<scale.z<<endl;
@@ -24,7 +27,7 @@ glm::mat4 BoundingBox::GetModel() {
                 Translate(glm::vec3(0.1f,0.1f,0.1f));
         }        
         if(scale_bool == true) {
-                Scale(glm::vec3(0.1f,0.1f,0.1f));
+                Scale(scaleTo);
         }
         if(rotate_bool == true) {
                 Rotate(glm::vec3(0.1f, 0.1f, 0.1f));
@@ -44,16 +47,15 @@ glm::mat4 BoundingBox::GetModel() {
 
 void BoundingBox::Translate(glm::vec3 translate) {
         //Need To Fix
-	if(this->translateTo.x < 10.0f && this->translateTo.y < 10.0f && this->translateTo.z < 10.0f) {
-                this->translateTo = this->translateTo + translateTo;
+	if(this->translateTo.x < translateToSave.x && this->translateTo.y < translateToSave.y && this->translateTo.z < translateToSave.z) {
+                this->translateTo = this->translateTo + glm::vec3(0.1f,0.1f,0.1f);
 	}
 	else {
-                this->translateTo = translateTo;
+                this->translateTo = translateToSave;
 	}
 }
 
-void BoundingBox::Rotate(glm::vec3 rotate) {
-        //Needs Improving
+void BoundingBox::Rotate(glm::vec3 rotateTo) {
         if(this->rotate.x <= 100.1f && this->rotate.y <= 100.1f && this->rotate.z <= 100.1f) {
                 this->rotate = this->rotate + glm::vec3(0.1f , 0.1f, 0.1f);
         }
@@ -62,14 +64,12 @@ void BoundingBox::Rotate(glm::vec3 rotate) {
         }
 }
 
-void BoundingBox::Scale(glm::vec3 scale) {
-        //Needs Improving
-	float Increased_Scale;
-	if(this->scale.x < 5.0f && this->scale.y < 5.0f && this->scale.z < 5.0f) {
-		this->scale = this->scale + scale;
+void BoundingBox::Scale(glm::vec3 scaleTo) {
+	if(this->scale.x < scaleTo.x && this->scale.y < scaleTo.y && this->scale.z < scaleTo.z) {
+		this->scale = this->scale + glm::vec3(0.01f,0.01f,0.01f);
 	}
 	else {
-		this->scale = glm::vec3(1.1f,1.1f,1.1f);
+		this->scale = glm::vec3(1.0f,1.0f,1.0f);
 	}
 }
 
