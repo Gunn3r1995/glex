@@ -27,6 +27,7 @@ class BoundingBox {
 	private:
                 glm::vec3 xyzPosition;
                 glm::vec3 translateTo;
+                glm::vec3 animateTo;
                 glm::vec3 translateToSave;
                 bool translate_bool;
                 glm::vec3 trajectory;
