@@ -1,9 +1,10 @@
 #include "PyramidAsset.h"
 
-PyramidAsset::PyramidAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, bool translate_bool, 
+PyramidAsset::PyramidAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, 
+                     glm::vec3 animateTo, bool translate_bool, 
                      glm::vec3 rotate, bool rotate_bool,
                      glm::vec3 scale, bool scale_bool)
-: GameAsset(xyzPosition, translateTo, translate_bool, rotate, rotate_bool, scale, scale_bool) {
+: GameAsset(xyzPosition, translateTo, animateTo , translate_bool, rotate, rotate_bool, scale, scale_bool) {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// model coordinates, origin at centre.

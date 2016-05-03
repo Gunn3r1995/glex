@@ -1,3 +1,6 @@
+#ifndef BOUNDINDBOX_H
+#define BOUNDINGBOX_H
+
 #include <memory>
 #include <iostream>
 #include <utility>
@@ -10,7 +13,8 @@ using namespace std;
 
 class BoundingBox {
 	public:
-		BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, bool translate_bool, 
+		BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, 
+                            glm::vec3 animateTo, bool translate_bool, 
                             glm::vec3 rotate, bool rotate_bool,
                             glm::vec3 scale, bool scale_bool);
 		glm::mat4 GetTranslationMatrix();
@@ -41,4 +45,4 @@ class BoundingBox {
                 glm::mat4 Model_Matrix;
 };
 
-
+#endif //BOUNDINGBOX_H

@@ -75,8 +75,8 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    //AddAsset Layout 
    //This adds the asset to the game asset manager which draws it to the screen
    //
-   //  asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,  
-   //                                                 Translate, Bool,
+   //  asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, Translate
+   //                                                 AnimateTo , Bool,
    //                                                 Rotation, Bool,
    //                                                 Scale, Bool));  
    /////////////////////////////////////////////////////////////////////////////////////////
@@ -134,12 +134,12 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             ///  Spawns Ground.
             ///  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn,
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, 
-                                                             glm::vec3((pointX),-2.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-2.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false ));
    }
@@ -149,20 +149,20 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             ///  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             ///  Spawns the Cube & Diamond asset on top to create a small tower with a diamond on top
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, 
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn,
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
-                                                           glm::vec3((pointX),0.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
-            asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn,
-                                                              glm::vec3((pointX),1.0f,(pointZ*pointY)), true,
+            asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3((pointX),1.0f,(pointZ*pointY)), 
+                                                              glm::vec3(0.0f,0.0f,0.0f), true,
                                                               Normal_Rotation, true,
                                                               Double_Size, true));
    }
@@ -172,24 +172,24 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             /// Spawns the Cube & Diamond asset on top to create a taller tower with a diamond on top
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn,
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, 
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
-                                                           glm::vec3((pointX),0.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
-                                                           glm::vec3((pointX),1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
-            asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn,
-                                                              glm::vec3((pointX),2.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3((pointX),2.0f,(pointZ*pointY)), 
+                                                              glm::vec3(0.0f,0.0f,0.0f), false,
                                                               Normal_Rotation, true,
                                                               Normal_Size, false));
 
@@ -202,298 +202,297 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// layers to get each seperate part to spawn.
             //////////////////////////////////////////////////////////////////////////////////////////
             // Tree Ground
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, 
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, 
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
             // Tree Trunk
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
-                                                           glm::vec3((pointX),0.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
-                                                           glm::vec3((pointX),1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));        
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
-                                                           glm::vec3((pointX),2.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),2.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
-                                                           glm::vec3((pointX),3.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),3.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
-                                                           glm::vec3((pointX),4.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),4.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
             // Tree Leaves - Bottom Layer
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+2),3.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),3.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,3.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, 
-                                                             glm::vec3((pointX-1),3.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, 
-                                                             glm::vec3((pointX-2),3.0f,(pointZ*pointY-1)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
-
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, 
-                                                             glm::vec3((pointX+2),3.0f,(pointZ*pointY-2)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),3.0f,(pointZ*pointY-2)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,3.0f,(pointZ*pointY-2)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),3.0f,(pointZ*pointY-2)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-2),3.0f,(pointZ*pointY-2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+2),3.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),3.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),3.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-2),3.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false)); 
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+2),3.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),3.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,3.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),3.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-2),3.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
  
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+2),3.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*pointY+2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),3.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*pointY+2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,3.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*pointY+2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),3.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,glm::vec3((pointX-1),3.0f,(pointZ*pointY+2)),                                                       
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-2),3.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*pointY+2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
             // Tree Leaves - Second Layer
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+2),4.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),4.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,4.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,4.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),4.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-2),4.0f,(pointZ*pointY-1)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
- 
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+2),4.0f,(pointZ*pointY-2)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),4.0f,(pointZ*pointY-2)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,4.0f,(pointZ*pointY-2)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),4.0f,(pointZ*pointY-2)), false,
-                                                             No_Rotation, false,
-                                                             Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-2),4.0f,(pointZ*pointY-2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
  
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+2),4.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),4.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),4.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,4.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-2),4.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*pointY-2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
  
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+2),4.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),4.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,4.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),4.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-2),4.0f,(pointZ*pointY+1)), false,
+ 
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,4.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
+                                                             No_Rotation, false,
+                                                             Normal_Size, false));
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+2),4.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*pointY+2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, 
-                                                             glm::vec3((pointX+1),4.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*pointY+2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,4.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX),4.0f,(pointZ*pointY+2)),  
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),4.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*pointY+2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-2),4.0f,(pointZ*pointY+2)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*pointY+2)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
             // Tree Leaves - Third Layer
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),5.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),5.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,5.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,5.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),5.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),5.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false)); 
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),5.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),5.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,5.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,5.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),5.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),5.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
  
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),5.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),5.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,5.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,5.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),5.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),5.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
 
             // Tree Leaves - Fourth Layer
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,6.0f,(pointZ*pointY-1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,6.0f,(pointZ*pointY-1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
 
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX+1),6.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),6.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,6.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,6.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX-1),6.0f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),6.0f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-
-            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn,
-                                                             glm::vec3((pointX)  ,6.0f,(pointZ*pointY+1)), false,
+            asset_manager->AddAsset(make_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,6.0f,(pointZ*pointY+1)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
    }
@@ -503,20 +502,20 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             /// Spawns the Cube & Pyramid asset on top to create a small tower with a diamond on top
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn,
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn,
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,
-                                                           glm::vec3((pointX)  ,0.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX)  ,0.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
-            asset_manager->AddAsset(make_shared<PyramidAsset>(Spawn,
-                                                              glm::vec3((pointX),0.50f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<PyramidAsset>(Spawn, glm::vec3((pointX),0.50f,(pointZ*pointY)),
+                                                              glm::vec3(0.0f,0.0f,0.0f), false,
                                                               No_Rotation, false,
                                                               Normal_Size, false));
    }
@@ -526,16 +525,16 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
             /// Spawns Pyramid asset on top of the ground asset
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn,
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn,
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<PyramidAsset>(Spawn,
-                                                              glm::vec3((pointX),-0.50f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<PyramidAsset>(Spawn, glm::vec3((pointX),-0.50f,(pointZ*pointY)),
+                                                              glm::vec3(0.0f,0.0f,0.0f), false,
                                                               No_Rotation, false,
                                                               Double_Size, false));
    }
@@ -546,32 +545,34 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             /// Spawns somewhat randomly multiple grass assets on top/ slighlty inside the ground asset
             /// To create the view of grass.
             //////////////////////////////////////////////////////////////////////////////////////////
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn,
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn,
-                                                             glm::vec3((pointX),-1.00f,(pointZ*pointY)), false,
+            asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*pointY)),
+                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false));
-            asset_manager->AddAsset(make_shared<GrassAsset>(Spawn,
-                                                            glm::vec3((pointX-Random/(rand() % 100)),(-0.80f),(pointZ*pointY-Random/(rand()%100))), false,
+            asset_manager->AddAsset(make_shared<GrassAsset>(Spawn, glm::vec3((pointX-Random/(rand() % 100)),(-0.80f),(pointZ*pointY-Random/(rand()%100))), 
+                                                            glm::vec3(0.0f,0.0f,0.0f), false,
                                                             No_Rotation, false,
                                                             Normal_Size, false));            
-            asset_manager->AddAsset(make_shared<GrassAsset>(Spawn,
-                                                            glm::vec3((pointX-Random/(rand() % 100)),(-0.70f),(pointZ*pointY-Random/(rand() % 100))), false,
+            asset_manager->AddAsset(make_shared<GrassAsset>(Spawn, glm::vec3((pointX-Random/(rand() % 100)),(-0.70f),(pointZ*pointY-Random/(rand() % 100))), 
+                                                            glm::vec3(0.0f,0.0f,0.0f), false,
+                                                            No_Rotation, false,
+                                                            Normal_Size, false));
+            asset_manager->AddAsset(make_shared<GrassAsset>(Spawn, glm::vec3((pointX-Random/(rand() % 100)),(-0.75f),(pointZ*pointY-Random/(rand() % 100))), 
+                                                            glm::vec3(0.0f,0.0f,0.0f), false,
                                                             No_Rotation, false,
                                                             Normal_Size, false));
             asset_manager->AddAsset(make_shared<GrassAsset>(Spawn,
-                                                            glm::vec3((pointX-Random/(rand() % 100)),(-0.75f),(pointZ*pointY-Random/(rand() % 100))), false,
+                                                            glm::vec3((pointX-Random/(rand() % 100)),(-0.60f),(pointZ*pointY-Random/(rand() % 100))), 
+                                                            glm::vec3(0.0f,0.0f,0.0f), false,
                                                             No_Rotation, false,
                                                             Normal_Size, false));
             asset_manager->AddAsset(make_shared<GrassAsset>(Spawn,
-                                                            glm::vec3((pointX-Random/(rand() % 100)),(-0.60f),(pointZ*pointY-Random/(rand() % 100))), false,
-                                                            No_Rotation, false,
-                                                            Normal_Size, false));
-            asset_manager->AddAsset(make_shared<GrassAsset>(Spawn,
-                                                            glm::vec3((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand() % 100))), false,
+                                                            glm::vec3((pointX-Random/(rand() % 100)),(-0.50f),(pointZ*pointY-Random/(rand() % 100))), 
+                                                            glm::vec3(0.0f,0.0f,0.0f), false,
                                                             No_Rotation, false,
                                                             Normal_Size, false));
    }
