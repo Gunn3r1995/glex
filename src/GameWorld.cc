@@ -75,10 +75,10 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    //AddAsset Layout 
    //This adds the asset to the game asset manager which draws it to the screen
    //
-   //  asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, 
-   //                                                 Translate, 
-   //                                                 Rotation,
-   //                                                 Scale));  
+   //  asset_manager->AddAsset(make_shared<CubeAsset>(Spawn,  
+   //                                                 Translate, Bool,
+   //                                                 Rotation, Bool,
+   //                                                 Scale, Bool));  
    /////////////////////////////////////////////////////////////////////////////////////////
         //Spawn_Cube = asset_manager->AddAsset(make_shared<CubeAsset>);
         /*
