@@ -15,10 +15,10 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, bool tran
  
         this->scale = scale;
         scaleTo = scale;
-        this->scale_bool = scale_bool;        
+        this->scale_bool = scale_bool;       
 
-        //cout<<"SCALE X: "<<scale.x<<" Y: "<<scale.y<<" Z: "<<scale.z<<endl;
-        //cout<<"Bounding Box Created at: X:"<<xyzPosition.x<<" Y: "<<xyzPosition.y<<" Z: "<<xyzPosition.z<<endl; 
+        //cout << "SCALE  " << glm::to_string(scale) << endl;
+        //cout << "Bounding Box Created at: " << glm::to_string(translateTo)<< endl;
 }
 
 glm::mat4 BoundingBox::GetModel() {
@@ -41,7 +41,6 @@ glm::mat4 BoundingBox::GetModel() {
         Model_Matrix = glm::rotate(Model_Matrix, this->rotate.x, glm::vec3(1, 0, 0));
         Model_Matrix = glm::rotate(Model_Matrix, this->rotate.y, glm::vec3(0, 1, 0));
         Model_Matrix = glm::rotate(Model_Matrix, this->rotate.z, glm::vec3(0, 0, 1));
-        
         return Model_Matrix;
 }
 
@@ -74,6 +73,5 @@ void BoundingBox::Scale(glm::vec3 scaleTo) {
 }
 
 glm::vec3 BoundingBox::GetTranslateTo() {
-
 	return translateTo;
 }

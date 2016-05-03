@@ -7,17 +7,7 @@ GameAsset::GameAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, bool translat
                                                      translateTo, translate_bool, 
                                                      rotate, rotate_bool, 
                                                      scale, scale_bool);
-        //cout << "translateTO X: "<< translateTo.x<< " Y: "<<translateTo.y<<" Z: "<<translateTo.z<<endl;
-        this->translateTo = translateTo;
-
-        BoundingBoxCollision(translateTo);
-}
-
-void GameAsset::BoundingBoxCollision(glm::vec3 translate_To) {
-        glm::vec3 Array[100];
-        glm::vec3 x = translate_To;
-        Array[0] = x;
-        cout << Array[0].x << endl;
+        //cout << "translateTO "<< glm::to_string(translateTo) <<endl;
 }
 
 glm::mat4 GameAsset::GetModel() {

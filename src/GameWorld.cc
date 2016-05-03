@@ -645,8 +645,6 @@ void GameWorld::Camera_Control(char key) {
 /// Sends the camera positions and movements to the translate shader
 //////////////////////////////////////////////////////////////////////////////////////////
 void GameWorld::Draw() {
-
-
         //////////////////////////////////////////////////////////////////////////////////////////
         /// Camera Direction
         ///  Calculates the distance each camera movement changes the camera direction

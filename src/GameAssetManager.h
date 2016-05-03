@@ -17,6 +17,8 @@
 #else
 #   error "Unknown compiler"
 #endif
+#include "glm/gtx/string_cast.hpp"
+
 
 #include "common.h"
 #include "GameAsset.h"

@@ -27,7 +27,6 @@ class GameAsset {
                 glm::mat4 GetModel();
 
                 void Translate(glm::vec3 translateTo);
-                void BoundingBoxCollision(glm::vec3 translate_To);
 
         private:
                 glm::vec3 translateTo;
