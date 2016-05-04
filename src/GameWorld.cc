@@ -160,11 +160,11 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
             asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY)), 
                                                            glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
-                                                           Normal_Size, false));
+                                                           Double_Size, true));
             asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3((pointX),1.0f,(pointZ*pointY)), 
                                                               glm::vec3((pointX)+10.0f,1.0f+10.0f,(pointZ*pointY)+10.0f), true,
                                                               Normal_Rotation, true,
-                                                              Double_Size, true));
+                                                              Normal_Size, false));
    }
     else if( world[pointY][pointX] == 3){
             ////////////////////////////////////////////////////////////////////////////////////////// 

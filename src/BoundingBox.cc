@@ -48,7 +48,7 @@ glm::mat4 BoundingBox::GetModel() {
 void BoundingBox::Translate(glm::vec3 translate) {
         //Temp
 	if(this->translateTo.x < animateTo.x && this->translateTo.y < animateTo.y && this->translateTo.z < animateTo.z) {
-                this->translateTo = this->translateTo + glm::vec3(0.1f,0.0f,0.0f);
+                this->translateTo = this->translateTo + glm::vec3(0.0f,0.1f,0.0f);
 	}
 	else {
                 this->translateTo = translateToSave;
