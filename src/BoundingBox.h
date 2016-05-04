@@ -27,7 +27,7 @@ class BoundingBox {
 	private:
                 //////////////////////////////////////////////////////////////////////////////////////////
                 ///Initalise Data 
-                ///The below vectors and booleans initialie all the variables used in the bounding box
+                ///The below vectors and booleans initialise all the variables used in the bounding box
                 ///class to calculate and animate the Bounding Box
                 ////////////////////////////////////////////////////////////////////////////////////////// 
                 glm::vec3 xyzPosition;

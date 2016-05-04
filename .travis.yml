@@ -1,7 +1,6 @@
 language: cpp
 compiler:
  - gcc
- - clang
  - g++
 
 before_install:
@@ -24,18 +23,12 @@ before_install:
  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install boost --with-python; fi
  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install boost-python --with-python; fi
 
+
 script:
  - chmod 755 configure
  - autoreconf -i
  - ./configure
  - make
-
-# whitelist
-branches:
-only:
- - master
- - Voxel
- - colour
 
 os:
  - linux
@@ -45,4 +38,4 @@ matrix:
   allow_failures:
     - os: osx
 
-sudo: true
+sudo: trues

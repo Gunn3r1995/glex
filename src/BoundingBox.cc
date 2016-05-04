@@ -3,7 +3,11 @@
 BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 animateTo, bool translate_bool, 
                          glm::vec3 rotate, bool rotate_bool,
                          glm::vec3 scale, bool scale_bool) {
-
+        //////////////////////////////////////////////////////////////////////////////////////////
+        ///Initalise Data 
+        ///The below vectors and booleans initialise all the variables used in the bounding box
+        ///class to calculate and animate the Bounding Box
+        ////////////////////////////////////////////////////////////////////////////////////////// 
         this->xyzPosition = xyzPosition;
         this->translateTo = translateTo;
         this->animateTo = animateTo;
