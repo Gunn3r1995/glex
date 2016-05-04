@@ -25,6 +25,11 @@ class BoundingBox {
                 void Scale(glm::vec3 scale);
                 glm::vec3 GetTranslateTo();
 	private:
+                //////////////////////////////////////////////////////////////////////////////////////////
+                ///Initalise Data 
+                ///The below vectors and booleans initialie all the variables used in the bounding box
+                ///class to calculate and animate the Bounding Box
+                ////////////////////////////////////////////////////////////////////////////////////////// 
                 glm::vec3 xyzPosition;
                 glm::vec3 translateTo;
                 glm::vec3 animateTo;
@@ -40,7 +45,6 @@ class BoundingBox {
                 glm::vec3 scaleTo;
                 bool scale_bool;
                 
-
 		glm::mat4 Translate_Matrix;
                 glm::mat4 Scale_Matrix;
                 glm::mat4 Model_Matrix;
