@@ -228,12 +228,6 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
         cout << "****************************************************************************************" << endl;
         cout << "" << endl;
 
-	//SDL_SetRelativeMouseMode(SDL_TRUE);      
-	//SDL_GetRelativeMouseState(&X, &Y);
-
-        int Old_Mouse_X;
-        int Old_Mouse_Y;
-
         int Mouse_X;
         int Mouse_Y;
         const Uint8 *keyboard_state;

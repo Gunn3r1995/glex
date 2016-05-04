@@ -13,8 +13,8 @@ Camera::Camera() {
 	  Camera_Horizontal = 0.0f;
 	  Camera_Vertical = 0.0f;
 
-          mouseDeltaX = 0.01;
-	  mouseDeltaY = 0.01;
+          mouseDeltaX = 0.0;
+	  mouseDeltaY = 0.0;
 
 	  Player_Speed = 0.5;
           
@@ -35,10 +35,10 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
 	mouseDeltaX = -Mouse_X;
 	mouseDeltaY = -Mouse_Y;
 
-        Camera_Horizontal += 0.01 * mouseDeltaX;
-        // restrict the mouse view from going too far up or down
-        if((Camera_Vertical + (0.01 * mouseDeltaY)) < 1 && (Camera_Vertical + (0.01 * mouseDeltaY)) > -1 ){
-	        Camera_Vertical += 0.01 * mouseDeltaY;
+        Camera_Horizontal += 0.001f * mouseDeltaX;
+
+        if((Camera_Vertical + (0.01f * mouseDeltaY)) < 3.0f && (Camera_Vertical + (0.01f * mouseDeltaY)) > -3.0f ){
+	        Camera_Vertical += 0.001f * mouseDeltaY;
         }
 
         glm::vec3 direction(
@@ -75,11 +75,6 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
         else if(control == CROUCH) {
                 Camera_Position.y -= 0.5f * Player_Speed;
         }
-
-        //////////////////////////////////////////////////////////////////////////////////////////
-        /// Projection matrix. : degree = 45, Field of View = 4:3 ratio, display = 0.1 unit <-> 1000 units
-        //////////////////////////////////////////////////////////////////////////////////////////
-	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
      
         //////////////////////////////////////////////////////////////////////////////////////////
         ///  Camera view matrix.
@@ -87,14 +82,9 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
         ///  changes the direction you look at
         ///  Makes the world the correct orientation
         //////////////////////////////////////////////////////////////////////////////////////////
-	glm::mat4 Camera_View = glm::lookAt(
-		Camera_Position,
-		Camera_Position + direction,
-		vup
-	);
-	glm::mat4 Camera_Model(1.0f);
-
-        return glm::lookAt(Camera_Position, Camera_Position + direction, vup);
+        return glm::lookAt(Camera_Position, 
+                           Camera_Position + direction, 
+                           vup);
    
 }
 /*
