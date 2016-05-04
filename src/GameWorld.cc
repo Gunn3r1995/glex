@@ -545,138 +545,20 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
  }
 }
 
-  //////////////////////////////////////////////////////////////////////////////////////////
-  /// Controls calculations
-  /// Controls all the movement and positions of the camera 
-  /// Uses keyboard and Mouse movements to move around the world space
-  /// Tells the Camera matrix what position to look at and where to move
-  //////////////////////////////////////////////////////////////////////////////////////////
-void GameWorld::Camera_Control(char key) {
-
-        Old_Camera_Position = Camera_Position;
-	Old_Camera_X_Position = Camera_X_Position;
-	Old_Camera_Y_Position = Camera_Y_Position;
-	Old_Camera_Z_Position = Camera_Z_Position;
-
-  if ( key == 'w' ) {        // W Key Pressed will move Camera forward
-        Camera_Position +=  Movement_Z * Player_Speed;
- }
-  if ( key == 'a' ) {        // A Key Pressed will move Camera left
-        Camera_Position -= Movement_X * Player_Speed;
- }
-  if ( key == 's' ) {        // S Key Pressed will move Camera down
-        Camera_Position -= Movement_Z * Player_Speed;
- }
-  if ( key == 'd' ) {        // D Key Pressed will move Camera right
-        Camera_Position += Movement_X * Player_Speed;
- }
-  if (key == '^') {          // Camera look Up
-        Camera_Vertical += 0.5f * Mouse_Sensitivity;
- }
-  if (key == '<') {          // Camera look left
-        Camera_Horizontal += 0.5f * Mouse_Sensitivity;
- }
-  if (key == 'v') {          // Camera look down
-        Camera_Vertical -= 0.5f * Mouse_Sensitivity;
- }
-  if (key == '>') {          // Camera look right
-        Camera_Horizontal -= 0.5f * Mouse_Sensitivity;
- }
-  if (key == '+') {          // Jump up/ 0.1, Would like to improve it to a actually jump mechanic
-        Camera_Position += 0.1f * Player_Speed;
- }
-  if (key == '-') {          // Drop down/ -0.1
-        Camera_Position -= 0.1f * Player_Speed;
- }
-  if (key == 'i') {
-        cout << "Bounding Box Left: "<< GetLeftBoundingBox() << endl;
-        cout << "Bounding Box Right: "<< GetRightBoundingBox() << endl;
-        cout << "Bounding Box Top: "<< GetTopBoundingBox() << endl;
-        cout << "Bounding Box Bottom: "<< GetBottomBoundingBox() << endl;
-        cout << "Bounding Box Front: "<< GetFrontBoundingBox() << endl;
-        cout << "Bounding Box Back: "<< GetBackBoundingBox() << endl;
-               
-}
-        //Game_Asset->Camera(GetLeftBoundingBox(), GetRightBoundingBox(), GetTopBoundingBox(), GetBottomBoundingBox(), GetFrontBoundingBox(), GetBackBoundingBox());
-
-        //cout << "Current Pos = " << glm::to_string(Camera_Position) << endl;
-        //cout << "Old Pos = " << glm::to_string(Old_Camera_Position) << endl;
-        //cout << Camera_Vertical << endl;
-        
-}
-
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Drawing the world.
 /// Draws the assets to the world by calling GameAssetManager
-/// Sends the camera positions and movements to the translate shader
 //////////////////////////////////////////////////////////////////////////////////////////
 void GameWorld::Draw() {
-        //////////////////////////////////////////////////////////////////////////////////////////
-        /// Camera Direction
-        ///  Calculates the distance each camera movement changes the camera direction
-        //////////////////////////////////////////////////////////////////////////////////////////
-        glm::vec3 direction(
-		cos(Camera_Vertical) * sin(Camera_Horizontal),
-		sin(Camera_Vertical),
-		cos(Camera_Vertical) * cos(Camera_Horizontal)
-	);
-
-	Movement_Z = direction;
-
-	Movement_X = glm::vec3(
-		sin(Camera_Horizontal - 3.14f/2.0f),
-		0,
-		cos(Camera_Horizontal - 3.14f/2.0f)
-	);
-
-	glm::vec3 vup = glm::cross(Movement_X, direction);
-
-        
-        Camera_X_Position = -Camera_Position[0];
-	Camera_Y_Position = Camera_Position[1];
-	Camera_Z_Position = Camera_Position[2];
-
-        //////////////////////////////////////////////////////////////////////////////////////////
-        /// Restrict the View
-        /// These If statements stop the Camera Vertical going above 2.0 or below -2.0
-        //////////////////////////////////////////////////////////////////////////////////////////
-        if(Camera_Vertical >= 2.0f){
-                Camera_Vertical = 1.975f;     
-        }
-        else if(Camera_Vertical <= -2.0f){
-                Camera_Vertical = -1.975f;
-        }
-
-        //////////////////////////////////////////////////////////////////////////////////////////
-        /// Projection matrix. : degree = 45, Field of View = 4:3 ratio, display = 0.1 unit <-> 1000 units
-        //////////////////////////////////////////////////////////////////////////////////////////
-	glm::mat4 Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
-     
-        //////////////////////////////////////////////////////////////////////////////////////////
-        ///  Camera view matrix.
-        ///  changes where the camera position looks up to use the camera position
-        ///  changes the direction you look at
-        ///  Makes the world the correct orientation
-        //////////////////////////////////////////////////////////////////////////////////////////
-	glm::mat4 Camera_View = glm::lookAt(
-		Camera_Position,
-		Camera_Position + direction,
-		vup
-	);
-	glm::mat4 Camera_Model(1.0f);
-
-        //////////////////////////////////////////////////////////////////////////////////////////
-        /// Send data to Uniform Variable.
-        /// Sends the data to the translate.vs shader
-        //////////////////////////////////////////////////////////////////////////////////////////
-	glUniformMatrix4fv(0, 1, GL_FALSE, &Camera_Projection[0][0]);
-	glUniformMatrix4fv(1, 1, GL_FALSE, &Camera_View[0][0]);
-	glUniformMatrix4fv(2, 1, GL_FALSE, &Camera_Model[0][0]);
-
-        asset_manager->Draw(Camera_Projection, Camera_View);
+        asset_manager->Draw();
    
 }
 
+void GameWorld::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y){ 
+        asset_manager->UpdateCameraPosition(control, Mouse_X, Mouse_Y);
+}
+
+/*
 float GameWorld::GetLeftBoundingBox() {
         Left = Camera_X_Position - 0.5;
         return Left;
@@ -702,4 +584,4 @@ float GameWorld::GetFrontBoundingBox() {
 float GameWorld::GetBackBoundingBox() {
         Back = Camera_Z_Position - 0.5;
         return Back;        
-}
+}*/

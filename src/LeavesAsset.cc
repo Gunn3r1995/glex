@@ -100,7 +100,7 @@ void LeavesAsset::checkError(std::string file, int line) {
 
 void LeavesAsset::Draw(GLuint program_token) {
   if(!glIsProgram(program_token)) {
-    std::cerr << "Drawing Diamon with invalid program" << std::endl;
+    //std::cerr << "Drawing Diamon with invalid program" << std::endl;
     return;
   }
   GLint validation_ok;

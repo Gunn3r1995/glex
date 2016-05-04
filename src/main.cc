@@ -236,7 +236,10 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
 
         int Mouse_X;
         int Mouse_Y;
+        const Uint8 *keyboard_state;
+	Control control = NOT_PRESSED;
 
+  SDL_SetRelativeMouseMode(SDL_TRUE);
   //////////////////////////////////////////////////////////////////////////////////////////
   /// Add the main event loop.
   ///  Detects Keyboard and Mouse
@@ -248,74 +251,41 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
     case SDL_QUIT:
       SDL_Quit();
       break;
-    case SDL_USEREVENT:
+    case SDL_USEREVENT: {
+        SDL_GetRelativeMouseState(&Mouse_X, &Mouse_Y);
+
+        keyboard_state = SDL_GetKeyboardState(NULL);
+    	if(keyboard_state[SDL_SCANCODE_A]) {
+    		control = LEFT;
+   	}
+        else if(keyboard_state[SDL_SCANCODE_S]) {
+   		control = DOWN;
+    	}
+        else if(keyboard_state[SDL_SCANCODE_D]) {
+    		control = RIGHT;
+    	}
+        else if(keyboard_state[SDL_SCANCODE_W]) {
+    		control = UP;
+        }
+        else if(keyboard_state[SDL_SCANCODE_SPACE]) {
+                control = JUMP;
+    	} 
+        else if(keyboard_state[SDL_SCANCODE_LSHIFT]) {
+                control = CROUCH;
+    	}        
+        else if(keyboard_state[SDL_SCANCODE_ESCAPE]) {
+    		SDL_Quit();
+    	}
+        else{
+    		control = NOT_PRESSED;
+    	}
+      game_world->UpdateCameraPosition(control, Mouse_X, Mouse_Y);
       Draw(window, game_world);
-      break;
-    case  SDL_MOUSEMOTION:
-        // save old mouse coordinates X
-        Old_Mouse_X = Mouse_X;
-        // get mouse coordinates X
-        Mouse_X = event.motion.x;
-        
-      if (Mouse_X > Old_Mouse_X) {             // Mouse move Right
-              game_world -> Camera_Control('>');
-      }
-      else if (Mouse_X < Old_Mouse_X) {        // Mouse move Left
-              game_world -> Camera_Control('<');
-      }
-        // save old mouse coordinates Y
-        Old_Mouse_Y = Mouse_Y;
-        // get mouse coordinates Y
-        Mouse_Y = event.motion.y;
-      if (Mouse_Y < Old_Mouse_Y) {             // Mouse move Up 
-              game_world -> Camera_Control('^');
-      }
-      else if (Mouse_Y > Old_Mouse_Y) {	// Mouse move Down
-              game_world -> Camera_Control('v');
-      }
-      break;
-    case SDL_KEYDOWN:			// At keyboard press
-    switch (event.key.keysym.sym) {
-    case SDLK_ESCAPE:		 	// when pressing q
-	SDL_Quit();			// Quit program
-	cout << "Key 'q' Pressed, Game closed" << endl;
-    break;
-    case SDLK_w:			// When pressing w
-        game_world -> Camera_Control('w');
-      break;
-    case SDLK_a:			// When pressing a
-        game_world -> Camera_Control('a');
-      break;
-    case SDLK_s:			// When pressing s
-        game_world -> Camera_Control('s');
-      break;
-    case SDLK_d:			// When pressing d
-        game_world -> Camera_Control('d');
-      break;
-    case SDLK_UP:			// When pressing Arrow Up
-        game_world -> Camera_Control('^');
-      break;
-    case SDLK_LEFT:			// When pressing Arrow Left
-        game_world -> Camera_Control('<');
-      break;
-    case SDLK_DOWN:			// When pressing Arrow down
-        game_world -> Camera_Control('v');
-      break;
-    case SDLK_RIGHT:			// When pressing Arrow right
-        game_world -> Camera_Control('>');
-      break;
-    case SDLK_SPACE:                    // When pressing Space Go Up
-        game_world -> Camera_Control('+');
-      break;
-    case SDLK_TAB:                      // When pressing Tab Go Down
-        game_world -> Camera_Control('-');
-      break;
-    case SDLK_i:
-        game_world -> Camera_Control('i');
-    default:
+        break;
+        }
+      default:
       break;
       }
-    }
   }
 }
 

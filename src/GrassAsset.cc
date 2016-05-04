@@ -85,7 +85,7 @@ void GrassAsset::checkError(std::string file, int line) {
 
 void GrassAsset::Draw(GLuint program_token) {
   if(!glIsProgram(program_token)) {
-    std::cerr << "Drawing Grass with invalid program" << std::endl;
+    //std::cerr << "Drawing Grass with invalid program" << std::endl;
     return;
   }
   GLint validation_ok;

@@ -23,6 +23,10 @@ GameAssetManager::GameAssetManager(ApplicationMode mode) {
         program_token = CreateGLProgram(vertex_shader, fragment_shader);
 }
 
+void GameAssetManager::UpdateCameraPosition(Control control,  int Mouse_X, int Mouse_Y){
+        Camera_View = camera.UpdateCameraPosition(control, Mouse_X, Mouse_Y);
+  }
+
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Deletes a GameAssetManager, in particular it will clean up any modifications
 /// to the OpenGL state.
@@ -65,7 +69,7 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> game_asset) {
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Draws each GameAsset in the scene graph.
 //////////////////////////////////////////////////////////////////////////////////////////
-void GameAssetManager::Draw(glm::mat4 Camera_Projection, glm::mat4 Camera_View) {
+void GameAssetManager::Draw() {
 	for(auto ga: draw_list)
 	{
                 //////////////////////////////////////////////////////////////////////////////////////////
@@ -80,6 +84,8 @@ void GameAssetManager::Draw(glm::mat4 Camera_Projection, glm::mat4 Camera_View) 
 		GLuint Camera_View_Link = glGetUniformLocation(program_token, "Camera_View");
 		GLuint Camera_Model_Link = glGetUniformLocation(program_token, "Camera_Model");
 
+                Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
+                
 		glUniformMatrix4fv(Camera_Projection_Link, 1, GL_FALSE, &Camera_Projection[0][0]);
 		glUniformMatrix4fv(Camera_View_Link, 1, GL_FALSE, &Camera_View[0][0]);
 

@@ -104,7 +104,7 @@ void checkError(std::string file, int line) {
 
 void CubeAsset::Draw(GLuint program_token) {
   if(!glIsProgram(program_token)) {
-    std::cerr << "Drawing Cube with invalid program" << std::endl;
+    //std::cerr << "Drawing Cube with invalid program" << std::endl;
     return;
   }
   GLint validation_ok;

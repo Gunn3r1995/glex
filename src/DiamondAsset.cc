@@ -94,7 +94,7 @@ void DiamondAsset::checkError(std::string file, int line) {
 
 void DiamondAsset::Draw(GLuint program_token) {
   if(!glIsProgram(program_token)) {
-    std::cerr << "Drawing Diamond with invalid program" << std::endl;
+    //std::cerr << "Drawing Diamond with invalid program" << std::endl;
     return;
   }
   GLint validation_ok;

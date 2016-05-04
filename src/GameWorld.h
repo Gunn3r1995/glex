@@ -55,7 +55,7 @@ class GameWorld {
                 //////////////////////////////////////////////////////////////////////////////////////////
                 /// Call Camera_Control. will move in specfic direction
                 //////////////////////////////////////////////////////////////////////////////////////////
-                void Camera_Control(char key);
+               // void Camera_Control(char key);
 
                 //////////////////////////////////////////////////////////////////////////////////////////
                 /// Camera Variables.
@@ -84,6 +84,8 @@ class GameWorld {
                 glm::vec3 Movement_Z;
 
                 glm::vec3 Movement_X;
+                
+                void UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
 
                 float GetBoundingBox();
                 float GetLeftBoundingBox();

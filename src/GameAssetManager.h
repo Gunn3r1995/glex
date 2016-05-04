@@ -23,6 +23,7 @@
 #include "common.h"
 #include "GameAsset.h"
 #include "CubeAsset.h"
+#include "Camera.h"
 
 using namespace std;
 
@@ -39,7 +40,8 @@ class GameAssetManager {
         GameAssetManager(GameAssetManager const&&); // move constructor
         void operator = (GameAssetManager); // assignment
         void AddAsset(std::shared_ptr<GameAsset>);
-        void Draw(glm::mat4, glm::mat4);
+        void Draw();
+        void UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
 
  private:
         GLuint CreateGLProgram(std::string &, std::string &);
@@ -47,9 +49,13 @@ class GameAssetManager {
         // As this is private and we're writing to the GPU, we will use raw pointers.
         std::pair<GLchar *, GLint>  ReadShader(std::string &);
 
+        glm::mat4 Camera_View;
+        glm::mat4 Camera_Projection;
+
         // The internal scene graph is a simple list.
         std::vector<std::shared_ptr<GameAsset>> draw_list;
         std::vector<std::shared_ptr<CubeAsset>> asset_list;
+        Camera camera;
         GLuint program_token;
 };
 #endif // GAMEASSETMANAGER_H
