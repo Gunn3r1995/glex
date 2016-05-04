@@ -57,7 +57,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   /// Each of them has random animations or changes to them to show off the animation. 
   //////////////////////////////////////////////////////////////////////////////////////////
 
-        asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3(1.0f ,2.00f, -4.0f)),
+        asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3(1.0f ,2.00f, -4.0f),
                                                          glm::vec3(0.0f,0.0f,0.0f), false,
                                                          No_Rotation, false,
                                                          Double_Size, true));
@@ -80,7 +80,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
         asset_manager->AddAsset(make_shared<GrassAsset>(Spawn, glm::vec3(11.0f,1.50f, -4.0f), 
                                                         glm::vec3(0.0f,0.0f,0.0f), false,
                                                         No_Rotation, false,
-                                                        Giant_Size, true)));
+                                                        Giant_Size, true));
 
    /////////////////////////////////////////////////////////////////////////////////////////
    //AddAsset Layout 
