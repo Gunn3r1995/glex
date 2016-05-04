@@ -19,6 +19,10 @@ using namespace std;
 
 class GameAsset {
         public:
+                //////////////////////////////////////////////////////////////////////////////////////////
+                /// Current Assets Data
+                /// This gets the current assets data ready to be sent to the Bounding Box Class
+                ////////////////////////////////////////////////////////////////////////////////////////// 
                 GameAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, 
                           glm::vec3 animateTo, bool translate_bool, 
                           glm::vec3 rotate, bool rotate_bool,

@@ -101,6 +101,11 @@ class GameWorld {
                 float Front;
                 float Back;
 
+                //////////////////////////////////////////////////////////////////////////////////////////
+                /// Spawn Variables.
+                /// These are some default vectors to reduce the size and make it easier
+                /// to read the spawning of each asset
+                //////////////////////////////////////////////////////////////////////////////////////////               
                 glm::vec3 Spawn = glm::vec3(0.0f,0.0f,0.0f);
 
                 glm::vec3 No_Rotation = glm::vec3(0.0f,0.0f,0.0f);

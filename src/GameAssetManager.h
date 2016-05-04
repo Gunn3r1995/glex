@@ -39,7 +39,6 @@ class GameAssetManager {
         GameAssetManager(GameAssetManager const&&); // move constructor
         void operator = (GameAssetManager); // assignment
         void AddAsset(std::shared_ptr<GameAsset>);
-        void CollisionDetection();
         void Draw(glm::mat4, glm::mat4);
 
  private:

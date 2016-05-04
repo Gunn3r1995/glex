@@ -68,6 +68,12 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> game_asset) {
 void GameAssetManager::Draw(glm::mat4 Camera_Projection, glm::mat4 Camera_View) {
 	for(auto ga: draw_list)
 	{
+                //////////////////////////////////////////////////////////////////////////////////////////
+                /// Camera/Asset Matrix 
+                /// 
+                /// This class links the camera matrix to the Draw method as well as the new position
+                /// the Game Assets are set.
+                ////////////////////////////////////////////////////////////////////////////////////////// 
 		glm::mat4 Camera_Model(1.0f);
 
 		GLuint Camera_Projection_Link = glGetUniformLocation(program_token, "Camera_Projection");
