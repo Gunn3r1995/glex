@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -25,8 +33,9 @@
   <td id="projectlogo"><img alt="Logo" src="Glex.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project Glex
+   &#160;<span id="projectnumber">2</span>
    </div>
-   <div id="projectbrief">A Simple 3D Voxel Game, Which Is Currently In Development.</div>
+   <div id="projectbrief">3D Voxel based game</div>
   </td>
  </tr>
  </tbody>
@@ -40,7 +49,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,6 +78,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('hierarchy.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,39 +114,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock">
 <p><a href="hierarchy.html">Go to the textual class hierarchy</a></p>
 </div><table border="0" cellspacing="10" cellpadding="0">
-<tr><td><img src="inherit_graph_0.png" border="0" alt="" usemap="#GameAsset"/>
-<map name="GameAsset" id="GameAsset">
-<area shape="rect" id="node1" href="classGameAsset.html" title="GameAsset" alt="" coords="5,132,96,159"/>
-<area shape="rect" id="node2" href="classCubeAsset.html" title="CubeAsset" alt="" coords="155,5,241,32"/>
-<area shape="rect" id="node3" href="classDiamondAsset.html" title="DiamondAsset" alt="" coords="144,56,252,83"/>
-<area shape="rect" id="node4" href="classGrassAsset.html" title="GrassAsset" alt="" coords="153,107,243,133"/>
-<area shape="rect" id="node5" href="classGroundAsset.html" title="GroundAsset" alt="" coords="149,157,247,184"/>
-<area shape="rect" id="node6" href="classLeavesAsset.html" title="LeavesAsset" alt="" coords="149,208,247,235"/>
-<area shape="rect" id="node7" href="classPyramidAsset.html" title="PyramidAsset" alt="" coords="146,259,250,285"/>
+<tr><td><img src="inherit_graph_0.png" border="0" alt="" usemap="#_bounding_box"/>
+<map name="_bounding_box" id="_bounding_box">
+<area shape="rect" id="node1" href="class_bounding_box.html" title="BoundingBox" alt="" coords="5,5,104,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#GameAssetManager"/>
-<map name="GameAssetManager" id="GameAssetManager">
-<area shape="rect" id="node1" href="classGameAssetManager.html" title="GameAssetManager is a container for GameAssets. " alt="" coords="5,5,147,32"/>
+<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#_game_asset"/>
+<map name="_game_asset" id="_game_asset">
+<area shape="rect" id="node1" href="class_game_asset.html" title="GameAsset" alt="" coords="5,132,96,159"/>
+<area shape="rect" id="node2" href="class_cube_asset.html" title="CubeAsset" alt="" coords="155,5,241,32"/>
+<area shape="rect" id="node3" href="class_diamond_asset.html" title="DiamondAsset" alt="" coords="144,56,252,83"/>
+<area shape="rect" id="node4" href="class_grass_asset.html" title="GrassAsset" alt="" coords="153,107,243,133"/>
+<area shape="rect" id="node5" href="class_ground_asset.html" title="GroundAsset" alt="" coords="149,157,247,184"/>
+<area shape="rect" id="node6" href="class_leaves_asset.html" title="LeavesAsset" alt="" coords="149,208,247,235"/>
+<area shape="rect" id="node7" href="class_pyramid_asset.html" title="PyramidAsset" alt="" coords="146,259,250,285"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#GameWorld"/>
-<map name="GameWorld" id="GameWorld">
-<area shape="rect" id="node1" href="classGameWorld.html" title="GameWorld allows us to separate the management of the game world from the nuts and bolts of game loop..." alt="" coords="5,5,96,32"/>
+<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#_game_asset_manager"/>
+<map name="_game_asset_manager" id="_game_asset_manager">
+<area shape="rect" id="node1" href="class_game_asset_manager.html" title="GameAssetManager" alt="" coords="5,5,147,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#SDLWindowDeleter"/>
-<map name="SDLWindowDeleter" id="SDLWindowDeleter">
-<area shape="rect" id="node1" href="structSDLWindowDeleter.html" title="SDLWindowDeleter" alt="" coords="5,5,143,32"/>
+<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#_game_world"/>
+<map name="_game_world" id="_game_world">
+<area shape="rect" id="node1" href="class_game_world.html" title="GameWorld" alt="" coords="5,5,96,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_s_d_l_window_deleter"/>
+<map name="_s_d_l_window_deleter" id="_s_d_l_window_deleter">
+<area shape="rect" id="node1" href="struct_s_d_l_window_deleter.html" title="SDLWindowDeleter" alt="" coords="5,5,143,32"/>
 </map>
 </td></tr>
 </table>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

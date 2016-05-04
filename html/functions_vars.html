@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -25,8 +33,9 @@
   <td id="projectlogo"><img alt="Logo" src="Glex.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project Glex
+   &#160;<span id="projectnumber">2</span>
    </div>
-   <div id="projectbrief">A Simple 3D Voxel Game, Which Is Currently In Development.</div>
+   <div id="projectbrief">3D Voxel based game</div>
   </td>
  </tr>
  </tbody>
@@ -40,7 +49,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -76,19 +84,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
     </ul>
   </div>
-  <div id="navrow4" class="tabs3">
-    <ul class="tablist">
-      <li><a href="#index_a"><span>a</span></a></li>
-      <li><a href="#index_c"><span>c</span></a></li>
-      <li><a href="#index_d"><span>d</span></a></li>
-      <li><a href="#index_e"><span>e</span></a></li>
-      <li><a href="#index_m"><span>m</span></a></li>
-      <li><a href="#index_p"><span>p</span></a></li>
-      <li><a href="#index_r"><span>r</span></a></li>
-      <li class="current"><a href="#index_v"><span>v</span></a></li>
-    </ul>
-  </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_vars.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -104,123 +114,68 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="contents">
-&#160;
-
-<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
-<li>asset_manager
-: <a class="el" href="classGameWorld.html#aec5c0bca4fb5a41e4aac2dce2871266d">GameWorld</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+&#160;<ul>
 <li>Camera_Horizontal
-: <a class="el" href="classGameWorld.html#a7f4911dda9b3b4e4eb03ece87e16cd96">GameWorld</a>
+: <a class="el" href="class_game_world.html#a7f4911dda9b3b4e4eb03ece87e16cd96">GameWorld</a>
 </li>
 <li>Camera_Position
-: <a class="el" href="classGameWorld.html#ad80e597474ea4c52a583e81788187571">GameWorld</a>
+: <a class="el" href="class_game_world.html#ad80e597474ea4c52a583e81788187571">GameWorld</a>
 </li>
 <li>Camera_Vertical
-: <a class="el" href="classGameWorld.html#a26658e739c4d267b1be35ed820089931">GameWorld</a>
+: <a class="el" href="class_game_world.html#a26658e739c4d267b1be35ed820089931">GameWorld</a>
 </li>
-<li>colour_buffer_length
-: <a class="el" href="classCubeAsset.html#a12de81acb020b82bd26cda6284910012">CubeAsset</a>
-, <a class="el" href="classDiamondAsset.html#a19cc055d55437b1d93bea8e11ddaf845">DiamondAsset</a>
-, <a class="el" href="classGrassAsset.html#aede615b26df4a5624f262a10bc000d92">GrassAsset</a>
-, <a class="el" href="classGroundAsset.html#aa7808332316a2ba6f7fd0efd7ec5bdb2">GroundAsset</a>
-, <a class="el" href="classLeavesAsset.html#aa98b368598e1181d85d9797e07506ecb">LeavesAsset</a>
-, <a class="el" href="classPyramidAsset.html#addd87a747d7bd186bd1b3e3070185c69">PyramidAsset</a>
+<li>Camera_X_Position
+: <a class="el" href="class_game_world.html#ad07b1f650edb08ddb05e74a22588bda0">GameWorld</a>
 </li>
-<li>colour_buffer_token
-: <a class="el" href="classCubeAsset.html#a75f98d346175cd91cdee04f1885f5327">CubeAsset</a>
-, <a class="el" href="classDiamondAsset.html#a500edbd99d521120d7028f3bf4c24743">DiamondAsset</a>
-, <a class="el" href="classGrassAsset.html#a96a3d9c956d29cd63308c7a97f6ac3bf">GrassAsset</a>
-, <a class="el" href="classGroundAsset.html#acae5e4f08e295851822c3dbb3c10f2ee">GroundAsset</a>
-, <a class="el" href="classLeavesAsset.html#a7e586bea0f5a80b9a262f11e31a5faac">LeavesAsset</a>
-, <a class="el" href="classPyramidAsset.html#a1c82b429f52d92feefacb5755017aec0">PyramidAsset</a>
+<li>Camera_Y_Position
+: <a class="el" href="class_game_world.html#ae3e7cab30494ff5a8e91dfa7406deb16">GameWorld</a>
 </li>
-</ul>
-
-
-<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
-<li>draw_list
-: <a class="el" href="classGameAssetManager.html#a671cddd92f1de4186c582fe0c4297b7d">GameAssetManager</a>
+<li>Camera_Z_Position
+: <a class="el" href="class_game_world.html#ad993ea24fbacfc98410894078e916927">GameWorld</a>
 </li>
-</ul>
-
-
-<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
-<li>element_buffer_length
-: <a class="el" href="classCubeAsset.html#ac66c2ec869f392515dad4ebda1fe4792">CubeAsset</a>
-, <a class="el" href="classDiamondAsset.html#a3fe4461f114f4370a9d800e4425f1c8a">DiamondAsset</a>
-, <a class="el" href="classGrassAsset.html#a3bb3e3d9ac2d7806f0c8d2c04559e4c9">GrassAsset</a>
-, <a class="el" href="classGroundAsset.html#a68cd956ec94f65cd5def56e3e442cd55">GroundAsset</a>
-, <a class="el" href="classLeavesAsset.html#a6a09aacce21f8ce5a6b80da9f40bc9d5">LeavesAsset</a>
-, <a class="el" href="classPyramidAsset.html#a5566105859271b493eab3b5f9c02f866">PyramidAsset</a>
-</li>
-<li>element_buffer_token
-: <a class="el" href="classCubeAsset.html#a4fae699256e7c5633a8174a93ca8a0ec">CubeAsset</a>
-, <a class="el" href="classDiamondAsset.html#aa2ad44c331156835eba1ed5175bde2e6">DiamondAsset</a>
-, <a class="el" href="classGrassAsset.html#accd7a1c61ad5a5c29f9e8abf653e86a8">GrassAsset</a>
-, <a class="el" href="classGroundAsset.html#af9612e4d7ba49cbacc2ee93266c2b89e">GroundAsset</a>
-, <a class="el" href="classLeavesAsset.html#a2a47b7b2ad8a35f4499a12db80073efb">LeavesAsset</a>
-, <a class="el" href="classPyramidAsset.html#a6f7e2f50904d2941e33df8eb7f5f9c2d">PyramidAsset</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>MaximumNumber
-: <a class="el" href="classGameWorld.html#a1cddcf233625a98581eaeb9fd7c8c574">GameWorld</a>
+: <a class="el" href="class_game_world.html#a1cddcf233625a98581eaeb9fd7c8c574">GameWorld</a>
 </li>
 <li>MinimumNumber
-: <a class="el" href="classGameWorld.html#a54ccf4cf03172ab8779e9c326c8846ed">GameWorld</a>
+: <a class="el" href="class_game_world.html#a54ccf4cf03172ab8779e9c326c8846ed">GameWorld</a>
 </li>
 <li>Mouse_Sensitivity
-: <a class="el" href="classGameWorld.html#a9bf4eb977e6ab9299aaef1345c4fa4dd">GameWorld</a>
+: <a class="el" href="class_game_world.html#a9bf4eb977e6ab9299aaef1345c4fa4dd">GameWorld</a>
 </li>
 <li>Movement_X
-: <a class="el" href="classGameWorld.html#a968eb29424b68f7cd79a5896c62e944d">GameWorld</a>
+: <a class="el" href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">GameWorld</a>
 </li>
 <li>Movement_Z
-: <a class="el" href="classGameWorld.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">GameWorld</a>
+: <a class="el" href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">GameWorld</a>
 </li>
-</ul>
-
-
-<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>Old_Camera_Position
+: <a class="el" href="class_game_world.html#ade0aa1baaba6ac54674638cef313c0bb">GameWorld</a>
+</li>
+<li>Old_Camera_X_Position
+: <a class="el" href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">GameWorld</a>
+</li>
+<li>Old_Camera_Y_Position
+: <a class="el" href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">GameWorld</a>
+</li>
+<li>Old_Camera_Z_Position
+: <a class="el" href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">GameWorld</a>
+</li>
 <li>Player_Speed
-: <a class="el" href="classGameWorld.html#ae8ab2ac372729cec44ea316f6bdf45ca">GameWorld</a>
+: <a class="el" href="class_game_world.html#ae8ab2ac372729cec44ea316f6bdf45ca">GameWorld</a>
 </li>
-<li>program_token
-: <a class="el" href="classGameAssetManager.html#ad7bab17862e06ca692289f934b40548b">GameAssetManager</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>Random
-: <a class="el" href="classGameWorld.html#a56652cc9880b3ba1be61395066c863c3">GameWorld</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
-<li>vertex_buffer_token
-: <a class="el" href="classCubeAsset.html#a31bd098f60e2c24988316a9cc9335987">CubeAsset</a>
-, <a class="el" href="classDiamondAsset.html#ac1965c61c0cfd5719c5c01bac98fd312">DiamondAsset</a>
-, <a class="el" href="classGrassAsset.html#a7b98229bcd980cddf4435518c254322e">GrassAsset</a>
-, <a class="el" href="classGroundAsset.html#a32dbd8507aff2931228318f84160e493">GroundAsset</a>
-, <a class="el" href="classLeavesAsset.html#a360df8eb2239e2f4ed069522d0de7629">LeavesAsset</a>
-, <a class="el" href="classPyramidAsset.html#a54d9cec42bc77d07a66e6c1cd55049b0">PyramidAsset</a>
+: <a class="el" href="class_game_world.html#a56652cc9880b3ba1be61395066c863c3">GameWorld</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>

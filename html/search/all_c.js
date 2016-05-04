@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['random',['Random',['../classGameWorld.html#a56652cc9880b3ba1be61395066c863c3',1,'GameWorld']]],
-  ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
-  ['readshader',['ReadShader',['../classGameAssetManager.html#a23b124a213308a68a882727127601c97',1,'GameAssetManager']]],
-  ['rotate',['ROTATE',['../common_8h.html#add86e7c88dd109abea3f708b422f31f0a3dcfe0046eb5876e287dbf0914819b16',1,'common.h']]],
-  ['run_5fgraphics_5fdisplay',['RUN_GRAPHICS_DISPLAY',['../main_8cc.html#a6ff0ea1b288e03115f981ba31f96fade',1,'main.cc']]]
+  ['tick',['tick',['../main_8cc.html#a70eaa727262f633037c3f4b7d3ff24c2',1,'main.cc']]],
+  ['transform',['TRANSFORM',['../common_8h.html#add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335',1,'common.h']]],
+  ['translate',['Translate',['../class_bounding_box.html#a09d5381014b3a3633200575bee9b06e5',1,'BoundingBox::Translate()'],['../class_game_asset.html#a5c0479920e4aa2fea7830a47c1a4e3f3',1,'GameAsset::Translate()']]]
 ];

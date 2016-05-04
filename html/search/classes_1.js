@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['diamondasset',['DiamondAsset',['../classDiamondAsset.html',1,'']]]
+  ['cubeasset',['CubeAsset',['../class_cube_asset.html',1,'']]]
 ];

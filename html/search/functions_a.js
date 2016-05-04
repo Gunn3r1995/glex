@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tick',['tick',['../main_8cc.html#a70eaa727262f633037c3f4b7d3ff24c2',1,'main.cc']]]
+  ['rotate',['Rotate',['../class_bounding_box.html#a728a3700574a5d9fbcac6d94561336ed',1,'BoundingBox']]]
 ];

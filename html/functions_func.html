@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -25,8 +33,9 @@
   <td id="projectlogo"><img alt="Logo" src="Glex.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project Glex
+   &#160;<span id="projectnumber">2</span>
    </div>
-   <div id="projectbrief">A Simple 3D Voxel Game, Which Is Currently In Development.</div>
+   <div id="projectbrief">3D Voxel based game</div>
   </td>
  </tr>
  </tbody>
@@ -40,7 +49,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -79,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
       <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
@@ -86,10 +95,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
       <li class="current"><a href="#index_~"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_func.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -109,129 +134,180 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
 <li>AddAsset()
-: <a class="el" href="classGameAssetManager.html#ad3de8ff00d55ba04728b1de8213b2349">GameAssetManager</a>
+: <a class="el" href="class_game_asset_manager.html#ad3de8ff00d55ba04728b1de8213b2349">GameAssetManager</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>BoundingBox()
+: <a class="el" href="class_bounding_box.html#a713d7880a2349ed37e0c9c8a13776b7f">BoundingBox</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>Camera_Control()
-: <a class="el" href="classGameWorld.html#a43080b1c693798b12f7faf28a6b45ab5">GameWorld</a>
+: <a class="el" href="class_game_world.html#a43080b1c693798b12f7faf28a6b45ab5">GameWorld</a>
 </li>
-<li>checkError()
-: <a class="el" href="classCubeAsset.html#ac3855728a8d6c1612ebc85f82d3b535e">CubeAsset</a>
-, <a class="el" href="classDiamondAsset.html#ad0eafff97cf565024dd085f3c8786a93">DiamondAsset</a>
-, <a class="el" href="classGrassAsset.html#a06cf99092ea2217df1855e2d6375396b">GrassAsset</a>
-, <a class="el" href="classGroundAsset.html#a4fad6edd0d2f5aee6acc9a5a872aea96">GroundAsset</a>
-, <a class="el" href="classLeavesAsset.html#aa5ac41c76e9ed66570891ccf00b9c63a">LeavesAsset</a>
-, <a class="el" href="classPyramidAsset.html#a34350044042e0098446dc9e0a260cb70">PyramidAsset</a>
-</li>
-<li>CreateGLESShader()
-: <a class="el" href="classGameAssetManager.html#a1a1e5c07f941e8d3fda40d9442ac7037">GameAssetManager</a>
-</li>
-<li>CreateGLProgram()
-: <a class="el" href="classGameAssetManager.html#abec45b44a8b35ad2d7d817ba10e0dd8d">GameAssetManager</a>
+<li>CollisionDetection()
+: <a class="el" href="class_game_asset_manager.html#a2d818b45f3701a7be2adb161dc53e32d">GameAssetManager</a>
 </li>
 <li>CubeAsset()
-: <a class="el" href="classCubeAsset.html#a0252e564114a3cda7e3911ef95742a34">CubeAsset</a>
+: <a class="el" href="class_cube_asset.html#a55a34ecca9836fdc848e861c6cf5f549">CubeAsset</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
 <li>DiamondAsset()
-: <a class="el" href="classDiamondAsset.html#a6140b65eb30ad5a4141fec20ec7f8fad">DiamondAsset</a>
+: <a class="el" href="class_diamond_asset.html#ac3fad9dcd6871e3baf3bf7ed3f816ee5">DiamondAsset</a>
 </li>
 <li>Draw()
-: <a class="el" href="classCubeAsset.html#a1af568486056e254ffcf98fd99947bfe">CubeAsset</a>
-, <a class="el" href="classDiamondAsset.html#a0c259031894623285b3b511321c73abb">DiamondAsset</a>
-, <a class="el" href="classGameAsset.html#a961aa51ca0a9961fc584c0b5d5431300">GameAsset</a>
-, <a class="el" href="classGameAssetManager.html#a32837132bd70a9a9ed537323c2d3d886">GameAssetManager</a>
-, <a class="el" href="classGameWorld.html#a275418607d8286979b276f165ad5876b">GameWorld</a>
-, <a class="el" href="classGrassAsset.html#a0178a72c5bf2f00bcc6a240b851f3a25">GrassAsset</a>
-, <a class="el" href="classGroundAsset.html#a440f983638c7a7ccb6a39718444dfe95">GroundAsset</a>
-, <a class="el" href="classLeavesAsset.html#a807fd196b83e5adb131d489ef6645742">LeavesAsset</a>
-, <a class="el" href="classPyramidAsset.html#aaea45da4956d79ec9ab96e9d0ccef3fe">PyramidAsset</a>
+: <a class="el" href="class_cube_asset.html#a1af568486056e254ffcf98fd99947bfe">CubeAsset</a>
+, <a class="el" href="class_diamond_asset.html#a0c259031894623285b3b511321c73abb">DiamondAsset</a>
+, <a class="el" href="class_game_asset.html#a961aa51ca0a9961fc584c0b5d5431300">GameAsset</a>
+, <a class="el" href="class_game_asset_manager.html#a1c4c7e39bdc8aac2864fcdf4c5ec4c5b">GameAssetManager</a>
+, <a class="el" href="class_game_world.html#a275418607d8286979b276f165ad5876b">GameWorld</a>
+, <a class="el" href="class_grass_asset.html#a0178a72c5bf2f00bcc6a240b851f3a25">GrassAsset</a>
+, <a class="el" href="class_ground_asset.html#a440f983638c7a7ccb6a39718444dfe95">GroundAsset</a>
+, <a class="el" href="class_leaves_asset.html#a807fd196b83e5adb131d489ef6645742">LeavesAsset</a>
+, <a class="el" href="class_pyramid_asset.html#aaea45da4956d79ec9ab96e9d0ccef3fe">PyramidAsset</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>GameAsset()
+: <a class="el" href="class_game_asset.html#a06fe62126ab0dade520fc05b4f598959">GameAsset</a>
+</li>
 <li>GameAssetManager()
-: <a class="el" href="classGameAssetManager.html#aaa0d58e276cc10ad91a7457085598a71">GameAssetManager</a>
+: <a class="el" href="class_game_asset_manager.html#aaa0d58e276cc10ad91a7457085598a71">GameAssetManager</a>
 </li>
 <li>GameWorld()
-: <a class="el" href="classGameWorld.html#a17a84e57a80600961088afc753036f89">GameWorld</a>
+: <a class="el" href="class_game_world.html#a17a84e57a80600961088afc753036f89">GameWorld</a>
+</li>
+<li>GetBackBoundingBox()
+: <a class="el" href="class_game_world.html#ab0a7b952d8bb52952b1b6d86ddc032bf">GameWorld</a>
+</li>
+<li>GetBottomBoundingBox()
+: <a class="el" href="class_game_world.html#a81b70a9edde19107f7f83916789e6a2d">GameWorld</a>
+</li>
+<li>GetBoundingBox()
+: <a class="el" href="class_game_world.html#adc121717db5b5b7c5b147fd9d8d63d60">GameWorld</a>
+</li>
+<li>GetFrontBoundingBox()
+: <a class="el" href="class_game_world.html#a24af072b11dc4185f98f4fd1c8fc9b9b">GameWorld</a>
+</li>
+<li>GetLeftBoundingBox()
+: <a class="el" href="class_game_world.html#a40b2b79c83fbaf91d95330829f90b100">GameWorld</a>
+</li>
+<li>GetModel()
+: <a class="el" href="class_bounding_box.html#a5fd1769f7157e7df40a6ab6a242fcfcc">BoundingBox</a>
+, <a class="el" href="class_game_asset.html#a50a4795382fb55c7513314f82821e444">GameAsset</a>
+</li>
+<li>GetRightBoundingBox()
+: <a class="el" href="class_game_world.html#adc231d381de727107b107e0049566731">GameWorld</a>
+</li>
+<li>GetTopBoundingBox()
+: <a class="el" href="class_game_world.html#a349104794b2db443c07485171e5ff7af">GameWorld</a>
+</li>
+<li>GetTranslateTo()
+: <a class="el" href="class_bounding_box.html#a45332d45575fe93b516267436abcd4fe">BoundingBox</a>
+</li>
+<li>GetTranslationMatrix()
+: <a class="el" href="class_bounding_box.html#a9839579f8db965684a3e3e71cd74c7c9">BoundingBox</a>
+</li>
+<li>GetVec3()
+: <a class="el" href="class_cube_asset.html#a4cfa6bb819ac03a9c85cf0ae979704b7">CubeAsset</a>
 </li>
 <li>GrassAsset()
-: <a class="el" href="classGrassAsset.html#a961ec7133a9fc6f16a7347a122f95952">GrassAsset</a>
+: <a class="el" href="class_grass_asset.html#ab19bc11f9a5c52c155902274d7b203ce">GrassAsset</a>
 </li>
 <li>GroundAsset()
-: <a class="el" href="classGroundAsset.html#a4b927d07732cb30f8d5b35047bc2de22">GroundAsset</a>
+: <a class="el" href="class_ground_asset.html#a5e7b7f4e747da65a873f2b3159a00983">GroundAsset</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>LeavesAsset()
-: <a class="el" href="classLeavesAsset.html#a1fb1212e5399f16071f0be7ff42cc344">LeavesAsset</a>
+: <a class="el" href="class_leaves_asset.html#ab01af0408785cbb701231930255e150e">LeavesAsset</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
 <li>operator()()
-: <a class="el" href="structSDLWindowDeleter.html#a2aedcc99c3756ae090c38badabeb10b1">SDLWindowDeleter</a>
+: <a class="el" href="struct_s_d_l_window_deleter.html#a2aedcc99c3756ae090c38badabeb10b1">SDLWindowDeleter</a>
 </li>
 <li>operator=()
-: <a class="el" href="classGameAssetManager.html#a7c9e4fce50b47b78652e7ff0b4dbb629">GameAssetManager</a>
+: <a class="el" href="class_game_asset_manager.html#a7c9e4fce50b47b78652e7ff0b4dbb629">GameAssetManager</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
 <li>PyramidAsset()
-: <a class="el" href="classPyramidAsset.html#a3f7c6fd658ed0d3e276d7fe6c1de95d1">PyramidAsset</a>
+: <a class="el" href="class_pyramid_asset.html#ac3a0c7c46bde602066129a87f19cf2ea">PyramidAsset</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
-<li>ReadShader()
-: <a class="el" href="classGameAssetManager.html#a23b124a213308a68a882727127601c97">GameAssetManager</a>
+<li>Rotate()
+: <a class="el" href="class_bounding_box.html#a728a3700574a5d9fbcac6d94561336ed">BoundingBox</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>Scale()
+: <a class="el" href="class_bounding_box.html#ab84e48c88a509b20a469ccf5e23c4f11">BoundingBox</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>Translate()
+: <a class="el" href="class_bounding_box.html#a09d5381014b3a3633200575bee9b06e5">BoundingBox</a>
+, <a class="el" href="class_game_asset.html#a5c0479920e4aa2fea7830a47c1a4e3f3">GameAsset</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_~"></a>- ~ -</h3><ul>
 <li>~CubeAsset()
-: <a class="el" href="classCubeAsset.html#ab3ab9a5da82cbf8537a28652410093b1">CubeAsset</a>
+: <a class="el" href="class_cube_asset.html#ab3ab9a5da82cbf8537a28652410093b1">CubeAsset</a>
 </li>
 <li>~DiamondAsset()
-: <a class="el" href="classDiamondAsset.html#a1b7bf6ba76651a9304943f2c41fe36b8">DiamondAsset</a>
+: <a class="el" href="class_diamond_asset.html#a1b7bf6ba76651a9304943f2c41fe36b8">DiamondAsset</a>
 </li>
 <li>~GameAssetManager()
-: <a class="el" href="classGameAssetManager.html#a1270bd61ecbcca563f079803e40c9b77">GameAssetManager</a>
+: <a class="el" href="class_game_asset_manager.html#a1270bd61ecbcca563f079803e40c9b77">GameAssetManager</a>
 </li>
 <li>~GrassAsset()
-: <a class="el" href="classGrassAsset.html#a07e2206bacd2ec120f27f20e5df635b7">GrassAsset</a>
+: <a class="el" href="class_grass_asset.html#a07e2206bacd2ec120f27f20e5df635b7">GrassAsset</a>
 </li>
 <li>~GroundAsset()
-: <a class="el" href="classGroundAsset.html#a8f607f3cabded6280c5a5eb2cbfa8c79">GroundAsset</a>
+: <a class="el" href="class_ground_asset.html#a8f607f3cabded6280c5a5eb2cbfa8c79">GroundAsset</a>
 </li>
 <li>~LeavesAsset()
-: <a class="el" href="classLeavesAsset.html#ae98d43a307f4c75cc8a661f0b36a213a">LeavesAsset</a>
+: <a class="el" href="class_leaves_asset.html#ae98d43a307f4c75cc8a661f0b36a213a">LeavesAsset</a>
 </li>
 <li>~PyramidAsset()
-: <a class="el" href="classPyramidAsset.html#afb388a196f43a3808b2d4f6fdb89ee84">PyramidAsset</a>
+: <a class="el" href="class_pyramid_asset.html#afb388a196f43a3808b2d4f6fdb89ee84">PyramidAsset</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
 </body>
 </html>
