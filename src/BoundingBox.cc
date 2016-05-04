@@ -48,7 +48,10 @@ glm::mat4 BoundingBox::GetModel() {
         Model_Matrix = glm::rotate(Model_Matrix, this->rotate.z, glm::vec3(0, 0, 1));
         return Model_Matrix;
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////
+///Translate Method
+///This controls the translation animation, to move the assets on the x, y or z axis
+////////////////////////////////////////////////////////////////////////////////////////// 
 void BoundingBox::Translate(glm::vec3 translate) {
         //Temp
 	if(this->translateTo.x < animateTo.x && this->translateTo.y < animateTo.y && this->translateTo.z < animateTo.z) {
@@ -59,6 +62,10 @@ void BoundingBox::Translate(glm::vec3 translate) {
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+/// Rotate Method
+/// Controls the rotation of the asset
+////////////////////////////////////////////////////////////////////////////////////////// 
 void BoundingBox::Rotate(glm::vec3 rotateTo) {
         if(this->rotate.x <= 100.1f && this->rotate.y <= 100.1f && this->rotate.z <= 100.1f) {
                 this->rotate = this->rotate + glm::vec3(0.1f , 0.1f, 0.1f);
@@ -68,6 +75,10 @@ void BoundingBox::Rotate(glm::vec3 rotateTo) {
         }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+/// Sclae Method
+/// Controls the size of the Asset
+//////////////////////////////////////////////////////////////////////////////////////////
 void BoundingBox::Scale(glm::vec3 scaleTo) {
 	if(this->scale.x < scaleTo.x && this->scale.y < scaleTo.y && this->scale.z < scaleTo.z) {
 		this->scale = this->scale + glm::vec3(0.01f,0.01f,0.01f);
@@ -77,6 +88,10 @@ void BoundingBox::Scale(glm::vec3 scaleTo) {
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+/// GetTranslateTo
+/// Returns the Current position the BoundingBox is at
+//////////////////////////////////////////////////////////////////////////////////////////
 glm::vec3 BoundingBox::GetTranslateTo() {
 	return translateTo;
 }
