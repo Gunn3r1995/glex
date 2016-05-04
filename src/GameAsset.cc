@@ -9,6 +9,7 @@ GameAsset::GameAsset(glm::vec3 xyzPosition, glm::vec3 translateTo,
         /// This Method Sends all the Data from spawning the Asset and sends it to the Bounding Box
         /// Class to create the Bounding Box and Manipulate the Asset
         ////////////////////////////////////////////////////////////////////////////////////////// 
+
 	Bounding_Box = std::make_shared<BoundingBox>(xyzPosition, translateTo, 
                                                      animateTo, translate_bool, 
                                                      rotate, rotate_bool, 

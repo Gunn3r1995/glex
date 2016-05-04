@@ -270,6 +270,9 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
         else if(keyboard_state[SDL_SCANCODE_ESCAPE]) {
     		SDL_Quit();
     	}
+        else if(keyboard_state[SDL_SCANCODE_I]) {
+                control = PRINT;
+        }
         else{
     		control = NOT_PRESSED;
     	}

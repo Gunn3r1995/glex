@@ -551,37 +551,8 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
 //////////////////////////////////////////////////////////////////////////////////////////
 void GameWorld::Draw() {
         asset_manager->Draw();
-   
 }
 
 void GameWorld::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y){ 
         asset_manager->UpdateCameraPosition(control, Mouse_X, Mouse_Y);
 }
-
-/*
-float GameWorld::GetLeftBoundingBox() {
-        Left = Camera_X_Position - 0.5;
-        return Left;
-}
-
-float GameWorld::GetRightBoundingBox() {
-        Right = Camera_X_Position + 0.5;
-        return Right;    
-}
-
-float GameWorld::GetTopBoundingBox() {
-        Top = Camera_Y_Position + 0.5;
-        return Top;       
-}
-float GameWorld::GetBottomBoundingBox() {
-        Bottom = Camera_Y_Position - 0.5;
-        return Bottom;        
-}
-float GameWorld::GetFrontBoundingBox() {
-        Front = Camera_Z_Position + 0.5;
-        return Front; 
-}
-float GameWorld::GetBackBoundingBox() {
-        Back = Camera_Z_Position - 0.5;
-        return Back;        
-}*/

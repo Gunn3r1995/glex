@@ -13,8 +13,15 @@ using namespace std;
 #   error "Unknown compiler"
 #endif
 
+#include <iostream>
+
+#include <glm/glm.hpp>
 #include <glm/ext.hpp>
+#include <vector>
+#include <memory>
+
 #include "common.h"
+#include "GameAsset.h"
 
 class Camera {
         public:
@@ -22,13 +29,13 @@ class Camera {
                 Camera();
 	        glm::mat4 UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
 
-                //float GetBoundingBox();
-                //float GetLeftBoundingBox();
-                //float GetRightBoundingBox();
-                //float GetTopBoundingBox();
-                //float GetBottomBoundingBox();
-                //float GetFrontBoundingBox();
-                //float GetBackBoundingBox();     
+                float GetBoundingBox();
+                float GetLeftBoundingBox();
+                float GetRightBoundingBox();
+                float GetTopBoundingBox();
+                float GetBottomBoundingBox();
+                float GetFrontBoundingBox();
+                float GetBackBoundingBox();     
         private:
                 
                 //////////////////////////////////////////////////////////////////////////////////////////
@@ -49,16 +56,17 @@ class Camera {
 	        float mouseDeltaY;
 
                 glm::vec3 Camera_Position;
-                glm::vec3 Old_Camera_Position = Camera_Position;
+                glm::vec3 Camera_Old_Position = Camera_Position;
 
                 glm::vec3 Movement_Z;
                 glm::vec3 Movement_X;
 
-                //float Left;
-                //float Right;
-                //float Top;
-                //float Bottom;
-                //float Front;
-                //float Back;
+                float Left;
+                float Right;
+                float Top;
+                float Bottom;
+                float Front;
+                float Back;
+                std::vector<std::shared_ptr<GameAsset>> draw_list;
 };
 #endif // CAMERA_H

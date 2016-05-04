@@ -7,8 +7,8 @@
   /// Tells the Camera matrix what position to look at and where to move
   //////////////////////////////////////////////////////////////////////////////////////////
 Camera::Camera() {
-
           Camera_Position = glm::vec3(0.0f, 0.0f, 0.0f);
+          Camera_Old_Position = Camera_Position;
 
 	  Camera_Horizontal = 0.0f;
 	  Camera_Vertical = 0.0f;
@@ -16,9 +16,7 @@ Camera::Camera() {
           mouseDeltaX = 0.0;
 	  mouseDeltaY = 0.0;
 
-	  Player_Speed = 0.5;
-          
-          Old_Camera_Position = Camera_Position;  
+	  Player_Speed = 0.5; 
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -27,6 +25,7 @@ Camera::Camera() {
 /// Sends the camera positions and movements to the translate shader
 //////////////////////////////////////////////////////////////////////////////////////////
 glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y) {
+        //std::vector<std::shared_ptr<GameAsset>> &world_array
         //////////////////////////////////////////////////////////////////////////////////////////
         /// Camera Direction
         ///  Calculates the distance each camera movement changes the camera direction
@@ -57,6 +56,10 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
 
 	glm::vec3 vup = glm::cross(Movement_X, direction);
 
+        Camera_Old_Position.x = Camera_Position[0];
+        Camera_Old_Position.y = Camera_Position[1];
+        Camera_Old_Position.z = Camera_Position[2];
+
         if(control == UP) {
 		Camera_Position +=  Movement_Z * Player_Speed;
 	}
@@ -75,7 +78,12 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
         else if(control == CROUCH) {
                 Camera_Position.y -= 0.5f * Player_Speed;
         }
-     
+        else if(control == PRINT) {
+                cout << "Camera Position: " << glm::to_string(Camera_Position) << endl;
+                cout << "Camera Old Position: " << glm::to_string(Camera_Old_Position) << endl;
+        }
+        //DetectCollision(world_array);
+
         //////////////////////////////////////////////////////////////////////////////////////////
         ///  Camera view matrix.
         ///  changes where the camera position looks up to use the camera position
@@ -87,30 +95,34 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
                            vup);
    
 }
-/*
+
+//glm::mat4 Camera::DetectCollision(){
+ //        cout<< "Hello" << endl;
+//}
+
 float Camera::GetLeftBoundingBox() {
-        Left = Camera_X_Position - 0.5;
+        Left = Camera_Position.x - 0.5;
         return Left;
 }
 
 float Camera::GetRightBoundingBox() {
-        Right = Camera_X_Position + 0.5;
+        Right = Camera_Position.x + 0.5;
         return Right;    
 }
 
 float Camera::GetTopBoundingBox() {
-        Top = Camera_Y_Position + 0.5;
+        Top = Camera_Position.y + 0.5;
         return Top;       
 }
 float Camera::GetBottomBoundingBox() {
-        Bottom = Camera_Y_Position - 0.5;
+        Bottom = Camera_Position.y - 0.5;
         return Bottom;        
 }
 float Camera::GetFrontBoundingBox() {
-        Front = Camera_Z_Position + 0.5;
+        Front = Camera_Position.z + 0.5;
         return Front; 
 }
 float Camera::GetBackBoundingBox() {
-        Back = Camera_Z_Position - 0.5;
+        Back = Camera_Position.z - 0.5;
         return Back;        
-}*/
+}

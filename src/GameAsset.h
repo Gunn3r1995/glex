@@ -36,7 +36,6 @@ class GameAsset {
         private:
                 glm::vec3 translateTo;
                 std::shared_ptr<BoundingBox> Bounding_Box;
-
 };
 
 #endif
