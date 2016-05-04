@@ -677,29 +677,29 @@ void GameWorld::Draw() {
    
 }
 
-float GameWorld::GetLeftBoundingBox(){
+float GameWorld::GetLeftBoundingBox() {
         Left = Camera_X_Position - 0.5;
         return Left;
 }
 
-float GameWorld::GetRightBoundingBox(){
+float GameWorld::GetRightBoundingBox() {
         Right = Camera_X_Position + 0.5;
         return Right;    
 }
 
-float GameWorld::GetTopBoundingBox(){
+float GameWorld::GetTopBoundingBox() {
         Top = Camera_Y_Position + 0.5;
         return Top;       
 }
-float GameWorld::GetBottomBoundingBox(){
+float GameWorld::GetBottomBoundingBox() {
         Bottom = Camera_Y_Position - 0.5;
         return Bottom;        
 }
-float GameWorld::GetFrontBoundingBox(){
+float GameWorld::GetFrontBoundingBox() {
         Front = Camera_Z_Position + 0.5;
         return Front; 
 }
-float GameWorld::GetBackBoundingBox(){
+float GameWorld::GetBackBoundingBox() {
         Back = Camera_Z_Position - 0.5;
         return Back;        
 }

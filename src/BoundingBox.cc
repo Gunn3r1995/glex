@@ -48,6 +48,7 @@ glm::mat4 BoundingBox::GetModel() {
         Model_Matrix = glm::rotate(Model_Matrix, this->rotate.z, glm::vec3(0, 0, 1));
         return Model_Matrix;
 }
+
 //////////////////////////////////////////////////////////////////////////////////////////
 ///Translate Method
 ///This controls the translation animation, to move the assets on the x, y or z axis
