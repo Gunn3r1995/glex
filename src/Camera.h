@@ -20,15 +20,14 @@ using namespace std;
 #include <vector>
 #include <memory>
 
-#include "common.h"
 #include "GameAsset.h"
+#include "common.h"
 
 class Camera {
         public:
 
                 Camera();
 	        glm::mat4 UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
-                glm::mat4 DetectCollision(std::vector<std::shared_ptr<GameAsset>> draw_list)
 ;
                 float GetBoundingBox();
                 float GetLeftBoundingBox();
@@ -68,6 +67,6 @@ class Camera {
                 float Bottom;
                 float Front;
                 float Back;
-                std::vector<std::shared_ptr<GameAsset>> draw_list;
+                
 };
 #endif // CAMERA_H

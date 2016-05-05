@@ -9,6 +9,8 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
+#include "common.h"
+
 using namespace std;
 
 class BoundingBox {
@@ -23,6 +25,7 @@ class BoundingBox {
                 void Translate(glm::vec3 translate);
                 void Rotate(glm::vec3 rotate);
                 void Scale(glm::vec3 scale);
+
                 glm::vec3 GetTranslateTo();
 	private:
                 //////////////////////////////////////////////////////////////////////////////////////////

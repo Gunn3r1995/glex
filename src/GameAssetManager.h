@@ -22,7 +22,6 @@
 
 #include "common.h"
 #include "GameAsset.h"
-#include "CubeAsset.h"
 #include "Camera.h"
 
 using namespace std;
@@ -39,6 +38,7 @@ class GameAssetManager {
         GameAssetManager(GameAssetManager const&); // copy constructor
         GameAssetManager(GameAssetManager const&&); // move constructor
         void operator = (GameAssetManager); // assignment
+        int GetDrawList();
         void AddAsset(std::shared_ptr<GameAsset>);
         void Draw();
         void UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
@@ -54,7 +54,6 @@ class GameAssetManager {
 
         // The internal scene graph is a simple list.
         std::vector<std::shared_ptr<GameAsset>> draw_list;
-        std::vector<std::shared_ptr<CubeAsset>> asset_list;
         Camera camera;
         GLuint program_token;
 };

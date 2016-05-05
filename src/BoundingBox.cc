@@ -87,7 +87,7 @@ void BoundingBox::Scale(glm::vec3 scaleTo) {
 	else {
 		this->scale = glm::vec3(1.0f,1.0f,1.0f);
 	}
-}
+}      
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// GetTranslateTo

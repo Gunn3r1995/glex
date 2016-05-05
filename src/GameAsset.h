@@ -15,6 +15,7 @@ using namespace std;
 #   error "Unknown compiler"
 #endif
 
+#include "common.h"
 #include "BoundingBox.h"
 
 class GameAsset {

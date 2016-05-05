@@ -1,4 +1,6 @@
 #include "Camera.h"
+#include "GameAssetManager.h"
+
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /// Controls calculations
@@ -81,7 +83,7 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
                 cout << "Camera Position: " << glm::to_string(Camera_Position) << endl;
                 cout << "Camera Old Position: " << glm::to_string(Camera_Old_Position) << endl;
         }
-        DetectCollision(draw_list);
+
 
         //////////////////////////////////////////////////////////////////////////////////////////
         ///  Camera view matrix.
@@ -93,10 +95,6 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
                            Camera_Position + direction, 
                            vup);
    
-}
-
-glm::mat4 Camera::DetectCollision(std::vector<std::shared_ptr<GameAsset>> draw_list){
-        cout << "Hello" << endl;
 }
 
 float Camera::GetLeftBoundingBox() {
