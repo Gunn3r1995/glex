@@ -10,9 +10,13 @@ PythonBindings::PythonBindings(){
 }
 
 BOOST_PYTHON_MODULE(libglex){
-
-	//class_<GameAssetManager>("GameAssetManager")
-	//		.def("AddAsset", &GameAssetManager::AddAsset)
-	//		.def("UpdateCameraPosition", &GameAssetManager::UpdateCameraPosition)
+	//class <Example>("Example"), init <>())
+	//		.def("get", &Example::getString )
+	//		.def("set", &Example::setString )
 	//;
+
+	class_<GameAssetManager>("GameAssetManager")
+			.def("AddAsset", &GameAssetManager::AddAsset)
+			.def("UpdateCameraPosition", &GameAssetManager::UpdateCameraPosition)
+	;
 }
