@@ -25,7 +25,6 @@ Camera::Camera() {
 /// Sends the camera positions and movements to the translate shader
 //////////////////////////////////////////////////////////////////////////////////////////
 glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y) {
-        //std::vector<std::shared_ptr<GameAsset>> &world_array
         //////////////////////////////////////////////////////////////////////////////////////////
         /// Camera Direction
         ///  Calculates the distance each camera movement changes the camera direction
@@ -82,7 +81,7 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
                 cout << "Camera Position: " << glm::to_string(Camera_Position) << endl;
                 cout << "Camera Old Position: " << glm::to_string(Camera_Old_Position) << endl;
         }
-        //DetectCollision(world_array);
+        DetectCollision(draw_list);
 
         //////////////////////////////////////////////////////////////////////////////////////////
         ///  Camera view matrix.
@@ -96,9 +95,9 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
    
 }
 
-//glm::mat4 Camera::DetectCollision(){
- //        cout<< "Hello" << endl;
-//}
+glm::mat4 Camera::DetectCollision(std::vector<std::shared_ptr<GameAsset>> draw_list){
+        cout << "Hello" << endl;
+}
 
 float Camera::GetLeftBoundingBox() {
         Left = Camera_Position.x - 0.5;
