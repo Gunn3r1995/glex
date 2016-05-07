@@ -2,12 +2,12 @@
 #include "GameAssetManager.h"
 
 
-  //////////////////////////////////////////////////////////////////////////////////////////
-  /// Controls calculations
-  /// Controls all the movement and positions of the camera 
-  /// Uses keyboard and Mouse movements to move around the world space
-  /// Tells the Camera matrix what position to look at and where to move
-  //////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+/// Controls calculations
+/// Controls all the movement and positions of the camera 
+/// Uses keyboard and Mouse movements to move around the world space
+/// Tells the Camera matrix what position to look at and where to move
+//////////////////////////////////////////////////////////////////////////////////////////
 Camera::Camera() {
           Camera_Position = glm::vec3(0.0f, 0.0f, 0.0f);
           Camera_Old_Position = Camera_Position;
@@ -60,7 +60,12 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
         Camera_Old_Position.x = Camera_Position[0];
         Camera_Old_Position.y = Camera_Position[1];
         Camera_Old_Position.z = Camera_Position[2];
-
+        
+        //////////////////////////////////////////////////////////////////////////////////////////
+        ///Keyboard Input Use
+        ///This gets the Current Control State and then calculates the appropriate changes to the 
+        ///Camera Position.
+        //////////////////////////////////////////////////////////////////////////////////////////
         if(control == UP) {
 		Camera_Position +=  Movement_Z * Player_Speed;
 	}
@@ -80,8 +85,18 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
                 Camera_Position.y -= 0.5f * Player_Speed;
         }
         else if(control == PRINT) {
+                cout << "********************************************************************" << endl;
                 cout << "Camera Position: " << glm::to_string(Camera_Position) << endl;
-                cout << "Camera Old Position: " << glm::to_string(Camera_Old_Position) << endl;
+                //cout << "Camera Old Position: " << glm::to_string(Camera_Old_Position) << endl;
+                
+                cout << "Camera Axis Alligned Bounding Box" << endl;
+                cout << "Left: " << this->GetLeftBoundingBox() << endl;
+                cout << "Right: " << this->GetRightBoundingBox() << endl;
+                cout << "Top: " << this->GetTopBoundingBox() << endl;
+                cout << "Bottom: " << this->GetBottomBoundingBox() << endl;
+                cout << "Front: " << this->GetFrontBoundingBox() << endl;
+                cout << "Back: " << this->GetBackBoundingBox() << endl;
+                cout << "********************************************************************" << endl;
         }
 
 
@@ -97,6 +112,10 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
    
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+///AABB
+///These Methods calculates the current Bounding Box Positions for The Camera
+//////////////////////////////////////////////////////////////////////////////////////////
 float Camera::GetLeftBoundingBox() {
         Left = Camera_Position.x - 0.5;
         return Left;

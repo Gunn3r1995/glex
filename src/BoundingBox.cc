@@ -26,8 +26,15 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3
         //cout << "Bounding Box Created at: " << glm::to_string(translateTo)<< endl;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+/// Get Model
+/// This Controls and calls whether it should be Animated by calling the 
+/// Translate, Scale and Rotate Methods. 
+/// It also caluclates the Translate, Scale and Model Matrix to return the Model Matrix
+/// to eventually the GameAssetManager Class
+//////////////////////////////////////////////////////////////////////////////////////////
 glm::mat4 BoundingBox::GetModel() {
-
+        
         if(translate_bool == true) {
                 Translate(glm::vec3(0.1f,0.1f,0.1f));
         }        
@@ -46,6 +53,7 @@ glm::mat4 BoundingBox::GetModel() {
         Model_Matrix = glm::rotate(Model_Matrix, this->rotate.x, glm::vec3(1, 0, 0));
         Model_Matrix = glm::rotate(Model_Matrix, this->rotate.y, glm::vec3(0, 1, 0));
         Model_Matrix = glm::rotate(Model_Matrix, this->rotate.z, glm::vec3(0, 0, 1));
+        
         return Model_Matrix;
 }
 
@@ -54,7 +62,6 @@ glm::mat4 BoundingBox::GetModel() {
 ///This controls the translation animation, to move the assets on the x, y or z axis
 ////////////////////////////////////////////////////////////////////////////////////////// 
 void BoundingBox::Translate(glm::vec3 translate) {
-        //Temp
 	if(this->translateTo.x < animateTo.x && this->translateTo.y < animateTo.y && this->translateTo.z < animateTo.z) {
                 this->translateTo = this->translateTo + glm::vec3(0.0f,0.1f,0.0f);
 	}
@@ -77,7 +84,7 @@ void BoundingBox::Rotate(glm::vec3 rotateTo) {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-/// Sclae Method
+/// Scale Method
 /// Controls the size of the Asset
 //////////////////////////////////////////////////////////////////////////////////////////
 void BoundingBox::Scale(glm::vec3 scaleTo) {

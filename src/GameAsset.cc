@@ -26,6 +26,11 @@ glm::mat4 GameAsset::GetModel() {
 	return Bounding_Box->GetModel();
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+///Get TranslateTo
+///This class Gets the TranslateTo from the Bounding Box class, Which is the current Position
+///of the Asset
+////////////////////////////////////////////////////////////////////////////////////////// 
 glm::vec3 GameAsset::GetTranslateTo(){
     return Bounding_Box->GetTranslateTo();
 }

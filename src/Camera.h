@@ -29,7 +29,6 @@ class Camera {
                 Camera();
 	        glm::mat4 UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
 ;
-                float GetBoundingBox();
                 float GetLeftBoundingBox();
                 float GetRightBoundingBox();
                 float GetTopBoundingBox();

@@ -564,6 +564,11 @@ void GameWorld::Draw() {
         asset_manager->Draw();
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+/// Update Camera Position
+/// Sends the current Keyboard input and Mouse X and Y Position 
+/// to the GameAssetManager Class
+//////////////////////////////////////////////////////////////////////////////////////////
 void GameWorld::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y){ 
         asset_manager->UpdateCameraPosition(control, Mouse_X, Mouse_Y);
 }

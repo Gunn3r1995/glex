@@ -52,15 +52,6 @@ class GameAssetManager {
                 glm::mat4 Camera_View;
                 glm::mat4 Camera_Projection;
 
-	        // variables to gather the bounds of two bounding boxes to check collisions
-                glm::vec3 bounding_box1_max;
-                glm::vec3 bounding_box1_min;
-                glm::vec3 bounding_box2_max;
-                glm::vec3 bounding_box2_min;
-                
-                glm::vec3 BB1_Pos;
-                glm::vec3 BB2_Pos;
-
                 // The internal scene graph is a simple list.
                 std::vector<std::shared_ptr<GameAsset>> draw_list;
                 Camera camera;
