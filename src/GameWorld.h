@@ -86,22 +86,8 @@ class GameWorld {
                 glm::vec3 Movement_X;
                 
                 void UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
-
-                float GetBoundingBox();
-                float GetLeftBoundingBox();
-                float GetRightBoundingBox();
-                float GetTopBoundingBox();
-                float GetBottomBoundingBox();
-                float GetFrontBoundingBox();
-                float GetBackBoundingBox();
                 
         private:
-                float Left;
-                float Right;
-                float Top;
-                float Bottom;
-                float Front;
-                float Back;
 
                 //////////////////////////////////////////////////////////////////////////////////////////
                 /// Spawn Variables.

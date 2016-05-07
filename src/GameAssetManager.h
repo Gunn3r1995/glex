@@ -38,7 +38,6 @@ class GameAssetManager {
                 GameAssetManager(GameAssetManager const&); // copy constructor
                 GameAssetManager(GameAssetManager const&&); // move constructor
                 void operator = (GameAssetManager); // assignment
-                int GetDrawList();
                 void AddAsset(std::shared_ptr<GameAsset>);
                 void Draw();
                 void UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);

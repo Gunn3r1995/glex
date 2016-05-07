@@ -36,7 +36,7 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3
 glm::mat4 BoundingBox::GetModel() {
         
         if(translate_bool == true) {
-                Translate(glm::vec3(0.1f,0.1f,0.1f));
+                Translate();
         }        
         if(scale_bool == true) {
                 Scale(scaleTo);
@@ -61,7 +61,7 @@ glm::mat4 BoundingBox::GetModel() {
 ///Translate Method
 ///This controls the translation animation, to move the assets on the x, y or z axis
 ////////////////////////////////////////////////////////////////////////////////////////// 
-void BoundingBox::Translate(glm::vec3 translate) {
+void BoundingBox::Translate() {
 	if(this->translateTo.x < animateTo.x && this->translateTo.y < animateTo.y && this->translateTo.z < animateTo.z) {
                 this->translateTo = this->translateTo + glm::vec3(0.0f,0.1f,0.0f);
 	}

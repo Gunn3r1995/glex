@@ -1,11 +1,6 @@
 #ifndef BOUNDINDBOX_H
 #define BOUNDINGBOX_H
 
-#include <memory>
-#include <iostream>
-#include <utility>
-#include <ostream>
-
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
@@ -19,10 +14,9 @@ class BoundingBox {
                             glm::vec3 animateTo, bool translate_bool, 
                             glm::vec3 rotate, bool rotate_bool,
                             glm::vec3 scale, bool scale_bool);
-		glm::mat4 GetTranslationMatrix();
                 glm::mat4 GetModel();
 
-                void Translate(glm::vec3 translate);
+                void Translate();
                 void Rotate(glm::vec3 rotate);
                 void Scale(glm::vec3 scale);
 
@@ -47,9 +41,6 @@ class BoundingBox {
                 glm::vec3 scale;
                 glm::vec3 scaleTo;
                 bool scale_bool;
-                
-                float Left;
-                float Right;
                 
 		glm::mat4 Translate_Matrix;
                 glm::mat4 Scale_Matrix;

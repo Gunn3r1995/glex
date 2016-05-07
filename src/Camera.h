@@ -28,7 +28,7 @@ class Camera {
 
                 Camera();
 	        glm::mat4 UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
-;
+
                 float GetLeftBoundingBox();
                 float GetRightBoundingBox();
                 float GetTopBoundingBox();
@@ -59,13 +59,6 @@ class Camera {
 
                 glm::vec3 Movement_Z;
                 glm::vec3 Movement_X;
-
-                float Left;
-                float Right;
-                float Top;
-                float Bottom;
-                float Front;
-                float Back;
                 
 };
 #endif // CAMERA_H

@@ -117,28 +117,28 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
 ///These Methods calculates the current Bounding Box Positions for The Camera
 //////////////////////////////////////////////////////////////////////////////////////////
 float Camera::GetLeftBoundingBox() {
-        Left = Camera_Position.x - 0.5;
+        float Left = Camera_Position.x - 0.5;
         return Left;
 }
 
 float Camera::GetRightBoundingBox() {
-        Right = Camera_Position.x + 0.5;
+        float Right = Camera_Position.x + 0.5;
         return Right;    
 }
 
 float Camera::GetTopBoundingBox() {
-        Top = Camera_Position.y + 0.5;
+        float Top = Camera_Position.y + 0.5;
         return Top;       
 }
 float Camera::GetBottomBoundingBox() {
-        Bottom = Camera_Position.y - 0.5;
+        float Bottom = Camera_Position.y - 0.5;
         return Bottom;        
 }
 float Camera::GetFrontBoundingBox() {
-        Front = Camera_Position.z + 0.5;
+        float Front = Camera_Position.z + 0.5;
         return Front; 
 }
 float Camera::GetBackBoundingBox() {
-        Back = Camera_Position.z - 0.5;
+        float Back = Camera_Position.z - 0.5;
         return Back;        
 }

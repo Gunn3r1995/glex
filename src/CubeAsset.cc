@@ -94,14 +94,6 @@ CubeAsset::~CubeAsset() {
 #define checkGLError()
 #endif
 
-void checkError(std::string file, int line) {
-  GLenum gl_error = glGetError();
-  if(GL_NO_ERROR != gl_error) {
-    cerr << "GL error in " << file << " at line " << line << " error: " << gl_error << endl;
-    exit(-1);
-  }
-}
-
 void CubeAsset::Draw(GLuint program_token) {
   if(!glIsProgram(program_token)) {
     //cerr << "Drawing Cube with invalid program" << endl;
@@ -171,9 +163,4 @@ void CubeAsset::Draw(GLuint program_token) {
   checkGLError();
 
   glDisableVertexAttribArray(position_attrib);
-}
-
-glm::vec3 CubeAsset::GetVec3()
-{
-	return Position;
 }

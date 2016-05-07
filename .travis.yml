@@ -25,6 +25,7 @@ before_install:
 
 
 script:
+ - chmod 755 configure
  - autoreconf -i
  - ./configure
  - make
@@ -37,4 +38,4 @@ matrix:
   allow_failures:
     - os: osx
 
-sudo: trues
+sudo: true

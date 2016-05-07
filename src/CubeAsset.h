@@ -37,7 +37,6 @@ class CubeAsset : public GameAsset {
   glm::vec3 Position;
   GLuint element_buffer_length, colour_buffer_length;
   GLuint vertex_buffer_token, element_buffer_token, colour_buffer_token;
-  void checkError(std::string file, int line);
 
 };
 

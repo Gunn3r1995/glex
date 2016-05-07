@@ -15,6 +15,8 @@ using namespace std;
 #   error "Unknown compiler"
 #endif
 
+#include <memory>
+
 #include "common.h"
 #include "BoundingBox.h"
 
