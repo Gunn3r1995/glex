@@ -84,7 +84,7 @@ void GameAssetManager::Draw() {
 		GLuint Camera_View_Link = glGetUniformLocation(program_token, "Camera_View");
 		GLuint Camera_Model_Link = glGetUniformLocation(program_token, "Camera_Model");
 
-                Camera_Projection = glm::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
+                Camera_Projection = glm::perspective(45.0f, 16.0f/10.0f, 0.1f, 1000.0f);
                 
 		glUniformMatrix4fv(Camera_Projection_Link, 1, GL_FALSE, &Camera_Projection[0][0]);
 		glUniformMatrix4fv(Camera_View_Link, 1, GL_FALSE, &Camera_View[0][0]);
