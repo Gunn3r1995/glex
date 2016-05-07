@@ -25,7 +25,6 @@ before_install:
 
 
 script:
- - chmod 755 configure
  - autoreconf -i
  - ./configure
  - make
