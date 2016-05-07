@@ -96,3 +96,4 @@ void BoundingBox::Scale(glm::vec3 scaleTo) {
 glm::vec3 BoundingBox::GetTranslateTo() {
 	return translateTo;
 }
+

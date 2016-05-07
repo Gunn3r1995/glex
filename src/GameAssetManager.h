@@ -32,29 +32,38 @@ using namespace std;
 /// simple GameAsset.
 //////////////////////////////////////////////////////////////////////////////////////////
 class GameAssetManager {
- public:
-        explicit GameAssetManager(ApplicationMode); // constructor
-        virtual ~GameAssetManager();
-        GameAssetManager(GameAssetManager const&); // copy constructor
-        GameAssetManager(GameAssetManager const&&); // move constructor
-        void operator = (GameAssetManager); // assignment
-        int GetDrawList();
-        void AddAsset(std::shared_ptr<GameAsset>);
-        void Draw();
-        void UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
+         public:
+                explicit GameAssetManager(ApplicationMode); // constructor
+                virtual ~GameAssetManager();
+                GameAssetManager(GameAssetManager const&); // copy constructor
+                GameAssetManager(GameAssetManager const&&); // move constructor
+                void operator = (GameAssetManager); // assignment
+                int GetDrawList();
+                void AddAsset(std::shared_ptr<GameAsset>);
+                void Draw();
+                void UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
 
- private:
-        GLuint CreateGLProgram(std::string &, std::string &);
-        GLuint CreateGLESShader(GLenum, std::string &);
-        // As this is private and we're writing to the GPU, we will use raw pointers.
-        std::pair<GLchar *, GLint>  ReadShader(std::string &);
+         private:
+                GLuint CreateGLProgram(std::string &, std::string &);
+                GLuint CreateGLESShader(GLenum, std::string &);
+                // As this is private and we're writing to the GPU, we will use raw pointers.
+                std::pair<GLchar *, GLint>  ReadShader(std::string &);
 
-        glm::mat4 Camera_View;
-        glm::mat4 Camera_Projection;
+                glm::mat4 Camera_View;
+                glm::mat4 Camera_Projection;
 
-        // The internal scene graph is a simple list.
-        std::vector<std::shared_ptr<GameAsset>> draw_list;
-        Camera camera;
-        GLuint program_token;
+	        // variables to gather the bounds of two bounding boxes to check collisions
+                glm::vec3 bounding_box1_max;
+                glm::vec3 bounding_box1_min;
+                glm::vec3 bounding_box2_max;
+                glm::vec3 bounding_box2_min;
+                
+                glm::vec3 BB1_Pos;
+                glm::vec3 BB2_Pos;
+
+                // The internal scene graph is a simple list.
+                std::vector<std::shared_ptr<GameAsset>> draw_list;
+                Camera camera;
+                GLuint program_token;
 };
 #endif // GAMEASSETMANAGER_H

@@ -94,8 +94,8 @@ void GameAssetManager::Draw() {
 
                 Camera_Model = ga->GetModel();
 		glUniformMatrix4fv(Camera_Model_Link, 1, GL_FALSE, &Camera_Model[0][0]);
-
-		ga->Draw(program_token);
+		
+                ga->Draw(program_token);
 	}
 }
 

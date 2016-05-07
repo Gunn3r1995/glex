@@ -31,6 +31,7 @@ class GameAsset {
                 virtual void Draw(GLuint) = 0;
 
                 glm::mat4 GetModel();
+                glm::vec3 GetTranslateTo();
 
                 void Translate(glm::vec3 translateTo);
 

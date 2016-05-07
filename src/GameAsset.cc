@@ -26,3 +26,6 @@ glm::mat4 GameAsset::GetModel() {
 	return Bounding_Box->GetModel();
 }
 
+glm::vec3 GameAsset::GetTranslateTo(){
+    return Bounding_Box->GetTranslateTo();
+}

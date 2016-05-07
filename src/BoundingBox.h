@@ -48,6 +48,9 @@ class BoundingBox {
                 glm::vec3 scaleTo;
                 bool scale_bool;
                 
+                float Left;
+                float Right;
+                
 		glm::mat4 Translate_Matrix;
                 glm::mat4 Scale_Matrix;
                 glm::mat4 Model_Matrix;
