@@ -41,7 +41,7 @@ class GameWorld {
                 /// in from the user.  Threading the state through the various function calls
                 /// is preferable (in this case) to having some kind of global state.
                 //////////////////////////////////////////////////////////////////////////////////////////
-                GameWorld(ApplicationMode);
+                explicit GameWorld(ApplicationMode);
             
                 double MinimumNumber = 0.50;
                 double MaximumNumber = 1.00;

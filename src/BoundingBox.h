@@ -16,7 +16,9 @@ class BoundingBox {
                             glm::vec3 scale, bool scale_bool);
                 glm::mat4 GetModel();
 
-                void Translate();
+                void TranslateX();
+                void TranslateY();
+                void TranslateZ();
                 void Rotate(glm::vec3 rotate);
                 void Scale(glm::vec3 scale);
 

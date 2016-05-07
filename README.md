@@ -41,3 +41,8 @@ See
 > $ ./src/shaderexample --help
 
 for usage instructions.
+
+#CPP CHECK#
+
+> $  cppcheck ./src --enable=all --check-config  2> test.txt
+
