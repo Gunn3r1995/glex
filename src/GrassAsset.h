@@ -5,15 +5,8 @@
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <GLUT/glut.h>
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>>
-
-#elif __linux__
-#include <GL/gl.h>
 #else
-#   error "Unknown compiler"
+#include <GL/gl.h>
 #endif
 
 #include <glm/glm.hpp>

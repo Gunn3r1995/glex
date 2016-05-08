@@ -1,22 +1,16 @@
 #ifndef GAMEASSET_H
 #define GAMEASSET_H
 
-#include <iostream>
-#include <memory>
-
-using namespace std;
-
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <GLUT/glut.h>
-#elif __linux__
-#include <GL/gl.h>
 #else
-#   error "Unknown compiler"
+#include <GL/gl.h>
 #endif
 
-#include "common.h"
+#include <iostream>
+#include <memory>
+using namespace std;
+
 #include "BoundingBox.h"
 
 class GameAsset {
