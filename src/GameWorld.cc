@@ -37,7 +37,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,1,7,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,7,1,1,1,1,6,1,1,1,1,7,1,1,1,7,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,6,1,1,1,1,1,7,1,1,1,1,1,1,1,7,1,7,1,1,1,1},
+  {1,1,1,1,7,1,7,1,1,1,7,1,1,1,1,1,1,1,7,1,7,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,7,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,5,1,7,1,1,1,6,1,1,1,1,4,1,1,1,1,6,1,1,1,1,1,5,1},
@@ -78,7 +78,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                          glm::vec3(0.1f,0.1f,0.1f), true,
                                                          glm::vec3(1.1f,1.1f,1.1f), true));
         asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3(7.0f ,2.0f, -4.0f),
-                                                          glm::vec3(7.0f, 2.0f, 0.0f), true,
+                                                          glm::vec3(7.0f, 2.0f, 25.0f), true,
                                                           No_Rotation, false,
                                                           Normal_Size, false));
         asset_manager->AddAsset(make_shared<PyramidAsset>(Spawn, glm::vec3(9.0f ,1.50f, -4.0f),
@@ -101,6 +101,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                           glm::vec3(12.0f,12.0f,12.0f), false,
                                                           Normal_Rotation, true,
                                                           Normal_Size, false)); 
+                                                          
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(-10.0f ,5.0f, -5.0f),
                                                          glm::vec3(0.0f,5.0f,-5.0f), true,
                                                          No_Rotation, false,

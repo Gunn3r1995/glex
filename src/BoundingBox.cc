@@ -64,66 +64,64 @@ glm::mat4 BoundingBox::GetModel() {
 ///This controls the translation animation, to move the assets on the x, y or z axis
 ////////////////////////////////////////////////////////////////////////////////////////// 
 void BoundingBox::TranslateX() {
-        if( this->translateTo.y < animateTo.y || this->translateTo.y != animateTo.y){
-	        if(this->translateTo.x < animateTo.x ) {
-                       this->translateTo = this->translateTo + glm::vec3(0.1f,0.0f,0.0f);
+                if(this->translateTo.x < animateTo.x ) {
+                        this->translateTo = this->translateTo + glm::vec3(0.1f,0.0f,0.0f);
+                        
+                        if(this->translateTo.x > animateTo.x){
+                                this->translateTo = translateToSave;
+                        }
                 }
-                else if(this->translateTo.x > animateTo.x){
-                  this->translateTo = this->translateTo + glm::vec3(-0.1f,0.0f,0.0f);
+                else if(this->translateTo.x > animateTo.x) {
+                        this->translateTo = this->translateTo + glm::vec3(-0.1f,0.0f,0.0f);
+
+                        if(this->translateTo.x < animateTo.x){
+                                this->translateTo = translateToSave;
+                        }
                 }
-        }
-        else if(translateTo.y == animateTo.y ){
-	        if(this->translateTo.x < animateTo.x ) {
-                       this->translateTo = this->translateTo + glm::vec3(0.1f,0.0f,0.0f);
-                }
-                else if(this->translateTo.x > animateTo.x){
-                  this->translateTo = this->translateTo + glm::vec3(-0.1f,0.0f,0.0f);
-                }
-        }
-	else {
-                this->translateTo = translateToSave;
-	}
+        
+        //else {
+        //        this->translateTo = translateToSave;
+        //}
 }
 
 void BoundingBox::TranslateY() {
-        if( this->translateTo.y < animateTo.y || this->translateTo.y != animateTo.y){
 	        if(this->translateTo.y < animateTo.y ) {
                        this->translateTo = this->translateTo + glm::vec3(0.0f,0.1f,0.0f);
+                       
+                       if(this->translateTo.y > animateTo.y){
+                                this->translateTo = translateToSave;
+                       }
                 }
                 else if(this->translateTo.y > animateTo.y){
-                  this->translateTo = this->translateTo + glm::vec3(0.0f,-0.1f,0.0f);
+                        this->translateTo = this->translateTo + glm::vec3(0.0f,-0.1f,0.0f);
+                  
+                        if(this->translateTo.y < animateTo.y){
+                                this->translateTo = translateToSave;
+                        }
                 }
-                else {
-                        this->translateTo = translateToSave;
-	        }
-        }
-        else if(translateTo.y == animateTo.y ){
-                TranslateX();
-        }
-	else {
-                this->translateTo = translateToSave;
-	}
+        
+	//else {
+        //        this->translateTo = translateToSave;
+	//}
 }
 void BoundingBox::TranslateZ() {
-        if( this->translateTo.y < animateTo.y || this->translateTo.y != animateTo.y){
-	        if(this->translateTo.z < animateTo.z ) {
-                       this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,0.1f);
-                }
-                else if(this->translateTo.z > animateTo.z){
-                  this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,-0.1f);
-                }
-        }
-        else if(this->translateTo.y == animateTo.y){
                 if(this->translateTo.z < animateTo.z ) {
-                       this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,0.1f);
+                        this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,0.1f);
+                        
+                        if(this->translateTo.z > animateTo.z){
+                                this->translateTo = translateToSave;
+                        }
                 }
                 else if(this->translateTo.z > animateTo.z){
-                  this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,-0.1f);
+                        this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,-0.1f);
+                        
+                        if(this->translateTo.z < animateTo.z){
+                                this->translateTo = translateToSave;
+                        }
                 }
-        }
-	else {
-                this->translateTo = translateToSave;
-	}
+        //else {
+        //        this->translateTo = translateToSave;
+        //}
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
