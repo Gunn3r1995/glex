@@ -3,8 +3,6 @@
 
 #include <vector>
 
-using namespace std;
-
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #else
@@ -23,7 +21,7 @@ class CubeAsset : public GameAsset {
             glm::vec3 rotate, bool rotate_bool,
             glm::vec3 scale, bool scale_bool);
   ~CubeAsset();
-  virtual void Draw(GLuint);
+  void Draw(GLuint);
   glm::vec3 GetVec3();
 
  private:

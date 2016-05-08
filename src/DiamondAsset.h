@@ -21,7 +21,7 @@ class DiamondAsset : public GameAsset {
                glm::vec3 rotate, bool rotate_bool,
                glm::vec3 scale, bool scale_bool);
   ~DiamondAsset();
-  virtual void Draw(GLuint);
+  void Draw(GLuint);
 
  private:
   GLuint element_buffer_length, colour_buffer_length;
