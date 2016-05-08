@@ -1,7 +1,6 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-using namespace std;
 #include <iostream>
 
 #include <glm/glm.hpp>
