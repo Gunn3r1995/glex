@@ -29,29 +29,29 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   //////////////////////////////////////////////////////////////////////////////////////////
   int world[25][25] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,2,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,2,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,3,7,1,1,1,7,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,7,1,1,1,1,1,1,1,1,1},
-  {1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,5,1,1,6,1,1,1,1,1,4,1,1,1,1,6,1,1,5,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1},
+  {1,2,1,1,1,1,1,1,1,1,1,1,5,1,1,1,7,1,1,1,7,1,1,2,1},
   {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,7,1,1,1,1,7,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,3,1,1,1,1,1,7,1,1,1,7,1,1,1,3,1,1,1,1,1},
+  {1,1,7,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,7,1,1,1,1,6,1,1,1,1,7,1,1,1,7,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,6,1,1,1,1,1,7,1,1,1,1,1,1,1,7,1,7,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,7,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,5,1,7,1,1,1,6,1,1,1,1,4,1,1,1,1,6,1,1,1,1,1,5,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,7,1,1,1,1,1,1,7,7,1,1,1,1,1,1,1,1,1,1},
-  {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,7,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,7,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1},
+  {1,1,1,1,1,1,7,1,1,1,1,1,6,7,7,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1},
+  {1,1,1,1,1,3,1,1,7,1,1,1,1,1,1,1,1,1,1,3,1,1,7,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,7,1,1,1,7,1,1,7,1,1,7,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1},
+  {1,2,1,1,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}        
   };
                    
@@ -96,8 +96,27 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,0.0f, 0.0f),
                                                        glm::vec3(0.0f,10.0f,0.0f), true,
                                                          No_Rotation, false, 
-                                                         Normal_Size, false ));  
-   /////////////////////////////////////////////////////////////////////////////////////////
+                                                         Normal_Size, false ));
+        asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3(12.0f,12.0f,12.0f), 
+                                                          glm::vec3(12.0f,12.0f,12.0f), false,
+                                                          Normal_Rotation, true,
+                                                          Normal_Size, false)); 
+        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(-10.0f ,5.0f, -5.0f),
+                                                         glm::vec3(0.0f,5.0f,-5.0f), true,
+                                                         No_Rotation, false,
+                                                         Normal_Size, false));
+        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,5.0f, -5.0f),
+                                                       glm::vec3(-10.0f,5.0f,-5.0f), true,
+                                                         No_Rotation, false, 
+                                                         Normal_Size, false )); 
+        asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3(15.0f ,2.00f, 30.0f),
+                                                         glm::vec3(25.0f ,2.00f, 25.0f), false,
+                                                         No_Rotation, false,
+                                                         Giant_Size, true));
+        asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3(9.0f ,2.00f, 30.0f),
+                                                         glm::vec3(25.0f ,2.00f, 25.0f), false,
+                                                         No_Rotation, false,
+                                                         Giant_Size, true));
    //AddAsset Layout 
    //This adds the asset to the game asset manager which draws it to the screen
    //
@@ -141,12 +160,8 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                            glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Double_Size, true));
-            asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3(10.0f,9.1f,10.0f), 
-                                                              glm::vec3(10.0f,9.1f,10.0f), false,
-                                                              Normal_Rotation, true,
-                                                              Normal_Size, false));
             asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3((pointX),1.0f,(pointZ*pointY)), 
-                                                              glm::vec3(10.0f,9.1f,10.0f), true,
+                                                              glm::vec3(12.0f,15.0f,12.0f), true,
                                                               Normal_Rotation, true,
                                                               Normal_Size, false));
    }
@@ -168,14 +183,14 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                            glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
-            //asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY)), 
-            //                                               glm::vec3(0.0f,0.0f,0.0f), false,
-            //                                               No_Rotation, false,
-            //                                               Normal_Size, false));
-            //asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3((pointX),2.0f,(pointZ*pointY)), 
-            //                                                  glm::vec3((pointX+10.0f),(2.0f+10.0f),(pointZ*pointY+10.0f), true,
-             //                                                 Normal_Rotation, true,
-              //                                                Normal_Size, false));
+            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY)), 
+                                                           glm::vec3(0.0f,0.0f,0.0f), false,
+                                                           No_Rotation, false,
+                                                           Normal_Size, false));
+            asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3((pointX),2.0f,(pointZ*pointY)), 
+                                                             glm::vec3((pointX),2.0f,(pointZ*pointY)), false,
+                                                             Normal_Rotation, true,
+                                                             Normal_Size, false));
 
    }
    else if( world[pointY][pointX] == 4){

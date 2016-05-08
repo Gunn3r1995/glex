@@ -72,6 +72,14 @@ void BoundingBox::TranslateX() {
                   this->translateTo = this->translateTo + glm::vec3(-0.1f,0.0f,0.0f);
                 }
         }
+        else if(translateTo.y == animateTo.y ){
+	        if(this->translateTo.x < animateTo.x ) {
+                       this->translateTo = this->translateTo + glm::vec3(0.1f,0.0f,0.0f);
+                }
+                else if(this->translateTo.x > animateTo.x){
+                  this->translateTo = this->translateTo + glm::vec3(-0.1f,0.0f,0.0f);
+                }
+        }
 	else {
                 this->translateTo = translateToSave;
 	}
@@ -85,6 +93,12 @@ void BoundingBox::TranslateY() {
                 else if(this->translateTo.y > animateTo.y){
                   this->translateTo = this->translateTo + glm::vec3(0.0f,-0.1f,0.0f);
                 }
+                else {
+                        this->translateTo = translateToSave;
+	        }
+        }
+        else if(translateTo.y == animateTo.y ){
+                TranslateX();
         }
 	else {
                 this->translateTo = translateToSave;
@@ -93,6 +107,14 @@ void BoundingBox::TranslateY() {
 void BoundingBox::TranslateZ() {
         if( this->translateTo.y < animateTo.y || this->translateTo.y != animateTo.y){
 	        if(this->translateTo.z < animateTo.z ) {
+                       this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,0.1f);
+                }
+                else if(this->translateTo.z > animateTo.z){
+                  this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,-0.1f);
+                }
+        }
+        else if(this->translateTo.y == animateTo.y){
+                if(this->translateTo.z < animateTo.z ) {
                        this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,0.1f);
                 }
                 else if(this->translateTo.z > animateTo.z){
@@ -162,7 +184,7 @@ void BoundingBox::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::
         cout << "BB2 Max: " << glm::to_string(BB2_Max) << endl;
         cout << "BB2 Min: " << glm::to_string(BB2_Min) << endl;
         cout << "*****************************************************" << endl;
-        this->translateTo = translateToSave;
+        translateTo = translateToSave;
         this->scale = scaleTo;
         this->rotate = rotateTo;
     }
