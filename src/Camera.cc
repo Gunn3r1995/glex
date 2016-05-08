@@ -12,7 +12,6 @@ using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////
 Camera::Camera() {
           Camera_Position = glm::vec3(0.0f, 0.0f, 0.0f);
-          Camera_Old_Position = Camera_Position;
 
 	  Camera_Horizontal = 0.0f;
 	  Camera_Vertical = 0.0f;
@@ -58,10 +57,6 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
 	);
 
 	glm::vec3 vup = glm::cross(Movement_X, direction);
-
-        Camera_Old_Position.x = Camera_Position[0];
-        Camera_Old_Position.y = Camera_Position[1];
-        Camera_Old_Position.z = Camera_Position[2];
         
         //////////////////////////////////////////////////////////////////////////////////////////
         ///Keyboard Input Use
@@ -92,12 +87,6 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
                 //cout << "Camera Old Position: " << glm::to_string(Camera_Old_Position) << endl;
                 
                 cout << "Camera Axis Alligned Bounding Box" << endl;
-                cout << "Left: " << this->GetLeftBoundingBox() << endl;
-                cout << "Right: " << this->GetRightBoundingBox() << endl;
-                cout << "Top: " << this->GetTopBoundingBox() << endl;
-                cout << "Bottom: " << this->GetBottomBoundingBox() << endl;
-                cout << "Front: " << this->GetFrontBoundingBox() << endl;
-                cout << "Back: " << this->GetBackBoundingBox() << endl;
                 cout << "********************************************************************" << endl;
         }
 
@@ -114,33 +103,10 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
    
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-///AABB
-///These Methods calculates the current Bounding Box Positions for The Camera
-//////////////////////////////////////////////////////////////////////////////////////////
-float Camera::GetLeftBoundingBox() {
-        float Left = Camera_Position.x - 0.5;
-        return Left;
-}
+void Camera::CollisionDetection(glm::vec3 BB2_Max, glm::vec3 BB2_Min, glm::vec3 BB2_Pos) {
 
-float Camera::GetRightBoundingBox() {
-        float Right = Camera_Position.x + 0.5;
-        return Right;    
-}
+        cout << "BB2 Max: " << glm::to_string(BB2_Max) << endl;
+        cout << "BB2 Min: " << glm::to_string(BB2_Min) << endl;
+        cout << "BB2 Pos: " << glm::to_string(BB2_Pos) << endl;
 
-float Camera::GetTopBoundingBox() {
-        float Top = Camera_Position.y + 0.5;
-        return Top;       
-}
-float Camera::GetBottomBoundingBox() {
-        float Bottom = Camera_Position.y - 0.5;
-        return Bottom;        
-}
-float Camera::GetFrontBoundingBox() {
-        float Front = Camera_Position.z + 0.5;
-        return Front; 
-}
-float Camera::GetBackBoundingBox() {
-        float Back = Camera_Position.z - 0.5;
-        return Back;        
 }

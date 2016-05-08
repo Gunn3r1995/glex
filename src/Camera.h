@@ -16,13 +16,8 @@ class Camera {
 
                 Camera();
 	        glm::mat4 UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
-
-                float GetLeftBoundingBox();
-                float GetRightBoundingBox();
-                float GetTopBoundingBox();
-                float GetBottomBoundingBox();
-                float GetFrontBoundingBox();
-                float GetBackBoundingBox();     
+	        void CollisionDetection(glm::vec3 BB2_Max, glm::vec3 BB2_Min, glm::vec3 BB2_Pos);
+   
         private:
                 
                 //////////////////////////////////////////////////////////////////////////////////////////
@@ -43,7 +38,6 @@ class Camera {
 	        float mouseDeltaY;
 
                 glm::vec3 Camera_Position;
-                glm::vec3 Camera_Old_Position = Camera_Position;
 
                 glm::vec3 Movement_Z;
                 glm::vec3 Movement_X;
