@@ -78,10 +78,6 @@ void BoundingBox::TranslateX() {
                                 this->translateTo = translateToSave;
                         }
                 }
-        
-        //else {
-        //        this->translateTo = translateToSave;
-        //}
 }
 
 void BoundingBox::TranslateY() {
@@ -99,10 +95,6 @@ void BoundingBox::TranslateY() {
                                 this->translateTo = translateToSave;
                         }
                 }
-        
-	//else {
-        //        this->translateTo = translateToSave;
-	//}
 }
 void BoundingBox::TranslateZ() {
                 if(this->translateTo.z < animateTo.z ) {
@@ -119,9 +111,6 @@ void BoundingBox::TranslateZ() {
                                 this->translateTo = translateToSave;
                         }
                 }
-        //else {
-        //        this->translateTo = translateToSave;
-        //}
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////

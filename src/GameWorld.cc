@@ -77,10 +77,16 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                          glm::vec3(5.0f,2.0f,-4.0f), false,
                                                          glm::vec3(0.1f,0.1f,0.1f), true,
                                                          glm::vec3(1.1f,1.1f,1.1f), true));
+                                                         
         asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3(7.0f ,2.0f, -4.0f),
-                                                          glm::vec3(7.0f, 2.0f, 25.0f), true,
+                                                          glm::vec3(7.0f, 2.0f, -15.0f), true,
                                                           No_Rotation, false,
                                                           Normal_Size, false));
+        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(7.0f ,2.0f, -13.0f),
+                                                          glm::vec3(7.0f, 2.0f, -13.0f), false,
+                                                          Normal_Rotation, true,
+                                                          Double_Size, true));
+                                                          
         asset_manager->AddAsset(make_shared<PyramidAsset>(Spawn, glm::vec3(9.0f ,1.50f, -4.0f),
                                                           glm::vec3(9.0f,1.50f,-4.0f), false,
                                                           No_Rotation, false,
