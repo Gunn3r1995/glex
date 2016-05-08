@@ -128,7 +128,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
 
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
-    /*if( world[pointY][pointX] == 1 || world[pointY][pointX] == 2 || world[pointY][pointX] == 3 || world[pointY][pointX] == 4 || world[pointY][pointX] == 5 || world[pointY][pointX] == 6 || world[pointY][pointX] == 7){          
+    if( world[pointY][pointX] == 1 || world[pointY][pointX] == 2 || world[pointY][pointX] == 3 || world[pointY][pointX] == 4 || world[pointY][pointX] == 5 || world[pointY][pointX] == 6 || world[pointY][pointX] == 7){          
             ////////////////////////////////////////////////////////////////////////////////////////// 
             ///  Spawns Ground.
             ///  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
@@ -141,7 +141,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                              glm::vec3(0.0f,0.0f,0.0f), false,
                                                              No_Rotation, false,
                                                              Normal_Size, false ));
-   }*/
+   }
    if( world[pointY][pointX] == 2){
             ////////////////////////////////////////////////////////////////////////////////////////// 
             ///  Spawning Small Diamond Tower.
@@ -165,7 +165,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                               Normal_Rotation, true,
                                                               Normal_Size, false));
    }
-   /*else if( world[pointY][pointX] == 3){
+   else if( world[pointY][pointX] == 3){
             ////////////////////////////////////////////////////////////////////////////////////////// 
             /// Spawning Taller Diamond Tower. 
             /// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
@@ -574,7 +574,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                             glm::vec3(0.0f,0.0f,0.0f), false,
                                                             No_Rotation, false,
                                                             Normal_Size, false));
-   }*/
+   }
   }
  }
 }
