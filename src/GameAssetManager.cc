@@ -97,6 +97,9 @@ void GameAssetManager::Draw() {
                 /// 
                 /// Checks whether one block collides with the other Block
                 ////////////////////////////////////////////////////////////////////////////////////////// 
+                std::shared_ptr<GameAsset> game_asset;
+                
+                if( ga->GetTranslateBool() == true || ga->GetScaleBool() == true || ga->GetRotateBool() == true ){
                 BB1_Max = ga->GetAABB("Max");
                 BB1_Min = ga->GetAABB("Min");
                 BB1_Pos = ga->GetTranslateTo();
@@ -109,6 +112,7 @@ void GameAssetManager::Draw() {
                         if(BB1_Pos != BB2_Pos) {
                                  ga->CollisionDetection(BB1_Max, BB1_Min, BB1_Pos, BB2_Max, BB2_Min, BB2_Pos);
                         }
+                }
                 }
                 ga->Draw(program_token);
 	}

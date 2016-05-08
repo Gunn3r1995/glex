@@ -10,8 +10,8 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3
         ////////////////////////////////////////////////////////////////////////////////////////// 
         this->xyzPosition = xyzPosition;
         this->translateTo = translateTo;
-        this->animateTo = animateTo;
         translateToSave = translateTo;
+        this->animateTo = animateTo;
         this->translate_bool = translate_bool;
 
         this->rotate = rotate;
@@ -64,7 +64,7 @@ glm::mat4 BoundingBox::GetModel() {
 ///This controls the translation animation, to move the assets on the x, y or z axis
 ////////////////////////////////////////////////////////////////////////////////////////// 
 void BoundingBox::TranslateX() {
-        if(this->translateTo.y < animateTo.y ){
+        if( this->translateTo.y < animateTo.y || this->translateTo.y != animateTo.y){
 	        if(this->translateTo.x < animateTo.x ) {
                        this->translateTo = this->translateTo + glm::vec3(0.1f,0.0f,0.0f);
                 }
@@ -78,7 +78,7 @@ void BoundingBox::TranslateX() {
 }
 
 void BoundingBox::TranslateY() {
-        if(this->translateTo.y < animateTo.y ){
+        if( this->translateTo.y < animateTo.y || this->translateTo.y != animateTo.y){
 	        if(this->translateTo.y < animateTo.y ) {
                        this->translateTo = this->translateTo + glm::vec3(0.0f,0.1f,0.0f);
                 }
@@ -91,7 +91,7 @@ void BoundingBox::TranslateY() {
 	}
 }
 void BoundingBox::TranslateZ() {
-        if(this->translateTo.y < animateTo.y ){
+        if( this->translateTo.y < animateTo.y || this->translateTo.y != animateTo.y){
 	        if(this->translateTo.z < animateTo.z ) {
                        this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,0.1f);
                 }
@@ -153,7 +153,7 @@ void BoundingBox::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::
         BB1_Max.y > BB2_Min.y && BB1_Min.y < BB2_Max.y &&
         BB1_Max.z > BB2_Min.z && BB1_Min.z < BB2_Max.z)
     {
-        cout << "Collision!" << endl;
+        cout << "Collision" << endl;
         cout << "BB1 Pos: " << glm::to_string(BB1_Pos) << endl;
         cout << "BB1 Max: " << glm::to_string(BB1_Max) << endl;
         cout << "BB1 Min: " << glm::to_string(BB1_Min) << endl;
@@ -164,6 +164,7 @@ void BoundingBox::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::
         cout << "*****************************************************" << endl;
         this->translateTo = translateToSave;
         this->scale = scaleTo;
+        this->rotate = rotateTo;
     }
 }  
 
@@ -172,6 +173,18 @@ void BoundingBox::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::
 /// Returns the Current position the BoundingBox is at
 //////////////////////////////////////////////////////////////////////////////////////////
 glm::vec3 BoundingBox::GetTranslateTo() {
-	return translateTo;
+	return this->translateTo;
+}
+
+bool BoundingBox::GetTranslateBool() {
+	return this->translate_bool;
+}
+
+bool BoundingBox::GetScaleBool() {
+	return this->scale_bool;
+}
+
+bool BoundingBox::GetRotateBool() {
+	return this->rotate_bool;
 }
 

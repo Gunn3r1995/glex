@@ -26,7 +26,6 @@ glm::mat4 GameAsset::GetModel() {
 	return Bounding_Box->GetModel();
 }
 
-
 glm::vec3 GameAsset::GetAABB(string check) {
     if(check == "Max") {
         return Bounding_Box->GetAABB("Max");
@@ -50,4 +49,15 @@ glm::vec3 GameAsset::GetTranslateTo(){
     return Bounding_Box->GetTranslateTo();
 }
 
+bool GameAsset::GetTranslateBool() {
+    return Bounding_Box->GetTranslateBool();
+}
+
+bool GameAsset::GetScaleBool() {
+        return Bounding_Box->GetScaleBool();
+}
+
+bool GameAsset::GetRotateBool() {
+        return Bounding_Box->GetRotateBool();
+}
 

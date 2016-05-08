@@ -24,6 +24,9 @@ class GameAsset {
                           glm::vec3 animateTo, bool translate_bool, 
                           glm::vec3 rotate, bool rotate_bool,
                           glm::vec3 scale, bool scale_bool);
+                bool GetTranslateBool();
+                bool GetScaleBool();
+                bool GetRotateBool();
                 virtual void Draw(GLuint) = 0;
                 glm::vec3 GetAABB(string check);
                 void CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::vec3 BB1_Pos,

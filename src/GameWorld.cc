@@ -3,8 +3,8 @@
 GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAssetManager>(mode)){
   int pointX,pointY;
   int pointZ = 1;
-  int worldX = 20;
-  int worldY = 20;
+  int worldX = 25;
+  int worldY = 25;
 
   //////////////////////////////////////////////////////////////////////////////////////////
   ///  2D array for world space.
@@ -27,27 +27,32 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   ///
   ///  7-> Somewhat Random Grass.
   //////////////////////////////////////////////////////////////////////////////////////////
-  int world[20][20] = {
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,2,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,2,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,3,7,1,1,1,7,1,1,1,1,1,1,1,3,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,7,1,1,1,1},
-  {1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,7,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,5,1,1,6,1,1,1,1,1,4,1,1,1,1,6,1,1,5,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1},
-  {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1},
-  {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,1,1,1,1,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1},
-  {1,1,1,1,1,1,7,1,1,1,1,1,1,7,7,1,1,1,1,1},
-  {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  int world[25][25] = {
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,2,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,2,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,3,7,1,1,1,7,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,7,1,1,1,1,1,1,1,1,1},
+  {1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,5,1,1,6,1,1,1,1,1,4,1,1,1,1,6,1,1,5,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,7,1,1,1,1,1,1,7,7,1,1,1,1,1,1,1,1,1,1},
+  {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}        
   };
                    
                                    
@@ -88,8 +93,8 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                          glm::vec3(0.0f,0.0f,0.0f), true,
                                                          No_Rotation, false,
                                                          Normal_Size, false));
-        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,5.0f, 0.0f),
-                                                       glm::vec3(0.0f,10.5f,0.0f), true,
+        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,0.0f, 0.0f),
+                                                       glm::vec3(0.0f,10.0f,0.0f), true,
                                                          No_Rotation, false, 
                                                          Normal_Size, false ));  
    /////////////////////////////////////////////////////////////////////////////////////////
@@ -101,10 +106,10 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    //                                                 Rotation, Bool,
    //                                                 Scale, Bool));  
    /////////////////////////////////////////////////////////////////////////////////////////
-/*
+
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
-    if( world[pointY][pointX] == 1){          
+    if( world[pointY][pointX] == 1 || world[pointY][pointX] == 2 || world[pointY][pointX] == 3 || world[pointY][pointX] == 4 || world[pointY][pointX] == 5 || world[pointY][pointX] == 6 || world[pointY][pointX] == 7){          
             ////////////////////////////////////////////////////////////////////////////////////////// 
             ///  Spawns Ground.
             ///  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
@@ -118,7 +123,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                              No_Rotation, false,
                                                              Normal_Size, false ));
    }
-    else if( world[pointY][pointX] == 2){
+   if( world[pointY][pointX] == 2){
             ////////////////////////////////////////////////////////////////////////////////////////// 
             ///  Spawning Small Diamond Tower.
             ///  Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
@@ -136,12 +141,16 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                            glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Double_Size, true));
+            asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3(10.0f,9.1f,10.0f), 
+                                                              glm::vec3(10.0f,9.1f,10.0f), false,
+                                                              Normal_Rotation, true,
+                                                              Normal_Size, false));
             asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3((pointX),1.0f,(pointZ*pointY)), 
-                                                              glm::vec3(10.0f,10.0f,10.0f), true,
+                                                              glm::vec3(10.0f,9.1f,10.0f), true,
                                                               Normal_Rotation, true,
                                                               Normal_Size, false));
    }
-    else if( world[pointY][pointX] == 3){
+   else if( world[pointY][pointX] == 3){
             ////////////////////////////////////////////////////////////////////////////////////////// 
             /// Spawning Taller Diamond Tower. 
             /// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
@@ -159,17 +168,17 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                            glm::vec3(0.0f,0.0f,0.0f), false,
                                                            No_Rotation, false,
                                                            Normal_Size, false));
-            asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY)), 
-                                                           glm::vec3(0.0f,0.0f,0.0f), false,
-                                                           No_Rotation, false,
-                                                           Normal_Size, false));
-            asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3((pointX),2.0f,(pointZ*pointY)), 
-                                                              glm::vec3((pointX)+10.f,2.0f+10.0f,(pointZ*pointY)+10.0f), false,
-                                                              Normal_Rotation, true,
-                                                              Normal_Size, false));
+            //asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY)), 
+            //                                               glm::vec3(0.0f,0.0f,0.0f), false,
+            //                                               No_Rotation, false,
+            //                                               Normal_Size, false));
+            //asset_manager->AddAsset(make_shared<DiamondAsset>(Spawn, glm::vec3((pointX),2.0f,(pointZ*pointY)), 
+            //                                                  glm::vec3((pointX+10.0f),(2.0f+10.0f),(pointZ*pointY+10.0f), true,
+             //                                                 Normal_Rotation, true,
+              //                                                Normal_Size, false));
 
    }
-    else if( world[pointY][pointX] == 4){
+   else if( world[pointY][pointX] == 4){
             ////////////////////////////////////////////////////////////////////////////////////////// 
             /// Tree Spawn. 
             /// Spawns the Voxel GroundAsset so it creates a two tall ground world for the world
@@ -552,7 +561,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                             Normal_Size, false));
    }
   }
- }*/
+ }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
