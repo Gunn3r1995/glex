@@ -22,7 +22,6 @@ class CubeAsset : public GameAsset {
             glm::vec3 scale, bool scale_bool);
   ~CubeAsset();
   void Draw(GLuint);
-  glm::vec3 GetVec3();
 
  private:
   glm::vec3 Position;
