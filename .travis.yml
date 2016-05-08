@@ -25,7 +25,7 @@ before_install:
  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install boost-python --with-python; fi
 
 script:
- - autoreconf -i
+ - autoreconf -i --force
  - ./configure
  - make
 
