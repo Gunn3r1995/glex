@@ -1,4 +1,4 @@
-#ifndef BOUNDINDBOX_H
+#ifndef BOUNDINGBOX_H
 #define BOUNDINGBOX_H
 
 #include <glm/glm.hpp>
