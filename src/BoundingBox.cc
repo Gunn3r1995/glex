@@ -128,7 +128,44 @@ void BoundingBox::Scale(glm::vec3 scaleTo) {
 	else {
 		this->scale = glm::vec3(1.0f,1.0f,1.0f);
 	}
-}      
+}    
+
+/**
+ * Return the max and minimum bounds
+ */
+glm::vec3 BoundingBox::GetAABB(string check)
+{
+    if (check == "Max")
+    {
+        AABB = this->translateTo += glm::vec3(1.0f,1.0f,1.0f) * this->scale;
+    }
+    else if (check == "Min")
+    {
+        AABB = this->translateTo += glm::vec3(-1.0f,-1.0f,-1.0f) * this->scale;
+    }
+    return AABB;
+}
+
+void BoundingBox::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::vec3 BB1_Pos,
+                                     glm::vec3 BB2_Max, glm::vec3 BB2_Min, glm::vec3 BB2_Pos)
+{
+    if (BB1_Max.x > BB2_Min.x && BB1_Min.x < BB2_Max.x &&
+        BB1_Max.y > BB2_Min.y && BB1_Min.y < BB2_Max.y &&
+        BB1_Max.z > BB2_Min.z && BB1_Min.z < BB2_Max.z)
+    {
+        cout << "Collision!" << endl;
+        cout << "BB1 Pos: " << glm::to_string(BB1_Pos) << endl;
+        cout << "BB1 Max: " << glm::to_string(BB1_Max) << endl;
+        cout << "BB1 Min: " << glm::to_string(BB1_Min) << endl;
+        cout << "----------------------------------------------" << endl;
+        cout << "BB2 Pos: " << glm::to_string(BB2_Pos) << endl;
+        cout << "BB2 Max: " << glm::to_string(BB2_Max) << endl;
+        cout << "BB2 Min: " << glm::to_string(BB2_Min) << endl;
+        cout << "*****************************************************" << endl;
+        this->translateTo = translateToSave;
+        this->scale = scaleTo;
+    }
+}  
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// GetTranslateTo

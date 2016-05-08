@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <memory>
+#include <string>
 using namespace std;
 
 #include "BoundingBox.h"
@@ -24,6 +25,9 @@ class GameAsset {
                           glm::vec3 rotate, bool rotate_bool,
                           glm::vec3 scale, bool scale_bool);
                 virtual void Draw(GLuint) = 0;
+                glm::vec3 GetAABB(string check);
+                void CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::vec3 BB1_Pos,
+                                        glm::vec3 BB2_Max, glm::vec3 BB2_Min, glm::vec3 BB2_Pos);
 
                 glm::mat4 GetModel();
                 glm::vec3 GetTranslateTo();

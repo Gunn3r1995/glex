@@ -26,6 +26,21 @@ glm::mat4 GameAsset::GetModel() {
 	return Bounding_Box->GetModel();
 }
 
+
+glm::vec3 GameAsset::GetAABB(string check) {
+    if(check == "Max") {
+        return Bounding_Box->GetAABB("Max");
+    }
+    else if(check == "Min") {
+        return Bounding_Box->GetAABB("Min");
+    }
+}
+
+void GameAsset::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::vec3 BB1_Pos,
+                                   glm::vec3 BB2_Max, glm::vec3 BB2_Min, glm::vec3 BB2_Pos) {
+    Bounding_Box->CollisionDetection(BB1_Max, BB1_Min, BB1_Pos, BB2_Max, BB2_Min, BB2_Pos);
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////
 ///Get TranslateTo
 ///This class Gets the TranslateTo from the Bounding Box class, Which is the current Position
@@ -34,3 +49,5 @@ glm::mat4 GameAsset::GetModel() {
 glm::vec3 GameAsset::GetTranslateTo(){
     return Bounding_Box->GetTranslateTo();
 }
+
+

@@ -92,6 +92,24 @@ void GameAssetManager::Draw() {
                 Camera_Model = ga->GetModel();
 		glUniformMatrix4fv(Camera_Model_Link, 1, GL_FALSE, &Camera_Model[0][0]);
 		
+		//////////////////////////////////////////////////////////////////////////////////////////
+                /// Collision Check
+                /// 
+                /// Checks whether one block collides with the other Block
+                ////////////////////////////////////////////////////////////////////////////////////////// 
+                BB1_Max = ga->GetAABB("Max");
+                BB1_Min = ga->GetAABB("Min");
+                BB1_Pos = ga->GetTranslateTo();
+                
+		for(auto ga2: draw_list) {
+                        BB2_Max = ga2->GetAABB("Max");
+                        BB2_Min = ga2->GetAABB("Min");
+                        BB2_Pos = ga2->GetTranslateTo();
+
+                        if(BB1_Pos != BB2_Pos) {
+                                 ga->CollisionDetection(BB1_Max, BB1_Min, BB1_Pos, BB2_Max, BB2_Min, BB2_Pos);
+                        }
+                }
                 ga->Draw(program_token);
 	}
 }

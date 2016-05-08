@@ -7,6 +7,7 @@
 #include <utility>
 #include <fstream>
 #include <iostream>
+#include <string>
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -45,8 +46,9 @@ class GameAssetManager {
                 // As this is private and we're writing to the GPU, we will use raw pointers.
                 std::pair<GLchar *, GLint>  ReadShader(std::string &);
 
-                glm::mat4 Camera_View;
-                glm::mat4 Camera_Projection;
+                glm::mat4 Camera_View, Camera_Projection;
+             
+                glm::vec3 BB1_Max, BB1_Min, BB1_Pos, BB2_Max, BB2_Min, BB2_Pos;
 
                 // The internal scene graph is a simple list.
                 std::vector<std::shared_ptr<GameAsset>> draw_list;

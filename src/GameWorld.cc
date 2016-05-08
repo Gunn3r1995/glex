@@ -49,16 +49,8 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
   {1,2,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,2,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   };
-  /*
-        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(3.0f ,10.5f, 0.5f),
-                                                         glm::vec3(3.0f,10.5f,0.5f), true,
-                                                         No_Rotation, false,
-                                                         Normal_Size, false));
-        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(2.1f ,10.5f, 0.5f),
-                                                       glm::vec3(2.1f,10.5f,0.5f), true,
-                                                         No_Rotation, false, 
-                                                         Normal_Size, false ));                    
-   */                                 
+                   
+                                   
       
         
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -71,7 +63,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
         asset_manager->AddAsset(make_shared<GroundAsset>(Spawn, glm::vec3(1.0f ,2.00f, -4.0f),
                                                          glm::vec3(1.0f ,2.00f, -4.0f), false,
                                                          No_Rotation, false,
-                                                         Double_Size, true));
+                                                         Giant_Size, true));
         asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(3.0f ,2.00f, -4.0f),
                                                        glm::vec3(3.0f,2.0f,-4.0f), false,
                                                        Fast_Rotation, true,
@@ -92,7 +84,14 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                         glm::vec3(11.0f,1.50f,-4.0f), false,
                                                         No_Rotation, false,
                                                         Giant_Size, true));
-
+        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,10.0f, 0.0f),
+                                                         glm::vec3(0.0f,0.0f,0.0f), true,
+                                                         No_Rotation, false,
+                                                         Normal_Size, false));
+        asset_manager->AddAsset(make_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,5.0f, 0.0f),
+                                                       glm::vec3(0.0f,10.5f,0.0f), true,
+                                                         No_Rotation, false, 
+                                                         Normal_Size, false ));  
    /////////////////////////////////////////////////////////////////////////////////////////
    //AddAsset Layout 
    //This adds the asset to the game asset manager which draws it to the screen
@@ -102,7 +101,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
    //                                                 Rotation, Bool,
    //                                                 Scale, Bool));  
    /////////////////////////////////////////////////////////////////////////////////////////
-
+/*
   for( pointX=0; pointX<worldX; pointX++){
    for (pointY=0; pointY<worldY; pointY++){
     if( world[pointY][pointX] == 1){          
@@ -553,7 +552,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAss
                                                             Normal_Size, false));
    }
   }
- }
+ }*/
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
