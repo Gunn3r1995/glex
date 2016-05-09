@@ -1,17 +1,19 @@
 \hypertarget{class_camera}{}\section{Camera Class Reference}
 \label{class_camera}\index{Camera@{Camera}}
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_camera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
 \item 
-glm\+::mat4 \hyperlink{class_camera_a37a2cb59aee3425a33672a6d5ae021f5}{Update\+Camera\+Position} (Control control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)
+glm\+::mat4 \hyperlink{class_camera_a37a2cb59aee3425a33672a6d5ae021f5}{Update\+Camera\+Position} (\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9}{Control} control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)
 \item 
-\hypertarget{class_camera_a985109173ffc496b53000c635aff5e06}{}void {\bfseries Collision\+Detection} (glm\+::vec3 B\+B\+\_\+\+Max, glm\+::vec3 B\+B\+\_\+\+Min)\label{class_camera_a985109173ffc496b53000c635aff5e06}
-
+void \hyperlink{class_camera_a985109173ffc496b53000c635aff5e06}{Collision\+Detection} (glm\+::vec3 B\+B\+\_\+\+Max, glm\+::vec3 B\+B\+\_\+\+Min)
 \item 
-\hypertarget{class_camera_a948a60a6eb780a313ed59690bbaef811}{}glm\+::vec3 {\bfseries Get\+Camera\+Position} ()\label{class_camera_a948a60a6eb780a313ed59690bbaef811}
-
+glm\+::vec3 \hyperlink{class_camera_a948a60a6eb780a313ed59690bbaef811}{Get\+Camera\+Position} ()
 \end{DoxyCompactItemize}
 
 
@@ -24,13 +26,74 @@ glm\+::mat4 \hyperlink{class_camera_a37a2cb59aee3425a33672a6d5ae021f5}{Update\+C
 \end{DoxyParamCaption}
 )}\label{class_camera_a01f94c3543f56ede7af49dc778f19331}
 Controls calculations Controls all the movement and positions of the camera Uses keyboard and Mouse movements to move around the world space Tells the \hyperlink{class_camera}{Camera} matrix what position to look at and where to move 
+\begin{DoxyCode}
+10                \{
+11           Camera\_Position = glm::vec3(0.0f, 0.5f, -10.0f);
+12 
+13       Camera\_Horizontal = 0.0f;
+14       Camera\_Vertical = 0.0f;
+15 
+16           mouseDeltaX = 0.0;
+17       mouseDeltaY = 0.0;
+18 
+19       Player\_Speed = 0.5; 
+20 \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
+\hypertarget{class_camera_a985109173ffc496b53000c635aff5e06}{}\index{Camera@{Camera}!Collision\+Detection@{Collision\+Detection}}
+\index{Collision\+Detection@{Collision\+Detection}!Camera@{Camera}}
+\subsubsection[{Collision\+Detection(glm\+::vec3 B\+B\+\_\+\+Max, glm\+::vec3 B\+B\+\_\+\+Min)}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Collision\+Detection (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{B\+B\+\_\+\+Max, }
+\item[{glm\+::vec3}]{B\+B\+\_\+\+Min}
+\end{DoxyParamCaption}
+)}\label{class_camera_a985109173ffc496b53000c635aff5e06}
+
+\begin{DoxyCode}
+114                                                               \{
+115         Camera\_BB\_Max = Camera\_Position + glm::vec3(0.5f,0.5f,0.5f);
+116         Camera\_BB\_Min = Camera\_Position + glm::vec3(-0.5f,-0.5f,-0.5f);
+117  
+118         \textcolor{keywordflow}{if} (BB\_Max.x > Camera\_BB\_Min.x && BB\_Min.x < Camera\_BB\_Max.x &&
+119                 BB\_Max.y > Camera\_BB\_Min.y && BB\_Min.y < Camera\_BB\_Max.y &&
+120                 BB\_Max.z > Camera\_BB\_Min.z && BB\_Min.z < Camera\_BB\_Max.z) \{
+121             cout << \textcolor{stringliteral}{"Camera Collision!"} << endl;
+122             
+123             \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"UP"} ) \{
+124                     Camera\_Position -=  Movement\_Z * Player\_Speed;     
+125             \}
+126                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"DOWN"} ) \{
+127                 Camera\_Position += Movement\_Z * Player\_Speed;
+128             \} 
+129                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"LEFT"} ) \{
+130                 Camera\_Position += Movement\_X * Player\_Speed;
+131             \} 
+132                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"RIGHT"} ) \{
+133                 Camera\_Position -= Movement\_X * Player\_Speed;
+134             \}
+135                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"JUMP"} ) \{
+136                         Camera\_Position.y -= 0.5f * Player\_Speed;
+137                 \}
+138                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"CROUCH"} ) \{
+139                         Camera\_Position.y += 0.5f * Player\_Speed;
+140                 \}
+141         \}
+142 \}
+\end{DoxyCode}
+\hypertarget{class_camera_a948a60a6eb780a313ed59690bbaef811}{}\index{Camera@{Camera}!Get\+Camera\+Position@{Get\+Camera\+Position}}
+\index{Get\+Camera\+Position@{Get\+Camera\+Position}!Camera@{Camera}}
+\subsubsection[{Get\+Camera\+Position()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Camera\+::\+Get\+Camera\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_camera_a948a60a6eb780a313ed59690bbaef811}
 \hypertarget{class_camera_a37a2cb59aee3425a33672a6d5ae021f5}{}\index{Camera@{Camera}!Update\+Camera\+Position@{Update\+Camera\+Position}}
 \index{Update\+Camera\+Position@{Update\+Camera\+Position}!Camera@{Camera}}
 \subsubsection[{Update\+Camera\+Position(\+Control control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Camera\+::\+Update\+Camera\+Position (
 \begin{DoxyParamCaption}
-\item[{Control}]{control, }
+\item[{{\bf Control}}]{control, }
 \item[{int}]{Mouse\+\_\+\+X, }
 \item[{int}]{Mouse\+\_\+\+Y}
 \end{DoxyParamCaption}
@@ -40,8 +103,83 @@ Drawing the world. Draws the assets to the world by calling \hyperlink{class_gam
 Keyboard Input Use This gets the Current Control State and then calculates the appropriate changes to the \hyperlink{class_camera}{Camera} Position.
 
 \hyperlink{class_camera}{Camera} view matrix. changes where the camera position looks up to use the camera position changes the direction you look at Makes the world the correct orientation
+\begin{DoxyCode}
+27                                                                               \{
+32         \textcolor{comment}{// mouse delta position inverted}
+33     mouseDeltaX = -Mouse\_X;
+34     mouseDeltaY = -Mouse\_Y;
+35 
+36         Camera\_Horizontal += 0.001f * mouseDeltaX;
+37 
+38         \textcolor{keywordflow}{if}((Camera\_Vertical + (0.01f * mouseDeltaY)) < 3.0f && (Camera\_Vertical + (0.01f * mouseDeltaY)) > 
+      -3.0f )\{
+39             Camera\_Vertical += 0.001f * mouseDeltaY;
+40         \}
+41 
+42         glm::vec3 direction(
+43         cos(Camera\_Vertical) * sin(Camera\_Horizontal),
+44         sin(Camera\_Vertical),
+45         cos(Camera\_Vertical) * cos(Camera\_Horizontal)
+46     );
+47     
+48         glm::vec3 Walk\_direction(
+49         cos(Camera\_Vertical) * sin(Camera\_Horizontal),
+50         0,
+51         cos(Camera\_Vertical) * cos(Camera\_Horizontal)
+52     );
+53         
+54     Movement\_Z = Walk\_direction;
+55 
+56     Movement\_X = glm::vec3(
+57         sin(Camera\_Horizontal - 3.14f/2.0f),
+58         0,
+59         cos(Camera\_Horizontal - 3.14f/2.0f)
+60     );
+61 
+62     glm::vec3 vup = glm::cross(Movement\_X, Movement\_Z);
+63         
+69         \textcolor{keywordflow}{if}(control == \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9aba595d8bca8bc5e67c37c0a9d89becfa}{UP}) \{
+70         Camera\_Position +=  Movement\_Z * Player\_Speed;
+71         ControlSave = \textcolor{stringliteral}{"UP"};
+72     \}
+73         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(control == \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a9b0b4a95b99523966e0e34ffdadac9da}{DOWN}) \{
+74         Camera\_Position -= Movement\_Z * Player\_Speed;
+75         ControlSave = \textcolor{stringliteral}{"DOWN"};
+76     \} 
+77         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(control == \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9adb45120aafd37a973140edee24708065}{LEFT}) \{
+78         Camera\_Position -= Movement\_X * Player\_Speed;
+79         ControlSave = \textcolor{stringliteral}{"LEFT"};
+80     \} 
+81         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(control == \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9aec8379af7490bb9eaaf579cf17876f38}{RIGHT}) \{
+82         Camera\_Position += Movement\_X * Player\_Speed;
+83         ControlSave = \textcolor{stringliteral}{"RIGHT"};
+84     \}
+85         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(control == \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a1f28d4392b1c1e7da2af2283632d81e1}{JUMP}) \{
+86                 Camera\_Position.y += 0.5f * Player\_Speed;
+87                 ControlSave = \textcolor{stringliteral}{"JUMP"};
+88         \}
+89         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(control == \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a3cdd4783c5dbeae45bbcd15570a6b273}{CROUCH}) \{
+90                 Camera\_Position.y -= 0.5f * Player\_Speed;
+91                 ControlSave = \textcolor{stringliteral}{"CROUCH"};
+92         \}
+93         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(control == \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9ab107229d44d042caa8ab8df4c8acaa1f}{PRINT}) \{
+94                 cout << \textcolor{stringliteral}{"********************************************************************"} << endl;
+95                 cout << \textcolor{stringliteral}{"Camera Position: "} << glm::to\_string(Camera\_Position) << endl;
+96                 \textcolor{comment}{//cout << "Camera Old Position: " << glm::to\_string(Camera\_Old\_Position) << endl;}
+97                 
+98                 cout << \textcolor{stringliteral}{"Camera Axis Alligned Bounding Box"} << endl;
+99                 cout << \textcolor{stringliteral}{"********************************************************************"} << endl;
+100         \}
+101         \textcolor{comment}{//cout << "Camera\_Position" << glm::to\_string(Camera\_Position) <<endl;}
+108 \textcolor{comment}{}        \textcolor{keywordflow}{return} glm::lookAt(Camera\_Position, 
+109                            Camera\_Position + direction, 
+110                            vup);
+111    
+112 \}
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Camera.\+h\item 
-src/Camera.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_camera_8h}{Camera.\+h}\item 
+src/\hyperlink{_camera_8cc}{Camera.\+cc}\end{DoxyCompactItemize}

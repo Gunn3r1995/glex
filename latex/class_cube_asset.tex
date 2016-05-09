@@ -2,8 +2,11 @@
 \label{class_cube_asset}\index{Cube\+Asset@{Cube\+Asset}}
 
 
-Inheritance diagram for Cube\+Asset\+:
-\nopagebreak
+{\ttfamily \#include $<$Cube\+Asset.\+h$>$}
+
+
+
+Inheritance diagram for Cube\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +15,7 @@ Inheritance diagram for Cube\+Asset\+:
 \end{figure}
 
 
-Collaboration diagram for Cube\+Asset\+:
-\nopagebreak
+Collaboration diagram for Cube\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,6 +26,8 @@ Collaboration diagram for Cube\+Asset\+:
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_cube_asset_a77f29d64dc1ed34067948d73302a4d4f}{Cube\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+\hyperlink{class_cube_asset_ab3ab9a5da82cbf8537a28652410093b1}{$\sim$\+Cube\+Asset} ()
 \item 
 void \hyperlink{class_cube_asset_a1af568486056e254ffcf98fd99947bfe}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
@@ -50,6 +54,84 @@ model coordinates, origin at centre. Sets cordinates to a cube with the center p
 Color Buffer. Colour of Cube Asset Saddle Brown Uses R\+G\+B values to set the colour.
 
 Element buffer. Draws the cube voxel up of 12 Triangles Two Triangles per Face.
+\begin{DoxyCode}
+7 : \hyperlink{class_game_asset_a9de932075d9b4263e7fb24fbfd163a61}{GameAsset}(xyzPosition, translateTo, animateTo, translate\_bool, rotate, rotate\_bool, scale, 
+      scale\_bool, AssetType) \{
+8 
+9   Position = xyzPosition;
+16   GLfloat vertex\_buffer[]\{
+17       0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+18     , 0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+19     ,-0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+20     ,-0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+21     , 0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z 
+22     , 0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+23     ,-0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+24     ,-0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+25   \};
+26 
+27   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+28 
+34   GLfloat colour\_buffer[] = \{
+35 
+36      0.139f, 0.069f, 0.019f,
+37      0.139f, 0.069f, 0.019f,
+38      0.139f, 0.069f, 0.019f,
+39      0.139f, 0.069f, 0.019f,
+40      0.139f, 0.069f, 0.019f,
+41      0.139f, 0.069f, 0.019f,
+42      0.139f, 0.069f, 0.019f,
+43      0.139f, 0.069f, 0.019f
+44   \};
+45   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+51   GLuint element\_buffer []  \{
+52       0, 1, 2   
+53     , 1, 3, 2
+54     , 0, 4, 1   
+55     , 1, 5, 4   
+56     , 5, 7, 4   
+57     , 7, 6, 4   
+58     , 3, 7, 6   
+59     , 2, 3, 6   
+60     , 1, 5, 7   
+61     , 1, 3, 7   
+62     , 0, 4, 6   
+63     , 0, 2, 6   
+64   \};
+65   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+66 
+67   \textcolor{comment}{// Transfer buffers to the GPU}
+68 
+69   \textcolor{comment}{// create buffer}
+70   glGenBuffers(1, &vertex\_buffer\_token);
+71   \textcolor{comment}{// immediately bind the buffer and transfer the data}
+72   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+73   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+74   
+75   \textcolor{comment}{// Binds the buffer to transfer the data}
+76   glGenBuffers(1, &colour\_buffer\_token);
+77   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+78   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+79 
+80 
+81   glGenBuffers(1, &element\_buffer\_token);
+82   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+83   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+84 \}
+\end{DoxyCode}
+\hypertarget{class_cube_asset_ab3ab9a5da82cbf8537a28652410093b1}{}\index{Cube\+Asset@{Cube\+Asset}!````~Cube\+Asset@{$\sim$\+Cube\+Asset}}
+\index{````~Cube\+Asset@{$\sim$\+Cube\+Asset}!Cube\+Asset@{Cube\+Asset}}
+\subsubsection[{$\sim$\+Cube\+Asset()}]{\setlength{\rightskip}{0pt plus 5cm}Cube\+Asset\+::$\sim$\+Cube\+Asset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_cube_asset_ab3ab9a5da82cbf8537a28652410093b1}
+
+\begin{DoxyCode}
+87                       \{
+88 \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_cube_asset_a1af568486056e254ffcf98fd99947bfe}{}\index{Cube\+Asset@{Cube\+Asset}!Draw@{Draw}}
@@ -63,11 +145,76 @@ use the previously transferred buffer as the vertex array. This way we transfer 
 
 Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
 
-Implements \hyperlink{class_game_asset}{Game\+Asset}.
+Implements \hyperlink{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
 
+
+\begin{DoxyCode}
+97                                          \{
+98   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+99     \textcolor{comment}{//cerr << "Drawing Cube with invalid program" << endl;}
+100     \textcolor{keywordflow}{return};
+101   \}
+102   GLint validation\_ok;
+103   glValidateProgram(program\_token);
+104   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+105   \textcolor{keywordflow}{if}(!validation\_ok) \{
+106     GLint maxLength = 0;
+107     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+108 
+109     \textcolor{comment}{// The maxLength includes the NULL character}
+110     std::vector<char> errorLog(maxLength);
+111     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+112 
+113     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+114     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+115       std::cerr << c;
+116     \}
+117     exit(-1);
+118   \}
+119 
+120   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+121   \hyperlink{_cube_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+122 
+123   glUseProgram(program\_token);
+124   \hyperlink{_cube_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+129   glEnableVertexAttribArray(0);
+130   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+131   glVertexAttribPointer(
+132     position\_attrib,        \textcolor{comment}{/* attribute */}
+133     3,        \textcolor{comment}{/* size */}
+134     GL\_FLOAT,   \textcolor{comment}{/* type */}
+135     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+136     0,        \textcolor{comment}{/* stride */}
+137     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+138   );
+139   glEnableVertexAttribArray(1);
+140   \hyperlink{_cube_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+145   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+146   glVertexAttribPointer(
+147     1,        \textcolor{comment}{/* attribute */}
+148     3,        \textcolor{comment}{/* size */}
+149     GL\_FLOAT,   \textcolor{comment}{/* type */}
+150     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+151     0,        \textcolor{comment}{/* stride */}
+152     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+153   );
+154   \hyperlink{_cube_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+155 
+156   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+157   glDrawElements(
+158     GL\_TRIANGLES,
+159     element\_buffer\_length,
+160     GL\_UNSIGNED\_INT,
+161     (GLvoid*) 0
+162   );
+163   \hyperlink{_cube_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+164 
+165   glDisableVertexAttribArray(position\_attrib);
+166 \}
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Cube\+Asset.\+h\item 
-src/Cube\+Asset.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_cube_asset_8h}{Cube\+Asset.\+h}\item 
+src/\hyperlink{_cube_asset_8cc}{Cube\+Asset.\+cc}\end{DoxyCompactItemize}

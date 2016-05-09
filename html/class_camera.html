@@ -49,6 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -114,18 +115,18 @@ $(document).ready(function(){initNavTree('class_camera.html','');});
 <div class="title">Camera Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_camera_8h_source.html">Camera.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a01f94c3543f56ede7af49dc778f19331"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a01f94c3543f56ede7af49dc778f19331">Camera</a> ()</td></tr>
 <tr class="separator:a01f94c3543f56ede7af49dc778f19331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37a2cb59aee3425a33672a6d5ae021f5"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a37a2cb59aee3425a33672a6d5ae021f5">UpdateCameraPosition</a> (Control control, int Mouse_X, int Mouse_Y)</td></tr>
+<tr class="memitem:a37a2cb59aee3425a33672a6d5ae021f5"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a37a2cb59aee3425a33672a6d5ae021f5">UpdateCameraPosition</a> (<a class="el" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9">Control</a> control, int Mouse_X, int Mouse_Y)</td></tr>
 <tr class="separator:a37a2cb59aee3425a33672a6d5ae021f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a985109173ffc496b53000c635aff5e06"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a985109173ffc496b53000c635aff5e06"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CollisionDetection</b> (glm::vec3 BB_Max, glm::vec3 BB_Min)</td></tr>
+<tr class="memitem:a985109173ffc496b53000c635aff5e06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a985109173ffc496b53000c635aff5e06">CollisionDetection</a> (glm::vec3 BB_Max, glm::vec3 BB_Min)</td></tr>
 <tr class="separator:a985109173ffc496b53000c635aff5e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a948a60a6eb780a313ed59690bbaef811"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a948a60a6eb780a313ed59690bbaef811"></a>
-glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>GetCameraPosition</b> ()</td></tr>
+<tr class="memitem:a948a60a6eb780a313ed59690bbaef811"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a948a60a6eb780a313ed59690bbaef811">GetCameraPosition</a> ()</td></tr>
 <tr class="separator:a948a60a6eb780a313ed59690bbaef811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -142,10 +143,91 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>GetCameraPositio
       </table>
 </div><div class="memdoc">
 <p>Controls calculations Controls all the movement and positions of the camera Uses keyboard and Mouse movements to move around the world space Tells the <a class="el" href="class_camera.html">Camera</a> matrix what position to look at and where to move </p>
-
+<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;               {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;          Camera_Position = glm::vec3(0.0f, 0.5f, -10.0f);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      Camera_Horizontal = 0.0f;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      Camera_Vertical = 0.0f;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;          mouseDeltaX = 0.0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      mouseDeltaY = 0.0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      Player_Speed = 0.5; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a985109173ffc496b53000c635aff5e06"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Camera::CollisionDetection </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>BB_Max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>BB_Min</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                                              {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        Camera_BB_Max = Camera_Position + glm::vec3(0.5f,0.5f,0.5f);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        Camera_BB_Min = Camera_Position + glm::vec3(-0.5f,-0.5f,-0.5f);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">if</span> (BB_Max.x &gt; Camera_BB_Min.x &amp;&amp; BB_Min.x &lt; Camera_BB_Max.x &amp;&amp;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                BB_Max.y &gt; Camera_BB_Min.y &amp;&amp; BB_Min.y &lt; Camera_BB_Max.y &amp;&amp;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                BB_Max.z &gt; Camera_BB_Min.z &amp;&amp; BB_Min.z &lt; Camera_BB_Max.z) {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            cout &lt;&lt; <span class="stringliteral">&quot;Camera Collision!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">if</span>( ControlSave == <span class="stringliteral">&quot;UP&quot;</span> ) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    Camera_Position -=  Movement_Z * Player_Speed;     </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>( ControlSave == <span class="stringliteral">&quot;DOWN&quot;</span> ) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                Camera_Position += Movement_Z * Player_Speed;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            } </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>( ControlSave == <span class="stringliteral">&quot;LEFT&quot;</span> ) {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                Camera_Position += Movement_X * Player_Speed;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            } </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>( ControlSave == <span class="stringliteral">&quot;RIGHT&quot;</span> ) {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                Camera_Position -= Movement_X * Player_Speed;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>( ControlSave == <span class="stringliteral">&quot;JUMP&quot;</span> ) {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                        Camera_Position.y -= 0.5f * Player_Speed;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>( ControlSave == <span class="stringliteral">&quot;CROUCH&quot;</span> ) {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                        Camera_Position.y += 0.5f * Player_Speed;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a948a60a6eb780a313ed59690bbaef811"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Camera::GetCameraPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a37a2cb59aee3425a33672a6d5ae021f5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -153,7 +235,7 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>GetCameraPositio
         <tr>
           <td class="memname">glm::mat4 Camera::UpdateCameraPosition </td>
           <td>(</td>
-          <td class="paramtype">Control&#160;</td>
+          <td class="paramtype"><a class="el" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9">Control</a>&#160;</td>
           <td class="paramname"><em>control</em>, </td>
         </tr>
         <tr>
@@ -179,12 +261,90 @@ glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><b>GetCameraPositio
 <p><a class="el" href="class_camera.html">Camera</a> Direction Calculates the distance each camera movement changes the camera direction</p>
 <p>Keyboard Input Use This gets the Current Control State and then calculates the appropriate changes to the <a class="el" href="class_camera.html">Camera</a> Position.</p>
 <p><a class="el" href="class_camera.html">Camera</a> view matrix. changes where the camera position looks up to use the camera position changes the direction you look at Makes the world the correct orientation</p>
-
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                                                                              {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">// mouse delta position inverted</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mouseDeltaX = -Mouse_X;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    mouseDeltaY = -Mouse_Y;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        Camera_Horizontal += 0.001f * mouseDeltaX;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span>((Camera_Vertical + (0.01f * mouseDeltaY)) &lt; 3.0f &amp;&amp; (Camera_Vertical + (0.01f * mouseDeltaY)) &gt; -3.0f ){</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            Camera_Vertical += 0.001f * mouseDeltaY;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        glm::vec3 direction(</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        cos(Camera_Vertical) * sin(Camera_Horizontal),</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        sin(Camera_Vertical),</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        cos(Camera_Vertical) * cos(Camera_Horizontal)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    );</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        glm::vec3 Walk_direction(</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        cos(Camera_Vertical) * sin(Camera_Horizontal),</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        0,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        cos(Camera_Vertical) * cos(Camera_Horizontal)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    );</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Movement_Z = Walk_direction;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Movement_X = glm::vec3(</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        sin(Camera_Horizontal - 3.14f/2.0f),</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        0,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        cos(Camera_Horizontal - 3.14f/2.0f)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    );</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    glm::vec3 vup = glm::cross(Movement_X, Movement_Z);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span>(control == <a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9aba595d8bca8bc5e67c37c0a9d89becfa">UP</a>) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        Camera_Position +=  Movement_Z * Player_Speed;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        ControlSave = <span class="stringliteral">&quot;UP&quot;</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(control == <a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9a9b0b4a95b99523966e0e34ffdadac9da">DOWN</a>) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        Camera_Position -= Movement_Z * Player_Speed;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        ControlSave = <span class="stringliteral">&quot;DOWN&quot;</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    } </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(control == <a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9adb45120aafd37a973140edee24708065">LEFT</a>) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        Camera_Position -= Movement_X * Player_Speed;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        ControlSave = <span class="stringliteral">&quot;LEFT&quot;</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    } </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(control == <a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9aec8379af7490bb9eaaf579cf17876f38">RIGHT</a>) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        Camera_Position += Movement_X * Player_Speed;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        ControlSave = <span class="stringliteral">&quot;RIGHT&quot;</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(control == <a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9a1f28d4392b1c1e7da2af2283632d81e1">JUMP</a>) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                Camera_Position.y += 0.5f * Player_Speed;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                ControlSave = <span class="stringliteral">&quot;JUMP&quot;</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(control == <a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9a3cdd4783c5dbeae45bbcd15570a6b273">CROUCH</a>) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                Camera_Position.y -= 0.5f * Player_Speed;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                ControlSave = <span class="stringliteral">&quot;CROUCH&quot;</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(control == <a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9ab107229d44d042caa8ab8df4c8acaa1f">PRINT</a>) {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                cout &lt;&lt; <span class="stringliteral">&quot;********************************************************************&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                cout &lt;&lt; <span class="stringliteral">&quot;Camera Position: &quot;</span> &lt;&lt; glm::to_string(Camera_Position) &lt;&lt; endl;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="comment">//cout &lt;&lt; &quot;Camera Old Position: &quot; &lt;&lt; glm::to_string(Camera_Old_Position) &lt;&lt; endl;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                cout &lt;&lt; <span class="stringliteral">&quot;Camera Axis Alligned Bounding Box&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                cout &lt;&lt; <span class="stringliteral">&quot;********************************************************************&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">//cout &lt;&lt; &quot;Camera_Position&quot; &lt;&lt; glm::to_string(Camera_Position) &lt;&lt;endl;</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"></span>        <span class="keywordflow">return</span> glm::lookAt(Camera_Position, </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                           Camera_Position + direction, </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                           vup);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;   </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9adb45120aafd37a973140edee24708065"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9adb45120aafd37a973140edee24708065">LEFT</a></div><div class="ttdef"><b>Definition:</b> common.h:12</div></div>
+<div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9a3cdd4783c5dbeae45bbcd15570a6b273"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9a3cdd4783c5dbeae45bbcd15570a6b273">CROUCH</a></div><div class="ttdef"><b>Definition:</b> common.h:12</div></div>
+<div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9aba595d8bca8bc5e67c37c0a9d89becfa"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9aba595d8bca8bc5e67c37c0a9d89becfa">UP</a></div><div class="ttdef"><b>Definition:</b> common.h:12</div></div>
+<div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9aec8379af7490bb9eaaf579cf17876f38"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9aec8379af7490bb9eaaf579cf17876f38">RIGHT</a></div><div class="ttdef"><b>Definition:</b> common.h:12</div></div>
+<div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9a9b0b4a95b99523966e0e34ffdadac9da"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9a9b0b4a95b99523966e0e34ffdadac9da">DOWN</a></div><div class="ttdef"><b>Definition:</b> common.h:12</div></div>
+<div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9ab107229d44d042caa8ab8df4c8acaa1f"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9ab107229d44d042caa8ab8df4c8acaa1f">PRINT</a></div><div class="ttdef"><b>Definition:</b> common.h:12</div></div>
+<div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9a1f28d4392b1c1e7da2af2283632d81e1"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9a1f28d4392b1c1e7da2af2283632d81e1">JUMP</a></div><div class="ttdef"><b>Definition:</b> common.h:12</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="_camera_8h_source.html">Camera.h</a></li>
-<li>src/Camera.cc</li>
+<li>src/<a class="el" href="_camera_8cc.html">Camera.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

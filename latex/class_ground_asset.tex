@@ -2,8 +2,11 @@
 \label{class_ground_asset}\index{Ground\+Asset@{Ground\+Asset}}
 
 
-Inheritance diagram for Ground\+Asset\+:
-\nopagebreak
+{\ttfamily \#include $<$Ground\+Asset.\+h$>$}
+
+
+
+Inheritance diagram for Ground\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +15,7 @@ Inheritance diagram for Ground\+Asset\+:
 \end{figure}
 
 
-Collaboration diagram for Ground\+Asset\+:
-\nopagebreak
+Collaboration diagram for Ground\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,6 +26,8 @@ Collaboration diagram for Ground\+Asset\+:
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_ground_asset_a67002eb5df923fab9293c5f43ed140a4}{Ground\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+\hyperlink{class_ground_asset_a8f607f3cabded6280c5a5eb2cbfa8c79}{$\sim$\+Ground\+Asset} ()
 \item 
 void \hyperlink{class_ground_asset_a440f983638c7a7ccb6a39718444dfe95}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
@@ -48,6 +52,83 @@ void \hyperlink{class_ground_asset_a440f983638c7a7ccb6a39718444dfe95}{Draw} (G\+
 model coordinates, origin at centre. Sets cordinates to a Cube with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
 
 Color Buffer. Colour of Cube Lawn Green Uses R\+G\+B values to set the colour.
+\begin{DoxyCode}
+7 : \hyperlink{class_game_asset_a9de932075d9b4263e7fb24fbfd163a61}{GameAsset}(xyzPosition, translateTo, animateTo , translate\_bool, rotate, rotate\_bool, scale, 
+      scale\_bool, AssetType) \{
+8   
+15   GLfloat vertex\_buffer [] \{
+16       0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+17     , 0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+18     ,-0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+19     ,-0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  , -0.5f + xyzPosition.z
+20     , 0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+21     , 0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+22     ,-0.5f + xyzPosition.x  , 0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+23     ,-0.5f + xyzPosition.x  ,-0.5f + xyzPosition.y  ,  0.5f + xyzPosition.z
+24   \};
+25   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+31   GLfloat colour\_buffer[] = \{
+32 
+33      0.124f, 0.252f, 0.000f,
+34      0.124f, 0.252f, 0.000f,
+35      0.124f, 0.252f, 0.000f,
+36      0.124f, 0.252f, 0.000f,
+37      0.124f, 0.252f, 0.000f,
+38      0.124f, 0.252f, 0.000f,
+39      0.124f, 0.252f, 0.000f,
+40      0.124f, 0.252f, 0.000f
+41   \};
+42   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+43   
+44   GLuint element\_buffer []  \{
+45       0, 1, 2   
+46     , 1, 3, 2
+47     , 0, 4, 1   
+48     , 1, 5, 4   
+49     , 5, 7, 4   
+50     , 7, 6, 4   
+51     , 3, 7, 6   
+52     , 2, 3, 6   
+53     , 1, 5, 7   
+54     , 1, 3, 7   
+55     , 0, 4, 6   
+56     , 0, 2, 6   
+57   \};
+58   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+59 
+60 
+61   \textcolor{comment}{// Transfer buffers to the GPU}
+62 
+63   \textcolor{comment}{// create buffer}
+64   glGenBuffers(1, &vertex\_buffer\_token);
+65   \textcolor{comment}{// immediately bind the buffer and transfer the data}
+66   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+67   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+68 
+69   \textcolor{comment}{// Binds the buffer and transfers the data}
+70   glGenBuffers(1, &colour\_buffer\_token);
+71   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+72   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+73 
+74 
+75   glGenBuffers(1, &element\_buffer\_token);
+76   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+77   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+78 \}
+\end{DoxyCode}
+\hypertarget{class_ground_asset_a8f607f3cabded6280c5a5eb2cbfa8c79}{}\index{Ground\+Asset@{Ground\+Asset}!````~Ground\+Asset@{$\sim$\+Ground\+Asset}}
+\index{````~Ground\+Asset@{$\sim$\+Ground\+Asset}!Ground\+Asset@{Ground\+Asset}}
+\subsubsection[{$\sim$\+Ground\+Asset()}]{\setlength{\rightskip}{0pt plus 5cm}Ground\+Asset\+::$\sim$\+Ground\+Asset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_ground_asset_a8f607f3cabded6280c5a5eb2cbfa8c79}
+
+\begin{DoxyCode}
+80                           \{
+81 \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_ground_asset_a440f983638c7a7ccb6a39718444dfe95}{}\index{Ground\+Asset@{Ground\+Asset}!Draw@{Draw}}
@@ -61,11 +142,76 @@ use the previously transferred buffer as the vertex array. This way we transfer 
 
 Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
 
-Implements \hyperlink{class_game_asset}{Game\+Asset}.
+Implements \hyperlink{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
 
+
+\begin{DoxyCode}
+90                                            \{
+91   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+92     \textcolor{comment}{//std::cerr << "Drawing Cube with invalid program" << std::endl;}
+93     \textcolor{keywordflow}{return};
+94   \}
+95   GLint validation\_ok;
+96   glValidateProgram(program\_token);
+97   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+98   \textcolor{keywordflow}{if}(!validation\_ok) \{
+99     GLint maxLength = 0;
+100     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+101 
+102     \textcolor{comment}{// The maxLength includes the NULL character}
+103     std::vector<char> errorLog(maxLength);
+104     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+105 
+106     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+107     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+108       std::cerr << c;
+109     \}
+110     exit(-1);
+111   \}
+112 
+113   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+114   \hyperlink{_ground_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+115 
+116   glUseProgram(program\_token);
+117   \hyperlink{_ground_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+122   glEnableVertexAttribArray(0);
+123   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+124   glVertexAttribPointer(
+125     position\_attrib,        \textcolor{comment}{/* attribute */}
+126     3,        \textcolor{comment}{/* size */}
+127     GL\_FLOAT,   \textcolor{comment}{/* type */}
+128     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+129     0,        \textcolor{comment}{/* stride */}
+130     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+131   );
+132   glEnableVertexAttribArray(1);
+133   \hyperlink{_ground_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+138   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+139   glVertexAttribPointer(
+140     1,        \textcolor{comment}{/* attribute */}
+141     3,        \textcolor{comment}{/* size */}
+142     GL\_FLOAT,   \textcolor{comment}{/* type */}
+143     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+144     0,        \textcolor{comment}{/* stride */}
+145     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+146   );
+147   \hyperlink{_ground_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+148 
+149   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+150   glDrawElements(
+151     GL\_TRIANGLES,
+152     element\_buffer\_length,
+153     GL\_UNSIGNED\_INT,
+154     (GLvoid*) 0
+155   );
+156   \hyperlink{_ground_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+157 
+158   glDisableVertexAttribArray(position\_attrib);
+159 \}
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Ground\+Asset.\+h\item 
-src/Ground\+Asset.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_ground_asset_8h}{Ground\+Asset.\+h}\item 
+src/\hyperlink{_ground_asset_8cc}{Ground\+Asset.\+cc}\end{DoxyCompactItemize}

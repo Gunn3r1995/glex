@@ -2,8 +2,11 @@
 \label{class_pyramid_asset}\index{Pyramid\+Asset@{Pyramid\+Asset}}
 
 
-Inheritance diagram for Pyramid\+Asset\+:
-\nopagebreak
+{\ttfamily \#include $<$Pyramid\+Asset.\+h$>$}
+
+
+
+Inheritance diagram for Pyramid\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +15,7 @@ Inheritance diagram for Pyramid\+Asset\+:
 \end{figure}
 
 
-Collaboration diagram for Pyramid\+Asset\+:
-\nopagebreak
+Collaboration diagram for Pyramid\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,6 +26,8 @@ Collaboration diagram for Pyramid\+Asset\+:
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_pyramid_asset_a6f20b7f915760ff772740f6c94c331b1}{Pyramid\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+\hyperlink{class_pyramid_asset_afb388a196f43a3808b2d4f6fdb89ee84}{$\sim$\+Pyramid\+Asset} ()
 \item 
 void \hyperlink{class_pyramid_asset_aaea45da4956d79ec9ab96e9d0ccef3fe}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
@@ -48,6 +52,76 @@ void \hyperlink{class_pyramid_asset_aaea45da4956d79ec9ab96e9d0ccef3fe}{Draw} (G\
 model coordinates, origin at centre. Sets cordinates to a Pyramid with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
 
 Color Buffer. Colour of Cube Red, Green \& Blue. This creates a cool blend of colours Uses R\+G\+B values to set the colour.
+\begin{DoxyCode}
+7 : \hyperlink{class_game_asset_a9de932075d9b4263e7fb24fbfd163a61}{GameAsset}(xyzPosition, translateTo, animateTo , translate\_bool, rotate, rotate\_bool, scale,
+      scale\_bool,AssetType) \{
+8 
+15   GLfloat vertex\_buffer [] \{
+16       -0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   ,-0.5f + xyzPosition.z
+17      , 0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   ,-0.5f + xyzPosition.z
+18      ,-0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   , 0.5f + xyzPosition.z
+19      , 0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   , 0.5f + xyzPosition.z
+20      , 0.0f + xyzPosition.x  , 1.0f + xyzPosition.y   , 0.0f + xyzPosition.z
+21   \};
+22   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+28   GLfloat colour\_buffer[] = \{
+29 
+30      1.000f, 0.000f, 0.000f,
+31      0.000f, 1.000f, 0.000f,
+32      0.000f, 0.000f, 1.000f,
+33      1.000f, 0.000f, 0.000f,
+34      0.000f, 1.000f, 0.000f,
+35      0.000f, 0.000f, 1.000f,
+36      1.000f, 0.000f, 0.000f,
+37      0.000f, 1.000f, 0.000f,
+38      0.000f, 0.000f, 1.000f
+39   \};
+40  colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+41   
+42   GLuint element\_buffer []  \{
+43       0, 4, 1   
+44     , 1, 4, 3
+45     , 2, 4, 3   
+46     , 2, 4, 0
+47     , 0, 2, 1
+48     , 1, 2, 3
+49   \};
+50   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+51 
+52 
+53 
+54   \textcolor{comment}{// Transfer buffers to the GPU}
+55 
+56   \textcolor{comment}{// create buffer}
+57   glGenBuffers(1, &vertex\_buffer\_token);
+58   \textcolor{comment}{// immediately bind the buffer and transfer the data}
+59   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+60   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+61 
+62   \textcolor{comment}{// Binds the buffer and transfers the data}
+63   glGenBuffers(1, &colour\_buffer\_token);
+64   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+65   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+66 
+67 
+68   glGenBuffers(1, &element\_buffer\_token);
+69   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+70   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+71 \}
+\end{DoxyCode}
+\hypertarget{class_pyramid_asset_afb388a196f43a3808b2d4f6fdb89ee84}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!````~Pyramid\+Asset@{$\sim$\+Pyramid\+Asset}}
+\index{````~Pyramid\+Asset@{$\sim$\+Pyramid\+Asset}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{$\sim$\+Pyramid\+Asset()}]{\setlength{\rightskip}{0pt plus 5cm}Pyramid\+Asset\+::$\sim$\+Pyramid\+Asset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_pyramid_asset_afb388a196f43a3808b2d4f6fdb89ee84}
+
+\begin{DoxyCode}
+73                             \{
+74 \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_pyramid_asset_aaea45da4956d79ec9ab96e9d0ccef3fe}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!Draw@{Draw}}
@@ -61,11 +135,77 @@ use the previously transferred buffer as the vertex array. This way we transfer 
 
 Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
 
-Implements \hyperlink{class_game_asset}{Game\+Asset}.
+Implements \hyperlink{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
 
+
+\begin{DoxyCode}
+83                                             \{
+84   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+85     \textcolor{comment}{//std::cerr << "Drawing Pyramid with invalid program" << std::endl;}
+86     \textcolor{keywordflow}{return};
+87   \}
+88   GLint validation\_ok;
+89   glValidateProgram(program\_token);
+90   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+91   \textcolor{keywordflow}{if}(!validation\_ok) \{
+92     GLint maxLength = 0;
+93     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+94 
+95     \textcolor{comment}{// The maxLength includes the NULL character}
+96     std::vector<char> errorLog(maxLength);
+97     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+98 
+99     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+100     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+101       std::cerr << c;
+102     \}
+103     exit(-1);
+104   \}
+105 
+106   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+107   \hyperlink{_pyramid_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+108 
+109   glUseProgram(program\_token);
+110   \hyperlink{_pyramid_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+111 
+116   glEnableVertexAttribArray(0);
+117   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+118   glVertexAttribPointer(
+119     position\_attrib,        \textcolor{comment}{/* attribute */}
+120     3,        \textcolor{comment}{/* size */}
+121     GL\_FLOAT,   \textcolor{comment}{/* type */}
+122     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+123     0,        \textcolor{comment}{/* stride */}
+124     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+125   );
+126   glEnableVertexAttribArray(1);
+127   \hyperlink{_pyramid_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+132   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+133   glVertexAttribPointer(
+134     1,        \textcolor{comment}{/* attribute */}
+135     3,        \textcolor{comment}{/* size */}
+136     GL\_FLOAT,   \textcolor{comment}{/* type */}
+137     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+138     0,        \textcolor{comment}{/* stride */}
+139     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+140   );
+141   \hyperlink{_pyramid_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+142 
+143   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+144   glDrawElements(
+145     GL\_TRIANGLES,
+146     element\_buffer\_length,
+147     GL\_UNSIGNED\_INT,
+148     (GLvoid*) 0
+149   );
+150   \hyperlink{_pyramid_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+151 
+152   glDisableVertexAttribArray(position\_attrib);
+153 \}
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Pyramid\+Asset.\+h\item 
-src/Pyramid\+Asset.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_pyramid_asset_8h}{Pyramid\+Asset.\+h}\item 
+src/\hyperlink{_pyramid_asset_8cc}{Pyramid\+Asset.\+cc}\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['applicationmode',['ApplicationMode',['../common_8h.html#add86e7c88dd109abea3f708b422f31f0',1,'common.h']]]
+  ['control',['Control',['../common_8h.html#a0da83e35f29c11f7f3c637234f2149f9',1,'common.h']]]
 ];

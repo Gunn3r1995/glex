@@ -2,8 +2,11 @@
 \label{class_grass_asset}\index{Grass\+Asset@{Grass\+Asset}}
 
 
-Inheritance diagram for Grass\+Asset\+:
-\nopagebreak
+{\ttfamily \#include $<$Grass\+Asset.\+h$>$}
+
+
+
+Inheritance diagram for Grass\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +15,7 @@ Inheritance diagram for Grass\+Asset\+:
 \end{figure}
 
 
-Collaboration diagram for Grass\+Asset\+:
-\nopagebreak
+Collaboration diagram for Grass\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,6 +26,8 @@ Collaboration diagram for Grass\+Asset\+:
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_grass_asset_a6dd2fdfec9aa1396282f0711912b5740}{Grass\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+\hyperlink{class_grass_asset_a07e2206bacd2ec120f27f20e5df635b7}{$\sim$\+Grass\+Asset} ()
 \item 
 void \hyperlink{class_grass_asset_a0178a72c5bf2f00bcc6a240b851f3a25}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
@@ -48,6 +52,71 @@ void \hyperlink{class_grass_asset_a0178a72c5bf2f00bcc6a240b851f3a25}{Draw} (G\+L
 model coordinates, origin at centre. Sets cordinates to a Grass/\+Pyramid with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
 
 Color Buffer. Colour of Cube Asset Green Uses R\+G\+B values to set the colour.
+\begin{DoxyCode}
+7 : \hyperlink{class_game_asset_a9de932075d9b4263e7fb24fbfd163a61}{GameAsset}(xyzPosition, translateTo, animateTo, translate\_bool, rotate, rotate\_bool, scale, 
+      scale\_bool, AssetType)\{
+14   GLfloat vertex\_buffer [] \{
+15       -0.01f + xyzPosition.x  , 0.00f + xyzPosition.y   ,-0.01f + xyzPosition.z
+16      , 0.01f + xyzPosition.x  , 0.00f + xyzPosition.y   ,-0.01f + xyzPosition.z
+17      ,-0.01f + xyzPosition.x  , 0.00f + xyzPosition.y   , 0.01f + xyzPosition.z
+18      , 0.01f + xyzPosition.x  , 0.00f + xyzPosition.y   , 0.01f + xyzPosition.z
+19      , 0.00f + xyzPosition.x  , 0.60f + xyzPosition.y   , 0.00f + xyzPosition.z
+20   \};
+21   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+27   GLfloat colour\_buffer[] = \{
+28 
+29      0.000f, 1.000f, 0.000f,
+30      0.000f, 1.000f, 0.000f,
+31      0.000f, 1.000f, 0.000f,
+32      0.000f, 1.000f, 0.000f,
+33      0.000f, 1.000f, 0.000f
+34   \};
+35  colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+36   
+37   GLuint element\_buffer []  \{
+38       0, 4, 1   
+39     , 1, 4, 3
+40     , 2, 4, 3   
+41     , 2, 4, 0
+42     , 0, 2, 1
+43     , 1, 2, 3
+44   \};
+45   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+46 
+47 
+48 
+49   \textcolor{comment}{// Transfer buffers to the GPU}
+50 
+51   \textcolor{comment}{// create buffer}
+52   glGenBuffers(1, &vertex\_buffer\_token);
+53   \textcolor{comment}{// immediately bind the buffer and transfer the data}
+54   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+55   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+56 
+57   \textcolor{comment}{// Binds the buffer and transfers the data}
+58   glGenBuffers(1, &colour\_buffer\_token);
+59   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+60   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+61 
+62 
+63   glGenBuffers(1, &element\_buffer\_token);
+64   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+65   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+66 \}
+\end{DoxyCode}
+\hypertarget{class_grass_asset_a07e2206bacd2ec120f27f20e5df635b7}{}\index{Grass\+Asset@{Grass\+Asset}!````~Grass\+Asset@{$\sim$\+Grass\+Asset}}
+\index{````~Grass\+Asset@{$\sim$\+Grass\+Asset}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{$\sim$\+Grass\+Asset()}]{\setlength{\rightskip}{0pt plus 5cm}Grass\+Asset\+::$\sim$\+Grass\+Asset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grass_asset_a07e2206bacd2ec120f27f20e5df635b7}
+
+\begin{DoxyCode}
+68                         \{
+69 \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_grass_asset_a0178a72c5bf2f00bcc6a240b851f3a25}{}\index{Grass\+Asset@{Grass\+Asset}!Draw@{Draw}}
@@ -61,11 +130,76 @@ use the previously transferred buffer as the vertex array. This way we transfer 
 
 Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
 
-Implements \hyperlink{class_game_asset}{Game\+Asset}.
+Implements \hyperlink{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
 
+
+\begin{DoxyCode}
+78                                           \{
+79   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+80     \textcolor{comment}{//std::cerr << "Drawing Grass with invalid program" << std::endl;}
+81     \textcolor{keywordflow}{return};
+82   \}
+83   GLint validation\_ok;
+84   glValidateProgram(program\_token);
+85   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+86   \textcolor{keywordflow}{if}(!validation\_ok) \{
+87     GLint maxLength = 0;
+88     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+89 
+90     \textcolor{comment}{// The maxLength includes the NULL character}
+91     std::vector<char> errorLog(maxLength);
+92     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+93 
+94     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+95     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+96       std::cerr << c;
+97     \}
+98     exit(-1);
+99   \}
+100 
+101   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+102   \hyperlink{_grass_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+103 
+104   glUseProgram(program\_token);
+105   \hyperlink{_grass_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+110   glEnableVertexAttribArray(0);
+111   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+112   glVertexAttribPointer(
+113     position\_attrib,        \textcolor{comment}{/* attribute */}
+114     3,        \textcolor{comment}{/* size */}
+115     GL\_FLOAT,   \textcolor{comment}{/* type */}
+116     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+117     0,        \textcolor{comment}{/* stride */}
+118     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+119   );
+120   glEnableVertexAttribArray(1);
+121   \hyperlink{_grass_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+126   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+127   glVertexAttribPointer(
+128     1,        \textcolor{comment}{/* attribute */}
+129     3,        \textcolor{comment}{/* size */}
+130     GL\_FLOAT,   \textcolor{comment}{/* type */}
+131     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+132     0,        \textcolor{comment}{/* stride */}
+133     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+134   );
+135   \hyperlink{_grass_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+136 
+137   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+138   glDrawElements(
+139     GL\_TRIANGLES,
+140     element\_buffer\_length,
+141     GL\_UNSIGNED\_INT,
+142     (GLvoid*) 0
+143   );
+144   \hyperlink{_grass_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+145 
+146   glDisableVertexAttribArray(position\_attrib);
+147 \}
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Grass\+Asset.\+h\item 
-src/Grass\+Asset.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_grass_asset_8h}{Grass\+Asset.\+h}\item 
+src/\hyperlink{_grass_asset_8cc}{Grass\+Asset.\+cc}\end{DoxyCompactItemize}

@@ -49,6 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -117,12 +118,39 @@ $(document).ready(function(){initNavTree('struct_s_d_l_window_deleter.html','');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2aedcc99c3756ae090c38badabeb10b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2aedcc99c3756ae090c38badabeb10b1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (SDL_Window *window)</td></tr>
+<tr class="memitem:a2aedcc99c3756ae090c38badabeb10b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_d_l_window_deleter.html#a2aedcc99c3756ae090c38badabeb10b1">operator()</a> (SDL_Window *window)</td></tr>
 <tr class="separator:a2aedcc99c3756ae090c38badabeb10b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2aedcc99c3756ae090c38badabeb10b1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SDLWindowDeleter::operator() </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                             {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    SDL_DestroyWindow(window);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/GameLoop.cc</li>
+<li>src/<a class="el" href="_game_loop_8cc.html">GameLoop.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

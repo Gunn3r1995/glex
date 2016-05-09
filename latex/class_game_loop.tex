@@ -1,19 +1,136 @@
 \hypertarget{class_game_loop}{}\section{Game\+Loop Class Reference}
 \label{class_game_loop}\index{Game\+Loop@{Game\+Loop}}
+
+
+{\ttfamily \#include $<$Game\+Loop.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_game_loop_afcbeaf01f4a6d443753ccabbadbec8d7}{}std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ {\bfseries Init\+World} ()\label{class_game_loop_afcbeaf01f4a6d443753ccabbadbec8d7}
-
+std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \hyperlink{class_game_loop_afcbeaf01f4a6d443753ccabbadbec8d7}{Init\+World} ()
 \item 
-\hypertarget{class_game_loop_a5034124015cce5b8ecedae9f906b897b}{}void {\bfseries Draw} (const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&window, const std\+::shared\+\_\+ptr$<$ \hyperlink{class_game_world}{Game\+World} $>$ \&game\+\_\+world)\label{class_game_loop_a5034124015cce5b8ecedae9f906b897b}
-
+void \hyperlink{class_game_loop_a5034124015cce5b8ecedae9f906b897b}{Draw} (const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&window, const std\+::shared\+\_\+ptr$<$ \hyperlink{class_game_world}{Game\+World} $>$ \&game\+\_\+world)
 \item 
 void \hyperlink{class_game_loop_a6d84f749fa38ca86039353245d77461c}{Run} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_game_loop_a5034124015cce5b8ecedae9f906b897b}{}\index{Game\+Loop@{Game\+Loop}!Draw@{Draw}}
+\index{Draw@{Draw}!Game\+Loop@{Game\+Loop}}
+\subsubsection[{Draw(const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&window, const std\+::shared\+\_\+ptr$<$ Game\+World $>$ \&game\+\_\+world)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Loop\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&}]{window, }
+\item[{const std\+::shared\+\_\+ptr$<$ {\bf Game\+World} $>$ \&}]{game\+\_\+world}
+\end{DoxyParamCaption}
+)}\label{class_game_loop_a5034124015cce5b8ecedae9f906b897b}
+
+\begin{DoxyCode}
+28                                                                                                        \{
+29   glClearColor(0.0f, 206.0f, 250.0f, 1.0f);
+30   glClear(GL\_COLOR\_BUFFER\_BIT|GL\_DEPTH\_BUFFER\_BIT);
+31 
+32   game\_world->Draw();
+33 
+34   \textcolor{comment}{// Don't forget to swap the buffers}
+35   SDL\_GL\_SwapWindow(window.get());
+36 \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_loop_a5034124015cce5b8ecedae9f906b897b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_game_loop_afcbeaf01f4a6d443753ccabbadbec8d7}{}\index{Game\+Loop@{Game\+Loop}!Init\+World@{Init\+World}}
+\index{Init\+World@{Init\+World}!Game\+Loop@{Game\+Loop}}
+\subsubsection[{Init\+World()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ Game\+Loop\+::\+Init\+World (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_game_loop_afcbeaf01f4a6d443753ccabbadbec8d7}
+
+\begin{DoxyCode}
+38                                               \{
+39   Uint32 width = 1280;\textcolor{comment}{//1280;}
+40   Uint32 height = 800;\textcolor{comment}{//800;}
+41   SDL\_Window * \_window;
+42   std::shared\_ptr<SDL\_Window> window;
+43   
+44 
+45   \textcolor{comment}{// Glew will later ensure that OpenGL 3 *is* supported}
+46   SDL\_GL\_SetAttribute(SDL\_GL\_CONTEXT\_PROFILE\_MASK, SDL\_GL\_CONTEXT\_PROFILE\_CORE);
+47   SDL\_GL\_SetAttribute(SDL\_GL\_CONTEXT\_MAJOR\_VERSION, 3);
+48   SDL\_GL\_SetAttribute(SDL\_GL\_CONTEXT\_MINOR\_VERSION, 0);
+49 
+50   \textcolor{comment}{// Do double buffering in GL}
+51   SDL\_GL\_SetAttribute(SDL\_GL\_DOUBLEBUFFER, 1);
+52   SDL\_GL\_SetAttribute(SDL\_GL\_DEPTH\_SIZE, 24);
+53  
+54   \textcolor{comment}{// Initialise SDL - when using C/C++ it's common to have to}
+55   \textcolor{comment}{// initialise libraries by calling a function within them.}
+56   \textcolor{keywordflow}{if} (SDL\_Init(SDL\_INIT\_VIDEO|SDL\_INIT\_AUDIO|SDL\_INIT\_TIMER)<0) \{
+57     std::cout << \textcolor{stringliteral}{"Failed to initialise SDL: "} << SDL\_GetError() << std::endl;
+58     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+59   \}
+60 
+61   \textcolor{comment}{// When we close a window quit the SDL application}
+62   atexit(SDL\_Quit);
+63 
+64   \textcolor{comment}{// Create a new window with an OpenGL surface}
+65   \_window = SDL\_CreateWindow(\textcolor{stringliteral}{"Shader Example"}
+66                              , SDL\_WINDOWPOS\_CENTERED
+67                              , SDL\_WINDOWPOS\_CENTERED
+68                              , width
+69                              , height
+70                              , SDL\_WINDOW\_OPENGL | SDL\_WINDOW\_SHOWN);
+71   \textcolor{keywordflow}{if} (!\_window) \{
+72     std::cout << \textcolor{stringliteral}{"Failed to create SDL window: "} << SDL\_GetError() << std::endl;
+73     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+74   \}
+75 
+76   SDL\_GLContext glContext = SDL\_GL\_CreateContext(\_window);
+77   \textcolor{keywordflow}{if} (!glContext) \{
+78     std::cout << \textcolor{stringliteral}{"Failed to create OpenGL context: "} << SDL\_GetError() << std::endl;
+79     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+80   \}
+81 
+82   \textcolor{comment}{// Initialise GLEW - an easy way to ensure OpenGl 3.0+}
+83   \textcolor{comment}{// The *must* be done after we have set the video mode - otherwise we have no}
+84   \textcolor{comment}{// OpenGL context to test.}
+85   glewInit();
+86   \textcolor{keywordflow}{if} (!glewIsSupported(\textcolor{stringliteral}{"GL\_VERSION\_3\_0"})) \{
+87     std::cerr << \textcolor{stringliteral}{"OpenGL 3.0 not available"} << std::endl;
+88     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+89   \}
+90 
+91   \textcolor{comment}{// OpenGL settings}
+92   glDisable(GL\_CULL\_FACE);
+93   glEnable(GL\_DEPTH\_TEST);
+94   glDepthFunc(GL\_LESS);
+95 
+96   window.reset(\_window, SDL\_DestroyWindow);
+97   \textcolor{keywordflow}{return} window;
+98 \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_loop_afcbeaf01f4a6d443753ccabbadbec8d7_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_game_loop_a6d84f749fa38ca86039353245d77461c}{}\index{Game\+Loop@{Game\+Loop}!Run@{Run}}
 \index{Run@{Run}!Game\+Loop@{Game\+Loop}}
 \subsubsection[{Run()}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Loop\+::\+Run (
@@ -22,8 +139,229 @@ void \hyperlink{class_game_loop_a6d84f749fa38ca86039353245d77461c}{Run} ()
 \end{DoxyParamCaption}
 )}\label{class_game_loop_a6d84f749fa38ca86039353245d77461c}
 Add the main event loop. Detects Keyboard and Mouse Sends Data to \hyperlink{class_game_world}{Game\+World} \hyperlink{class_camera}{Camera} Controls
+\begin{DoxyCode}
+100                      \{
+101     Uint32 delay = 1000/60;
+102 
+103   \textcolor{keyword}{auto} window = \hyperlink{class_game_loop_afcbeaf01f4a6d443753ccabbadbec8d7}{InitWorld}();
+104   \textcolor{keyword}{auto} game\_world = std::make\_shared<GameWorld>();
+105   \textcolor{keywordflow}{if}(!window) \{
+106     SDL\_Quit();
+107   \} 
+108 
+109   \textcolor{comment}{// Call the function "tick" every delay milliseconds}
+110   SDL\_AddTimer(delay, \hyperlink{_game_loop_8cc_a70eaa727262f633037c3f4b7d3ff24c2}{tick}, NULL);
+111 
+112         cout << \textcolor{stringliteral}{"****************************************************************************************"} 
+      << endl;
+113         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+114         cout << \textcolor{stringliteral}{"*                                     Starting Game                                    *"} 
+      << endl;
+115         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+116         cout << \textcolor{stringliteral}{"*--------------------------------------------------------------------------------------*"} 
+      << endl;
+117         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+118         cout << \textcolor{stringliteral}{"*                               A simple Minecraft Like Game                           *"} 
+      << endl;
+119         cout << \textcolor{stringliteral}{"*                        With Block Spawing , Player Movement and                      *"} 
+      << endl;
+120         cout << \textcolor{stringliteral}{"*                                     Camera Control                                   *"} 
+      << endl;
+121         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+122         cout << \textcolor{stringliteral}{"*--------------------------------------------------------------------------------------*"} 
+      << endl;
+123         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+124         cout << \textcolor{stringliteral}{"*                                    Work In Progress                                  *"} 
+      << endl;
+125         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+126         cout << \textcolor{stringliteral}{"*--------------------------------------------------------------------------------------*"} 
+      << endl;
+127         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+128         cout << \textcolor{stringliteral}{"*                                       Controls                                       *"} 
+      << endl;
+129         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+130         cout << \textcolor{stringliteral}{"*                 Player                                      Camera                   *"} 
+      << endl;
+131         cout << \textcolor{stringliteral}{"*                Forward                                        Up                     *"} 
+      << endl;
+132         cout << \textcolor{stringliteral}{"*                 \_\_\_\_\_                                        \_\_\_\_\_                   *"} 
+      << endl;
+133         cout << \textcolor{stringliteral}{"*                |     |                                      |     |                  *"} 
+      << endl;
+134         cout << \textcolor{stringliteral}{"*                |  w  |                                      |  ^  |                  *"} 
+      << endl;
+135         cout << \textcolor{stringliteral}{"*                |\_\_\_\_\_|                                      |\_\_\_\_\_|                  *"} 
+      << endl;
+136         cout << \textcolor{stringliteral}{"*          \_\_\_\_\_  \_\_\_\_\_  \_\_\_\_\_                          \_\_\_\_\_  \_\_\_\_\_  \_\_\_\_\_            *"} 
+      << endl;
+137         cout << \textcolor{stringliteral}{"*  Player |     ||     ||     | Player         Camera  |     ||     ||     | Camera    *"} 
+      << endl;
+138         cout << \textcolor{stringliteral}{"*   Left  |  a  ||  s  ||  d  |  Right          Left   |  <  ||  v  ||  >  |  Right    *"} 
+      << endl;
+139         cout << \textcolor{stringliteral}{"*         |\_\_\_\_\_||\_\_\_\_\_||\_\_\_\_\_|                        |\_\_\_\_\_||\_\_\_\_\_||\_\_\_\_\_|           *"} 
+      << endl;
+140         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+141         cout << \textcolor{stringliteral}{"*                 Player                                       Camera                  *"} 
+      << endl;
+142         cout << \textcolor{stringliteral}{"*                Backwards                                      Down                   *"} 
+      << endl;
+143         cout << \textcolor{stringliteral}{"*                                      Mouse                                           *"} 
+      << endl;
+144         cout << \textcolor{stringliteral}{"*                                     \_\_\_\_\_\_\_                                          *"} 
+      << endl;
+145         cout << \textcolor{stringliteral}{"*                                    |    |   |                                        *"} 
+      << endl;
+146         cout << \textcolor{stringliteral}{"*                                   |     |    |                                       *"} 
+      << endl;
+147         cout << \textcolor{stringliteral}{"*                                  |      |     |                                      *"} 
+      << endl;
+148         cout << \textcolor{stringliteral}{"*                                  |      |     |                                      *"} 
+      << endl;
+149         cout << \textcolor{stringliteral}{"*                                 |              |                                     *"} 
+      << endl;
+150         cout << \textcolor{stringliteral}{"*                                 |              |                                     *"} 
+      << endl;
+151         cout << \textcolor{stringliteral}{"*                                 |              |                                     *"} 
+      << endl;
+152         cout << \textcolor{stringliteral}{"*                                  |            |                                      *"} 
+      << endl;
+153         cout << \textcolor{stringliteral}{"*                                   |          |                                       *"} 
+      << endl;
+154         cout << \textcolor{stringliteral}{"*                                    |\_\_\_\_\_\_\_\_|                                        *"} 
+      << endl;
+155         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+156         cout << \textcolor{stringliteral}{"*                          Camera Control Same as Arrow Keys                           *"} 
+      << endl;
+157         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+158         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+159         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+160         cout << \textcolor{stringliteral}{"*                               Jump Up                         Drop Down              *"} 
+      << endl;
+161         cout << \textcolor{stringliteral}{"*           \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_     \_\_\_\_\_\_\_\_\_\_\_             *"} 
+      << endl;
+162         cout << \textcolor{stringliteral}{"*          |                                              |   |           |            *"} 
+      << endl;
+163         cout << \textcolor{stringliteral}{"*          |                     Space                    |   | -->|(tab) |            *"} 
+      << endl;
+164         cout << \textcolor{stringliteral}{"*          |\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_|   |\_\_\_\_\_\_\_\_\_\_\_|            *"} 
+      << endl;
+165         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+166         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+167         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+168         cout << \textcolor{stringliteral}{"*                                       Quit Game                                      *"} 
+      << endl;
+169         cout << \textcolor{stringliteral}{"*                                         \_\_\_\_\_                                        *"} 
+      << endl;
+170         cout << \textcolor{stringliteral}{"*                                        |     |                                       *"} 
+      << endl;
+171         cout << \textcolor{stringliteral}{"*                                        | esc |                                       *"} 
+      << endl;
+172         cout << \textcolor{stringliteral}{"*                                        |\_\_\_\_\_|                                       *"} 
+      << endl;
+173         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+174         cout << \textcolor{stringliteral}{"*                                                                                      *"} 
+      << endl;
+175         cout << \textcolor{stringliteral}{"****************************************************************************************"} 
+      << endl;
+176         cout << \textcolor{stringliteral}{""} << endl;
+177 
+178         \textcolor{keywordtype}{int} Mouse\_X;
+179         \textcolor{keywordtype}{int} Mouse\_Y;
+180         \textcolor{keyword}{const} Uint8 *keyboard\_state;
+181     \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9}{Control} control = \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9acdb8b9a398ffbd729218a27d00d8fa45}{NOT\_PRESSED};
+182 
+183   SDL\_SetRelativeMouseMode(SDL\_TRUE);
+189   SDL\_Event event;
+190   \textcolor{keywordflow}{while} (SDL\_WaitEvent(&event)) \{
+191     \textcolor{keywordflow}{switch} (event.type) \{
+192     \textcolor{keywordflow}{case} SDL\_QUIT:
+193       SDL\_Quit();
+194       \textcolor{keywordflow}{break};
+195     \textcolor{keywordflow}{case} SDL\_USEREVENT: \{
+196         SDL\_GetRelativeMouseState(&Mouse\_X, &Mouse\_Y);
+197 
+198         keyboard\_state = SDL\_GetKeyboardState(NULL);
+199         \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_A]) \{
+200             control = \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9adb45120aafd37a973140edee24708065}{LEFT};
+201     \}
+202         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_S]) \{
+203         control = \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a9b0b4a95b99523966e0e34ffdadac9da}{DOWN};
+204         \}
+205         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_D]) \{
+206             control = \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9aec8379af7490bb9eaaf579cf17876f38}{RIGHT};
+207         \}
+208         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_W]) \{
+209             control = \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9aba595d8bca8bc5e67c37c0a9d89becfa}{UP};
+210         \}
+211         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_SPACE]) \{
+212                 control = \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a1f28d4392b1c1e7da2af2283632d81e1}{JUMP};
+213         \} 
+214         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_LSHIFT]) \{
+215                 control = \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a3cdd4783c5dbeae45bbcd15570a6b273}{CROUCH};
+216         \}        
+217         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_ESCAPE]) \{
+218             SDL\_Quit();
+219         \}
+220         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_I]) \{
+221                 control = \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9ab107229d44d042caa8ab8df4c8acaa1f}{PRINT};
+222         \}
+223         \textcolor{keywordflow}{else}\{
+224             control = \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9acdb8b9a398ffbd729218a27d00d8fa45}{NOT\_PRESSED};
+225         \}
+226       game\_world->UpdateCameraPosition(control, Mouse\_X, Mouse\_Y);
+227       \hyperlink{class_game_loop_a5034124015cce5b8ecedae9f906b897b}{Draw}(window, game\_world);
+228         \textcolor{keywordflow}{break};
+229         \}
+230       \textcolor{keywordflow}{default}:
+231       \textcolor{keywordflow}{break};
+232       \}
+233   \}
+234 \}
+\end{DoxyCode}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{class_game_loop_a6d84f749fa38ca86039353245d77461c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_loop_a6d84f749fa38ca86039353245d77461c_icgraph}
+\end{center}
+\end{figure}
+
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Game\+Loop.\+h\item 
-src/Game\+Loop.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_game_loop_8h}{Game\+Loop.\+h}\item 
+src/\hyperlink{_game_loop_8cc}{Game\+Loop.\+cc}\end{DoxyCompactItemize}

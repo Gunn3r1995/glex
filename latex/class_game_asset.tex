@@ -2,8 +2,11 @@
 \label{class_game_asset}\index{Game\+Asset@{Game\+Asset}}
 
 
-Inheritance diagram for Game\+Asset\+:
-\nopagebreak
+{\ttfamily \#include $<$Game\+Asset.\+h$>$}
+
+
+
+Inheritance diagram for Game\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,30 +18,23 @@ Inheritance diagram for Game\+Asset\+:
 \item 
 \hyperlink{class_game_asset_a9de932075d9b4263e7fb24fbfd163a61}{Game\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
 \item 
-\hypertarget{class_game_asset_af74bc1c4f6b87a4843217637b75290d4}{}bool {\bfseries Get\+Translate\+Bool} ()\label{class_game_asset_af74bc1c4f6b87a4843217637b75290d4}
-
+bool \hyperlink{class_game_asset_af74bc1c4f6b87a4843217637b75290d4}{Get\+Translate\+Bool} ()
 \item 
-\hypertarget{class_game_asset_ae0a76a50ff3c6c119852c195053c9a38}{}bool {\bfseries Get\+Scale\+Bool} ()\label{class_game_asset_ae0a76a50ff3c6c119852c195053c9a38}
-
+bool \hyperlink{class_game_asset_ae0a76a50ff3c6c119852c195053c9a38}{Get\+Scale\+Bool} ()
 \item 
-\hypertarget{class_game_asset_a9fb9187dfca6160898344e79d41de224}{}bool {\bfseries Get\+Rotate\+Bool} ()\label{class_game_asset_a9fb9187dfca6160898344e79d41de224}
-
+bool \hyperlink{class_game_asset_a9fb9187dfca6160898344e79d41de224}{Get\+Rotate\+Bool} ()
 \item 
-\hypertarget{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{}virtual void {\bfseries Draw} (G\+Luint)=0\label{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}
-
+virtual void \hyperlink{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{Draw} (G\+Luint)=0
 \item 
-\hypertarget{class_game_asset_a992a9c94083ee91bda85a4ec367c4fb3}{}glm\+::vec3 {\bfseries Get\+A\+A\+B\+B} (string check)\label{class_game_asset_a992a9c94083ee91bda85a4ec367c4fb3}
-
+glm\+::vec3 \hyperlink{class_game_asset_a992a9c94083ee91bda85a4ec367c4fb3}{Get\+A\+A\+B\+B} (string check)
 \item 
-\hypertarget{class_game_asset_abd0491ffc6a601f8f3c47a2010f14039}{}void {\bfseries Collision\+Detection} (glm\+::vec3 B\+B1\+\_\+\+Max, glm\+::vec3 B\+B1\+\_\+\+Min, glm\+::vec3 B\+B1\+\_\+\+Pos, glm\+::vec3 B\+B2\+\_\+\+Max, glm\+::vec3 B\+B2\+\_\+\+Min, glm\+::vec3 B\+B2\+\_\+\+Pos)\label{class_game_asset_abd0491ffc6a601f8f3c47a2010f14039}
-
+void \hyperlink{class_game_asset_abd0491ffc6a601f8f3c47a2010f14039}{Collision\+Detection} (glm\+::vec3 B\+B1\+\_\+\+Max, glm\+::vec3 B\+B1\+\_\+\+Min, glm\+::vec3 B\+B1\+\_\+\+Pos, glm\+::vec3 B\+B2\+\_\+\+Max, glm\+::vec3 B\+B2\+\_\+\+Min, glm\+::vec3 B\+B2\+\_\+\+Pos)
 \item 
 glm\+::mat4 \hyperlink{class_game_asset_a50a4795382fb55c7513314f82821e444}{Get\+Model} ()
 \item 
 glm\+::vec3 \hyperlink{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}{Get\+Translate\+To} ()
 \item 
-\hypertarget{class_game_asset_a5c0479920e4aa2fea7830a47c1a4e3f3}{}void {\bfseries Translate} (glm\+::vec3 translate\+To)\label{class_game_asset_a5c0479920e4aa2fea7830a47c1a4e3f3}
-
+void \hyperlink{class_game_asset_a5c0479920e4aa2fea7830a47c1a4e3f3}{Translate} (glm\+::vec3 translate\+To)
 \end{DoxyCompactItemize}
 
 
@@ -61,8 +57,66 @@ glm\+::vec3 \hyperlink{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}{Get\+
 Current Assets Data This gets the current assets data ready to be sent to the Bounding Box Class
 
 Send Data To Bounding Box This Method Sends all the Data from spawning the Asset and sends it to the Bounding Box Class to create the Bounding Box and Manipulate the Asset 
+\begin{DoxyCode}
+11                      : Bounding\_Box (make\_shared<BoundingBox>(xyzPosition, translateTo, 
+12                                                       animateTo, translate\_bool, 
+13                                                       rotate, rotate\_bool, 
+14                                                       scale, scale\_bool, AssetType))\{
+15 
+16 
+17         \textcolor{comment}{//cout << "translateTO "<< glm::to\_string(translateTo) <<endl;}
+18 \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
+\hypertarget{class_game_asset_abd0491ffc6a601f8f3c47a2010f14039}{}\index{Game\+Asset@{Game\+Asset}!Collision\+Detection@{Collision\+Detection}}
+\index{Collision\+Detection@{Collision\+Detection}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Collision\+Detection(glm\+::vec3 B\+B1\+\_\+\+Max, glm\+::vec3 B\+B1\+\_\+\+Min, glm\+::vec3 B\+B1\+\_\+\+Pos, glm\+::vec3 B\+B2\+\_\+\+Max, glm\+::vec3 B\+B2\+\_\+\+Min, glm\+::vec3 B\+B2\+\_\+\+Pos)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+::\+Collision\+Detection (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{B\+B1\+\_\+\+Max, }
+\item[{glm\+::vec3}]{B\+B1\+\_\+\+Min, }
+\item[{glm\+::vec3}]{B\+B1\+\_\+\+Pos, }
+\item[{glm\+::vec3}]{B\+B2\+\_\+\+Max, }
+\item[{glm\+::vec3}]{B\+B2\+\_\+\+Min, }
+\item[{glm\+::vec3}]{B\+B2\+\_\+\+Pos}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_abd0491ffc6a601f8f3c47a2010f14039}
+
+\begin{DoxyCode}
+39                                                                                       \{
+40     Bounding\_Box->CollisionDetection(BB1\_Max, BB1\_Min, BB1\_Pos, BB2\_Max, BB2\_Min, BB2\_Pos);
+41 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{}\index{Game\+Asset@{Game\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}
+
+
+Implemented in \hyperlink{class_ground_asset_a440f983638c7a7ccb6a39718444dfe95}{Ground\+Asset}, \hyperlink{class_cube_asset_a1af568486056e254ffcf98fd99947bfe}{Cube\+Asset}, \hyperlink{class_diamond_asset_a0c259031894623285b3b511321c73abb}{Diamond\+Asset}, \hyperlink{class_grass_asset_a0178a72c5bf2f00bcc6a240b851f3a25}{Grass\+Asset}, \hyperlink{class_leaves_asset_a807fd196b83e5adb131d489ef6645742}{Leaves\+Asset}, and \hyperlink{class_pyramid_asset_aaea45da4956d79ec9ab96e9d0ccef3fe}{Pyramid\+Asset}.
+
+\hypertarget{class_game_asset_a992a9c94083ee91bda85a4ec367c4fb3}{}\index{Game\+Asset@{Game\+Asset}!Get\+A\+A\+B\+B@{Get\+A\+A\+B\+B}}
+\index{Get\+A\+A\+B\+B@{Get\+A\+A\+B\+B}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Get\+A\+A\+B\+B(string check)}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+Asset\+::\+Get\+A\+A\+B\+B (
+\begin{DoxyParamCaption}
+\item[{string}]{check}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_a992a9c94083ee91bda85a4ec367c4fb3}
+
+\begin{DoxyCode}
+29                                        \{
+30     \textcolor{keywordflow}{if}(check == \textcolor{stringliteral}{"Max"}) \{
+31         \textcolor{keywordflow}{return} Bounding\_Box->GetAABB(\textcolor{stringliteral}{"Max"});
+32     \}
+33     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(check == \textcolor{stringliteral}{"Min"}) \{
+34         \textcolor{keywordflow}{return} Bounding\_Box->GetAABB(\textcolor{stringliteral}{"Min"});
+35     \}
+36 \}
+\end{DoxyCode}
 \hypertarget{class_game_asset_a50a4795382fb55c7513314f82821e444}{}\index{Game\+Asset@{Game\+Asset}!Get\+Model@{Get\+Model}}
 \index{Get\+Model@{Get\+Model}!Game\+Asset@{Game\+Asset}}
 \subsubsection[{Get\+Model()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Game\+Asset\+::\+Get\+Model (
@@ -70,7 +124,52 @@ Send Data To Bounding Box This Method Sends all the Data from spawning the Asset
 {}
 \end{DoxyParamCaption}
 )}\label{class_game_asset_a50a4795382fb55c7513314f82821e444}
-Get Model This class Gets the Model from the Bounding Box class, This method is normally called by the Draw method in \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} \hypertarget{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}{}\index{Game\+Asset@{Game\+Asset}!Get\+Translate\+To@{Get\+Translate\+To}}
+Get Model This class Gets the Model from the Bounding Box class, This method is normally called by the Draw method in \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} 
+\begin{DoxyCode}
+25                             \{
+26     \textcolor{keywordflow}{return} Bounding\_Box->GetModel();
+27 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_a9fb9187dfca6160898344e79d41de224}{}\index{Game\+Asset@{Game\+Asset}!Get\+Rotate\+Bool@{Get\+Rotate\+Bool}}
+\index{Get\+Rotate\+Bool@{Get\+Rotate\+Bool}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Get\+Rotate\+Bool()}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\+Asset\+::\+Get\+Rotate\+Bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_a9fb9187dfca6160898344e79d41de224}
+
+\begin{DoxyCode}
+60                               \{
+61         \textcolor{keywordflow}{return} Bounding\_Box->GetRotateBool();
+62 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_ae0a76a50ff3c6c119852c195053c9a38}{}\index{Game\+Asset@{Game\+Asset}!Get\+Scale\+Bool@{Get\+Scale\+Bool}}
+\index{Get\+Scale\+Bool@{Get\+Scale\+Bool}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Get\+Scale\+Bool()}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\+Asset\+::\+Get\+Scale\+Bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_ae0a76a50ff3c6c119852c195053c9a38}
+
+\begin{DoxyCode}
+56                              \{
+57         \textcolor{keywordflow}{return} Bounding\_Box->GetScaleBool();
+58 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_af74bc1c4f6b87a4843217637b75290d4}{}\index{Game\+Asset@{Game\+Asset}!Get\+Translate\+Bool@{Get\+Translate\+Bool}}
+\index{Get\+Translate\+Bool@{Get\+Translate\+Bool}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Get\+Translate\+Bool()}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\+Asset\+::\+Get\+Translate\+Bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_af74bc1c4f6b87a4843217637b75290d4}
+
+\begin{DoxyCode}
+52                                  \{
+53     \textcolor{keywordflow}{return} Bounding\_Box->GetTranslateBool();
+54 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}{}\index{Game\+Asset@{Game\+Asset}!Get\+Translate\+To@{Get\+Translate\+To}}
 \index{Get\+Translate\+To@{Get\+Translate\+To}!Game\+Asset@{Game\+Asset}}
 \subsubsection[{Get\+Translate\+To()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+Asset\+::\+Get\+Translate\+To (
 \begin{DoxyParamCaption}
@@ -78,8 +177,21 @@ Get Model This class Gets the Model from the Bounding Box class, This method is 
 \end{DoxyParamCaption}
 )}\label{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}
 Get Translate\+To This class Gets the Translate\+To from the Bounding Box class, Which is the current Position of the Asset 
+\begin{DoxyCode}
+48                                  \{
+49     \textcolor{keywordflow}{return} Bounding\_Box->GetTranslateTo();
+50 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_a5c0479920e4aa2fea7830a47c1a4e3f3}{}\index{Game\+Asset@{Game\+Asset}!Translate@{Translate}}
+\index{Translate@{Translate}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Translate(glm\+::vec3 translate\+To)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+::\+Translate (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{translate\+To}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_a5c0479920e4aa2fea7830a47c1a4e3f3}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Game\+Asset.\+h\item 
-src/Game\+Asset.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_game_asset_8h}{Game\+Asset.\+h}\item 
+src/\hyperlink{_game_asset_8cc}{Game\+Asset.\+cc}\end{DoxyCompactItemize}

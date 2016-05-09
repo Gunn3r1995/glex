@@ -2,8 +2,11 @@
 \label{class_diamond_asset}\index{Diamond\+Asset@{Diamond\+Asset}}
 
 
-Inheritance diagram for Diamond\+Asset\+:
-\nopagebreak
+{\ttfamily \#include $<$Diamond\+Asset.\+h$>$}
+
+
+
+Inheritance diagram for Diamond\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +15,7 @@ Inheritance diagram for Diamond\+Asset\+:
 \end{figure}
 
 
-Collaboration diagram for Diamond\+Asset\+:
-\nopagebreak
+Collaboration diagram for Diamond\+Asset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,6 +26,8 @@ Collaboration diagram for Diamond\+Asset\+:
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_diamond_asset_a297efbf3312ce0efba79f055a076481c}{Diamond\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+\hyperlink{class_diamond_asset_a1b7bf6ba76651a9304943f2c41fe36b8}{$\sim$\+Diamond\+Asset} ()
 \item 
 void \hyperlink{class_diamond_asset_a0c259031894623285b3b511321c73abb}{Draw} (G\+Luint)
 \end{DoxyCompactItemize}
@@ -50,6 +54,75 @@ model coordinates, origin at centre. Sets cordinates to a Diamond with the cente
 Color Buffer. Colour of Cube Asset Red Uses R\+G\+B values to set the colour.
 
 Element buffer. Draws the Diamond up of 8 Triangles One Triangles per Face
+\begin{DoxyCode}
+7 : \hyperlink{class_game_asset_a9de932075d9b4263e7fb24fbfd163a61}{GameAsset}(xyzPosition, translateTo, animateTo, translate\_bool, rotate, rotate\_bool, scale, 
+      scale\_bool, AssetType) \{
+8 
+15   GLfloat vertex\_buffer [] \{
+16      -0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   , 0.0f + xyzPosition.z
+17      ,0.5f + xyzPosition.x  , 0.0f + xyzPosition.y   , 0.0f + xyzPosition.z
+18      ,0.0f + xyzPosition.x  ,-0.5f + xyzPosition.y   , 0.0f + xyzPosition.z
+19      ,0.0f + xyzPosition.x  , 0.5f + xyzPosition.y   , 0.0f + xyzPosition.z
+20      ,0.0f + xyzPosition.x  , 0.0f + xyzPosition.y   ,-0.5f + xyzPosition.z
+21      ,0.0f + xyzPosition.x  , 0.0f + xyzPosition.y   , 0.5f + xyzPosition.z
+22   \};
+23   GLfloat vertex\_buffer\_length = \textcolor{keyword}{sizeof}(vertex\_buffer);
+29   GLfloat colour\_buffer[] = \{
+30 
+31      1.000f, 0.000f, 0.000f,
+32      1.000f, 0.000f, 0.000f,
+33      1.000f, 0.000f, 0.000f,
+34      1.000f, 0.000f, 0.000f,
+35      1.000f, 0.000f, 0.000f,
+36      1.000f, 0.000f, 0.000f
+37   \};
+38   colour\_buffer\_length = \textcolor{keyword}{sizeof}(colour\_buffer);
+44   GLuint element\_buffer []  \{
+45       0, 3, 5   
+46     , 3, 1, 5
+47     , 0, 5, 2   
+48     , 5, 1, 2
+49     , 0, 3, 4
+50     , 3, 1, 4
+51     , 0, 4, 2
+52     , 4, 1, 2
+53   \};
+54   element\_buffer\_length = \textcolor{keyword}{sizeof}(element\_buffer);
+55 
+56 
+57 
+58   \textcolor{comment}{// Transfer buffers to the GPU}
+59 
+60   \textcolor{comment}{// create buffer}
+61   glGenBuffers(1, &vertex\_buffer\_token);
+62   \textcolor{comment}{// immediately bind the buffer and transfer the data}
+63   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+64   glBufferData(GL\_ARRAY\_BUFFER, vertex\_buffer\_length, vertex\_buffer, GL\_STATIC\_DRAW);
+65 
+66   \textcolor{comment}{// Binds the buffer and transfers the data}
+67   glGenBuffers(1, &colour\_buffer\_token);
+68   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+69   glBufferData(GL\_ARRAY\_BUFFER, colour\_buffer\_length, colour\_buffer, GL\_STATIC\_DRAW);
+70 
+71 
+72   glGenBuffers(1, &element\_buffer\_token);
+73   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+74   glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_length, element\_buffer, GL\_STATIC\_DRAW);
+75 \}
+\end{DoxyCode}
+\hypertarget{class_diamond_asset_a1b7bf6ba76651a9304943f2c41fe36b8}{}\index{Diamond\+Asset@{Diamond\+Asset}!````~Diamond\+Asset@{$\sim$\+Diamond\+Asset}}
+\index{````~Diamond\+Asset@{$\sim$\+Diamond\+Asset}!Diamond\+Asset@{Diamond\+Asset}}
+\subsubsection[{$\sim$\+Diamond\+Asset()}]{\setlength{\rightskip}{0pt plus 5cm}Diamond\+Asset\+::$\sim$\+Diamond\+Asset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_diamond_asset_a1b7bf6ba76651a9304943f2c41fe36b8}
+
+\begin{DoxyCode}
+77                             \{
+78 \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_diamond_asset_a0c259031894623285b3b511321c73abb}{}\index{Diamond\+Asset@{Diamond\+Asset}!Draw@{Draw}}
@@ -63,11 +136,76 @@ use the previously transferred buffer as the vertex array. This way we transfer 
 
 Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
 
-Implements \hyperlink{class_game_asset}{Game\+Asset}.
+Implements \hyperlink{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{Game\+Asset}.
 
+
+\begin{DoxyCode}
+87                                             \{
+88   \textcolor{keywordflow}{if}(!glIsProgram(program\_token)) \{
+89     \textcolor{comment}{//std::cerr << "Drawing Diamond with invalid program" << std::endl;}
+90     \textcolor{keywordflow}{return};
+91   \}
+92   GLint validation\_ok;
+93   glValidateProgram(program\_token);
+94   glGetProgramiv(program\_token, GL\_VALIDATE\_STATUS, &validation\_ok);
+95   \textcolor{keywordflow}{if}(!validation\_ok) \{
+96     GLint maxLength = 0;
+97     glGetProgramiv(program\_token, GL\_INFO\_LOG\_LENGTH, &maxLength);
+98 
+99     \textcolor{comment}{// The maxLength includes the NULL character}
+100     std::vector<char> errorLog(maxLength);
+101     glGetProgramInfoLog(program\_token, maxLength, &maxLength, &errorLog[0]);
+102 
+103     std::cerr << \textcolor{stringliteral}{"Invalid program "} << program\_token << \textcolor{stringliteral}{" with error code "} << validation\_ok << std::endl;
+104     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} c: errorLog) \{
+105       std::cerr << c;
+106     \}
+107     exit(-1);
+108   \}
+109 
+110   GLuint position\_attrib = glGetAttribLocation(program\_token, \textcolor{stringliteral}{"position"});
+111   \hyperlink{_diamond_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+112 
+113   glUseProgram(program\_token);
+114   \hyperlink{_diamond_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+119   glEnableVertexAttribArray(0);
+120   glBindBuffer(GL\_ARRAY\_BUFFER, vertex\_buffer\_token);
+121   glVertexAttribPointer(
+122     position\_attrib,        \textcolor{comment}{/* attribute */}
+123     3,        \textcolor{comment}{/* size */}
+124     GL\_FLOAT,   \textcolor{comment}{/* type */}
+125     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+126     0,        \textcolor{comment}{/* stride */}
+127     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+128   );
+129   glEnableVertexAttribArray(1);
+130   \hyperlink{_diamond_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+135   glBindBuffer(GL\_ARRAY\_BUFFER, colour\_buffer\_token);
+136   glVertexAttribPointer(
+137     1,        \textcolor{comment}{/* attribute */}
+138     3,        \textcolor{comment}{/* size */}
+139     GL\_FLOAT,   \textcolor{comment}{/* type */}
+140     GL\_FALSE,   \textcolor{comment}{/* normalized? */}
+141     0,        \textcolor{comment}{/* stride */}
+142     (\textcolor{keywordtype}{void}*)0    \textcolor{comment}{/* array buffer offset */}
+143   );
+144   \hyperlink{_diamond_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+145 
+146   glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER, element\_buffer\_token);
+147   glDrawElements(
+148     GL\_TRIANGLES,
+149     element\_buffer\_length,
+150     GL\_UNSIGNED\_INT,
+151     (GLvoid*) 0
+152   );
+153   \hyperlink{_diamond_asset_8cc_a75f201b0e53e68726854997957322b8d}{checkGLError}();
+154 
+155   glDisableVertexAttribArray(position\_attrib);
+156 \}
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Diamond\+Asset.\+h\item 
-src/Diamond\+Asset.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_diamond_asset_8h}{Diamond\+Asset.\+h}\item 
+src/\hyperlink{_diamond_asset_8cc}{Diamond\+Asset.\+cc}\end{DoxyCompactItemize}

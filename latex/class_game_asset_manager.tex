@@ -11,8 +11,7 @@
 \item 
 virtual \hyperlink{class_game_asset_manager_a1270bd61ecbcca563f079803e40c9b77}{$\sim$\+Game\+Asset\+Manager} ()
 \item 
-\hypertarget{class_game_asset_manager_a1d9f1f5cc6630a10a0bf358dc2bcddef}{}glm\+::vec3 {\bfseries Get\+Camera\+Position} ()\label{class_game_asset_manager_a1d9f1f5cc6630a10a0bf358dc2bcddef}
-
+glm\+::vec3 \hyperlink{class_game_asset_manager_a1d9f1f5cc6630a10a0bf358dc2bcddef}{Get\+Camera\+Position} ()
 \item 
 \hyperlink{class_game_asset_manager_a2c9adcb72faa154c87eadc9bafe5269d}{Game\+Asset\+Manager} (\hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} const \&)
 \item 
@@ -20,13 +19,11 @@ virtual \hyperlink{class_game_asset_manager_a1270bd61ecbcca563f079803e40c9b77}{$
 \item 
 void \hyperlink{class_game_asset_manager_a7c9e4fce50b47b78652e7ff0b4dbb629}{operator=} (\hyperlink{class_game_asset_manager}{Game\+Asset\+Manager})
 \item 
-\hypertarget{class_game_asset_manager_ad3de8ff00d55ba04728b1de8213b2349}{}void \hyperlink{class_game_asset_manager_ad3de8ff00d55ba04728b1de8213b2349}{Add\+Asset} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_game_asset}{Game\+Asset} $>$)\label{class_game_asset_manager_ad3de8ff00d55ba04728b1de8213b2349}
-
+void \hyperlink{class_game_asset_manager_ad3de8ff00d55ba04728b1de8213b2349}{Add\+Asset} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_game_asset}{Game\+Asset} $>$)
 \begin{DoxyCompactList}\small\item\em Adds a \hyperlink{class_game_asset}{Game\+Asset} to the scene graph. \end{DoxyCompactList}\item 
 void \hyperlink{class_game_asset_manager_a32837132bd70a9a9ed537323c2d3d886}{Draw} ()
 \begin{DoxyCompactList}\small\item\em Draws each \hyperlink{class_game_asset}{Game\+Asset} in the scene graph. \end{DoxyCompactList}\item 
-\hypertarget{class_game_asset_manager_a459c51716179ef4b931f049be4aa69b4}{}void {\bfseries Update\+Camera\+Position} (Control control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)\label{class_game_asset_manager_a459c51716179ef4b931f049be4aa69b4}
-
+void \hyperlink{class_game_asset_manager_a459c51716179ef4b931f049be4aa69b4}{Update\+Camera\+Position} (\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9}{Control} control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)
 \end{DoxyCompactItemize}
 
 
@@ -41,21 +38,42 @@ void \hyperlink{class_game_asset_manager_a32837132bd70a9a9ed537323c2d3d886}{Draw
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_game_asset_manager_a84d0445928649e0d1e0f8e31ee137b17}
-Creates a \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} to load the correct shaders based on the Application\+Mode. \hypertarget{class_game_asset_manager_a1270bd61ecbcca563f079803e40c9b77}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!````~Game\+Asset\+Manager@{$\sim$\+Game\+Asset\+Manager}}
+Creates a \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} to load the correct shaders based on the Application\+Mode. 
+\begin{DoxyCode}
+7                                    \{
+8         std::string vertex\_shader(\textcolor{stringliteral}{"shaders/translate.vs"});
+9         std::string fragment\_shader(\textcolor{stringliteral}{"shaders/fragment.fs"});
+10 
+11         program\_token = CreateGLProgram(vertex\_shader, fragment\_shader);
+12 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_manager_a1270bd61ecbcca563f079803e40c9b77}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!````~Game\+Asset\+Manager@{$\sim$\+Game\+Asset\+Manager}}
 \index{````~Game\+Asset\+Manager@{$\sim$\+Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
 \subsubsection[{$\sim$\+Game\+Asset\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Asset\+Manager\+::$\sim$\+Game\+Asset\+Manager (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_game_asset_manager_a1270bd61ecbcca563f079803e40c9b77}
-Deletes a \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager}, in particular it will clean up any modifications to the Open\+G\+L state. \hypertarget{class_game_asset_manager_a2c9adcb72faa154c87eadc9bafe5269d}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+Deletes a \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager}, in particular it will clean up any modifications to the Open\+G\+L state. 
+\begin{DoxyCode}
+22                                     \{
+23         glDeleteProgram(program\_token);
+24 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_manager_a2c9adcb72faa154c87eadc9bafe5269d}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
 \index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
 \subsubsection[{Game\+Asset\+Manager(\+Game\+Asset\+Manager const \&)}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Asset\+Manager\+::\+Game\+Asset\+Manager (
 \begin{DoxyParamCaption}
 \item[{{\bf Game\+Asset\+Manager} const \&}]{the\+\_\+manager}
 \end{DoxyParamCaption}
 )}\label{class_game_asset_manager_a2c9adcb72faa154c87eadc9bafe5269d}
-Unimplemented copy constructor -- this means that the \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} may not work as you\textquotesingle{}d expect when being copied. \hypertarget{class_game_asset_manager_a44f6e2fd6b8ff1dd64e5697f1be7386d}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+Unimplemented copy constructor -- this means that the \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} may not work as you\textquotesingle{}d expect when being copied. 
+\begin{DoxyCode}
+30                                                                       \{
+31   \textcolor{comment}{// TODO: implement this}
+32 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_manager_a44f6e2fd6b8ff1dd64e5697f1be7386d}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
 \index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
 \subsubsection[{Game\+Asset\+Manager(\+Game\+Asset\+Manager const \&\&)}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Asset\+Manager\+::\+Game\+Asset\+Manager (
 \begin{DoxyParamCaption}
@@ -63,8 +81,31 @@ Unimplemented copy constructor -- this means that the \hyperlink{class_game_asse
 \end{DoxyParamCaption}
 )}\label{class_game_asset_manager_a44f6e2fd6b8ff1dd64e5697f1be7386d}
 Unimplemented move constructor -- this unimplemented method violates the C++11 move semantics for \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager}. 
+\begin{DoxyCode}
+38                                                                        \{
+39   \textcolor{comment}{// TODO: implement this}
+40 \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
+\hypertarget{class_game_asset_manager_ad3de8ff00d55ba04728b1de8213b2349}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Add\+Asset@{Add\+Asset}}
+\index{Add\+Asset@{Add\+Asset}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Add\+Asset(std\+::shared\+\_\+ptr$<$ Game\+Asset $>$)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::\+Add\+Asset (
+\begin{DoxyParamCaption}
+\item[{std\+::shared\+\_\+ptr$<$ {\bf Game\+Asset} $>$}]{game\+\_\+asset}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_manager_ad3de8ff00d55ba04728b1de8213b2349}
+
+
+Adds a \hyperlink{class_game_asset}{Game\+Asset} to the scene graph. 
+
+
+\begin{DoxyCode}
+53                                                                    \{
+54         draw\_list.push\_back(game\_asset);
+55 \}
+\end{DoxyCode}
 \hypertarget{class_game_asset_manager_a32837132bd70a9a9ed537323c2d3d886}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Draw@{Draw}}
 \index{Draw@{Draw}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
 \subsubsection[{Draw()}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::\+Draw (
@@ -82,7 +123,56 @@ This class links the camera matrix to the Draw method as well as the new positio
 
 Collision Check
 
-Checks whether one block collides with the other Block \hypertarget{class_game_asset_manager_a7c9e4fce50b47b78652e7ff0b4dbb629}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!operator=@{operator=}}
+Checks whether one block collides with the other Block 
+\begin{DoxyCode}
+60                             \{
+61     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} ga: draw\_list)
+62     \{
+69         glm::mat4 Camera\_Model(1.0f);
+70 
+71         GLuint Camera\_Projection\_Link = glGetUniformLocation(program\_token, \textcolor{stringliteral}{"Camera\_Projection"});
+72         GLuint Camera\_View\_Link = glGetUniformLocation(program\_token, \textcolor{stringliteral}{"Camera\_View"});
+73         GLuint Camera\_Model\_Link = glGetUniformLocation(program\_token, \textcolor{stringliteral}{"Camera\_Model"});
+74 
+75                 Camera\_Projection = glm::perspective(45.0f, 16.0f/10.0f, 0.1f, 1000.0f);
+76                 
+77         glUniformMatrix4fv(Camera\_Projection\_Link, 1, GL\_FALSE, &Camera\_Projection[0][0]);
+78         glUniformMatrix4fv(Camera\_View\_Link, 1, GL\_FALSE, &Camera\_View[0][0]);
+79 
+80                 Camera\_Model = ga->GetModel();
+81         glUniformMatrix4fv(Camera\_Model\_Link, 1, GL\_FALSE, &Camera\_Model[0][0]);
+82         
+88                 \textcolor{comment}{//std::shared\_ptr<GameAsset> game\_asset = std::make\_shared<GameAsset>();}
+89                 
+90                 \textcolor{keywordflow}{if}( ga->GetTranslateBool() == \textcolor{keyword}{true} || ga->GetScaleBool() == \textcolor{keyword}{true} || ga->GetRotateBool() == 
+      true )\{
+91                         BB1\_Max = ga->GetAABB(\textcolor{stringliteral}{"Max"});
+92                         BB1\_Min = ga->GetAABB(\textcolor{stringliteral}{"Min"});
+93                         BB1\_Pos = ga->GetTranslateTo();
+94                         
+95                         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} ga2: draw\_list) \{
+96                                 BB2\_Max = ga2->GetAABB(\textcolor{stringliteral}{"Max"});
+97                                 BB2\_Min = ga2->GetAABB(\textcolor{stringliteral}{"Min"});
+98                                 BB2\_Pos = ga2->GetTranslateTo();
+99                                 camera->CollisionDetection(BB2\_Max, BB2\_Min);
+100                                 \textcolor{keywordflow}{if}(BB1\_Pos != BB2\_Pos) \{
+101                                          ga->CollisionDetection(BB1\_Max, BB1\_Min, BB1\_Pos, BB2\_Max, BB2\_Min
+      , BB2\_Pos);
+102                                 \}
+103                         \}
+104                 \}
+105                 ga->Draw(program\_token);
+106     \}
+107 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_manager_a1d9f1f5cc6630a10a0bf358dc2bcddef}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Get\+Camera\+Position@{Get\+Camera\+Position}}
+\index{Get\+Camera\+Position@{Get\+Camera\+Position}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Get\+Camera\+Position()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+Asset\+Manager\+::\+Get\+Camera\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_manager_a1d9f1f5cc6630a10a0bf358dc2bcddef}
+\hypertarget{class_game_asset_manager_a7c9e4fce50b47b78652e7ff0b4dbb629}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!operator=@{operator=}}
 \index{operator=@{operator=}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
 \subsubsection[{operator=(\+Game\+Asset\+Manager)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::operator= (
 \begin{DoxyParamCaption}
@@ -90,8 +180,29 @@ Checks whether one block collides with the other Block \hypertarget{class_game_a
 \end{DoxyParamCaption}
 )}\label{class_game_asset_manager_a7c9e4fce50b47b78652e7ff0b4dbb629}
 Unimplemented assisgnment operator -- violates the expected semantics for assignment in C++11. 
+\begin{DoxyCode}
+46                                                  \{
+47   \textcolor{comment}{// TODO: implement this}
+48 \}
+\end{DoxyCode}
+\hypertarget{class_game_asset_manager_a459c51716179ef4b931f049be4aa69b4}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Update\+Camera\+Position@{Update\+Camera\+Position}}
+\index{Update\+Camera\+Position@{Update\+Camera\+Position}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Update\+Camera\+Position(\+Control control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::\+Update\+Camera\+Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Control}}]{control, }
+\item[{int}]{Mouse\+\_\+\+X, }
+\item[{int}]{Mouse\+\_\+\+Y}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_manager_a459c51716179ef4b931f049be4aa69b4}
+
+\begin{DoxyCode}
+14                                                                                      \{
+15         Camera\_View = camera->UpdateCameraPosition(control, Mouse\_X, Mouse\_Y);
+16   \}
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Game\+Asset\+Manager.\+h\item 
-src/Game\+Asset\+Manager.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_game_asset_manager_8h}{Game\+Asset\+Manager.\+h}\item 
+src/\hyperlink{_game_asset_manager_8cc}{Game\+Asset\+Manager.\+cc}\end{DoxyCompactItemize}

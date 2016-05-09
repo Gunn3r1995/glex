@@ -1,6 +1,7 @@
 \hypertarget{common_8h}{}\section{src/common.h File Reference}
 \label{common_8h}\index{src/common.\+h@{src/common.\+h}}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,17 +11,24 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0}{Application\+Mode} \{ \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335}{T\+R\+A\+N\+S\+F\+O\+R\+M}, 
-\hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a3dcfe0046eb5876e287dbf0914819b16}{R\+O\+T\+A\+T\+E}, 
-\hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a593be05a10070b4e7e0856e20590eaaf}{S\+C\+A\+L\+E}
+enum \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9}{Control} \{ \\*
+\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9acdb8b9a398ffbd729218a27d00d8fa45}{N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+E\+D}, 
+\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9aba595d8bca8bc5e67c37c0a9d89becfa}{U\+P}, 
+\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a9b0b4a95b99523966e0e34ffdadac9da}{D\+O\+W\+N}, 
+\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9adb45120aafd37a973140edee24708065}{L\+E\+F\+T}, 
+\\*
+\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9aec8379af7490bb9eaaf579cf17876f38}{R\+I\+G\+H\+T}, 
+\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a1f28d4392b1c1e7da2af2283632d81e1}{J\+U\+M\+P}, 
+\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a3cdd4783c5dbeae45bbcd15570a6b273}{C\+R\+O\+U\+C\+H}, 
+\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9ab107229d44d042caa8ab8df4c8acaa1f}{P\+R\+I\+N\+T}
  \}
 \end{DoxyCompactItemize}
 
 
 \subsection{Enumeration Type Documentation}
-\hypertarget{common_8h_add86e7c88dd109abea3f708b422f31f0}{}\index{common.\+h@{common.\+h}!Application\+Mode@{Application\+Mode}}
-\index{Application\+Mode@{Application\+Mode}!common.\+h@{common.\+h}}
-\subsubsection[{Application\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Application\+Mode}}\label{common_8h_add86e7c88dd109abea3f708b422f31f0}
+\hypertarget{common_8h_a0da83e35f29c11f7f3c637234f2149f9}{}\index{common.\+h@{common.\+h}!Control@{Control}}
+\index{Control@{Control}!common.\+h@{common.\+h}}
+\subsubsection[{Control}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Control}}\label{common_8h_a0da83e35f29c11f7f3c637234f2149f9}
 Application\+Mode denotes the global state of the application. There are three global states for this application\+:
 \begin{DoxyEnumerate}
 \item Transform -- load the correct shaders to do a transformation of a simple asset.
@@ -29,11 +37,26 @@ Application\+Mode denotes the global state of the application. There are three g
 \end{DoxyEnumerate}\begin{Desc}
 \item[Enumerator]\par
 \begin{description}
-\index{T\+R\+A\+N\+S\+F\+O\+R\+M@{T\+R\+A\+N\+S\+F\+O\+R\+M}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!T\+R\+A\+N\+S\+F\+O\+R\+M@{T\+R\+A\+N\+S\+F\+O\+R\+M}}\item[{\em 
-\hypertarget{common_8h_add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335}{}T\+R\+A\+N\+S\+F\+O\+R\+M\label{common_8h_add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335}
-}]\index{R\+O\+T\+A\+T\+E@{R\+O\+T\+A\+T\+E}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!R\+O\+T\+A\+T\+E@{R\+O\+T\+A\+T\+E}}\item[{\em 
-\hypertarget{common_8h_add86e7c88dd109abea3f708b422f31f0a3dcfe0046eb5876e287dbf0914819b16}{}R\+O\+T\+A\+T\+E\label{common_8h_add86e7c88dd109abea3f708b422f31f0a3dcfe0046eb5876e287dbf0914819b16}
-}]\index{S\+C\+A\+L\+E@{S\+C\+A\+L\+E}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!S\+C\+A\+L\+E@{S\+C\+A\+L\+E}}\item[{\em 
-\hypertarget{common_8h_add86e7c88dd109abea3f708b422f31f0a593be05a10070b4e7e0856e20590eaaf}{}S\+C\+A\+L\+E\label{common_8h_add86e7c88dd109abea3f708b422f31f0a593be05a10070b4e7e0856e20590eaaf}
+\index{N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+E\+D@{N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+E\+D}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+E\+D@{N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+E\+D}}\item[{\em 
+\hypertarget{common_8h_a0da83e35f29c11f7f3c637234f2149f9acdb8b9a398ffbd729218a27d00d8fa45}{}N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+E\+D\label{common_8h_a0da83e35f29c11f7f3c637234f2149f9acdb8b9a398ffbd729218a27d00d8fa45}
+}]\index{U\+P@{U\+P}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!U\+P@{U\+P}}\item[{\em 
+\hypertarget{common_8h_a0da83e35f29c11f7f3c637234f2149f9aba595d8bca8bc5e67c37c0a9d89becfa}{}U\+P\label{common_8h_a0da83e35f29c11f7f3c637234f2149f9aba595d8bca8bc5e67c37c0a9d89becfa}
+}]\index{D\+O\+W\+N@{D\+O\+W\+N}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!D\+O\+W\+N@{D\+O\+W\+N}}\item[{\em 
+\hypertarget{common_8h_a0da83e35f29c11f7f3c637234f2149f9a9b0b4a95b99523966e0e34ffdadac9da}{}D\+O\+W\+N\label{common_8h_a0da83e35f29c11f7f3c637234f2149f9a9b0b4a95b99523966e0e34ffdadac9da}
+}]\index{L\+E\+F\+T@{L\+E\+F\+T}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!L\+E\+F\+T@{L\+E\+F\+T}}\item[{\em 
+\hypertarget{common_8h_a0da83e35f29c11f7f3c637234f2149f9adb45120aafd37a973140edee24708065}{}L\+E\+F\+T\label{common_8h_a0da83e35f29c11f7f3c637234f2149f9adb45120aafd37a973140edee24708065}
+}]\index{R\+I\+G\+H\+T@{R\+I\+G\+H\+T}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!R\+I\+G\+H\+T@{R\+I\+G\+H\+T}}\item[{\em 
+\hypertarget{common_8h_a0da83e35f29c11f7f3c637234f2149f9aec8379af7490bb9eaaf579cf17876f38}{}R\+I\+G\+H\+T\label{common_8h_a0da83e35f29c11f7f3c637234f2149f9aec8379af7490bb9eaaf579cf17876f38}
+}]\index{J\+U\+M\+P@{J\+U\+M\+P}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!J\+U\+M\+P@{J\+U\+M\+P}}\item[{\em 
+\hypertarget{common_8h_a0da83e35f29c11f7f3c637234f2149f9a1f28d4392b1c1e7da2af2283632d81e1}{}J\+U\+M\+P\label{common_8h_a0da83e35f29c11f7f3c637234f2149f9a1f28d4392b1c1e7da2af2283632d81e1}
+}]\index{C\+R\+O\+U\+C\+H@{C\+R\+O\+U\+C\+H}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!C\+R\+O\+U\+C\+H@{C\+R\+O\+U\+C\+H}}\item[{\em 
+\hypertarget{common_8h_a0da83e35f29c11f7f3c637234f2149f9a3cdd4783c5dbeae45bbcd15570a6b273}{}C\+R\+O\+U\+C\+H\label{common_8h_a0da83e35f29c11f7f3c637234f2149f9a3cdd4783c5dbeae45bbcd15570a6b273}
+}]\index{P\+R\+I\+N\+T@{P\+R\+I\+N\+T}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!P\+R\+I\+N\+T@{P\+R\+I\+N\+T}}\item[{\em 
+\hypertarget{common_8h_a0da83e35f29c11f7f3c637234f2149f9ab107229d44d042caa8ab8df4c8acaa1f}{}P\+R\+I\+N\+T\label{common_8h_a0da83e35f29c11f7f3c637234f2149f9ab107229d44d042caa8ab8df4c8acaa1f}
 }]\end{description}
 \end{Desc}
+
+\begin{DoxyCode}
+12 \{\hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9acdb8b9a398ffbd729218a27d00d8fa45}{NOT\_PRESSED}, \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9aba595d8bca8bc5e67c37c0a9d89becfa}{UP}, \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a9b0b4a95b99523966e0e34ffdadac9da}{DOWN}, \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9adb45120aafd37a973140edee24708065}{LEFT}, \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9aec8379af7490bb9eaaf579cf17876f38}{RIGHT}, \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a1f28d4392b1c1e7da2af2283632d81e1}{JUMP}, \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9a3cdd4783c5dbeae45bbcd15570a6b273}{CROUCH}, 
+      \hyperlink{common_8h_a0da83e35f29c11f7f3c637234f2149f9ab107229d44d042caa8ab8df4c8acaa1f}{PRINT}\};
+\end{DoxyCode}

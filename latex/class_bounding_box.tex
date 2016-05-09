@@ -1,5 +1,9 @@
 \hypertarget{class_bounding_box}{}\section{Bounding\+Box Class Reference}
 \label{class_bounding_box}\index{Bounding\+Box@{Bounding\+Box}}
+
+
+{\ttfamily \#include $<$Bounding\+Box.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -9,11 +13,9 @@ glm\+::mat4 \hyperlink{class_bounding_box_a5fd1769f7157e7df40a6ab6a242fcfcc}{Get
 \item 
 void \hyperlink{class_bounding_box_a9898275b1cd97761855156fc965412b1}{Translate\+X} ()
 \item 
-\hypertarget{class_bounding_box_aedff87fb2721b1e706e6e033e35b676b}{}void {\bfseries Translate\+Y} ()\label{class_bounding_box_aedff87fb2721b1e706e6e033e35b676b}
-
+void \hyperlink{class_bounding_box_aedff87fb2721b1e706e6e033e35b676b}{Translate\+Y} ()
 \item 
-\hypertarget{class_bounding_box_a33d133625c7a1a6f6dd7628f00388fd5}{}void {\bfseries Translate\+Z} ()\label{class_bounding_box_a33d133625c7a1a6f6dd7628f00388fd5}
-
+void \hyperlink{class_bounding_box_a33d133625c7a1a6f6dd7628f00388fd5}{Translate\+Z} ()
 \item 
 void \hyperlink{class_bounding_box_a728a3700574a5d9fbcac6d94561336ed}{Rotate} (glm\+::vec3 rotate)
 \item 
@@ -21,19 +23,15 @@ void \hyperlink{class_bounding_box_ab84e48c88a509b20a469ccf5e23c4f11}{Scale} (gl
 \item 
 glm\+::vec3 \hyperlink{class_bounding_box_a45332d45575fe93b516267436abcd4fe}{Get\+Translate\+To} ()
 \item 
-\hypertarget{class_bounding_box_a501c1fd40b00ce6295fd60e1ed8cd92c}{}bool {\bfseries Get\+Translate\+Bool} ()\label{class_bounding_box_a501c1fd40b00ce6295fd60e1ed8cd92c}
-
+bool \hyperlink{class_bounding_box_a501c1fd40b00ce6295fd60e1ed8cd92c}{Get\+Translate\+Bool} ()
 \item 
-\hypertarget{class_bounding_box_a262907e4b68e555edc57b21faef5685b}{}bool {\bfseries Get\+Scale\+Bool} ()\label{class_bounding_box_a262907e4b68e555edc57b21faef5685b}
-
+bool \hyperlink{class_bounding_box_a262907e4b68e555edc57b21faef5685b}{Get\+Scale\+Bool} ()
 \item 
-\hypertarget{class_bounding_box_a6686a674cd3de57c987bccdfe6acbe92}{}bool {\bfseries Get\+Rotate\+Bool} ()\label{class_bounding_box_a6686a674cd3de57c987bccdfe6acbe92}
-
+bool \hyperlink{class_bounding_box_a6686a674cd3de57c987bccdfe6acbe92}{Get\+Rotate\+Bool} ()
 \item 
 glm\+::vec3 \hyperlink{class_bounding_box_a9d1fe341d5c2033e7f20ab9bdb4ae4b9}{Get\+A\+A\+B\+B} (string check)
 \item 
-\hypertarget{class_bounding_box_a158978699951663552a2936f2a8a2339}{}void {\bfseries Collision\+Detection} (glm\+::vec3 B\+B1\+\_\+\+Max, glm\+::vec3 B\+B1\+\_\+\+Min, glm\+::vec3 B\+B1\+\_\+\+Pos, glm\+::vec3 B\+B2\+\_\+\+Max, glm\+::vec3 B\+B2\+\_\+\+Min, glm\+::vec3 B\+B2\+\_\+\+Pos)\label{class_bounding_box_a158978699951663552a2936f2a8a2339}
-
+void \hyperlink{class_bounding_box_a158978699951663552a2936f2a8a2339}{Collision\+Detection} (glm\+::vec3 B\+B1\+\_\+\+Max, glm\+::vec3 B\+B1\+\_\+\+Min, glm\+::vec3 B\+B1\+\_\+\+Pos, glm\+::vec3 B\+B2\+\_\+\+Max, glm\+::vec3 B\+B2\+\_\+\+Min, glm\+::vec3 B\+B2\+\_\+\+Pos)
 \end{DoxyCompactItemize}
 
 
@@ -54,8 +52,64 @@ glm\+::vec3 \hyperlink{class_bounding_box_a9d1fe341d5c2033e7f20ab9bdb4ae4b9}{Get
 \end{DoxyParamCaption}
 )}\label{class_bounding_box_a4c5c018191c3a3dbba5633d62f249920}
 Initalise Data The below vectors and booleans initialise all the variables used in the bounding box class to calculate and animate the Bounding Box 
+\begin{DoxyCode}
+5                                                                            \{
+11         this->xyzPosition = xyzPosition;
+12         this->translateTo = translateTo;
+13         translateToSave = translateTo;
+14         this->animateTo = animateTo;
+15         this->translate\_bool = translate\_bool;
+16 
+17         this->rotate = rotate;
+18         rotateTo = rotate;
+19         this->rotate\_bool = rotate\_bool;
+20  
+21         this->scale = scale;
+22         scaleTo = scale;
+23         this->scale\_bool = scale\_bool; 
+24         
+25         this->AssetType = AssetType;      
+26 
+27         \textcolor{comment}{//cout << "SCALE  " << glm::to\_string(scale) << endl;}
+28         \textcolor{comment}{//cout << "Bounding Box Created at: " << glm::to\_string(translateTo)<< endl;}
+29 \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
+\hypertarget{class_bounding_box_a158978699951663552a2936f2a8a2339}{}\index{Bounding\+Box@{Bounding\+Box}!Collision\+Detection@{Collision\+Detection}}
+\index{Collision\+Detection@{Collision\+Detection}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Collision\+Detection(glm\+::vec3 B\+B1\+\_\+\+Max, glm\+::vec3 B\+B1\+\_\+\+Min, glm\+::vec3 B\+B1\+\_\+\+Pos, glm\+::vec3 B\+B2\+\_\+\+Max, glm\+::vec3 B\+B2\+\_\+\+Min, glm\+::vec3 B\+B2\+\_\+\+Pos)}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Collision\+Detection (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{B\+B1\+\_\+\+Max, }
+\item[{glm\+::vec3}]{B\+B1\+\_\+\+Min, }
+\item[{glm\+::vec3}]{B\+B1\+\_\+\+Pos, }
+\item[{glm\+::vec3}]{B\+B2\+\_\+\+Max, }
+\item[{glm\+::vec3}]{B\+B2\+\_\+\+Min, }
+\item[{glm\+::vec3}]{B\+B2\+\_\+\+Pos}
+\end{DoxyParamCaption}
+)}\label{class_bounding_box_a158978699951663552a2936f2a8a2339}
+
+\begin{DoxyCode}
+161                                                                                         \{
+162     \textcolor{keywordflow}{if} (BB1\_Max.x > BB2\_Min.x && BB1\_Min.x < BB2\_Max.x &&
+163         BB1\_Max.y > BB2\_Min.y && BB1\_Min.y < BB2\_Max.y &&
+164         BB1\_Max.z > BB2\_Min.z && BB1\_Min.z < BB2\_Max.z) \{
+165         \textcolor{comment}{/*cout << "Collision" << endl;}
+166 \textcolor{comment}{        cout << "BB1 Pos: " << glm::to\_string(BB1\_Pos) << endl;}
+167 \textcolor{comment}{        cout << "BB1 Max: " << glm::to\_string(BB1\_Max) << endl;}
+168 \textcolor{comment}{        cout << "BB1 Min: " << glm::to\_string(BB1\_Min) << endl;}
+169 \textcolor{comment}{        cout << "----------------------------------------------" << endl;}
+170 \textcolor{comment}{        cout << "BB2 Pos: " << glm::to\_string(BB2\_Pos) << endl;}
+171 \textcolor{comment}{        cout << "BB2 Max: " << glm::to\_string(BB2\_Max) << endl;}
+172 \textcolor{comment}{        cout << "BB2 Min: " << glm::to\_string(BB2\_Min) << endl;}
+173 \textcolor{comment}{        cout << "*****************************************************" << endl;*/}
+174         translateTo = translateToSave;
+175         this->scale = scaleTo;
+176         this->rotate = rotateTo;
+177     \}
+178 \}  
+\end{DoxyCode}
 \hypertarget{class_bounding_box_a9d1fe341d5c2033e7f20ab9bdb4ae4b9}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+A\+A\+B\+B@{Get\+A\+A\+B\+B}}
 \index{Get\+A\+A\+B\+B@{Get\+A\+A\+B\+B}!Bounding\+Box@{Bounding\+Box}}
 \subsubsection[{Get\+A\+A\+B\+B(string check)}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Bounding\+Box\+::\+Get\+A\+A\+B\+B (
@@ -63,7 +117,21 @@ Initalise Data The below vectors and booleans initialise all the variables used 
 \item[{string}]{check}
 \end{DoxyParamCaption}
 )}\label{class_bounding_box_a9d1fe341d5c2033e7f20ab9bdb4ae4b9}
-Return the max and minimum bounds \hypertarget{class_bounding_box_a5fd1769f7157e7df40a6ab6a242fcfcc}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+Model@{Get\+Model}}
+Return the max and minimum bounds 
+\begin{DoxyCode}
+148 \{
+149     \textcolor{keywordflow}{if}( this->AssetType != \textcolor{stringliteral}{"Grass"}) \{
+150         \textcolor{keywordflow}{if} (check == \textcolor{stringliteral}{"Max"}) \{
+151                 AABB = this->translateTo += glm::vec3(1.0f,1.0f,1.0f) * this->scale;
+152         \}
+153         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (check == \textcolor{stringliteral}{"Min"}) \{
+154                 AABB = this->translateTo += glm::vec3(-1.0f,-1.0f,-1.0f) * this->scale;
+155         \}
+156     \}
+157     \textcolor{keywordflow}{return} AABB;
+158 \}
+\end{DoxyCode}
+\hypertarget{class_bounding_box_a5fd1769f7157e7df40a6ab6a242fcfcc}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+Model@{Get\+Model}}
 \index{Get\+Model@{Get\+Model}!Bounding\+Box@{Bounding\+Box}}
 \subsubsection[{Get\+Model()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Bounding\+Box\+::\+Get\+Model (
 \begin{DoxyParamCaption}
@@ -71,6 +139,34 @@ Return the max and minimum bounds \hypertarget{class_bounding_box_a5fd1769f7157e
 \end{DoxyParamCaption}
 )}\label{class_bounding_box_a5fd1769f7157e7df40a6ab6a242fcfcc}
 Get Model This Controls and calls whether it should be Animated by calling the Translate, Scale and Rotate Methods. It also caluclates the Translate, Scale and Model Matrix to return the Model Matrix to eventually the \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} Class 
+\begin{DoxyCode}
+38                               \{
+39         
+40         \textcolor{keywordflow}{if}(translate\_bool == \textcolor{keyword}{true}) \{
+41                 \hyperlink{class_bounding_box_a9898275b1cd97761855156fc965412b1}{TranslateX}();
+42                 \hyperlink{class_bounding_box_aedff87fb2721b1e706e6e033e35b676b}{TranslateY}();
+43                 \hyperlink{class_bounding_box_a33d133625c7a1a6f6dd7628f00388fd5}{TranslateZ}();
+44         \}        
+45         \textcolor{keywordflow}{if}(scale\_bool == \textcolor{keyword}{true}) \{
+46                 \hyperlink{class_bounding_box_ab84e48c88a509b20a469ccf5e23c4f11}{Scale}(scaleTo);
+47         \}
+48         \textcolor{keywordflow}{if}(rotate\_bool == \textcolor{keyword}{true}) \{
+49                 \hyperlink{class_bounding_box_a728a3700574a5d9fbcac6d94561336ed}{Rotate}(glm::vec3(0.1f, 0.1f, 0.1f));
+50         \}
+51 
+52         Translate\_Matrix = glm::translate(glm::mat4(), glm::vec3(this->translateTo));
+53         Scale\_Matrix = glm::scale(glm::vec3(this->scale));
+54 
+55         Model\_Matrix = Translate\_Matrix * Scale\_Matrix;
+56 
+57         Model\_Matrix = glm::rotate(Model\_Matrix, this->rotate.x, glm::vec3(1, 0, 0));
+58         Model\_Matrix = glm::rotate(Model\_Matrix, this->rotate.y, glm::vec3(0, 1, 0));
+59         Model\_Matrix = glm::rotate(Model\_Matrix, this->rotate.z, glm::vec3(0, 0, 1));
+60         
+61         \textcolor{keywordflow}{return} Model\_Matrix;
+62 \}
+\end{DoxyCode}
+
 
 Here is the call graph for this function\+:
 \nopagebreak
@@ -82,6 +178,45 @@ Here is the call graph for this function\+:
 \end{figure}
 
 
+\hypertarget{class_bounding_box_a6686a674cd3de57c987bccdfe6acbe92}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+Rotate\+Bool@{Get\+Rotate\+Bool}}
+\index{Get\+Rotate\+Bool@{Get\+Rotate\+Bool}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Get\+Rotate\+Bool()}]{\setlength{\rightskip}{0pt plus 5cm}bool Bounding\+Box\+::\+Get\+Rotate\+Bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bounding_box_a6686a674cd3de57c987bccdfe6acbe92}
+
+\begin{DoxyCode}
+196                                 \{
+197     \textcolor{keywordflow}{return} this->rotate\_bool;
+198 \}
+\end{DoxyCode}
+\hypertarget{class_bounding_box_a262907e4b68e555edc57b21faef5685b}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+Scale\+Bool@{Get\+Scale\+Bool}}
+\index{Get\+Scale\+Bool@{Get\+Scale\+Bool}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Get\+Scale\+Bool()}]{\setlength{\rightskip}{0pt plus 5cm}bool Bounding\+Box\+::\+Get\+Scale\+Bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bounding_box_a262907e4b68e555edc57b21faef5685b}
+
+\begin{DoxyCode}
+192                                \{
+193     \textcolor{keywordflow}{return} this->scale\_bool;
+194 \}
+\end{DoxyCode}
+\hypertarget{class_bounding_box_a501c1fd40b00ce6295fd60e1ed8cd92c}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+Translate\+Bool@{Get\+Translate\+Bool}}
+\index{Get\+Translate\+Bool@{Get\+Translate\+Bool}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Get\+Translate\+Bool()}]{\setlength{\rightskip}{0pt plus 5cm}bool Bounding\+Box\+::\+Get\+Translate\+Bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bounding_box_a501c1fd40b00ce6295fd60e1ed8cd92c}
+
+\begin{DoxyCode}
+188                                    \{
+189     \textcolor{keywordflow}{return} this->translate\_bool;
+190 \}
+\end{DoxyCode}
 \hypertarget{class_bounding_box_a45332d45575fe93b516267436abcd4fe}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+Translate\+To@{Get\+Translate\+To}}
 \index{Get\+Translate\+To@{Get\+Translate\+To}!Bounding\+Box@{Bounding\+Box}}
 \subsubsection[{Get\+Translate\+To()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Bounding\+Box\+::\+Get\+Translate\+To (
@@ -89,7 +224,13 @@ Here is the call graph for this function\+:
 {}
 \end{DoxyParamCaption}
 )}\label{class_bounding_box_a45332d45575fe93b516267436abcd4fe}
-Get\+Translate\+To Returns the Current position the \hyperlink{class_bounding_box}{Bounding\+Box} is at \hypertarget{class_bounding_box_a728a3700574a5d9fbcac6d94561336ed}{}\index{Bounding\+Box@{Bounding\+Box}!Rotate@{Rotate}}
+Get\+Translate\+To Returns the Current position the \hyperlink{class_bounding_box}{Bounding\+Box} is at 
+\begin{DoxyCode}
+184                                     \{
+185     \textcolor{keywordflow}{return} this->translateTo;
+186 \}
+\end{DoxyCode}
+\hypertarget{class_bounding_box_a728a3700574a5d9fbcac6d94561336ed}{}\index{Bounding\+Box@{Bounding\+Box}!Rotate@{Rotate}}
 \index{Rotate@{Rotate}!Bounding\+Box@{Bounding\+Box}}
 \subsubsection[{Rotate(glm\+::vec3 rotate)}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Rotate (
 \begin{DoxyParamCaption}
@@ -97,9 +238,19 @@ Get\+Translate\+To Returns the Current position the \hyperlink{class_bounding_bo
 \end{DoxyParamCaption}
 )}\label{class_bounding_box_a728a3700574a5d9fbcac6d94561336ed}
 Rotate Method Controls the rotation of the asset 
+\begin{DoxyCode}
+122                                          \{
+123         \textcolor{keywordflow}{if}(this->rotate.x <= 100.1f && this->rotate.y <= 100.1f && this->rotate.z <= 100.1f) \{
+124                 this->rotate = this->rotate + glm::vec3(0.1f , 0.1f, 0.1f);
+125         \}
+126         \textcolor{keywordflow}{else} \{
+127                 this->rotate = glm::vec3(0.1f, 0.1f, 0.1f);
+128         \}
+129 \}
+\end{DoxyCode}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -116,9 +267,19 @@ Here is the caller graph for this function\+:
 \end{DoxyParamCaption}
 )}\label{class_bounding_box_ab84e48c88a509b20a469ccf5e23c4f11}
 Scale Method Controls the size of the Asset 
+\begin{DoxyCode}
+135                                        \{
+136     \textcolor{keywordflow}{if}(this->scale.x < scaleTo.x && this->scale.y < scaleTo.y && this->scale.z < scaleTo.z) \{
+137         this->scale = this->scale + glm::vec3(0.01f,0.01f,0.01f);
+138     \}
+139     \textcolor{keywordflow}{else} \{
+140         this->scale = glm::vec3(1.0f,1.0f,1.0f);
+141     \}
+142 \}    
+\end{DoxyCode}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -135,9 +296,27 @@ Here is the caller graph for this function\+:
 \end{DoxyParamCaption}
 )}\label{class_bounding_box_a9898275b1cd97761855156fc965412b1}
 Translate Method This controls the translation animation, to move the assets on the x, y or z axis 
+\begin{DoxyCode}
+68                              \{
+69                 \textcolor{keywordflow}{if}(this->translateTo.x < animateTo.x ) \{
+70                         this->translateTo = this->translateTo + glm::vec3(0.1f,0.0f,0.0f);
+71                         
+72                         \textcolor{keywordflow}{if}(this->translateTo.x > animateTo.x)\{
+73                                 this->translateTo = translateToSave;
+74                         \}
+75                 \}
+76                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(this->translateTo.x > animateTo.x) \{
+77                         this->translateTo = this->translateTo + glm::vec3(-0.1f,0.0f,0.0f);
+78 
+79                         \textcolor{keywordflow}{if}(this->translateTo.x < animateTo.x)\{
+80                                 this->translateTo = translateToSave;
+81                         \}
+82                 \}
+83 \}
+\end{DoxyCode}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -146,9 +325,85 @@ Here is the caller graph for this function\+:
 \end{figure}
 
 
+\hypertarget{class_bounding_box_aedff87fb2721b1e706e6e033e35b676b}{}\index{Bounding\+Box@{Bounding\+Box}!Translate\+Y@{Translate\+Y}}
+\index{Translate\+Y@{Translate\+Y}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Translate\+Y()}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Translate\+Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bounding_box_aedff87fb2721b1e706e6e033e35b676b}
+
+\begin{DoxyCode}
+85                              \{
+86             \textcolor{keywordflow}{if}(this->translateTo.y < animateTo.y ) \{
+87                        this->translateTo = this->translateTo + glm::vec3(0.0f,0.1f,0.0f);
+88                        
+89                        \textcolor{keywordflow}{if}(this->translateTo.y > animateTo.y)\{
+90                                 this->translateTo = translateToSave;
+91                        \}
+92                 \}
+93                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(this->translateTo.y > animateTo.y)\{
+94                         this->translateTo = this->translateTo + glm::vec3(0.0f,-0.1f,0.0f);
+95                   
+96                         \textcolor{keywordflow}{if}(this->translateTo.y < animateTo.y)\{
+97                                 this->translateTo = translateToSave;
+98                         \}
+99                 \}
+100 \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_bounding_box_aedff87fb2721b1e706e6e033e35b676b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_bounding_box_a33d133625c7a1a6f6dd7628f00388fd5}{}\index{Bounding\+Box@{Bounding\+Box}!Translate\+Z@{Translate\+Z}}
+\index{Translate\+Z@{Translate\+Z}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Translate\+Z()}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Translate\+Z (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bounding_box_a33d133625c7a1a6f6dd7628f00388fd5}
+
+\begin{DoxyCode}
+101                              \{
+102                 \textcolor{keywordflow}{if}(this->translateTo.z < animateTo.z ) \{
+103                         this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,0.1f);
+104                         
+105                         \textcolor{keywordflow}{if}(this->translateTo.z > animateTo.z)\{
+106                                 this->translateTo = translateToSave;
+107                         \}
+108                 \}
+109                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(this->translateTo.z > animateTo.z)\{
+110                         this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,-0.1f);
+111                         
+112                         \textcolor{keywordflow}{if}(this->translateTo.z < animateTo.z)\{
+113                                 this->translateTo = translateToSave;
+114                         \}
+115                 \}
+116 \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_bounding_box_a33d133625c7a1a6f6dd7628f00388fd5_icgraph}
+\end{center}
+\end{figure}
+
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Bounding\+Box.\+h\item 
-src/Bounding\+Box.\+cc\end{DoxyCompactItemize}
+src/\hyperlink{_bounding_box_8h}{Bounding\+Box.\+h}\item 
+src/\hyperlink{_bounding_box_8cc}{Bounding\+Box.\+cc}\end{DoxyCompactItemize}
