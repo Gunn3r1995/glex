@@ -13,6 +13,6 @@ BOOST_PYTHON_MODULE(libglex){
 
 
         boost::python::def("greet", greet);
-        boost::python::class_<GameLoop>("GameLoop")
+        class_<GameLoop>("GameLoop")
     	        .def("Run", &GameLoop::Run);
 }

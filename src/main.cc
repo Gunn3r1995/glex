@@ -1,6 +1,6 @@
 #include "GameLoop.h"
 
-int main(int argc, char ** argv) {
+int main() {
         std::shared_ptr<GameLoop> Game_Loop = std::make_shared<GameLoop>();
         Game_Loop->Run();
 }
