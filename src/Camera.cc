@@ -8,7 +8,7 @@
 /// Tells the Camera matrix what position to look at and where to move
 //////////////////////////////////////////////////////////////////////////////////////////
 Camera::Camera() {
-          Camera_Position = glm::vec3(0.0f, 10.0f, -10.0f);
+          Camera_Position = glm::vec3(0.0f, 0.5f, -10.0f);
 
 	  Camera_Horizontal = 0.0f;
 	  Camera_Vertical = 0.0f;
@@ -44,8 +44,14 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
 		sin(Camera_Vertical),
 		cos(Camera_Vertical) * cos(Camera_Horizontal)
 	);
+	
+        glm::vec3 Walk_direction(
+		cos(Camera_Vertical) * sin(Camera_Horizontal),
+		0,
+		cos(Camera_Vertical) * cos(Camera_Horizontal)
+	);
         
-	Movement_Z = direction;
+	Movement_Z = Walk_direction;
 
 	Movement_X = glm::vec3(
 		sin(Camera_Horizontal - 3.14f/2.0f),
@@ -53,7 +59,7 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
 		cos(Camera_Horizontal - 3.14f/2.0f)
 	);
 
-	glm::vec3 vup = glm::cross(Movement_X, direction);
+	glm::vec3 vup = glm::cross(Movement_X, Movement_Z);
         
         //////////////////////////////////////////////////////////////////////////////////////////
         ///Keyboard Input Use

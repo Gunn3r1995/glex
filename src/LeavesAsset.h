@@ -11,6 +11,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+#include <string>
 
 #include "GameAsset.h"
 
@@ -19,7 +20,7 @@ class LeavesAsset : public GameAsset {
   LeavesAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, 
               glm::vec3 animateTo, bool translate_bool, 
               glm::vec3 rotate, bool rotate_bool,
-              glm::vec3 scale, bool scale_bool);
+              glm::vec3 scale, bool scale_bool, string AssetType);
   ~LeavesAsset();
   void Draw(GLuint);
 

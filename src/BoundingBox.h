@@ -3,6 +3,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+#include <string>
 
 #include "common.h"
 #include <iostream>
@@ -15,7 +16,7 @@ class BoundingBox {
 		BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, 
                             glm::vec3 animateTo, bool translate_bool, 
                             glm::vec3 rotate, bool rotate_bool,
-                            glm::vec3 scale, bool scale_bool);
+                            glm::vec3 scale, bool scale_bool, string AssetType);
                 glm::mat4 GetModel();
 
                 void TranslateX();
@@ -45,6 +46,8 @@ class BoundingBox {
         
                 glm::vec3 scale, scaleTo;
                 bool scale_bool;
+                
+                string AssetType;
                 
 		glm::mat4 Translate_Matrix, Scale_Matrix, Model_Matrix;
                 

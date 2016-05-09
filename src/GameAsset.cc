@@ -7,11 +7,11 @@
 GameAsset::GameAsset(glm::vec3 xyzPosition, glm::vec3 translateTo, 
                      glm::vec3 animateTo, bool translate_bool, 
                      glm::vec3 rotate, bool rotate_bool,
-                     glm::vec3 scale, bool scale_bool) 
+                     glm::vec3 scale, bool scale_bool, string AssetType) 
                      : Bounding_Box (make_shared<BoundingBox>(xyzPosition, translateTo, 
                                                       animateTo, translate_bool, 
                                                       rotate, rotate_bool, 
-                                                      scale, scale_bool)){
+                                                      scale, scale_bool, AssetType)){
 
 
         //cout << "translateTO "<< glm::to_string(translateTo) <<endl;
