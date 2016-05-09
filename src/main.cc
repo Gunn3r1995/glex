@@ -146,7 +146,7 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
   return TRANSFORM;
 }
   int main(int argc, char ** argv) {
-    Uint32 delay = 1000/30; // in milliseconds, Temporary change to 30fps to fix speed of the game.
+    Uint32 delay = 1000/60;
 
   auto mode = ParseOptions(argc, argv);
   auto window = InitWorld();
