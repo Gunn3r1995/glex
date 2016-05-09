@@ -1,6 +1,6 @@
 #include "GameWorld.h"
 
-GameWorld::GameWorld (ApplicationMode mode) : asset_manager (make_shared<GameAssetManager>(mode)){
+GameWorld::GameWorld() : asset_manager (make_shared<GameAssetManager>())  { 
   int pointX,pointY;
   int pointZ = 1;
   int worldX = 25;

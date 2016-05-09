@@ -1,11 +1,11 @@
-EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h DiamondAsset.h GroundAsset.h LeavesAsset.h PyramidAsset.h GrassAsset.h BoundingBox.h Camera.h GameLoop.h
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h DiamondAsset.h GroundAsset.h LeavesAsset.h PyramidAsset.h GrassAsset.h BoundingBox.h Camera.h GameLoop.h PythonBind.cc
 
 bin_PROGRAMS = shaderexample
 shaderexample_SOURCES = main.cc
 shaderexample_LDADD = libglex.la
 
 lib_LTLIBRARIES = libglex.la
-libglex_la_SOURCES = GameWorld.cc GameAssetManager.cc CubeAsset.cc DiamondAsset.cc GroundAsset.cc LeavesAsset.cc PyramidAsset.cc GrassAsset.cc GameAsset.cc BoundingBox.cc Camera.cc GameLoop.cc
+libglex_la_SOURCES = GameWorld.cc GameAssetManager.cc CubeAsset.cc DiamondAsset.cc GroundAsset.cc LeavesAsset.cc PyramidAsset.cc GrassAsset.cc GameAsset.cc BoundingBox.cc Camera.cc GameLoop.cc PythonBind.cc
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES
 AM_CPPFLAGS += -std=c++11 -I/usr/include/python2.7

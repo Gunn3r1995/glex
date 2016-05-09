@@ -1,14 +1,18 @@
-#include <boost/python.hpp>
+#include "PythonBind.h"
 
 using namespace boost::python;
 
-PythonBindings::PythonBindings(){
+PythonBind::PythonBind(){
 
+}
+char const* greet() {
+   return "hello, world";
 }
 
 BOOST_PYTHON_MODULE(libglex){
-	//class <Example>("Example"), init <>())
-	//		.def("get", &Example::getString )
-	//		.def("set", &Example::setString )
-	//;
+
+
+        boost::python::def("greet", greet);
+        boost::python::class_<GameLoop>("GameLoop")
+    	        .def("Run", &GameLoop::Run);
 }

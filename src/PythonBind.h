@@ -1,9 +1,11 @@
-#include "common.h"
-#include "GameAssetManager.h"
-#include <memory>
-
 #ifndef SRC_PYTHONBIND_H_
 #define SRC_PYTHONBIND_H_
+
+#include <memory>
+#include <boost/python.hpp>
+
+#include "GameLoop.h"
+
 
 class PythonBind{
 

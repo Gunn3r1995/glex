@@ -2,5 +2,5 @@
 
 int main(int argc, char ** argv) {
         std::shared_ptr<GameLoop> Game_Loop = std::make_shared<GameLoop>();
-        Game_Loop->Run(argc, argv);
+        Game_Loop->Run();
 }

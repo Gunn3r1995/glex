@@ -31,7 +31,7 @@ using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////
 class GameAssetManager {
          public:
-                explicit GameAssetManager(ApplicationMode); // constructor
+                explicit GameAssetManager(); // constructor
                 virtual ~GameAssetManager();
                 GameAssetManager(GameAssetManager const&); // copy constructor
                 GameAssetManager(GameAssetManager const&&); // move constructor
