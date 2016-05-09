@@ -5,6 +5,10 @@
 #include <boost/python.hpp>
 
 #include "GameLoop.h"
+#include "common.h"
+#include "CubeAsset.h"
+#include "GameAssetManager.h"
+#include "GameWorld.h"
 
 
 class PythonBind{
