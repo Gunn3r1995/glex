@@ -44,7 +44,8 @@ for usage instructions.
 # Python Bind Building #
 
 ''' bash
-$ cd ./src export PYTHONPATH=`pwd`/.libs/
+& cd src/
+$ export PYTHONPATH=`pwd`/.libs/
 $ cd .. &&make
 '''
 
