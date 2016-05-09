@@ -11,7 +11,7 @@ using namespace std;
 /// Tells the Camera matrix what position to look at and where to move
 //////////////////////////////////////////////////////////////////////////////////////////
 Camera::Camera() {
-          Camera_Position = glm::vec3(0.0f, 0.0f, 0.0f);
+          Camera_Position = glm::vec3(0.0f, 10.0f, -10.0f);
 
 	  Camera_Horizontal = 0.0f;
 	  Camera_Vertical = 0.0f;
@@ -90,7 +90,7 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
                 cout << "********************************************************************" << endl;
         }
 
-
+        //cout << "Camera_Position" << glm::to_string(Camera_Position) <<endl;
         //////////////////////////////////////////////////////////////////////////////////////////
         ///  Camera view matrix.
         ///  changes where the camera position looks up to use the camera position
@@ -103,19 +103,14 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
    
 }
 
-void Camera::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min) {
-        Camera_BB_Max = Camera_Position += glm::vec3(0.5f,0.5f,0.5f);
-        Camera_BB_Min = Camera_Position += glm::vec3(-0.5f,-0.5f,-0.5f);
-
- if (BB1_Max.x > Camera_BB_Min.x && BB1_Min.x < Camera_BB_Max.x &&
-        BB1_Max.y > Camera_BB_Min.y && BB1_Min.y < Camera_BB_Max.y &&
-        BB1_Max.z > Camera_BB_Min.z && BB1_Min.z < Camera_BB_Max.z)
-    {
-
-	cout << "Collision" << endl;
-        //cout << "BB2 Max: " << glm::to_string(BB2_Max) << endl;
-        //cout << "BB2 Min: " << glm::to_string(BB2_Min) << endl;
-        //cout << "BB2 Pos: " << glm::to_string(BB2_Pos) << endl;
-}
-
+void Camera::CollisionDetection(glm::vec3 BB_Max, glm::vec3 BB_Min) {
+        glm::vec3 Camera_BB_Max = Camera_Position + glm::vec3(0.5f,0.5f,0.5f);
+        glm::vec3 Camera_BB_Min = Camera_Position + glm::vec3(-0.5f,-0.5f,-0.5f);
+ 
+        if (BB_Max.x > Camera_BB_Min.x && BB_Min.x < Camera_BB_Max.x &&
+                BB_Max.y > Camera_BB_Min.y && BB_Min.y < Camera_BB_Max.y &&
+                BB_Max.z > Camera_BB_Min.z && BB_Min.z < Camera_BB_Max.z)
+        {
+	        cout << "Camera Collision!" << endl;
+        }
 }

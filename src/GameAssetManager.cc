@@ -12,7 +12,7 @@ GameAssetManager::GameAssetManager() {
 }
 
 void GameAssetManager::UpdateCameraPosition(Control control,  int Mouse_X, int Mouse_Y){
-        Camera_View = camera.UpdateCameraPosition(control, Mouse_X, Mouse_Y);
+        Camera_View = camera->UpdateCameraPosition(control, Mouse_X, Mouse_Y);
   }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -85,23 +85,22 @@ void GameAssetManager::Draw() {
                 /// 
                 /// Checks whether one block collides with the other Block
                 ////////////////////////////////////////////////////////////////////////////////////////// 
-                std::shared_ptr<GameAsset> game_asset;
+                //std::shared_ptr<GameAsset> game_asset = std::make_shared<GameAsset>();
                 
                 if( ga->GetTranslateBool() == true || ga->GetScaleBool() == true || ga->GetRotateBool() == true ){
-                BB1_Max = ga->GetAABB("Max");
-                BB1_Min = ga->GetAABB("Min");
-                BB1_Pos = ga->GetTranslateTo();
-		for(auto ga2: draw_list) {
-                        BB2_Max = ga2->GetAABB("Max");
-                        BB2_Min = ga2->GetAABB("Min");
-                        BB2_Pos = ga2->GetTranslateTo();
-
-			camera_ptr->CollisionDetection(BB2_Max, BB2_Min);
+                        BB1_Max = ga->GetAABB("Max");
+                        BB1_Min = ga->GetAABB("Min");
+                        BB1_Pos = ga->GetTranslateTo();
                         
-                        if(BB1_Pos != BB2_Pos) {
-                                 ga->CollisionDetection(BB1_Max, BB1_Min, BB1_Pos, BB2_Max, BB2_Min, BB2_Pos);
+                        for(auto ga2: draw_list) {
+                                BB2_Max = ga2->GetAABB("Max");
+                                BB2_Min = ga2->GetAABB("Min");
+                                BB2_Pos = ga2->GetTranslateTo();
+                                camera->CollisionDetection(BB2_Max, BB2_Min);
+                                if(BB1_Pos != BB2_Pos) {
+                                         ga->CollisionDetection(BB1_Max, BB1_Min, BB1_Pos, BB2_Max, BB2_Min, BB2_Pos);
+                                }
                         }
-                }
                 }
                 ga->Draw(program_token);
 	}

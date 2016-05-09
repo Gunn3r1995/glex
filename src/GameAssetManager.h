@@ -33,6 +33,7 @@ class GameAssetManager {
          public:
                 explicit GameAssetManager(); // constructor
                 virtual ~GameAssetManager();
+                glm::vec3 GetCameraPosition();
                 GameAssetManager(GameAssetManager const&); // copy constructor
                 GameAssetManager(GameAssetManager const&&); // move constructor
                 void operator = (GameAssetManager); // assignment
@@ -52,8 +53,7 @@ class GameAssetManager {
 
                 // The internal scene graph is a simple list.
                 std::vector<std::shared_ptr<GameAsset>> draw_list;
-    std::shared_ptr<Camera> camera_ptr = std::make_shared<Camera>();
-                Camera camera;
+                std::shared_ptr<Camera> camera = std::make_shared<Camera>();
                 GLuint program_token;
 };
 #endif // GAMEASSETMANAGER_H

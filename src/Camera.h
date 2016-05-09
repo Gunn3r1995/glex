@@ -3,12 +3,8 @@
 
 #include <iostream>
 
-#include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include <vector>
-#include <memory>
 
-#include "GameAsset.h"
 #include "common.h"
 
 class Camera {
@@ -16,7 +12,8 @@ class Camera {
 
                 Camera();
 	        glm::mat4 UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
-	        void CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min);
+	        void CollisionDetection(glm::vec3 BB_Max, glm::vec3 BB_Min);
+	        glm::vec3 GetCameraPosition();
    
         private:
                 
@@ -28,16 +25,16 @@ class Camera {
                 /// and the direction it is looking at
                 //////////////////////////////////////////////////////////////////////////////////////////
 
-                GLfloat Mouse_Sensitivity;
-                GLfloat Player_Speed;
+                float Mouse_Sensitivity;
+                float Player_Speed;
 
-                GLfloat Camera_Horizontal;
-                GLfloat Camera_Vertical;
+                float Camera_Horizontal;
+                float Camera_Vertical;
 
 	        float mouseDeltaX;
 	        float mouseDeltaY;
 
-                glm::vec3 Camera_Position, Camera_BB_Max, Camera_BB_Min;
+                glm::vec3 Camera_Position; //= glm::vec3(0.0f,0.0f,0.0f); //Camera_BB_Max, Camera_BB_Min;
 
                 glm::vec3 Movement_Z;
                 glm::vec3 Movement_X;
