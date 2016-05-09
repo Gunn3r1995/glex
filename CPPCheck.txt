@@ -1,0 +1,2 @@
+[src/BoundingBox.cc:24]: (performance) Variable 'AssetType' is assigned in constructor body. Consider performing initialization in initialization list.
+(information) Cppcheck cannot find all the include files (use --check-config for details)

@@ -2,7 +2,7 @@
 
 BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3 animateTo, bool translate_bool, 
                          glm::vec3 rotate, bool rotate_bool,
-                         glm::vec3 scale, bool scale_bool, string AssetType) {
+                         glm::vec3 scale, bool scale_bool, string &AssetType) {
         //////////////////////////////////////////////////////////////////////////////////////////
         ///Initalise Data 
         ///The below vectors and booleans initialise all the variables used in the bounding box
@@ -20,9 +20,8 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3
  
         this->scale = scale;
         scaleTo = scale;
-        this->scale_bool = scale_bool; 
-        
-        this->AssetType = AssetType;      
+        this->scale_bool = scale_bool;
+        this->AssetType = AssetType;
 
         //cout << "SCALE  " << glm::to_string(scale) << endl;
         //cout << "Bounding Box Created at: " << glm::to_string(translateTo)<< endl;
@@ -146,7 +145,7 @@ void BoundingBox::Scale(glm::vec3 scaleTo) {
  */
 glm::vec3 BoundingBox::GetAABB(string check)
 {
-    if( this->AssetType != "Grass") {
+    if( AssetType != "Grass") {
         if (check == "Max") {
                 AABB = this->translateTo += glm::vec3(1.0f,1.0f,1.0f) * this->scale;
         }

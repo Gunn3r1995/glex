@@ -27,7 +27,7 @@ class Camera {
                 /// Sets where the starting positions of the camera 
                 /// and the direction it is looking at
                 //////////////////////////////////////////////////////////////////////////////////////////
-                float Mouse_Sensitivity, Player_Speed, Camera_Horizontal, Camera_Vertical, mouseDeltaX, mouseDeltaY;
+                float Player_Speed, Camera_Horizontal, Camera_Vertical, mouseDeltaX, mouseDeltaY;
 
                 glm::vec3 Camera_Position, Camera_BB_Max, Camera_BB_Min, Movement_Z, Movement_X;
                 string ControlSave;

@@ -16,7 +16,7 @@ class BoundingBox {
 		BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, 
                             glm::vec3 animateTo, bool translate_bool, 
                             glm::vec3 rotate, bool rotate_bool,
-                            glm::vec3 scale, bool scale_bool, string AssetType);
+                            glm::vec3 scale, bool scale_bool, string &AssetType);
                 glm::mat4 GetModel();
 
                 void TranslateX();

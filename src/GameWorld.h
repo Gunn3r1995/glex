@@ -3,6 +3,7 @@
 
 #include <memory>
 #include "glm/gtx/string_cast.hpp"
+#include <string>
 
 using namespace std;
 

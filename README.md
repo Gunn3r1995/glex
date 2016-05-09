@@ -55,5 +55,5 @@ $ cd .. &&make
 
 #CPP CHECK#
 
-> $  cppcheck ./src --enable=all --check-config  2> test.txt
+> $  cppcheck ./src --enable=all --check-config  2> CPPCheck.txt
 
