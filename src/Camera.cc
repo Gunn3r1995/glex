@@ -92,8 +92,6 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
                 cout << "Camera Axis Alligned Bounding Box" << endl;
                 cout << "********************************************************************" << endl;
         }
-        cout << "ControlSave" << ControlSave << endl;
-
         //cout << "Camera_Position" << glm::to_string(Camera_Position) <<endl;
         //////////////////////////////////////////////////////////////////////////////////////////
         ///  Camera view matrix.
@@ -113,8 +111,11 @@ void Camera::CollisionDetection(glm::vec3 BB_Max, glm::vec3 BB_Min) {
  
         if (BB_Max.x > Camera_BB_Min.x && BB_Min.x < Camera_BB_Max.x &&
                 BB_Max.y > Camera_BB_Min.y && BB_Min.y < Camera_BB_Max.y &&
-                BB_Max.z > Camera_BB_Min.z && BB_Min.z < Camera_BB_Max.z)
-        {
+                BB_Max.z > Camera_BB_Min.z && BB_Min.z < Camera_BB_Max.z) {
 	        cout << "Camera Collision!" << endl;
+	        
+	        if(ControlSave == "UP") {
+	                Camera_Position -=  Movement_Z * Player_Speed;     
+	        }
         }
 }

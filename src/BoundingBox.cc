@@ -158,7 +158,7 @@ void BoundingBox::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::
     if (BB1_Max.x > BB2_Min.x && BB1_Min.x < BB2_Max.x &&
         BB1_Max.y > BB2_Min.y && BB1_Min.y < BB2_Max.y &&
         BB1_Max.z > BB2_Min.z && BB1_Min.z < BB2_Max.z) {
-        cout << "Collision" << endl;
+        /*cout << "Collision" << endl;
         cout << "BB1 Pos: " << glm::to_string(BB1_Pos) << endl;
         cout << "BB1 Max: " << glm::to_string(BB1_Max) << endl;
         cout << "BB1 Min: " << glm::to_string(BB1_Min) << endl;
@@ -166,7 +166,7 @@ void BoundingBox::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::
         cout << "BB2 Pos: " << glm::to_string(BB2_Pos) << endl;
         cout << "BB2 Max: " << glm::to_string(BB2_Max) << endl;
         cout << "BB2 Min: " << glm::to_string(BB2_Min) << endl;
-        cout << "*****************************************************" << endl;
+        cout << "*****************************************************" << endl;*/
         translateTo = translateToSave;
         this->scale = scaleTo;
         this->rotate = rotateTo;
