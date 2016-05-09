@@ -1,0 +1,73 @@
+\hypertarget{class_diamond_asset}{}\section{Diamond\+Asset Class Reference}
+\label{class_diamond_asset}\index{Diamond\+Asset@{Diamond\+Asset}}
+
+
+Inheritance diagram for Diamond\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{class_diamond_asset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Diamond\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{class_diamond_asset__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_diamond_asset_a297efbf3312ce0efba79f055a076481c}{Diamond\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+void \hyperlink{class_diamond_asset_a0c259031894623285b3b511321c73abb}{Draw} (G\+Luint)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_diamond_asset_a297efbf3312ce0efba79f055a076481c}{}\index{Diamond\+Asset@{Diamond\+Asset}!Diamond\+Asset@{Diamond\+Asset}}
+\index{Diamond\+Asset@{Diamond\+Asset}!Diamond\+Asset@{Diamond\+Asset}}
+\subsubsection[{Diamond\+Asset(glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}Diamond\+Asset\+::\+Diamond\+Asset (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{xyz\+Position, }
+\item[{glm\+::vec3}]{translate\+To, }
+\item[{glm\+::vec3}]{animate\+To, }
+\item[{bool}]{translate\+\_\+bool, }
+\item[{glm\+::vec3}]{rotate, }
+\item[{bool}]{rotate\+\_\+bool, }
+\item[{glm\+::vec3}]{scale, }
+\item[{bool}]{scale\+\_\+bool, }
+\item[{string}]{Asset\+Type}
+\end{DoxyParamCaption}
+)}\label{class_diamond_asset_a297efbf3312ce0efba79f055a076481c}
+model coordinates, origin at centre. Sets cordinates to a Diamond with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
+
+Color Buffer. Colour of Cube Asset Red Uses R\+G\+B values to set the colour.
+
+Element buffer. Draws the Diamond up of 8 Triangles One Triangles per Face
+
+\subsection{Member Function Documentation}
+\hypertarget{class_diamond_asset_a0c259031894623285b3b511321c73abb}{}\index{Diamond\+Asset@{Diamond\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Diamond\+Asset@{Diamond\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Diamond\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{program\+\_\+token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_diamond_asset_a0c259031894623285b3b511321c73abb}
+use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
+
+Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
+
+Implements \hyperlink{class_game_asset}{Game\+Asset}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Diamond\+Asset.\+h\item 
+src/Diamond\+Asset.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{class_cube_asset}{}\section{Cube\+Asset Class Reference}
+\label{class_cube_asset}\index{Cube\+Asset@{Cube\+Asset}}
+
+
+Inheritance diagram for Cube\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{class_cube_asset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Cube\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{class_cube_asset__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_cube_asset_a77f29d64dc1ed34067948d73302a4d4f}{Cube\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+void \hyperlink{class_cube_asset_a1af568486056e254ffcf98fd99947bfe}{Draw} (G\+Luint)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_cube_asset_a77f29d64dc1ed34067948d73302a4d4f}{}\index{Cube\+Asset@{Cube\+Asset}!Cube\+Asset@{Cube\+Asset}}
+\index{Cube\+Asset@{Cube\+Asset}!Cube\+Asset@{Cube\+Asset}}
+\subsubsection[{Cube\+Asset(glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}Cube\+Asset\+::\+Cube\+Asset (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{xyz\+Position, }
+\item[{glm\+::vec3}]{translate\+To, }
+\item[{glm\+::vec3}]{animate\+To, }
+\item[{bool}]{translate\+\_\+bool, }
+\item[{glm\+::vec3}]{rotate, }
+\item[{bool}]{rotate\+\_\+bool, }
+\item[{glm\+::vec3}]{scale, }
+\item[{bool}]{scale\+\_\+bool, }
+\item[{string}]{Asset\+Type}
+\end{DoxyParamCaption}
+)}\label{class_cube_asset_a77f29d64dc1ed34067948d73302a4d4f}
+model coordinates, origin at centre. Sets cordinates to a cube with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
+
+Color Buffer. Colour of Cube Asset Saddle Brown Uses R\+G\+B values to set the colour.
+
+Element buffer. Draws the cube voxel up of 12 Triangles Two Triangles per Face.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_cube_asset_a1af568486056e254ffcf98fd99947bfe}{}\index{Cube\+Asset@{Cube\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Cube\+Asset@{Cube\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Cube\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{program\+\_\+token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_cube_asset_a1af568486056e254ffcf98fd99947bfe}
+use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
+
+Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
+
+Implements \hyperlink{class_game_asset}{Game\+Asset}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Cube\+Asset.\+h\item 
+src/Cube\+Asset.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,71 @@
+\hypertarget{class_pyramid_asset}{}\section{Pyramid\+Asset Class Reference}
+\label{class_pyramid_asset}\index{Pyramid\+Asset@{Pyramid\+Asset}}
+
+
+Inheritance diagram for Pyramid\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{class_pyramid_asset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Pyramid\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{class_pyramid_asset__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pyramid_asset_a6f20b7f915760ff772740f6c94c331b1}{Pyramid\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+void \hyperlink{class_pyramid_asset_aaea45da4956d79ec9ab96e9d0ccef3fe}{Draw} (G\+Luint)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_pyramid_asset_a6f20b7f915760ff772740f6c94c331b1}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!Pyramid\+Asset@{Pyramid\+Asset}}
+\index{Pyramid\+Asset@{Pyramid\+Asset}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{Pyramid\+Asset(glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}Pyramid\+Asset\+::\+Pyramid\+Asset (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{xyz\+Position, }
+\item[{glm\+::vec3}]{translate\+To, }
+\item[{glm\+::vec3}]{animate\+To, }
+\item[{bool}]{translate\+\_\+bool, }
+\item[{glm\+::vec3}]{rotate, }
+\item[{bool}]{rotate\+\_\+bool, }
+\item[{glm\+::vec3}]{scale, }
+\item[{bool}]{scale\+\_\+bool, }
+\item[{string}]{Asset\+Type}
+\end{DoxyParamCaption}
+)}\label{class_pyramid_asset_a6f20b7f915760ff772740f6c94c331b1}
+model coordinates, origin at centre. Sets cordinates to a Pyramid with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
+
+Color Buffer. Colour of Cube Red, Green \& Blue. This creates a cool blend of colours Uses R\+G\+B values to set the colour.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_pyramid_asset_aaea45da4956d79ec9ab96e9d0ccef3fe}{}\index{Pyramid\+Asset@{Pyramid\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Pyramid\+Asset@{Pyramid\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Pyramid\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{program\+\_\+token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_pyramid_asset_aaea45da4956d79ec9ab96e9d0ccef3fe}
+use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
+
+Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
+
+Implements \hyperlink{class_game_asset}{Game\+Asset}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Pyramid\+Asset.\+h\item 
+src/Pyramid\+Asset.\+cc\end{DoxyCompactItemize}

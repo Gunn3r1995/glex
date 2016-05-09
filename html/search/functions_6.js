@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['leavesasset',['LeavesAsset',['../class_leaves_asset.html#ab01af0408785cbb701231930255e150e',1,'LeavesAsset']]]
+  ['operator_3d',['operator=',['../class_game_asset_manager.html#a7c9e4fce50b47b78652e7ff0b4dbb629',1,'GameAssetManager']]]
 ];

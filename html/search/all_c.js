@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['tick',['tick',['../main_8cc.html#a70eaa727262f633037c3f4b7d3ff24c2',1,'main.cc']]],
-  ['transform',['TRANSFORM',['../common_8h.html#add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335',1,'common.h']]],
-  ['translate',['Translate',['../class_bounding_box.html#a09d5381014b3a3633200575bee9b06e5',1,'BoundingBox::Translate()'],['../class_game_asset.html#a5c0479920e4aa2fea7830a47c1a4e3f3',1,'GameAsset::Translate()']]]
+  ['updatecameraposition',['UpdateCameraPosition',['../class_camera.html#a37a2cb59aee3425a33672a6d5ae021f5',1,'Camera::UpdateCameraPosition()'],['../class_game_world.html#a9fa019e8e1d4bbc8e8c101352a73b17a',1,'GameWorld::UpdateCameraPosition()']]]
 ];

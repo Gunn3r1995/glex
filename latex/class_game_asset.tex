@@ -1,0 +1,85 @@
+\hypertarget{class_game_asset}{}\section{Game\+Asset Class Reference}
+\label{class_game_asset}\index{Game\+Asset@{Game\+Asset}}
+
+
+Inheritance diagram for Game\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_asset__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_asset_a9de932075d9b4263e7fb24fbfd163a61}{Game\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+\hypertarget{class_game_asset_af74bc1c4f6b87a4843217637b75290d4}{}bool {\bfseries Get\+Translate\+Bool} ()\label{class_game_asset_af74bc1c4f6b87a4843217637b75290d4}
+
+\item 
+\hypertarget{class_game_asset_ae0a76a50ff3c6c119852c195053c9a38}{}bool {\bfseries Get\+Scale\+Bool} ()\label{class_game_asset_ae0a76a50ff3c6c119852c195053c9a38}
+
+\item 
+\hypertarget{class_game_asset_a9fb9187dfca6160898344e79d41de224}{}bool {\bfseries Get\+Rotate\+Bool} ()\label{class_game_asset_a9fb9187dfca6160898344e79d41de224}
+
+\item 
+\hypertarget{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{}virtual void {\bfseries Draw} (G\+Luint)=0\label{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}
+
+\item 
+\hypertarget{class_game_asset_a992a9c94083ee91bda85a4ec367c4fb3}{}glm\+::vec3 {\bfseries Get\+A\+A\+B\+B} (string check)\label{class_game_asset_a992a9c94083ee91bda85a4ec367c4fb3}
+
+\item 
+\hypertarget{class_game_asset_abd0491ffc6a601f8f3c47a2010f14039}{}void {\bfseries Collision\+Detection} (glm\+::vec3 B\+B1\+\_\+\+Max, glm\+::vec3 B\+B1\+\_\+\+Min, glm\+::vec3 B\+B1\+\_\+\+Pos, glm\+::vec3 B\+B2\+\_\+\+Max, glm\+::vec3 B\+B2\+\_\+\+Min, glm\+::vec3 B\+B2\+\_\+\+Pos)\label{class_game_asset_abd0491ffc6a601f8f3c47a2010f14039}
+
+\item 
+glm\+::mat4 \hyperlink{class_game_asset_a50a4795382fb55c7513314f82821e444}{Get\+Model} ()
+\item 
+glm\+::vec3 \hyperlink{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}{Get\+Translate\+To} ()
+\item 
+\hypertarget{class_game_asset_a5c0479920e4aa2fea7830a47c1a4e3f3}{}void {\bfseries Translate} (glm\+::vec3 translate\+To)\label{class_game_asset_a5c0479920e4aa2fea7830a47c1a4e3f3}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_game_asset_a9de932075d9b4263e7fb24fbfd163a61}{}\index{Game\+Asset@{Game\+Asset}!Game\+Asset@{Game\+Asset}}
+\index{Game\+Asset@{Game\+Asset}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Game\+Asset(glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Asset\+::\+Game\+Asset (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{xyz\+Position, }
+\item[{glm\+::vec3}]{translate\+To, }
+\item[{glm\+::vec3}]{animate\+To, }
+\item[{bool}]{translate\+\_\+bool, }
+\item[{glm\+::vec3}]{rotate, }
+\item[{bool}]{rotate\+\_\+bool, }
+\item[{glm\+::vec3}]{scale, }
+\item[{bool}]{scale\+\_\+bool, }
+\item[{string}]{Asset\+Type}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_a9de932075d9b4263e7fb24fbfd163a61}
+Current Assets Data This gets the current assets data ready to be sent to the Bounding Box Class
+
+Send Data To Bounding Box This Method Sends all the Data from spawning the Asset and sends it to the Bounding Box Class to create the Bounding Box and Manipulate the Asset 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_game_asset_a50a4795382fb55c7513314f82821e444}{}\index{Game\+Asset@{Game\+Asset}!Get\+Model@{Get\+Model}}
+\index{Get\+Model@{Get\+Model}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Get\+Model()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Game\+Asset\+::\+Get\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_a50a4795382fb55c7513314f82821e444}
+Get Model This class Gets the Model from the Bounding Box class, This method is normally called by the Draw method in \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} \hypertarget{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}{}\index{Game\+Asset@{Game\+Asset}!Get\+Translate\+To@{Get\+Translate\+To}}
+\index{Get\+Translate\+To@{Get\+Translate\+To}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Get\+Translate\+To()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+Asset\+::\+Get\+Translate\+To (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}
+Get Translate\+To This class Gets the Translate\+To from the Bounding Box class, Which is the current Position of the Asset 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Game\+Asset.\+h\item 
+src/Game\+Asset.\+cc\end{DoxyCompactItemize}

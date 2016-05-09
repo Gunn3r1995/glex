@@ -1,0 +1,150 @@
+\hypertarget{class_game_world}{}\section{Game\+World Class Reference}
+\label{class_game_world}\index{Game\+World@{Game\+World}}
+
+
+{\ttfamily \#include $<$Game\+World.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_world_a681994123c12833d43c957d6cfb33765}{Game\+World} ()
+\item 
+void \hyperlink{class_game_world_a275418607d8286979b276f165ad5876b}{Draw} ()
+\begin{DoxyCompactList}\small\item\em Calling \hyperlink{class_game_world_a275418607d8286979b276f165ad5876b}{Draw()}. will draw the entire world. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_world_a9fa019e8e1d4bbc8e8c101352a73b17a}{Update\+Camera\+Position} (Control control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_game_world_a54ccf4cf03172ab8779e9c326c8846ed}{}double {\bfseries Minimum\+Number} = 0.\+50\label{class_game_world_a54ccf4cf03172ab8779e9c326c8846ed}
+
+\item 
+\hypertarget{class_game_world_a1cddcf233625a98581eaeb9fd7c8c574}{}double {\bfseries Maximum\+Number} = 1.\+00\label{class_game_world_a1cddcf233625a98581eaeb9fd7c8c574}
+
+\item 
+\hypertarget{class_game_world_a56652cc9880b3ba1be61395066c863c3}{}double {\bfseries Random} = (double)rand() / R\+A\+N\+D\+\_\+\+M\+A\+X\label{class_game_world_a56652cc9880b3ba1be61395066c863c3}
+
+\item 
+G\+Lfloat \hyperlink{class_game_world_a9bf4eb977e6ab9299aaef1345c4fa4dd}{Mouse\+\_\+\+Sensitivity} = 0.\+05f
+\begin{DoxyCompactList}\small\item\em Call Camera\+\_\+\+Control. will move in specfic direction. \end{DoxyCompactList}\item 
+\hypertarget{class_game_world_ae8ab2ac372729cec44ea316f6bdf45ca}{}G\+Lfloat {\bfseries Player\+\_\+\+Speed} = 1.\+0\label{class_game_world_ae8ab2ac372729cec44ea316f6bdf45ca}
+
+\item 
+\hypertarget{class_game_world_a7f4911dda9b3b4e4eb03ece87e16cd96}{}G\+Lfloat {\bfseries Camera\+\_\+\+Horizontal} = 0.\+0\label{class_game_world_a7f4911dda9b3b4e4eb03ece87e16cd96}
+
+\item 
+\hypertarget{class_game_world_a26658e739c4d267b1be35ed820089931}{}G\+Lfloat {\bfseries Camera\+\_\+\+Vertical} = 0.\+0\label{class_game_world_a26658e739c4d267b1be35ed820089931}
+
+\item 
+\hypertarget{class_game_world_ad07b1f650edb08ddb05e74a22588bda0}{}G\+Lfloat {\bfseries Camera\+\_\+\+X\+\_\+\+Position} = 0\label{class_game_world_ad07b1f650edb08ddb05e74a22588bda0}
+
+\item 
+\hypertarget{class_game_world_ae3e7cab30494ff5a8e91dfa7406deb16}{}G\+Lfloat {\bfseries Camera\+\_\+\+Y\+\_\+\+Position} = 2\label{class_game_world_ae3e7cab30494ff5a8e91dfa7406deb16}
+
+\item 
+\hypertarget{class_game_world_ad993ea24fbacfc98410894078e916927}{}G\+Lfloat {\bfseries Camera\+\_\+\+Z\+\_\+\+Position} = 0\label{class_game_world_ad993ea24fbacfc98410894078e916927}
+
+\item 
+\hypertarget{class_game_world_a734c19bd480aef2a7af005e170d3d523}{}G\+Lfloat {\bfseries Old\+\_\+\+Camera\+\_\+\+X\+\_\+\+Position}\label{class_game_world_a734c19bd480aef2a7af005e170d3d523}
+
+\item 
+\hypertarget{class_game_world_ac1c9de2db7cb175f7a039a9f825190fc}{}G\+Lfloat {\bfseries Old\+\_\+\+Camera\+\_\+\+Y\+\_\+\+Position}\label{class_game_world_ac1c9de2db7cb175f7a039a9f825190fc}
+
+\item 
+\hypertarget{class_game_world_acf69fc81410f4bb31d03b7551eb0bced}{}G\+Lfloat {\bfseries Old\+\_\+\+Camera\+\_\+\+Z\+\_\+\+Position}\label{class_game_world_acf69fc81410f4bb31d03b7551eb0bced}
+
+\item 
+\hypertarget{class_game_world_ad80e597474ea4c52a583e81788187571}{}glm\+::vec3 {\bfseries Camera\+\_\+\+Position} = glm\+::vec3(Camera\+\_\+\+X\+\_\+\+Position, Camera\+\_\+\+Y\+\_\+\+Position, Camera\+\_\+\+Z\+\_\+\+Position)\label{class_game_world_ad80e597474ea4c52a583e81788187571}
+
+\item 
+\hypertarget{class_game_world_ade0aa1baaba6ac54674638cef313c0bb}{}glm\+::vec3 {\bfseries Old\+\_\+\+Camera\+\_\+\+Position} = Camera\+\_\+\+Position\label{class_game_world_ade0aa1baaba6ac54674638cef313c0bb}
+
+\item 
+\hypertarget{class_game_world_a8dd30ba92e7fa9b9b05075e31d1e7dd8}{}glm\+::vec3 {\bfseries Movement\+\_\+\+Z}\label{class_game_world_a8dd30ba92e7fa9b9b05075e31d1e7dd8}
+
+\item 
+\hypertarget{class_game_world_a968eb29424b68f7cd79a5896c62e944d}{}glm\+::vec3 {\bfseries Movement\+\_\+\+X}\label{class_game_world_a968eb29424b68f7cd79a5896c62e944d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_game_world}{Game\+World} allows us to separate the management of the game world from the nuts and bolts of game loop initialisation. The \hyperlink{class_game_world}{Game\+World} currently has a very simplified scene graph consisiting of a single \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_game_world_a681994123c12833d43c957d6cfb33765}{}\index{Game\+World@{Game\+World}!Game\+World@{Game\+World}}
+\index{Game\+World@{Game\+World}!Game\+World@{Game\+World}}
+\subsubsection[{Game\+World()}]{\setlength{\rightskip}{0pt plus 5cm}Game\+World\+::\+Game\+World (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_game_world_a681994123c12833d43c957d6cfb33765}
+We thread the Application\+Mode through the \hyperlink{class_game_world}{Game\+World} ss we want to read it in from the user. Threading the state through the various function calls is preferable (in this case) to having some kind of global state. 2\+D array for world space. 2\+D array which acts like the world space for the game, so depending on what number is stored within the array would change which blocks spawn within this small 20 by 20 world, I would like to improve the size of the array in the future but as of now I don\textquotesingle{}t think it\textquotesingle{}s to important.
+
+1-\/$>$ 2 high Ground Blocks.
+
+2-\/$>$ A 1 high Cube with a Diamond on top.
+
+3-\/$>$ A 2 high Cube with a Diamond on top.
+
+4-\/$>$ A Tree.
+
+5-\/$>$ A Cube with a Pyramid on top.
+
+6-\/$>$ A Pyramid.
+
+7-\/$>$ Somewhat Random Grass.
+
+Spawning different Voxels. Spawns all the Voxel assets I made just outside the array space, Just so you can view each voxel on it\textquotesingle{}s own. Each of them has random animations or changes to them to show off the animation.
+
+Spawns Ground. Spawns the Voxel \hyperlink{class_ground_asset}{Ground\+Asset} so it creates a two tall ground world for the world
+
+Spawning Small Diamond Tower. Spawns the Voxel \hyperlink{class_ground_asset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns the Cube \& Diamond asset on top to create a small tower with a diamond on top
+
+Spawning Taller Diamond Tower. Spawns the Voxel \hyperlink{class_ground_asset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns the Cube \& Diamond asset on top to create a taller tower with a diamond on top
+
+Tree Spawn. Spawns the Voxel \hyperlink{class_ground_asset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns the multiple voxels to create a shape of a simple tree, It uses multiple layers to get each seperate part to spawn.
+
+Spawns Pyramid Tower. Spawns the Voxel \hyperlink{class_ground_asset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns the Cube \& Pyramid asset on top to create a small tower with a diamond on top
+
+Spawns Pyramid. Spawns the Voxel \hyperlink{class_ground_asset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns Pyramid asset on top of the ground asset
+
+Grass Spawn. Spawns the Voxel \hyperlink{class_ground_asset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns somewhat randomly multiple grass assets on top/ slighlty inside the ground asset To create the view of grass.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_game_world_a275418607d8286979b276f165ad5876b}{}\index{Game\+World@{Game\+World}!Draw@{Draw}}
+\index{Draw@{Draw}!Game\+World@{Game\+World}}
+\subsubsection[{Draw()}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+World\+::\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_game_world_a275418607d8286979b276f165ad5876b}
+
+
+Calling \hyperlink{class_game_world_a275418607d8286979b276f165ad5876b}{Draw()}. will draw the entire world. 
+
+Drawing the world. Draws the assets to the world by calling \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} \hypertarget{class_game_world_a9fa019e8e1d4bbc8e8c101352a73b17a}{}\index{Game\+World@{Game\+World}!Update\+Camera\+Position@{Update\+Camera\+Position}}
+\index{Update\+Camera\+Position@{Update\+Camera\+Position}!Game\+World@{Game\+World}}
+\subsubsection[{Update\+Camera\+Position(\+Control control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+World\+::\+Update\+Camera\+Position (
+\begin{DoxyParamCaption}
+\item[{Control}]{control, }
+\item[{int}]{Mouse\+\_\+\+X, }
+\item[{int}]{Mouse\+\_\+\+Y}
+\end{DoxyParamCaption}
+)}\label{class_game_world_a9fa019e8e1d4bbc8e8c101352a73b17a}
+Update \hyperlink{class_camera}{Camera} Position Sends the current Keyboard input and Mouse X and Y Position to the \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} Class 
+
+\subsection{Member Data Documentation}
+\hypertarget{class_game_world_a9bf4eb977e6ab9299aaef1345c4fa4dd}{}\index{Game\+World@{Game\+World}!Mouse\+\_\+\+Sensitivity@{Mouse\+\_\+\+Sensitivity}}
+\index{Mouse\+\_\+\+Sensitivity@{Mouse\+\_\+\+Sensitivity}!Game\+World@{Game\+World}}
+\subsubsection[{Mouse\+\_\+\+Sensitivity}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lfloat Game\+World\+::\+Mouse\+\_\+\+Sensitivity = 0.\+05f}\label{class_game_world_a9bf4eb977e6ab9299aaef1345c4fa4dd}
+
+
+Call Camera\+\_\+\+Control. will move in specfic direction. 
+
+\hyperlink{class_camera}{Camera} Variables. \hyperlink{class_camera}{Camera} Variables Controls Speed of Play/\+Camera Controls the distance each movement moves by Sets where the starting positions of the camera and the direction it is looking at 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Game\+World.\+h\item 
+src/Game\+World.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,71 @@
+\hypertarget{class_leaves_asset}{}\section{Leaves\+Asset Class Reference}
+\label{class_leaves_asset}\index{Leaves\+Asset@{Leaves\+Asset}}
+
+
+Inheritance diagram for Leaves\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{class_leaves_asset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Leaves\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{class_leaves_asset__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_leaves_asset_aa14436bbd45d5cce3e87bb79c2490a53}{Leaves\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+void \hyperlink{class_leaves_asset_a807fd196b83e5adb131d489ef6645742}{Draw} (G\+Luint)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_leaves_asset_aa14436bbd45d5cce3e87bb79c2490a53}{}\index{Leaves\+Asset@{Leaves\+Asset}!Leaves\+Asset@{Leaves\+Asset}}
+\index{Leaves\+Asset@{Leaves\+Asset}!Leaves\+Asset@{Leaves\+Asset}}
+\subsubsection[{Leaves\+Asset(glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}Leaves\+Asset\+::\+Leaves\+Asset (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{xyz\+Position, }
+\item[{glm\+::vec3}]{translate\+To, }
+\item[{glm\+::vec3}]{animate\+To, }
+\item[{bool}]{translate\+\_\+bool, }
+\item[{glm\+::vec3}]{rotate, }
+\item[{bool}]{rotate\+\_\+bool, }
+\item[{glm\+::vec3}]{scale, }
+\item[{bool}]{scale\+\_\+bool, }
+\item[{string}]{Asset\+Type}
+\end{DoxyParamCaption}
+)}\label{class_leaves_asset_aa14436bbd45d5cce3e87bb79c2490a53}
+model coordinates, origin at centre. Sets cordinates to a Cube with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
+
+Color Buffer. Colour of Cube Camerone Green \& Lawn Green Uses R\+G\+B values to set the colour.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_leaves_asset_a807fd196b83e5adb131d489ef6645742}{}\index{Leaves\+Asset@{Leaves\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Leaves\+Asset@{Leaves\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Leaves\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{program\+\_\+token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_leaves_asset_a807fd196b83e5adb131d489ef6645742}
+use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
+
+Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
+
+Implements \hyperlink{class_game_asset}{Game\+Asset}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Leaves\+Asset.\+h\item 
+src/Leaves\+Asset.\+cc\end{DoxyCompactItemize}

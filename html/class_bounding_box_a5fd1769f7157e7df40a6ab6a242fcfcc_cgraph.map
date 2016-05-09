@@ -1,0 +1,5 @@
+<map id="BoundingBox::GetModel" name="BoundingBox::GetModel">
+<area shape="rect" id="node2" href="$class_bounding_box.html#a9898275b1cd97761855156fc965412b1" title="BoundingBox::TranslateX" alt="" coords="216,5,387,32"/>
+<area shape="rect" id="node3" href="$class_bounding_box.html#ab84e48c88a509b20a469ccf5e23c4f11" title="BoundingBox::Scale" alt="" coords="231,56,371,83"/>
+<area shape="rect" id="node4" href="$class_bounding_box.html#a728a3700574a5d9fbcac6d94561336ed" title="BoundingBox::Rotate" alt="" coords="228,107,375,133"/>
+</map>

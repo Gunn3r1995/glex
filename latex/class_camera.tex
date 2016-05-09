@@ -1,0 +1,47 @@
+\hypertarget{class_camera}{}\section{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_camera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
+\item 
+glm\+::mat4 \hyperlink{class_camera_a37a2cb59aee3425a33672a6d5ae021f5}{Update\+Camera\+Position} (Control control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)
+\item 
+\hypertarget{class_camera_a985109173ffc496b53000c635aff5e06}{}void {\bfseries Collision\+Detection} (glm\+::vec3 B\+B\+\_\+\+Max, glm\+::vec3 B\+B\+\_\+\+Min)\label{class_camera_a985109173ffc496b53000c635aff5e06}
+
+\item 
+\hypertarget{class_camera_a948a60a6eb780a313ed59690bbaef811}{}glm\+::vec3 {\bfseries Get\+Camera\+Position} ()\label{class_camera_a948a60a6eb780a313ed59690bbaef811}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_camera_a01f94c3543f56ede7af49dc778f19331}{}\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{Camera()}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_camera_a01f94c3543f56ede7af49dc778f19331}
+Controls calculations Controls all the movement and positions of the camera Uses keyboard and Mouse movements to move around the world space Tells the \hyperlink{class_camera}{Camera} matrix what position to look at and where to move 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_camera_a37a2cb59aee3425a33672a6d5ae021f5}{}\index{Camera@{Camera}!Update\+Camera\+Position@{Update\+Camera\+Position}}
+\index{Update\+Camera\+Position@{Update\+Camera\+Position}!Camera@{Camera}}
+\subsubsection[{Update\+Camera\+Position(\+Control control, int Mouse\+\_\+\+X, int Mouse\+\_\+\+Y)}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Camera\+::\+Update\+Camera\+Position (
+\begin{DoxyParamCaption}
+\item[{Control}]{control, }
+\item[{int}]{Mouse\+\_\+\+X, }
+\item[{int}]{Mouse\+\_\+\+Y}
+\end{DoxyParamCaption}
+)}\label{class_camera_a37a2cb59aee3425a33672a6d5ae021f5}
+Drawing the world. Draws the assets to the world by calling \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} Sends the camera positions and movements to the translate shader \hyperlink{class_camera}{Camera} Direction Calculates the distance each camera movement changes the camera direction
+
+Keyboard Input Use This gets the Current Control State and then calculates the appropriate changes to the \hyperlink{class_camera}{Camera} Position.
+
+\hyperlink{class_camera}{Camera} view matrix. changes where the camera position looks up to use the camera position changes the direction you look at Makes the world the correct orientation
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Camera.\+h\item 
+src/Camera.\+cc\end{DoxyCompactItemize}

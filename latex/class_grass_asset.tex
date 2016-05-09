@@ -1,0 +1,71 @@
+\hypertarget{class_grass_asset}{}\section{Grass\+Asset Class Reference}
+\label{class_grass_asset}\index{Grass\+Asset@{Grass\+Asset}}
+
+
+Inheritance diagram for Grass\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{class_grass_asset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Grass\+Asset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{class_grass_asset__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_grass_asset_a6dd2fdfec9aa1396282f0711912b5740}{Grass\+Asset} (glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)
+\item 
+void \hyperlink{class_grass_asset_a0178a72c5bf2f00bcc6a240b851f3a25}{Draw} (G\+Luint)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_grass_asset_a6dd2fdfec9aa1396282f0711912b5740}{}\index{Grass\+Asset@{Grass\+Asset}!Grass\+Asset@{Grass\+Asset}}
+\index{Grass\+Asset@{Grass\+Asset}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{Grass\+Asset(glm\+::vec3 xyz\+Position, glm\+::vec3 translate\+To, glm\+::vec3 animate\+To, bool translate\+\_\+bool, glm\+::vec3 rotate, bool rotate\+\_\+bool, glm\+::vec3 scale, bool scale\+\_\+bool, string Asset\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}Grass\+Asset\+::\+Grass\+Asset (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{xyz\+Position, }
+\item[{glm\+::vec3}]{translate\+To, }
+\item[{glm\+::vec3}]{animate\+To, }
+\item[{bool}]{translate\+\_\+bool, }
+\item[{glm\+::vec3}]{rotate, }
+\item[{bool}]{rotate\+\_\+bool, }
+\item[{glm\+::vec3}]{scale, }
+\item[{bool}]{scale\+\_\+bool, }
+\item[{string}]{Asset\+Type}
+\end{DoxyParamCaption}
+)}\label{class_grass_asset_a6dd2fdfec9aa1396282f0711912b5740}
+model coordinates, origin at centre. Sets cordinates to a Grass/\+Pyramid with the center point 0.\+0 but moved to where the x, y, z variables calls them from the gameworld class through the G\+Lfloat x,y,z variables.
+
+Color Buffer. Colour of Cube Asset Green Uses R\+G\+B values to set the colour.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_grass_asset_a0178a72c5bf2f00bcc6a240b851f3a25}{}\index{Grass\+Asset@{Grass\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Grass\+Asset@{Grass\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Grass\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{program\+\_\+token}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_grass_asset_a0178a72c5bf2f00bcc6a240b851f3a25}
+use the previously transferred buffer as the vertex array. This way we transfer the buffer once -- at construction -- not on every frame.
+
+Uses the Previously transferred buffer as the color array. This way We transfer the buffer once -- at constuction -- not on every frame
+
+Implements \hyperlink{class_game_asset}{Game\+Asset}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Grass\+Asset.\+h\item 
+src/Grass\+Asset.\+cc\end{DoxyCompactItemize}
