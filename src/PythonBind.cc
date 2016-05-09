@@ -1,7 +1,4 @@
 #include <boost/python.hpp>
-#include "GameAssetManager.h"
-#include "Common.h"
-
 
 using namespace boost::python;
 
@@ -14,9 +11,4 @@ BOOST_PYTHON_MODULE(libglex){
 	//		.def("get", &Example::getString )
 	//		.def("set", &Example::setString )
 	//;
-
-	class_<GameAssetManager>("GameAssetManager")
-			.def("AddAsset", &GameAssetManager::AddAsset)
-			.def("UpdateCameraPosition", &GameAssetManager::UpdateCameraPosition)
-	;
 }
