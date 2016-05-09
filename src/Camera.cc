@@ -1,9 +1,6 @@
 #include "Camera.h"
 #include "GameAssetManager.h"
 
-using namespace std;
-
-
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Controls calculations
 /// Controls all the movement and positions of the camera 
@@ -65,21 +62,27 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
         //////////////////////////////////////////////////////////////////////////////////////////
         if(control == UP) {
 		Camera_Position +=  Movement_Z * Player_Speed;
+		ControlSave = "UP";
 	}
         else if(control == DOWN) {
 		Camera_Position -= Movement_Z * Player_Speed;
+		ControlSave = "DOWN";
 	} 
         else if(control == LEFT) {
 		Camera_Position -= Movement_X * Player_Speed;
+		ControlSave = "LEFT";
 	} 
         else if(control == RIGHT) {
 		Camera_Position += Movement_X * Player_Speed;
+		ControlSave = "RIGHT";
 	}
         else if(control == JUMP) {
                 Camera_Position.y += 0.5f * Player_Speed;
+                ControlSave = "JUMP";
         }
         else if(control == CROUCH) {
                 Camera_Position.y -= 0.5f * Player_Speed;
+                ControlSave = "CROUCH";
         }
         else if(control == PRINT) {
                 cout << "********************************************************************" << endl;
@@ -89,6 +92,7 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
                 cout << "Camera Axis Alligned Bounding Box" << endl;
                 cout << "********************************************************************" << endl;
         }
+        cout << "ControlSave" << ControlSave << endl;
 
         //cout << "Camera_Position" << glm::to_string(Camera_Position) <<endl;
         //////////////////////////////////////////////////////////////////////////////////////////
@@ -104,8 +108,8 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
 }
 
 void Camera::CollisionDetection(glm::vec3 BB_Max, glm::vec3 BB_Min) {
-        glm::vec3 Camera_BB_Max = Camera_Position + glm::vec3(0.5f,0.5f,0.5f);
-        glm::vec3 Camera_BB_Min = Camera_Position + glm::vec3(-0.5f,-0.5f,-0.5f);
+        Camera_BB_Max = Camera_Position + glm::vec3(0.5f,0.5f,0.5f);
+        Camera_BB_Min = Camera_Position + glm::vec3(-0.5f,-0.5f,-0.5f);
  
         if (BB_Max.x > Camera_BB_Min.x && BB_Min.x < Camera_BB_Max.x &&
                 BB_Max.y > Camera_BB_Min.y && BB_Min.y < Camera_BB_Max.y &&
