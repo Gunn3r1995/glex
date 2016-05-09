@@ -5,4 +5,4 @@ Run = libglex.GameLoop();
 
 Run.Run();
 
-print("Hello World")
+print("Good Bye")
