@@ -114,8 +114,23 @@ void Camera::CollisionDetection(glm::vec3 BB_Max, glm::vec3 BB_Min) {
                 BB_Max.z > Camera_BB_Min.z && BB_Min.z < Camera_BB_Max.z) {
 	        cout << "Camera Collision!" << endl;
 	        
-	        if(ControlSave == "UP") {
+	        if( ControlSave == "UP" ) {
 	                Camera_Position -=  Movement_Z * Player_Speed;     
 	        }
+                else if( ControlSave == "DOWN" ) {
+		        Camera_Position += Movement_Z * Player_Speed;
+	        } 
+                else if( ControlSave == "LEFT" ) {
+		        Camera_Position += Movement_X * Player_Speed;
+	        } 
+                else if( ControlSave == "RIGHT" ) {
+		        Camera_Position -= Movement_X * Player_Speed;
+	        }
+                else if( ControlSave == "JUMP" ) {
+                        Camera_Position.y -= 0.5f * Player_Speed;
+                }
+                else if( ControlSave == "CROUCH" ) {
+                        Camera_Position.y += 0.5f * Player_Speed;
+                }
         }
 }
