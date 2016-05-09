@@ -16,7 +16,7 @@ class Camera {
 
                 Camera();
 	        glm::mat4 UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y);
-	        //void CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::vec3 BB1_Pos);
+	        void CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min);
    
         private:
                 

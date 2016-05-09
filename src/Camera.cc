@@ -103,13 +103,19 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
    
 }
 
-/*void Camera::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::vec3 BB1_Pos) {
-       glm::vec3 camera_bounding_box_max = Camera_Position += glm::vec3(1.0,1.0,1.0);
-       glm::vec3 camera_bounding_box_min = Camera_Position += glm::vec3(-1.0,-1.0,-1.0);
-        //Camera_BB_Max = Camera_Position += glm::vec3(0.5f,1.5f,0.5f);
-        //Camera_BB_Min = Camera_Position += glm::vec3(0.5f,1.5f,0.5f);
+void Camera::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min) {
+        Camera_BB_Max = Camera_Position += glm::vec3(0.5f,0.5f,0.5f);
+        Camera_BB_Min = Camera_Position += glm::vec3(-0.5f,-0.5f,-0.5f);
+
+ if (BB1_Max.x > Camera_BB_Min.x && BB1_Min.x < Camera_BB_Max.x &&
+        BB1_Max.y > Camera_BB_Min.y && BB1_Min.y < Camera_BB_Max.y &&
+        BB1_Max.z > Camera_BB_Min.z && BB1_Min.z < Camera_BB_Max.z)
+    {
+
+	cout << "Collision" << endl;
         //cout << "BB2 Max: " << glm::to_string(BB2_Max) << endl;
         //cout << "BB2 Min: " << glm::to_string(BB2_Min) << endl;
         //cout << "BB2 Pos: " << glm::to_string(BB2_Pos) << endl;
+}
 
-}*/
+}

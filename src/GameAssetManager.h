@@ -52,7 +52,7 @@ class GameAssetManager {
 
                 // The internal scene graph is a simple list.
                 std::vector<std::shared_ptr<GameAsset>> draw_list;
-                std::shared_ptr<Camera> camera_ptr;
+    std::shared_ptr<Camera> camera_ptr = std::make_shared<Camera>();
                 Camera camera;
                 GLuint program_token;
 };
