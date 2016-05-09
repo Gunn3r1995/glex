@@ -97,36 +97,6 @@ std::shared_ptr<SDL_Window> GameLoop::InitWorld() {
   return window;
 }
 
-ApplicationMode ParseOptions (int argc, char ** argv) {
-  namespace po = boost::program_options;
-
-  po::options_description desc("Allowed options");
-  desc.add_options()
-     ("help", "print this help message")
-     ("translate", "Show translation example (default)")
-     ("rotate", "Show rotation example")
-     ("scale", "Show scale example")
-  ;
-
-  po::variables_map vm;
-  po::store(po::parse_command_line(argc, argv, desc), vm);
-  po::notify(vm);
-
-  if(vm.count("help")) {
-    std::cout << desc << std::endl;
-    exit(0);
-  }
-
-  if(vm.count("rotate")) {
-    return ROTATE;
-  }
-
-  if(vm.count("scale")) {
-    return SCALE;
-  }
-  // The default
-  return TRANSFORM;
-}
   void GameLoop::Run() {
     Uint32 delay = 1000/60;
 
