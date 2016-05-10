@@ -147,63 +147,61 @@ $(document).ready(function(){initNavTree('_game_world_8h_source.html','');});
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;             </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordtype">void</span> Draw();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;               <span class="comment">// void Camera_Control(char key);</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_game_world.html#a9bf4eb977e6ab9299aaef1345c4fa4dd">   63</a></span>&#160;                GLfloat Mouse_Sensitivity =  0.05f;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_game_world.html#ae8ab2ac372729cec44ea316f6bdf45ca">   64</a></span>&#160;                GLfloat Player_Speed = 1.0;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_game_world.html#a7f4911dda9b3b4e4eb03ece87e16cd96">   66</a></span>&#160;                GLfloat Camera_Horizontal = 0.0;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_game_world.html#a26658e739c4d267b1be35ed820089931">   67</a></span>&#160;                GLfloat Camera_Vertical = 0.0;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_game_world.html#ad07b1f650edb08ddb05e74a22588bda0">   69</a></span>&#160;                GLfloat Camera_X_Position = 0;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_game_world.html#ae3e7cab30494ff5a8e91dfa7406deb16">   70</a></span>&#160;                GLfloat Camera_Y_Position = 2;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_game_world.html#ad993ea24fbacfc98410894078e916927">   71</a></span>&#160;                GLfloat Camera_Z_Position = 0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">   73</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">Old_Camera_X_Position</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">   74</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">Old_Camera_Y_Position</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">   75</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">Old_Camera_Z_Position</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_game_world.html#a9bf4eb977e6ab9299aaef1345c4fa4dd">   58</a></span>&#160;                GLfloat Mouse_Sensitivity =  0.05f;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_game_world.html#ae8ab2ac372729cec44ea316f6bdf45ca">   59</a></span>&#160;                GLfloat Player_Speed = 1.0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_game_world.html#a7f4911dda9b3b4e4eb03ece87e16cd96">   61</a></span>&#160;                GLfloat Camera_Horizontal = 0.0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_game_world.html#a26658e739c4d267b1be35ed820089931">   62</a></span>&#160;                GLfloat Camera_Vertical = 0.0;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_game_world.html#ad07b1f650edb08ddb05e74a22588bda0">   64</a></span>&#160;                GLfloat Camera_X_Position = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_game_world.html#ae3e7cab30494ff5a8e91dfa7406deb16">   65</a></span>&#160;                GLfloat Camera_Y_Position = 2;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_game_world.html#ad993ea24fbacfc98410894078e916927">   66</a></span>&#160;                GLfloat Camera_Z_Position = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">   68</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">Old_Camera_X_Position</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">   69</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">Old_Camera_Y_Position</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">   70</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">Old_Camera_Z_Position</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_game_world.html#ad80e597474ea4c52a583e81788187571">   72</a></span>&#160;                glm::vec3 Camera_Position = glm::vec3(Camera_X_Position, Camera_Y_Position, Camera_Z_Position);</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_game_world.html#ade0aa1baaba6ac54674638cef313c0bb">   73</a></span>&#160;                glm::vec3 Old_Camera_Position = Camera_Position;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">   75</a></span>&#160;                glm::vec3 <a class="code" href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">Movement_Z</a>;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_game_world.html#ad80e597474ea4c52a583e81788187571">   77</a></span>&#160;                glm::vec3 Camera_Position = glm::vec3(Camera_X_Position, Camera_Y_Position, Camera_Z_Position);</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_game_world.html#ade0aa1baaba6ac54674638cef313c0bb">   78</a></span>&#160;                glm::vec3 Old_Camera_Position = Camera_Position;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">   80</a></span>&#160;                glm::vec3 <a class="code" href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">Movement_Z</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">   82</a></span>&#160;                glm::vec3 <a class="code" href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">Movement_X</a>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordtype">void</span> UpdateCameraPosition(<a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9">Control</a> control, <span class="keywordtype">int</span> Mouse_X, <span class="keywordtype">int</span> Mouse_Y);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                glm::vec3 Spawn = glm::vec3(0.0f,0.0f,0.0f);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                glm::vec3 No_Rotation = glm::vec3(0.0f,0.0f,0.0f);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                glm::vec3 Normal_Rotation = glm::vec3(0.2f,0.2f,0.2f);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                glm::vec3 Fast_Rotation = glm::vec3(1.0f,1.0f,1.0f);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                glm::vec3 Normal_Size = glm::vec3(1.0f,1.0f,1.0f);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                glm::vec3 Double_Size = glm::vec3(2.0f,2.0f,2.0f); </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                glm::vec3 Giant_Size = glm::vec3(10.0f,10.0f,10.0f);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                std::shared_ptr&lt;GameAssetManager&gt; asset_manager;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                std::shared_ptr&lt;GameAsset&gt; Game_Asset;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="comment">//std::shared_ptr&lt;BoundingBox&gt; Bounding_Box;</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;};</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif // GAMEWORLD_H</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">   77</a></span>&#160;                glm::vec3 <a class="code" href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">Movement_X</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordtype">void</span> UpdateCameraPosition(<a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9">Control</a> control, <span class="keywordtype">int</span> Mouse_X, <span class="keywordtype">int</span> Mouse_Y);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                glm::vec3 Spawn = glm::vec3(0.0f,0.0f,0.0f);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                glm::vec3 No_Rotation = glm::vec3(0.0f,0.0f,0.0f);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                glm::vec3 Normal_Rotation = glm::vec3(0.2f,0.2f,0.2f);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                glm::vec3 Fast_Rotation = glm::vec3(1.0f,1.0f,1.0f);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                glm::vec3 Normal_Size = glm::vec3(1.0f,1.0f,1.0f);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                glm::vec3 Double_Size = glm::vec3(2.0f,2.0f,2.0f); </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                glm::vec3 Giant_Size = glm::vec3(10.0f,10.0f,10.0f);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                std::shared_ptr&lt;GameAssetManager&gt; asset_manager;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                std::shared_ptr&lt;GameAsset&gt; Game_Asset;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="comment">//std::shared_ptr&lt;BoundingBox&gt; Bounding_Box;</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif // GAMEWORLD_H</span></div>
 <div class="ttc" id="_diamond_asset_8h_html"><div class="ttname"><a href="_diamond_asset_8h.html">DiamondAsset.h</a></div></div>
 <div class="ttc" id="_grass_asset_8h_html"><div class="ttname"><a href="_grass_asset_8h.html">GrassAsset.h</a></div></div>
 <div class="ttc" id="_cube_asset_8h_html"><div class="ttname"><a href="_cube_asset_8h.html">CubeAsset.h</a></div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="class_game_world_html_a734c19bd480aef2a7af005e170d3d523"><div class="ttname"><a href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">GameWorld::Old_Camera_X_Position</a></div><div class="ttdeci">GLfloat Old_Camera_X_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:73</div></div>
-<div class="ttc" id="class_game_world_html_a8dd30ba92e7fa9b9b05075e31d1e7dd8"><div class="ttname"><a href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">GameWorld::Movement_Z</a></div><div class="ttdeci">glm::vec3 Movement_Z</div><div class="ttdef"><b>Definition:</b> GameWorld.h:80</div></div>
+<div class="ttc" id="class_game_world_html_a734c19bd480aef2a7af005e170d3d523"><div class="ttname"><a href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">GameWorld::Old_Camera_X_Position</a></div><div class="ttdeci">GLfloat Old_Camera_X_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:68</div></div>
+<div class="ttc" id="class_game_world_html_a8dd30ba92e7fa9b9b05075e31d1e7dd8"><div class="ttname"><a href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">GameWorld::Movement_Z</a></div><div class="ttdeci">glm::vec3 Movement_Z</div><div class="ttdef"><b>Definition:</b> GameWorld.h:75</div></div>
 <div class="ttc" id="_game_asset_manager_8h_html"><div class="ttname"><a href="_game_asset_manager_8h.html">GameAssetManager.h</a></div></div>
 <div class="ttc" id="_pyramid_asset_8h_html"><div class="ttname"><a href="_pyramid_asset_8h.html">PyramidAsset.h</a></div></div>
 <div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9">Control</a></div><div class="ttdeci">Control</div><div class="ttdef"><b>Definition:</b> common.h:8</div></div>
-<div class="ttc" id="class_game_world_html_a968eb29424b68f7cd79a5896c62e944d"><div class="ttname"><a href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">GameWorld::Movement_X</a></div><div class="ttdeci">glm::vec3 Movement_X</div><div class="ttdef"><b>Definition:</b> GameWorld.h:82</div></div>
+<div class="ttc" id="class_game_world_html_a968eb29424b68f7cd79a5896c62e944d"><div class="ttname"><a href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">GameWorld::Movement_X</a></div><div class="ttdeci">glm::vec3 Movement_X</div><div class="ttdef"><b>Definition:</b> GameWorld.h:77</div></div>
 <div class="ttc" id="_ground_asset_8h_html"><div class="ttname"><a href="_ground_asset_8h.html">GroundAsset.h</a></div></div>
-<div class="ttc" id="class_game_world_html_acf69fc81410f4bb31d03b7551eb0bced"><div class="ttname"><a href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">GameWorld::Old_Camera_Z_Position</a></div><div class="ttdeci">GLfloat Old_Camera_Z_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:75</div></div>
+<div class="ttc" id="class_game_world_html_acf69fc81410f4bb31d03b7551eb0bced"><div class="ttname"><a href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">GameWorld::Old_Camera_Z_Position</a></div><div class="ttdeci">GLfloat Old_Camera_Z_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:70</div></div>
 <div class="ttc" id="_leaves_asset_8h_html"><div class="ttname"><a href="_leaves_asset_8h.html">LeavesAsset.h</a></div></div>
 <div class="ttc" id="_game_asset_8h_html"><div class="ttname"><a href="_game_asset_8h.html">GameAsset.h</a></div></div>
-<div class="ttc" id="class_game_world_html_ac1c9de2db7cb175f7a039a9f825190fc"><div class="ttname"><a href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">GameWorld::Old_Camera_Y_Position</a></div><div class="ttdeci">GLfloat Old_Camera_Y_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:74</div></div>
+<div class="ttc" id="class_game_world_html_ac1c9de2db7cb175f7a039a9f825190fc"><div class="ttname"><a href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">GameWorld::Old_Camera_Y_Position</a></div><div class="ttdeci">GLfloat Old_Camera_Y_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:69</div></div>
 <div class="ttc" id="class_game_world_html"><div class="ttname"><a href="class_game_world.html">GameWorld</a></div><div class="ttdef"><b>Definition:</b> GameWorld.h:32</div></div>
 <div class="ttc" id="common_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
