@@ -1,0 +1,5 @@
+<map id="GameLoop::Run" name="GameLoop::Run">
+<area shape="rect" id="node2" href="$class_game_loop.html#afcbeaf01f4a6d443753ccabbadbec8d7" title="GameLoop::InitWorld" alt="" coords="171,5,316,32"/>
+<area shape="rect" id="node3" href="$_game_loop_8cc.html#a70eaa727262f633037c3f4b7d3ff24c2" title="tick" alt="" coords="222,56,265,83"/>
+<area shape="rect" id="node4" href="$class_game_loop.html#a5034124015cce5b8ecedae9f906b897b" title="GameLoop::Draw" alt="" coords="181,107,305,133"/>
+</map>

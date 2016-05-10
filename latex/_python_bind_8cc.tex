@@ -1,0 +1,73 @@
+\hypertarget{_python_bind_8cc}{}\section{src/\+Python\+Bind.cc File Reference}
+\label{_python_bind_8cc}\index{src/\+Python\+Bind.\+cc@{src/\+Python\+Bind.\+cc}}
+{\ttfamily \#include \char`\"{}Python\+Bind.\+h\char`\"{}}\\*
+Include dependency graph for Python\+Bind.\+cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_python_bind_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char const $\ast$ \hyperlink{_python_bind_8cc_ad10f42775d0a73dda3d0a5abff3fffae}{greet} ()
+\item 
+\hyperlink{_python_bind_8cc_a4a483edcc85adb725a4093841892d8d9}{B\+O\+O\+S\+T\+\_\+\+P\+Y\+T\+H\+O\+N\+\_\+\+M\+O\+D\+U\+L\+E} (libglex)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_python_bind_8cc_a4a483edcc85adb725a4093841892d8d9}{}\index{Python\+Bind.\+cc@{Python\+Bind.\+cc}!B\+O\+O\+S\+T\+\_\+\+P\+Y\+T\+H\+O\+N\+\_\+\+M\+O\+D\+U\+L\+E@{B\+O\+O\+S\+T\+\_\+\+P\+Y\+T\+H\+O\+N\+\_\+\+M\+O\+D\+U\+L\+E}}
+\index{B\+O\+O\+S\+T\+\_\+\+P\+Y\+T\+H\+O\+N\+\_\+\+M\+O\+D\+U\+L\+E@{B\+O\+O\+S\+T\+\_\+\+P\+Y\+T\+H\+O\+N\+\_\+\+M\+O\+D\+U\+L\+E}!Python\+Bind.\+cc@{Python\+Bind.\+cc}}
+\subsubsection[{B\+O\+O\+S\+T\+\_\+\+P\+Y\+T\+H\+O\+N\+\_\+\+M\+O\+D\+U\+L\+E(libglex)}]{\setlength{\rightskip}{0pt plus 5cm}B\+O\+O\+S\+T\+\_\+\+P\+Y\+T\+H\+O\+N\+\_\+\+M\+O\+D\+U\+L\+E (
+\begin{DoxyParamCaption}
+\item[{libglex}]{}
+\end{DoxyParamCaption}
+)}\label{_python_bind_8cc_a4a483edcc85adb725a4093841892d8d9}
+
+\begin{DoxyCode}
+12                             \{
+13 
+14 
+15         boost::python::def(\textcolor{stringliteral}{"greet"}, \hyperlink{_python_bind_8cc_ad10f42775d0a73dda3d0a5abff3fffae}{greet});
+16         class\_<GameLoop>(\textcolor{stringliteral}{"GameLoop"})
+17                 .def(\textcolor{stringliteral}{"Run"}, &\hyperlink{class_game_loop_a6d84f749fa38ca86039353245d77461c}{GameLoop::Run});
+18 \}
+\end{DoxyCode}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_python_bind_8cc_a4a483edcc85adb725a4093841892d8d9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_python_bind_8cc_ad10f42775d0a73dda3d0a5abff3fffae}{}\index{Python\+Bind.\+cc@{Python\+Bind.\+cc}!greet@{greet}}
+\index{greet@{greet}!Python\+Bind.\+cc@{Python\+Bind.\+cc}}
+\subsubsection[{greet()}]{\setlength{\rightskip}{0pt plus 5cm}char const$\ast$ greet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_python_bind_8cc_ad10f42775d0a73dda3d0a5abff3fffae}
+
+\begin{DoxyCode}
+8                     \{
+9    \textcolor{keywordflow}{return} \textcolor{stringliteral}{"hello, world"};
+10 \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{_python_bind_8cc_ad10f42775d0a73dda3d0a5abff3fffae_icgraph}
+\end{center}
+\end{figure}
+
+

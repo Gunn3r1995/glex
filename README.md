@@ -13,7 +13,9 @@
 
 On Fedora 20 or later you can install these using a single command (as root):
 
-> $ yum install boost-* glew-devel SDL2_* glm-devel
+``` bash
+$ yum install boost-* glew-devel SDL2_* glm-devel
+```
 
 # Building #
 
@@ -26,18 +28,22 @@ $ ./configure
 $ make
 ```
 Alternatively, if you'd like to build the project in debug mode use:
-
-> $ make CXXFLAGS=-DDEBUG
-
+``` bash
+$ make CXXFLAGS=-DDEBUG
+```
 # Running #
 
 The build process should create a binary that can be executed as follows:
 
-> $ ./src/shaderexample
+``` bash
+$ ./src/shaderexample
+```
 
 See
 
-> $ ./src/shaderexample --help
+``` bash
+$ ./src/shaderexample --help
+```
 
 for usage instructions.
 
@@ -51,10 +57,15 @@ $ cd .. &&make
 
 # Python Running #
 
-> $ python src/PythonBind.py
+``` bash
+$ python src/PythonBind.py
+```
 
 #CPP CHECK#
 
-> $ cppcheck ./src --enable=all --check-config 2> CPPCheck.txt
-> $ cppcheck ./src --enable=all --check-config >> CPPCHECKGlex.txt 
+``` bash
+ $ cppcheck ./src --enable=all --check-config 2> CPPCheck.txt
+ $ cppcheck ./src --enable=all --check-config >> CPPCHECKGlex.txt 
+```
+
 
