@@ -1,2 +1,0 @@
-[src/GameWorld.h:44]: (style) Class 'GameWorld' has a constructor with 1 argument that is not explicit.
-(information) Cppcheck cannot find all the include files (use --check-config for details)

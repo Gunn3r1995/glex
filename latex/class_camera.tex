@@ -50,37 +50,39 @@ Controls calculations Controls all the movement and positions of the camera Uses
 \item[{glm\+::vec3}]{B\+B\+\_\+\+Min}
 \end{DoxyParamCaption}
 )}\label{class_camera_a985109173ffc496b53000c635aff5e06}
-
+Collision\+Detection Checks the collision between the \hyperlink{class_camera}{Camera} and the Asset Bounding Box, If a collision has been detected then reverse the \hyperlink{class_camera}{Camera} Position on the appropriate Current Control\+Save 
 \begin{DoxyCode}
-114                                                               \{
-115         Camera\_BB\_Max = Camera\_Position + glm::vec3(0.5f,0.5f,0.5f);
-116         Camera\_BB\_Min = Camera\_Position + glm::vec3(-0.5f,-0.5f,-0.5f);
-117  
-118         \textcolor{keywordflow}{if} (BB\_Max.x > Camera\_BB\_Min.x && BB\_Min.x < Camera\_BB\_Max.x &&
-119                 BB\_Max.y > Camera\_BB\_Min.y && BB\_Min.y < Camera\_BB\_Max.y &&
-120                 BB\_Max.z > Camera\_BB\_Min.z && BB\_Min.z < Camera\_BB\_Max.z) \{
-121             cout << \textcolor{stringliteral}{"Camera Collision!"} << endl;
-122             
-123             \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"UP"} ) \{
-124                     Camera\_Position -=  Movement\_Z * Player\_Speed;     
-125             \}
-126                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"DOWN"} ) \{
-127                 Camera\_Position += Movement\_Z * Player\_Speed;
-128             \} 
-129                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"LEFT"} ) \{
-130                 Camera\_Position += Movement\_X * Player\_Speed;
-131             \} 
-132                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"RIGHT"} ) \{
-133                 Camera\_Position -= Movement\_X * Player\_Speed;
-134             \}
-135                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"JUMP"} ) \{
-136                         Camera\_Position.y -= 0.5f * Player\_Speed;
-137                 \}
-138                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"CROUCH"} ) \{
-139                         Camera\_Position.y += 0.5f * Player\_Speed;
-140                 \}
-141         \}
-142 \}
+120                                                               \{
+121         Camera\_BB\_Max = Camera\_Position + glm::vec3(0.5f,0.5f,0.5f);
+122         Camera\_BB\_Min = Camera\_Position + glm::vec3(-0.5f,-0.5f,-0.5f);
+123  
+124         \textcolor{keywordflow}{if} (BB\_Max.x > Camera\_BB\_Min.x && BB\_Min.x < Camera\_BB\_Max.x &&
+125                 BB\_Max.y > Camera\_BB\_Min.y && BB\_Min.y < Camera\_BB\_Max.y &&
+126                 BB\_Max.z > Camera\_BB\_Min.z && BB\_Min.z < Camera\_BB\_Max.z) \{
+127                 cout << \textcolor{stringliteral}{"*****************************************************"} << endl;
+128             cout << \textcolor{stringliteral}{"Camera Collision!"} << endl;
+129             cout << \textcolor{stringliteral}{"*****************************************************"} << endl;
+130             
+131             \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"UP"} ) \{
+132                     Camera\_Position -=  Movement\_Z * Player\_Speed;     
+133             \}
+134                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"DOWN"} ) \{
+135                 Camera\_Position += Movement\_Z * Player\_Speed;
+136             \} 
+137                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"LEFT"} ) \{
+138                 Camera\_Position += Movement\_X * Player\_Speed;
+139             \} 
+140                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"RIGHT"} ) \{
+141                 Camera\_Position -= Movement\_X * Player\_Speed;
+142             \}
+143                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"JUMP"} ) \{
+144                         Camera\_Position.y -= 0.5f * Player\_Speed;
+145                 \}
+146                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( ControlSave == \textcolor{stringliteral}{"CROUCH"} ) \{
+147                         Camera\_Position.y += 0.5f * Player\_Speed;
+148                 \}
+149         \}
+150 \}
 \end{DoxyCode}
 \hypertarget{class_camera_a948a60a6eb780a313ed59690bbaef811}{}\index{Camera@{Camera}!Get\+Camera\+Position@{Get\+Camera\+Position}}
 \index{Get\+Camera\+Position@{Get\+Camera\+Position}!Camera@{Camera}}

@@ -1,6 +1,6 @@
 var class_bounding_box =
 [
-    [ "BoundingBox", "class_bounding_box.html#a4c5c018191c3a3dbba5633d62f249920", null ],
+    [ "BoundingBox", "class_bounding_box.html#ab5c42370640606c132b4b797cb0c7c2f", null ],
     [ "CollisionDetection", "class_bounding_box.html#a158978699951663552a2936f2a8a2339", null ],
     [ "GetAABB", "class_bounding_box.html#a9d1fe341d5c2033e7f20ab9bdb4ae4b9", null ],
     [ "GetModel", "class_bounding_box.html#a5fd1769f7157e7df40a6ab6a242fcfcc", null ],

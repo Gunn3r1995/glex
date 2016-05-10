@@ -111,6 +111,12 @@ glm::mat4 Camera::UpdateCameraPosition(Control control, int Mouse_X, int Mouse_Y
    
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+///  CollisionDetection
+///  Checks the collision between the Camera and the Asset Bounding Box,
+///  If a collision has been detected then reverse the Camera Position on the appropriate
+///  Current ControlSave
+//////////////////////////////////////////////////////////////////////////////////////////
 void Camera::CollisionDetection(glm::vec3 BB_Max, glm::vec3 BB_Min) {
         Camera_BB_Max = Camera_Position + glm::vec3(0.5f,0.5f,0.5f);
         Camera_BB_Min = Camera_Position + glm::vec3(-0.5f,-0.5f,-0.5f);
@@ -118,7 +124,9 @@ void Camera::CollisionDetection(glm::vec3 BB_Max, glm::vec3 BB_Min) {
         if (BB_Max.x > Camera_BB_Min.x && BB_Min.x < Camera_BB_Max.x &&
                 BB_Max.y > Camera_BB_Min.y && BB_Min.y < Camera_BB_Max.y &&
                 BB_Max.z > Camera_BB_Min.z && BB_Min.z < Camera_BB_Max.z) {
+                cout << "*****************************************************" << endl;
 	        cout << "Camera Collision!" << endl;
+	        cout << "*****************************************************" << endl;
 	        
 	        if( ControlSave == "UP" ) {
 	                Camera_Position -=  Movement_Z * Player_Speed;     

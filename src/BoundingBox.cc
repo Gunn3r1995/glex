@@ -23,8 +23,7 @@ BoundingBox::BoundingBox(glm::vec3 xyzPosition, glm::vec3 translateTo, glm::vec3
         this->scale_bool = scale_bool;
         this->AssetType = AssetType;
 
-        //cout << "SCALE  " << glm::to_string(scale) << endl;
-        //cout << "Bounding Box Created at: " << glm::to_string(translateTo)<< endl;
+        cout << "Bounding Box Created at: " << glm::to_string(translateTo)<< endl;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -48,14 +47,14 @@ glm::mat4 BoundingBox::GetModel() {
                 Rotate(glm::vec3(0.1f, 0.1f, 0.1f));
         }
 
-        Translate_Matrix = glm::translate(glm::mat4(), glm::vec3(this->translateTo));
-        Scale_Matrix = glm::scale(glm::vec3(this->scale));
+        Translate_Matrix = glm::translate(glm::mat4(), glm::vec3(translateTo));
+        Scale_Matrix = glm::scale(glm::vec3(scale));
 
         Model_Matrix = Translate_Matrix * Scale_Matrix;
 
-        Model_Matrix = glm::rotate(Model_Matrix, this->rotate.x, glm::vec3(1, 0, 0));
-        Model_Matrix = glm::rotate(Model_Matrix, this->rotate.y, glm::vec3(0, 1, 0));
-        Model_Matrix = glm::rotate(Model_Matrix, this->rotate.z, glm::vec3(0, 0, 1));
+        Model_Matrix = glm::rotate(Model_Matrix, rotate.x, glm::vec3(1, 0, 0));
+        Model_Matrix = glm::rotate(Model_Matrix, rotate.y, glm::vec3(0, 1, 0));
+        Model_Matrix = glm::rotate(Model_Matrix, rotate.z, glm::vec3(0, 0, 1));
         
         return Model_Matrix;
 }
@@ -65,51 +64,51 @@ glm::mat4 BoundingBox::GetModel() {
 ///This controls the translation animation, to move the assets on the x, y or z axis
 ////////////////////////////////////////////////////////////////////////////////////////// 
 void BoundingBox::TranslateX() {
-                if(this->translateTo.x < animateTo.x ) {
-                        this->translateTo = this->translateTo + glm::vec3(0.1f,0.0f,0.0f);
+                if(translateTo.x < animateTo.x ) {
+                        translateTo = translateTo + glm::vec3(0.1f,0.0f,0.0f);
                         
-                        if(this->translateTo.x > animateTo.x){
-                                this->translateTo = translateToSave;
+                        if(translateTo.x > animateTo.x){
+                                translateTo = translateToSave;
                         }
                 }
-                else if(this->translateTo.x > animateTo.x) {
-                        this->translateTo = this->translateTo + glm::vec3(-0.1f,0.0f,0.0f);
+                else if(translateTo.x > animateTo.x) {
+                        translateTo = translateTo + glm::vec3(-0.1f,0.0f,0.0f);
 
-                        if(this->translateTo.x < animateTo.x){
-                                this->translateTo = translateToSave;
+                        if(translateTo.x < animateTo.x){
+                                translateTo = translateToSave;
                         }
                 }
 }
 
 void BoundingBox::TranslateY() {
-	        if(this->translateTo.y < animateTo.y ) {
-                       this->translateTo = this->translateTo + glm::vec3(0.0f,0.1f,0.0f);
+	        if(translateTo.y < animateTo.y ) {
+                       translateTo = translateTo + glm::vec3(0.0f,0.1f,0.0f);
                        
-                       if(this->translateTo.y > animateTo.y){
-                                this->translateTo = translateToSave;
+                       if(translateTo.y > animateTo.y){
+                                translateTo = translateToSave;
                        }
                 }
-                else if(this->translateTo.y > animateTo.y){
-                        this->translateTo = this->translateTo + glm::vec3(0.0f,-0.1f,0.0f);
+                else if(translateTo.y > animateTo.y){
+                        translateTo = translateTo + glm::vec3(0.0f,-0.1f,0.0f);
                   
-                        if(this->translateTo.y < animateTo.y){
-                                this->translateTo = translateToSave;
+                        if(translateTo.y < animateTo.y){
+                                translateTo = translateToSave;
                         }
                 }
 }
 void BoundingBox::TranslateZ() {
-                if(this->translateTo.z < animateTo.z ) {
-                        this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,0.1f);
+                if(translateTo.z < animateTo.z ) {
+                        translateTo = translateTo + glm::vec3(0.0f,0.0f,0.1f);
                         
-                        if(this->translateTo.z > animateTo.z){
-                                this->translateTo = translateToSave;
+                        if(translateTo.z > animateTo.z){
+                                translateTo = translateToSave;
                         }
                 }
-                else if(this->translateTo.z > animateTo.z){
-                        this->translateTo = this->translateTo + glm::vec3(0.0f,0.0f,-0.1f);
+                else if(translateTo.z > animateTo.z){
+                        translateTo = translateTo + glm::vec3(0.0f,0.0f,-0.1f);
                         
-                        if(this->translateTo.z < animateTo.z){
-                                this->translateTo = translateToSave;
+                        if(translateTo.z < animateTo.z){
+                                translateTo = translateToSave;
                         }
                 }
 }
@@ -119,11 +118,11 @@ void BoundingBox::TranslateZ() {
 /// Controls the rotation of the asset
 ////////////////////////////////////////////////////////////////////////////////////////// 
 void BoundingBox::Rotate(glm::vec3 rotateTo) {
-        if(this->rotate.x <= 100.1f && this->rotate.y <= 100.1f && this->rotate.z <= 100.1f) {
-                this->rotate = this->rotate + glm::vec3(0.1f , 0.1f, 0.1f);
+        if(rotate.x <= 100.1f && rotate.y <= 100.1f && rotate.z <= 100.1f) {
+                rotate = rotate + glm::vec3(0.1f , 0.1f, 0.1f);
         }
         else {
-                this->rotate = glm::vec3(0.1f, 0.1f, 0.1f);
+                rotate = glm::vec3(0.1f, 0.1f, 0.1f);
         }
 }
 
@@ -132,47 +131,48 @@ void BoundingBox::Rotate(glm::vec3 rotateTo) {
 /// Controls the size of the Asset
 //////////////////////////////////////////////////////////////////////////////////////////
 void BoundingBox::Scale(glm::vec3 scaleTo) {
-	if(this->scale.x < scaleTo.x && this->scale.y < scaleTo.y && this->scale.z < scaleTo.z) {
-		this->scale = this->scale + glm::vec3(0.01f,0.01f,0.01f);
+	if(scale.x < scaleTo.x && scale.y < scaleTo.y && scale.z < scaleTo.z) {
+		scale = scale + glm::vec3(0.01f,0.01f,0.01f);
 	}
 	else {
-		this->scale = glm::vec3(1.0f,1.0f,1.0f);
+		scale = glm::vec3(1.0f,1.0f,1.0f);
 	}
 }    
 
-/**
- * Return the max and minimum bounds
- */
+//////////////////////////////////////////////////////////////////////////////////////////
+/// GetAABB
+/// Gets the maximum and minimum AABB
+//////////////////////////////////////////////////////////////////////////////////////////
 glm::vec3 BoundingBox::GetAABB(string check)
 {
     if( AssetType != "Grass") {
         if (check == "Max") {
-                AABB = this->translateTo += glm::vec3(1.0f,1.0f,1.0f) * this->scale;
+                AABB = translateTo += glm::vec3(1.0f,1.0f,1.0f) * scale;
         }
         else if (check == "Min") {
-                AABB = this->translateTo += glm::vec3(-1.0f,-1.0f,-1.0f) * this->scale;
+                AABB = translateTo += glm::vec3(-1.0f,-1.0f,-1.0f) * scale;
         }
     }
     return AABB;
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////
+/// CollisionDetection
+/// Calculates whether BB1 AABB is within BB2 AABB and then move them back to there 
+/// original starting xyz position
+//////////////////////////////////////////////////////////////////////////////////////////
 void BoundingBox::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::vec3 BB1_Pos,
                                      glm::vec3 BB2_Max, glm::vec3 BB2_Min, glm::vec3 BB2_Pos) {
     if (BB1_Max.x > BB2_Min.x && BB1_Min.x < BB2_Max.x &&
         BB1_Max.y > BB2_Min.y && BB1_Min.y < BB2_Max.y &&
         BB1_Max.z > BB2_Min.z && BB1_Min.z < BB2_Max.z) {
-        /*cout << "Collision" << endl;
-        cout << "BB1 Pos: " << glm::to_string(BB1_Pos) << endl;
-        cout << "BB1 Max: " << glm::to_string(BB1_Max) << endl;
-        cout << "BB1 Min: " << glm::to_string(BB1_Min) << endl;
-        cout << "----------------------------------------------" << endl;
-        cout << "BB2 Pos: " << glm::to_string(BB2_Pos) << endl;
-        cout << "BB2 Max: " << glm::to_string(BB2_Max) << endl;
-        cout << "BB2 Min: " << glm::to_string(BB2_Min) << endl;
-        cout << "*****************************************************" << endl;*/
+        
+        cout << "*****************************************************" << endl;
+        cout << "Block Collision" << endl;
+        cout << "*****************************************************" << endl;
+        
         translateTo = translateToSave;
-        this->scale = scaleTo;
-        this->rotate = rotateTo;
+        scale = scaleTo;
+        rotate = rotateTo;
     }
 }  
 
@@ -181,18 +181,27 @@ void BoundingBox::CollisionDetection(glm::vec3 BB1_Max, glm::vec3 BB1_Min, glm::
 /// Returns the Current position the BoundingBox is at
 //////////////////////////////////////////////////////////////////////////////////////////
 glm::vec3 BoundingBox::GetTranslateTo() {
-	return this->translateTo;
+	return translateTo;
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////
+/// GetTranslateBool
+/// Returns the translate_bool bool to see if it is animated or not
+//////////////////////////////////////////////////////////////////////////////////////////
 bool BoundingBox::GetTranslateBool() {
-	return this->translate_bool;
+	return translate_bool;
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////
+/// GetScaleBool
+/// Returns the scale_bool bool to see if it is animated or not
+//////////////////////////////////////////////////////////////////////////////////////////
 bool BoundingBox::GetScaleBool() {
-	return this->scale_bool;
+	return scale_bool;
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////
+/// GetRotateBools
+/// Returns the GetRotateBool bool to see if it is animated or not
+//////////////////////////////////////////////////////////////////////////////////////////
 bool BoundingBox::GetRotateBool() {
-	return this->rotate_bool;
+	return rotate_bool;
 }
 

@@ -96,623 +96,620 @@ Spawns Pyramid. Spawns the Voxel \hyperlink{class_ground_asset}{Ground\+Asset} s
 Grass Spawn. Spawns the Voxel \hyperlink{class_ground_asset}{Ground\+Asset} so it creates a two tall ground world for the world Spawns somewhat randomly multiple grass assets on top/ slighlty inside the ground asset To create the view of grass.
 \begin{DoxyCode}
 3                      : asset\_manager (make\_shared<GameAssetManager>())  \{ 
-4   \textcolor{keywordtype}{int} pointX,pointY;
-5   \textcolor{keywordtype}{int} pointZ = 1;
-6   \textcolor{keywordtype}{int} worldX = 25;
-7   \textcolor{keywordtype}{int} worldY = 25;
+4         \textcolor{keywordtype}{int} pointX,pointY;
+5         \textcolor{keywordtype}{int} pointZ = 1;
+6         \textcolor{keywordtype}{int} worldX = 25;
+7         \textcolor{keywordtype}{int} worldY = 25;
 8 
-30   \textcolor{keywordtype}{int} world[25][25] = \{
-31   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-32   \{1,2,1,1,1,1,1,1,1,1,1,1,5,1,1,1,7,1,1,1,7,1,1,2,1\},
-33   \{1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-34   \{1,1,1,1,7,1,1,1,1,7,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1\},
-35   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-36   \{1,1,1,1,1,3,1,1,1,1,1,7,1,1,1,7,1,1,1,3,1,1,1,1,1\},
-37   \{1,1,7,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-38   \{1,1,1,1,1,1,1,7,1,1,1,1,6,1,1,1,1,7,1,1,1,7,1,1,1\},
-39   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-40   \{1,1,1,1,7,1,7,1,1,1,7,1,1,1,1,1,1,1,7,1,7,1,1,1,1\},
-41   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1\},
-42   \{1,1,1,1,1,1,1,7,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
-43   \{1,5,1,7,1,1,1,6,1,1,1,1,4,1,1,1,1,6,1,1,1,1,1,5,1\},
-44   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1,1,1,1,1,1\},
-45   \{1,1,1,1,1,7,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,7,1,1,1\},
-46   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1\},
-47   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1\},
-48   \{1,1,1,1,1,1,7,1,1,1,1,1,6,7,7,1,1,1,1,1,1,1,1,1,1\},
-49   \{1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1\},
-50   \{1,1,1,1,1,3,1,1,7,1,1,1,1,1,1,1,1,1,1,3,1,1,7,1,1\},
-51   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1\},
-52   \{1,1,1,1,1,1,7,1,1,1,7,1,1,7,1,1,7,1,1,1,1,1,1,1,1\},
-53   \{1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1\},
-54   \{1,2,1,1,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,1,1,1,2,1\},
-55   \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\}        
-56   \};
-57                    
-58                                    
-59       
-60         
-67 
-68         asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3(1.0f ,2.00f, -4.0f),
-69                                                          glm::vec3(1.0f ,2.00f, -4.0f), \textcolor{keyword}{false},
-70                                                          No\_Rotation, \textcolor{keyword}{false},
-71                                                          Giant\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Ground"}));
-72         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(3.0f ,2.00f, -4.0f),
-73                                                        glm::vec3(3.0f,2.0f,-4.0f), \textcolor{keyword}{false},
-74                                                        Fast\_Rotation, \textcolor{keyword}{true},
-75                                                        Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-76         asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3(5.0f ,2.00f, -4.0f),
-77                                                          glm::vec3(5.0f,2.0f,-4.0f), \textcolor{keyword}{false},
-78                                                          glm::vec3(0.1f,0.1f,0.1f), \textcolor{keyword}{true},
-79                                                          glm::vec3(1.1f,1.1f,1.1f), \textcolor{keyword}{true}, \textcolor{stringliteral}{"Leaves"}));
-80                                                          
-81         asset\_manager->AddAsset(make\_shared<DiamondAsset>(Spawn, glm::vec3(7.0f ,2.0f, -4.0f),
-82                                                           glm::vec3(7.0f, 2.0f, -15.0f), \textcolor{keyword}{true},
-83                                                           No\_Rotation, \textcolor{keyword}{false},
-84                                                           Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Diamond"}));
-85         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(7.0f ,2.0f, -13.0f),
-86                                                           glm::vec3(7.0f, 2.0f, -13.0f), \textcolor{keyword}{false},
-87                                                           Normal\_Rotation, \textcolor{keyword}{true},
-88                                                           Double\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Cube"}));
-89                                                           
-90         asset\_manager->AddAsset(make\_shared<PyramidAsset>(Spawn, glm::vec3(9.0f ,1.50f, -4.0f),
-91                                                           glm::vec3(9.0f,1.50f,-4.0f), \textcolor{keyword}{false},
-92                                                           No\_Rotation, \textcolor{keyword}{false},
-93                                                           Double\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Pyramid"})); 
-94         asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn, glm::vec3(11.0f,1.50f, -4.0f), 
-95                                                         glm::vec3(11.0f,1.50f,-4.0f), \textcolor{keyword}{false},
-96                                                         No\_Rotation, \textcolor{keyword}{false},
-97                                                         Giant\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Grass"}));
-98         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,10.0f, 0.0f),
-99                                                          glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{true},
-100                                                          No\_Rotation, \textcolor{keyword}{false},
-101                                                          Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-102         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,0.0f, 0.0f),
-103                                                        glm::vec3(0.0f,10.0f,0.0f), \textcolor{keyword}{true},
-104                                                          No\_Rotation, \textcolor{keyword}{false}, 
-105                                                          Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-106         asset\_manager->AddAsset(make\_shared<DiamondAsset>(Spawn, glm::vec3(12.0f,12.0f,12.0f), 
-107                                                           glm::vec3(12.0f,12.0f,12.0f), \textcolor{keyword}{false},
-108                                                           Normal\_Rotation, \textcolor{keyword}{true},
-109                                                           Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Diamond"})); 
-110                                                           
-111         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(-10.0f ,5.0f, -5.0f),
-112                                                          glm::vec3(0.0f,5.0f,-5.0f), \textcolor{keyword}{true},
-113                                                          No\_Rotation, \textcolor{keyword}{false},
-114                                                          Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-115         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,5.0f, -5.0f),
-116                                                        glm::vec3(-10.0f,5.0f,-5.0f), \textcolor{keyword}{true},
-117                                                          No\_Rotation, \textcolor{keyword}{false}, 
-118                                                          Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"})); 
-119         asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3(15.0f ,2.00f, 30.0f),
-120                                                          glm::vec3(25.0f ,2.00f, 25.0f), \textcolor{keyword}{false},
-121                                                          No\_Rotation, \textcolor{keyword}{false},
-122                                                          Giant\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Ground"}));
-123         asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3(9.0f ,2.00f, 30.0f),
-124                                                          glm::vec3(25.0f ,2.00f, 25.0f), \textcolor{keyword}{false},
-125                                                          No\_Rotation, \textcolor{keyword}{false},
-126                                                          Giant\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Ground"}));
-127    \textcolor{comment}{//AddAsset Layout }
-128    \textcolor{comment}{//This adds the asset to the game asset manager which draws it to the screen}
-129    \textcolor{comment}{//}
-130    \textcolor{comment}{//  asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, Translate}
-131    \textcolor{comment}{//                                                 AnimateTo , Bool,}
-132    \textcolor{comment}{//                                                 Rotation, Bool,}
-133    \textcolor{comment}{//                                                 Scale, Bool));  }
-135 \textcolor{comment}{}
-136   \textcolor{keywordflow}{for}( pointX=0; pointX<worldX; pointX++)\{
-137    \textcolor{keywordflow}{for} (pointY=0; pointY<worldY; pointY++)\{
-138     \textcolor{keywordflow}{if}( world[pointY][pointX] == 1 || world[pointY][pointX] == 2 || world[pointY][pointX] == 3 || world[
+30           \textcolor{keywordtype}{int} world[25][25] = \{
+31           \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+32           \{1,2,1,1,1,1,1,1,1,1,1,1,5,1,1,1,7,1,1,1,7,1,1,2,1\},
+33           \{1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+34           \{1,1,1,1,7,1,1,1,1,7,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1\},
+35           \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+36           \{1,1,1,1,1,3,1,1,1,1,1,7,1,1,1,7,1,1,1,3,1,1,1,1,1\},
+37           \{1,1,7,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+38           \{1,1,1,1,1,1,1,7,1,1,1,1,6,1,1,1,1,7,1,1,1,7,1,1,1\},
+39           \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+40           \{1,1,1,1,7,1,7,1,1,1,7,1,1,1,1,1,1,1,7,1,7,1,1,1,1\},
+41           \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1\},
+42           \{1,1,1,1,1,1,1,7,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1\},
+43           \{1,5,1,7,1,1,1,6,1,1,1,1,4,1,1,1,1,6,1,1,1,1,1,5,1\},
+44           \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1,1,1,1,1,1\},
+45           \{1,1,1,1,1,7,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,7,1,1,1\},
+46           \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1\},
+47           \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1\},
+48           \{1,1,1,1,1,1,7,1,1,1,1,1,6,7,7,1,1,1,1,1,1,1,1,1,1\},
+49           \{1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1\},
+50           \{1,1,1,1,1,3,1,1,7,1,1,1,1,1,1,1,1,1,1,3,1,1,7,1,1\},
+51           \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1\},
+52           \{1,1,1,1,1,1,7,1,1,1,7,1,1,7,1,1,7,1,1,1,1,1,1,1,1\},
+53           \{1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,7,1,1,7,1,1\},
+54           \{1,2,1,1,1,1,1,1,1,1,1,1,5,1,1,7,1,1,1,1,1,1,1,2,1\},
+55           \{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1\}        
+56           \};
+57         
+64 
+65         asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3(1.0f ,2.00f, -4.0f),
+66                                                          glm::vec3(1.0f ,2.00f, -4.0f), \textcolor{keyword}{false},
+67                                                          No\_Rotation, \textcolor{keyword}{false},
+68                                                          Giant\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Ground"}));
+69         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(3.0f ,2.00f, -4.0f),
+70                                                        glm::vec3(3.0f,2.0f,-4.0f), \textcolor{keyword}{false},
+71                                                        Fast\_Rotation, \textcolor{keyword}{true},
+72                                                        Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+73         asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3(5.0f ,2.00f, -4.0f),
+74                                                          glm::vec3(5.0f,2.0f,-4.0f), \textcolor{keyword}{false},
+75                                                          glm::vec3(0.1f,0.1f,0.1f), \textcolor{keyword}{true},
+76                                                          glm::vec3(1.1f,1.1f,1.1f), \textcolor{keyword}{true}, \textcolor{stringliteral}{"Leaves"}));
+77                                                          
+78         asset\_manager->AddAsset(make\_shared<DiamondAsset>(Spawn, glm::vec3(7.0f ,2.0f, -4.0f),
+79                                                           glm::vec3(7.0f, 2.0f, -15.0f), \textcolor{keyword}{true},
+80                                                           No\_Rotation, \textcolor{keyword}{false},
+81                                                           Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Diamond"}));
+82         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(7.0f ,2.0f, -13.0f),
+83                                                           glm::vec3(7.0f, 2.0f, -13.0f), \textcolor{keyword}{false},
+84                                                           Normal\_Rotation, \textcolor{keyword}{true},
+85                                                           Double\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Cube"}));
+86                                                           
+87         asset\_manager->AddAsset(make\_shared<PyramidAsset>(Spawn, glm::vec3(9.0f ,1.50f, -4.0f),
+88                                                           glm::vec3(9.0f,1.50f,-4.0f), \textcolor{keyword}{false},
+89                                                           No\_Rotation, \textcolor{keyword}{false},
+90                                                           Double\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Pyramid"})); 
+91         asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn, glm::vec3(11.0f,1.50f, -4.0f), 
+92                                                         glm::vec3(11.0f,1.50f,-4.0f), \textcolor{keyword}{false},
+93                                                         No\_Rotation, \textcolor{keyword}{false},
+94                                                         Giant\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Grass"}));
+95         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,10.0f, 0.0f),
+96                                                          glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{true},
+97                                                          No\_Rotation, \textcolor{keyword}{false},
+98                                                          Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+99         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,0.0f, 0.0f),
+100                                                        glm::vec3(0.0f,10.0f,0.0f), \textcolor{keyword}{true},
+101                                                          No\_Rotation, \textcolor{keyword}{false}, 
+102                                                          Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+103         asset\_manager->AddAsset(make\_shared<DiamondAsset>(Spawn, glm::vec3(12.0f,12.0f,12.0f), 
+104                                                           glm::vec3(12.0f,12.0f,12.0f), \textcolor{keyword}{false},
+105                                                           Normal\_Rotation, \textcolor{keyword}{true},
+106                                                           Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Diamond"})); 
+107                                                           
+108         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(-10.0f ,5.0f, -5.0f),
+109                                                          glm::vec3(0.0f,5.0f,-5.0f), \textcolor{keyword}{true},
+110                                                          No\_Rotation, \textcolor{keyword}{false},
+111                                                          Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+112         asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3(0.0f ,5.0f, -5.0f),
+113                                                        glm::vec3(-10.0f,5.0f,-5.0f), \textcolor{keyword}{true},
+114                                                          No\_Rotation, \textcolor{keyword}{false}, 
+115                                                          Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"})); 
+116         asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3(15.0f ,2.00f, 30.0f),
+117                                                          glm::vec3(25.0f ,2.00f, 25.0f), \textcolor{keyword}{false},
+118                                                          No\_Rotation, \textcolor{keyword}{false},
+119                                                          Giant\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Ground"}));
+120         asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3(9.0f ,2.00f, 30.0f),
+121                                                          glm::vec3(25.0f ,2.00f, 25.0f), \textcolor{keyword}{false},
+122                                                          No\_Rotation, \textcolor{keyword}{false},
+123                                                          Giant\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Ground"}));
+124    \textcolor{comment}{//AddAsset Layout }
+125    \textcolor{comment}{//This adds the asset to the game asset manager which draws it to the screen}
+126    \textcolor{comment}{//}
+127    \textcolor{comment}{//  asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, Translate}
+128    \textcolor{comment}{//                                                 AnimateTo , Bool,}
+129    \textcolor{comment}{//                                                 Rotation, Bool,}
+130    \textcolor{comment}{//                                                 Scale, Bool));  }
+132 \textcolor{comment}{}
+133   \textcolor{keywordflow}{for}( pointX=0; pointX<worldX; pointX++)\{
+134    \textcolor{keywordflow}{for} (pointY=0; pointY<worldY; pointY++)\{
+135     \textcolor{keywordflow}{if}( world[pointY][pointX] == 1 || world[pointY][pointX] == 2 || world[pointY][pointX] == 3 || world[
       pointY][pointX] == 4 || world[pointY][pointX] == 5 || world[pointY][pointX] == 6 || world[pointY][pointX] == 7)
       \{          
-143             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+140             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-144                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-145                                                              No\_Rotation, \textcolor{keyword}{false},
-146                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-147             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-2.00f,(pointZ*
+141                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+142                                                              No\_Rotation, \textcolor{keyword}{false},
+143                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+144             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-2.00f,(pointZ*
       pointY)),
-148                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-149                                                              No\_Rotation, \textcolor{keyword}{false},
-150                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-151    \}
-152    \textcolor{keywordflow}{if}( world[pointY][pointX] == 2)\{
-158             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+145                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+146                                                              No\_Rotation, \textcolor{keyword}{false},
+147                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+148    \}
+149    \textcolor{keywordflow}{if}( world[pointY][pointX] == 2)\{
+155             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-159                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-160                                                              No\_Rotation, \textcolor{keyword}{false},
-161                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-162             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+156                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+157                                                              No\_Rotation, \textcolor{keyword}{false},
+158                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+159             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-163                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-164                                                              No\_Rotation, \textcolor{keyword}{false},
-165                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-166             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY))
+160                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+161                                                              No\_Rotation, \textcolor{keyword}{false},
+162                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+163             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY))
       , 
-167                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-168                                                            No\_Rotation, \textcolor{keyword}{false},
-169                                                            Double\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Cube"}));
-170             asset\_manager->AddAsset(make\_shared<DiamondAsset>(Spawn, glm::vec3((pointX),1.0f,(pointZ*pointY
+164                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+165                                                            No\_Rotation, \textcolor{keyword}{false},
+166                                                            Double\_Size, \textcolor{keyword}{true}, \textcolor{stringliteral}{"Cube"}));
+167             asset\_manager->AddAsset(make\_shared<DiamondAsset>(Spawn, glm::vec3((pointX),1.0f,(pointZ*pointY
       )), 
-171                                                               glm::vec3(12.0f,15.0f,12.0f), \textcolor{keyword}{true},
-172                                                               Normal\_Rotation, \textcolor{keyword}{true},
-173                                                               Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Diamond"}));
-174    \}
-175    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 3)\{
-181             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+168                                                               glm::vec3(12.0f,15.0f,12.0f), \textcolor{keyword}{true},
+169                                                               Normal\_Rotation, \textcolor{keyword}{true},
+170                                                               Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Diamond"}));
+171    \}
+172    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 3)\{
+178             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-182                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-183                                                              No\_Rotation, \textcolor{keyword}{false},
-184                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-185             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+179                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+180                                                              No\_Rotation, \textcolor{keyword}{false},
+181                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+182             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-186                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-187                                                              No\_Rotation, \textcolor{keyword}{false},
-188                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-189             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY))
+183                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+184                                                              No\_Rotation, \textcolor{keyword}{false},
+185                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+186             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY))
       , 
-190                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-191                                                            No\_Rotation, \textcolor{keyword}{false},
-192                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-193             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY))
+187                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+188                                                            No\_Rotation, \textcolor{keyword}{false},
+189                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+190             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY))
       , 
-194                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-195                                                            No\_Rotation, \textcolor{keyword}{false},
-196                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-197             asset\_manager->AddAsset(make\_shared<DiamondAsset>(Spawn, glm::vec3((pointX),2.0f,(pointZ*pointY
+191                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+192                                                            No\_Rotation, \textcolor{keyword}{false},
+193                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+194             asset\_manager->AddAsset(make\_shared<DiamondAsset>(Spawn, glm::vec3((pointX),2.0f,(pointZ*pointY
       )), 
-198                                                              glm::vec3((pointX),2.0f,(pointZ*pointY)), \textcolor{keyword}{
+195                                                              glm::vec3((pointX),2.0f,(pointZ*pointY)), \textcolor{keyword}{
       false},
-199                                                              Normal\_Rotation, \textcolor{keyword}{true},
-200                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Diamond"}));
-201 
-202    \}
-203    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 4)\{
-210             \textcolor{comment}{// Tree Ground}
-211             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+196                                                              Normal\_Rotation, \textcolor{keyword}{true},
+197                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Diamond"}));
+198 
+199    \}
+200    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 4)\{
+207             \textcolor{comment}{// Tree Ground}
+208             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-212                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-213                                                              No\_Rotation, \textcolor{keyword}{false},
-214                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-215             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+209                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+210                                                              No\_Rotation, \textcolor{keyword}{false},
+211                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+212             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-216                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-217                                                              No\_Rotation, \textcolor{keyword}{false},
-218                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-219             \textcolor{comment}{// Tree Trunk}
-220             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY))
+213                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+214                                                              No\_Rotation, \textcolor{keyword}{false},
+215                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+216             \textcolor{comment}{// Tree Trunk}
+217             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),0.00f,(pointZ*pointY))
       , 
-221                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-222                                                            No\_Rotation, \textcolor{keyword}{false},
-223                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-224             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY))
+218                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+219                                                            No\_Rotation, \textcolor{keyword}{false},
+220                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+221             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),1.00f,(pointZ*pointY))
       , 
-225                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-226                                                            No\_Rotation, \textcolor{keyword}{false},
-227                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));        
-228             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),2.00f,(pointZ*pointY))
+222                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+223                                                            No\_Rotation, \textcolor{keyword}{false},
+224                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));        
+225             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),2.00f,(pointZ*pointY))
       , 
-229                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-230                                                            No\_Rotation, \textcolor{keyword}{false},
-231                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-232             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),3.00f,(pointZ*pointY))
+226                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+227                                                            No\_Rotation, \textcolor{keyword}{false},
+228                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+229             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),3.00f,(pointZ*pointY))
       , 
-233                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-234                                                            No\_Rotation, \textcolor{keyword}{false},
-235                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-236             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),4.00f,(pointZ*pointY))
+230                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+231                                                            No\_Rotation, \textcolor{keyword}{false},
+232                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+233             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX),4.00f,(pointZ*pointY))
       , 
-237                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-238                                                            No\_Rotation, \textcolor{keyword}{false},
-239                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-240             \textcolor{comment}{// Tree Leaves - Bottom Layer}
-241             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
+234                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+235                                                            No\_Rotation, \textcolor{keyword}{false},
+236                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+237             \textcolor{comment}{// Tree Leaves - Bottom Layer}
+238             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
       pointY-1)),
-242                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-243                                                              No\_Rotation, \textcolor{keyword}{false},
-244                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-245             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
+239                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+240                                                              No\_Rotation, \textcolor{keyword}{false},
+241                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+242             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
       pointY-1)),
-246                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-247                                                              No\_Rotation, \textcolor{keyword}{false},
-248                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-249             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*
+243                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+244                                                              No\_Rotation, \textcolor{keyword}{false},
+245                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+246             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*
       pointY-1)),
-250                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-251                                                              No\_Rotation, \textcolor{keyword}{false},
-252                                                              Normal\_Size, \textcolor{keyword}{false},\textcolor{stringliteral}{"Leaves"}));
-253             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*
+247                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+248                                                              No\_Rotation, \textcolor{keyword}{false},
+249                                                              Normal\_Size, \textcolor{keyword}{false},\textcolor{stringliteral}{"Leaves"}));
+250             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*
       pointY-1)),
-254                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-255                                                              No\_Rotation, \textcolor{keyword}{false},
-256                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-257             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
+251                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+252                                                              No\_Rotation, \textcolor{keyword}{false},
+253                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+254             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
       pointY-1)),
-258                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-259                                                              No\_Rotation, \textcolor{keyword}{false},
-260                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-261 
-262             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
+255                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+256                                                              No\_Rotation, \textcolor{keyword}{false},
+257                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+258 
+259             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
       pointY-2)),
-263                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-264                                                              No\_Rotation, \textcolor{keyword}{false},
-265                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-266             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
+260                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+261                                                              No\_Rotation, \textcolor{keyword}{false},
+262                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+263             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
       pointY-2)),
-267                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-268                                                              No\_Rotation, \textcolor{keyword}{false},
-269                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-270             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*
+264                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+265                                                              No\_Rotation, \textcolor{keyword}{false},
+266                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+267             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*
       pointY-2)),
-271                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-272                                                              No\_Rotation, \textcolor{keyword}{false},
-273                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-274             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*
+268                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+269                                                              No\_Rotation, \textcolor{keyword}{false},
+270                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+271             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*
       pointY-2)),
-275                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-276                                                              No\_Rotation, \textcolor{keyword}{false},
-277                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-278             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
+272                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+273                                                              No\_Rotation, \textcolor{keyword}{false},
+274                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+275             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
       pointY-2)),
-279                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-280                                                              No\_Rotation, \textcolor{keyword}{false},
-281                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-282 
-283             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
+276                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+277                                                              No\_Rotation, \textcolor{keyword}{false},
+278                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+279 
+280             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
       pointY)),
-284                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-285                                                              No\_Rotation, \textcolor{keyword}{false},
-286                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-287             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
+281                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+282                                                              No\_Rotation, \textcolor{keyword}{false},
+283                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+284             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
       pointY)),
-288                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-289                                                              No\_Rotation, \textcolor{keyword}{false},
-290                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-291             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*
+285                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+286                                                              No\_Rotation, \textcolor{keyword}{false},
+287                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+288             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*
       pointY)),
-292                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-293                                                              No\_Rotation, \textcolor{keyword}{false},
-294                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-295             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
+289                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+290                                                              No\_Rotation, \textcolor{keyword}{false},
+291                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+292             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
       pointY)),
-296                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-297                                                              No\_Rotation, \textcolor{keyword}{false},
-298                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"})); 
-299 
-300             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
+293                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+294                                                              No\_Rotation, \textcolor{keyword}{false},
+295                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"})); 
+296 
+297             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
       pointY+1)),
-301                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-302                                                              No\_Rotation, \textcolor{keyword}{false},
-303                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-304             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
+298                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+299                                                              No\_Rotation, \textcolor{keyword}{false},
+300                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+301             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
       pointY+1)),
-305                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-306                                                              No\_Rotation, \textcolor{keyword}{false},
-307                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-308             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*
+302                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+303                                                              No\_Rotation, \textcolor{keyword}{false},
+304                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+305             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*
       pointY+1)),
-309                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-310                                                              No\_Rotation, \textcolor{keyword}{false},
-311                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-312             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*
+306                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+307                                                              No\_Rotation, \textcolor{keyword}{false},
+308                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+309             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),3.0f,(pointZ*
       pointY+1)),
-313                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-314                                                              No\_Rotation, \textcolor{keyword}{false},
-315                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-316             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
+310                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+311                                                              No\_Rotation, \textcolor{keyword}{false},
+312                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+313             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
       pointY+1)),
-317                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-318                                                              No\_Rotation, \textcolor{keyword}{false},
-319                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-320  
-321             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
+314                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+315                                                              No\_Rotation, \textcolor{keyword}{false},
+316                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+317  
+318             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),3.0f,(pointZ*
       pointY+2)),
-322                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-323                                                              No\_Rotation, \textcolor{keyword}{false},
-324                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-325             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
+319                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+320                                                              No\_Rotation, \textcolor{keyword}{false},
+321                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+322             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),3.0f,(pointZ*
       pointY+2)),
-326                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-327                                                              No\_Rotation, \textcolor{keyword}{false},
-328                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-329             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*
+323                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+324                                                              No\_Rotation, \textcolor{keyword}{false},
+325                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+326             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,3.0f,(pointZ*
       pointY+2)),
-330                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-331                                                              No\_Rotation, \textcolor{keyword}{false},
-332                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-333             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn,glm::vec3((pointX-1),3.0f,(pointZ*pointY
+327                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+328                                                              No\_Rotation, \textcolor{keyword}{false},
+329                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+330             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn,glm::vec3((pointX-1),3.0f,(pointZ*pointY
       +2)),                                                       
-334                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-335                                                              No\_Rotation, \textcolor{keyword}{false},
-336                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-337             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
+331                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+332                                                              No\_Rotation, \textcolor{keyword}{false},
+333                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+334             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),3.0f,(pointZ*
       pointY+2)),
-338                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-339                                                              No\_Rotation, \textcolor{keyword}{false},
-340                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-341             \textcolor{comment}{// Tree Leaves - Second Layer}
-342             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
+335                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+336                                                              No\_Rotation, \textcolor{keyword}{false},
+337                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+338             \textcolor{comment}{// Tree Leaves - Second Layer}
+339             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
       pointY-1)),
-343                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-344                                                              No\_Rotation, \textcolor{keyword}{false},
-345                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-346             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
+340                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+341                                                              No\_Rotation, \textcolor{keyword}{false},
+342                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+343             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
       pointY-1)),
-347                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-348                                                              No\_Rotation, \textcolor{keyword}{false},
-349                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-350             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,4.0f,(pointZ*
+344                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+345                                                              No\_Rotation, \textcolor{keyword}{false},
+346                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+347             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,4.0f,(pointZ*
       pointY-1)),
-351                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-352                                                              No\_Rotation, \textcolor{keyword}{false},
-353                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-354             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
+348                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+349                                                              No\_Rotation, \textcolor{keyword}{false},
+350                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+351             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
       pointY-1)),
-355                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-356                                                              No\_Rotation, \textcolor{keyword}{false},
-357                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-358             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
+352                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+353                                                              No\_Rotation, \textcolor{keyword}{false},
+354                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+355             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
       pointY-1)),
-359                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-360                                                              No\_Rotation, \textcolor{keyword}{false},
-361                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-362  
-363             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
+356                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+357                                                              No\_Rotation, \textcolor{keyword}{false},
+358                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+359  
+360             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
       pointY-2)),
-364                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-365                                                              No\_Rotation, \textcolor{keyword}{false},
-366                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-367             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
+361                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+362                                                              No\_Rotation, \textcolor{keyword}{false},
+363                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+364             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
       pointY-2)),
-368                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-369                                                              No\_Rotation, \textcolor{keyword}{false},
-370                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-371             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,4.0f,(pointZ*
+365                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+366                                                              No\_Rotation, \textcolor{keyword}{false},
+367                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+368             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,4.0f,(pointZ*
       pointY-2)),
-372                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-373                                                              No\_Rotation, \textcolor{keyword}{false},
-374                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-375             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
+369                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+370                                                              No\_Rotation, \textcolor{keyword}{false},
+371                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+372             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
       pointY-2)),
-376                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-377                                                              No\_Rotation, \textcolor{keyword}{false},
-378                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-379             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
+373                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+374                                                              No\_Rotation, \textcolor{keyword}{false},
+375                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+376             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
       pointY-2)),
-380                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-381                                                              No\_Rotation, \textcolor{keyword}{false},
-382                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-383  
-384             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
+377                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+378                                                              No\_Rotation, \textcolor{keyword}{false},
+379                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+380  
+381             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
       pointY)),
-385                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-386                                                              No\_Rotation, \textcolor{keyword}{false},
-387                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-388             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
+382                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+383                                                              No\_Rotation, \textcolor{keyword}{false},
+384                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+385             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
       pointY)),
-389                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-390                                                              No\_Rotation, \textcolor{keyword}{false},
-391                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-392             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
+386                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+387                                                              No\_Rotation, \textcolor{keyword}{false},
+388                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+389             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
       pointY)),
-393                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-394                                                              No\_Rotation, \textcolor{keyword}{false},
-395                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-396             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
+390                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+391                                                              No\_Rotation, \textcolor{keyword}{false},
+392                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+393             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
       pointY)),
-397                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-398                                                              No\_Rotation, \textcolor{keyword}{false},
-399                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-400  
-401             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
+394                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+395                                                              No\_Rotation, \textcolor{keyword}{false},
+396                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+397  
+398             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
       pointY+1)),
-402                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-403                                                              No\_Rotation, \textcolor{keyword}{false},
-404                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-405             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
+399                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+400                                                              No\_Rotation, \textcolor{keyword}{false},
+401                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+402             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
       pointY+1)),
-406                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-407                                                              No\_Rotation, \textcolor{keyword}{false},
-408                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-409             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,4.0f,(pointZ*
+403                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+404                                                              No\_Rotation, \textcolor{keyword}{false},
+405                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+406             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,4.0f,(pointZ*
       pointY+1)),
-410                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-411                                                              No\_Rotation, \textcolor{keyword}{false},
-412                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-413             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
+407                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+408                                                              No\_Rotation, \textcolor{keyword}{false},
+409                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+410             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
       pointY+1)),
-414                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-415                                                              No\_Rotation, \textcolor{keyword}{false},
-416                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-417             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
+411                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+412                                                              No\_Rotation, \textcolor{keyword}{false},
+413                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+414             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
       pointY+1)),
-418                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-419                                                              No\_Rotation, \textcolor{keyword}{false},
-420                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-421 
-422             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
+415                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+416                                                              No\_Rotation, \textcolor{keyword}{false},
+417                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+418 
+419             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+2),4.0f,(pointZ*
       pointY+2)),
-423                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-424                                                              No\_Rotation, \textcolor{keyword}{false},
-425                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-426             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
+420                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+421                                                              No\_Rotation, \textcolor{keyword}{false},
+422                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+423             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),4.0f,(pointZ*
       pointY+2)),
-427                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-428                                                              No\_Rotation, \textcolor{keyword}{false},
-429                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-430             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX),4.0f,(pointZ*pointY+
+424                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+425                                                              No\_Rotation, \textcolor{keyword}{false},
+426                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+427             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX),4.0f,(pointZ*pointY+
       2)),  
-431                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-432                                                              No\_Rotation, \textcolor{keyword}{false},
-433                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-434             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
+428                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+429                                                              No\_Rotation, \textcolor{keyword}{false},
+430                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+431             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),4.0f,(pointZ*
       pointY+2)),
-435                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-436                                                              No\_Rotation, \textcolor{keyword}{false},
-437                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-438             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
+432                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+433                                                              No\_Rotation, \textcolor{keyword}{false},
+434                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+435             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-2),4.0f,(pointZ*
       pointY+2)),
-439                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-440                                                              No\_Rotation, \textcolor{keyword}{false},
-441                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-442             \textcolor{comment}{// Tree Leaves - Third Layer}
-443             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),5.0f,(pointZ*
+436                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+437                                                              No\_Rotation, \textcolor{keyword}{false},
+438                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+439             \textcolor{comment}{// Tree Leaves - Third Layer}
+440             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),5.0f,(pointZ*
       pointY-1)),
-444                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-445                                                              No\_Rotation, \textcolor{keyword}{false},
-446                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-447             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,5.0f,(pointZ*
+441                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+442                                                              No\_Rotation, \textcolor{keyword}{false},
+443                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+444             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,5.0f,(pointZ*
       pointY-1)),
-448                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-449                                                              No\_Rotation, \textcolor{keyword}{false},
-450                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-451             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),5.0f,(pointZ*
+445                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+446                                                              No\_Rotation, \textcolor{keyword}{false},
+447                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+448             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),5.0f,(pointZ*
       pointY-1)),
-452                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-453                                                              No\_Rotation, \textcolor{keyword}{false},
-454                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"})); 
-455 
-456             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),5.0f,(pointZ*
+449                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+450                                                              No\_Rotation, \textcolor{keyword}{false},
+451                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"})); 
+452 
+453             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),5.0f,(pointZ*
       pointY)),
-457                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-458                                                              No\_Rotation, \textcolor{keyword}{false},
-459                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-460             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,5.0f,(pointZ*
+454                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+455                                                              No\_Rotation, \textcolor{keyword}{false},
+456                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+457             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,5.0f,(pointZ*
       pointY)),
-461                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-462                                                              No\_Rotation, \textcolor{keyword}{false},
-463                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-464             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),5.0f,(pointZ*
+458                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+459                                                              No\_Rotation, \textcolor{keyword}{false},
+460                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+461             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),5.0f,(pointZ*
       pointY)),
-465                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-466                                                              No\_Rotation, \textcolor{keyword}{false},
-467                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-468  
-469             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),5.0f,(pointZ*
+462                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+463                                                              No\_Rotation, \textcolor{keyword}{false},
+464                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+465  
+466             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),5.0f,(pointZ*
       pointY+1)),
-470                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-471                                                              No\_Rotation, \textcolor{keyword}{false},
-472                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-473             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,5.0f,(pointZ*
+467                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+468                                                              No\_Rotation, \textcolor{keyword}{false},
+469                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+470             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,5.0f,(pointZ*
       pointY+1)),
-474                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-475                                                              No\_Rotation, \textcolor{keyword}{false},
-476                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-477             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),5.0f,(pointZ*
+471                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+472                                                              No\_Rotation, \textcolor{keyword}{false},
+473                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+474             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),5.0f,(pointZ*
       pointY+1)),
-478                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-479                                                              No\_Rotation, \textcolor{keyword}{false},
-480                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-481 
-482             \textcolor{comment}{// Tree Leaves - Fourth Layer}
-483             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,6.0f,(pointZ*
+475                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+476                                                              No\_Rotation, \textcolor{keyword}{false},
+477                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+478 
+479             \textcolor{comment}{// Tree Leaves - Fourth Layer}
+480             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,6.0f,(pointZ*
       pointY-1)),
-484                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-485                                                              No\_Rotation, \textcolor{keyword}{false},
-486                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-487 
-488             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),6.0f,(pointZ*
+481                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+482                                                              No\_Rotation, \textcolor{keyword}{false},
+483                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+484 
+485             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX+1),6.0f,(pointZ*
       pointY)),
-489                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-490                                                              No\_Rotation, \textcolor{keyword}{false},
-491                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-492             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,6.0f,(pointZ*
+486                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+487                                                              No\_Rotation, \textcolor{keyword}{false},
+488                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+489             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,6.0f,(pointZ*
       pointY)),
-493                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-494                                                              No\_Rotation, \textcolor{keyword}{false},
-495                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-496             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),6.0f,(pointZ*
+490                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+491                                                              No\_Rotation, \textcolor{keyword}{false},
+492                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+493             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX-1),6.0f,(pointZ*
       pointY)),
-497                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-498                                                              No\_Rotation, \textcolor{keyword}{false},
-499                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-500             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,6.0f,(pointZ*
+494                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+495                                                              No\_Rotation, \textcolor{keyword}{false},
+496                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+497             asset\_manager->AddAsset(make\_shared<LeavesAsset>(Spawn, glm::vec3((pointX)  ,6.0f,(pointZ*
       pointY+1)),
-501                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-502                                                              No\_Rotation, \textcolor{keyword}{false},
-503                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
-504    \}
-505     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 5)\{
-511             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+498                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+499                                                              No\_Rotation, \textcolor{keyword}{false},
+500                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Leaves"}));
+501    \}
+502     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 5)\{
+508             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-512                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-513                                                              No\_Rotation, \textcolor{keyword}{false},
-514                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-515             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+509                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+510                                                              No\_Rotation, \textcolor{keyword}{false},
+511                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+512             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-516                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-517                                                              No\_Rotation, \textcolor{keyword}{false},
-518                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-519             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX)  ,0.00f,(pointZ*pointY
+513                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+514                                                              No\_Rotation, \textcolor{keyword}{false},
+515                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+516             asset\_manager->AddAsset(make\_shared<CubeAsset>(Spawn, glm::vec3((pointX)  ,0.00f,(pointZ*pointY
       )), 
-520                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-521                                                            No\_Rotation, \textcolor{keyword}{false},
-522                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
-523             asset\_manager->AddAsset(make\_shared<PyramidAsset>(Spawn, glm::vec3((pointX),0.50f,(pointZ*
+517                                                            glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+518                                                            No\_Rotation, \textcolor{keyword}{false},
+519                                                            Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Cube"}));
+520             asset\_manager->AddAsset(make\_shared<PyramidAsset>(Spawn, glm::vec3((pointX),0.50f,(pointZ*
       pointY)),
-524                                                               glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-525                                                               No\_Rotation, \textcolor{keyword}{false},
-526                                                               Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Pyramid"}));
-527    \}
-528     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 6)\{
-534             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+521                                                               glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+522                                                               No\_Rotation, \textcolor{keyword}{false},
+523                                                               Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Pyramid"}));
+524    \}
+525     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 6)\{
+531             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-535                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-536                                                              No\_Rotation, \textcolor{keyword}{false},
-537                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-538             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+532                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+533                                                              No\_Rotation, \textcolor{keyword}{false},
+534                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+535             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-539                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-540                                                              No\_Rotation, \textcolor{keyword}{false},
-541                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-542             asset\_manager->AddAsset(make\_shared<PyramidAsset>(Spawn, glm::vec3((pointX),-0.50f,(pointZ*
+536                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+537                                                              No\_Rotation, \textcolor{keyword}{false},
+538                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+539             asset\_manager->AddAsset(make\_shared<PyramidAsset>(Spawn, glm::vec3((pointX),-0.50f,(pointZ*
       pointY)),
-543                                                               glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-544                                                               No\_Rotation, \textcolor{keyword}{false},
-545                                                               Double\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Pyramid"}));
-546    \}
-547     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 7)\{
-554             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+540                                                               glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+541                                                               No\_Rotation, \textcolor{keyword}{false},
+542                                                               Double\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Pyramid"}));
+543    \}
+544     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( world[pointY][pointX] == 7)\{
+551             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-555                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-556                                                              No\_Rotation, \textcolor{keyword}{false},
-557                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-558             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
+552                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+553                                                              No\_Rotation, \textcolor{keyword}{false},
+554                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+555             asset\_manager->AddAsset(make\_shared<GroundAsset>(Spawn, glm::vec3((pointX),-1.00f,(pointZ*
       pointY)),
-559                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-560                                                              No\_Rotation, \textcolor{keyword}{false},
-561                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
-562             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn, glm::vec3((pointX-
+556                                                              glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+557                                                              No\_Rotation, \textcolor{keyword}{false},
+558                                                              Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Ground"}));
+559             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn, glm::vec3((pointX-
       \hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.80f),(pointZ*pointY-\hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand()%100))), 
-563                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-564                                                             No\_Rotation, \textcolor{keyword}{false},
-565                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));            
-566             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn, glm::vec3((pointX-
+560                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+561                                                             No\_Rotation, \textcolor{keyword}{false},
+562                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));            
+563             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn, glm::vec3((pointX-
       \hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.70f),(pointZ*pointY-\hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))), 
-567                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-568                                                             No\_Rotation, \textcolor{keyword}{false},
-569                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));
-570             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn, glm::vec3((pointX-
+564                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+565                                                             No\_Rotation, \textcolor{keyword}{false},
+566                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));
+567             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn, glm::vec3((pointX-
       \hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.75f),(pointZ*pointY-\hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))), 
-571                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-572                                                             No\_Rotation, \textcolor{keyword}{false},
-573                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));
-574             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn,
-575                                                             glm::vec3((pointX-
+568                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+569                                                             No\_Rotation, \textcolor{keyword}{false},
+570                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));
+571             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn,
+572                                                             glm::vec3((pointX-
       \hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.60f),(pointZ*pointY-\hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))), 
-576                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-577                                                             No\_Rotation, \textcolor{keyword}{false},
-578                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));
-579             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn,
-580                                                             glm::vec3((pointX-
+573                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+574                                                             No\_Rotation, \textcolor{keyword}{false},
+575                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));
+576             asset\_manager->AddAsset(make\_shared<GrassAsset>(Spawn,
+577                                                             glm::vec3((pointX-
       \hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100)),(-0.50f),(pointZ*pointY-\hyperlink{class_game_world_a56652cc9880b3ba1be61395066c863c3}{Random}/(rand() % 100))), 
-581                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
-582                                                             No\_Rotation, \textcolor{keyword}{false},
-583                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));
-584    \}
-585   \}
-586  \}
-587 \}
+578                                                             glm::vec3(0.0f,0.0f,0.0f), \textcolor{keyword}{false},
+579                                                             No\_Rotation, \textcolor{keyword}{false},
+580                                                             Normal\_Size, \textcolor{keyword}{false}, \textcolor{stringliteral}{"Grass"}));
+581    \}
+582   \}
+583  \}
+584 \}
 \end{DoxyCode}
 
 
@@ -730,9 +727,9 @@ Calling \hyperlink{class_game_world_a275418607d8286979b276f165ad5876b}{Draw()}. 
 
 Drawing the world. Draws the assets to the world by calling \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} 
 \begin{DoxyCode}
-593                      \{
-594         asset\_manager->Draw();
-595 \}
+590                      \{
+591         asset\_manager->Draw();
+592 \}
 \end{DoxyCode}
 \hypertarget{class_game_world_a9fa019e8e1d4bbc8e8c101352a73b17a}{}\index{Game\+World@{Game\+World}!Update\+Camera\+Position@{Update\+Camera\+Position}}
 \index{Update\+Camera\+Position@{Update\+Camera\+Position}!Game\+World@{Game\+World}}
@@ -745,9 +742,9 @@ Drawing the world. Draws the assets to the world by calling \hyperlink{class_gam
 )}\label{class_game_world_a9fa019e8e1d4bbc8e8c101352a73b17a}
 Update \hyperlink{class_camera}{Camera} Position Sends the current Keyboard input and Mouse X and Y Position to the \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} Class 
 \begin{DoxyCode}
-602                                                                              \{ 
-603         asset\_manager->UpdateCameraPosition(control, Mouse\_X, Mouse\_Y);
-604 \}
+599                                                                              \{ 
+600         asset\_manager->UpdateCameraPosition(control, Mouse\_X, Mouse\_Y);
+601 \}
 \end{DoxyCode}
 
 

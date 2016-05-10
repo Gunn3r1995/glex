@@ -115,95 +115,96 @@ $(document).ready(function(){initNavTree('_game_world_8h_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;glm/gtx/string_cast.hpp&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifdef __APPLE__</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;OpenGL/gl.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;GL/gl.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_game_asset_manager_8h.html">GameAssetManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_game_asset_8h.html">GameAsset.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cube_asset_8h.html">CubeAsset.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_diamond_asset_8h.html">DiamondAsset.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ground_asset_8h.html">GroundAsset.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_leaves_asset_8h.html">LeavesAsset.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_pyramid_asset_8h.html">PyramidAsset.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_grass_asset_8h.html">GrassAsset.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifdef __APPLE__</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;OpenGL/gl.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;GL/gl.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_game_asset_manager_8h.html">GameAssetManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_game_asset_8h.html">GameAsset.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cube_asset_8h.html">CubeAsset.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_diamond_asset_8h.html">DiamondAsset.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ground_asset_8h.html">GroundAsset.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_leaves_asset_8h.html">LeavesAsset.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_pyramid_asset_8h.html">PyramidAsset.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_grass_asset_8h.html">GrassAsset.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_game_world.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_world.html">GameWorld</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="class_game_world.html">GameWorld</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_game_world.html#a54ccf4cf03172ab8779e9c326c8846ed">   41</a></span>&#160;                <span class="keywordtype">double</span> MinimumNumber = 0.50;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_game_world.html#a1cddcf233625a98581eaeb9fd7c8c574">   42</a></span>&#160;                <span class="keywordtype">double</span> MaximumNumber = 1.00;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_game_world.html#a56652cc9880b3ba1be61395066c863c3">   43</a></span>&#160;                <span class="keywordtype">double</span> Random = (double)rand() / RAND_MAX; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;             </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordtype">void</span> Draw();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;               <span class="comment">// void Camera_Control(char key);</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_game_world.html#a9bf4eb977e6ab9299aaef1345c4fa4dd">   62</a></span>&#160;                GLfloat Mouse_Sensitivity =  0.05f;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_game_world.html#ae8ab2ac372729cec44ea316f6bdf45ca">   63</a></span>&#160;                GLfloat Player_Speed = 1.0;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_game_world.html#a7f4911dda9b3b4e4eb03ece87e16cd96">   65</a></span>&#160;                GLfloat Camera_Horizontal = 0.0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_game_world.html#a26658e739c4d267b1be35ed820089931">   66</a></span>&#160;                GLfloat Camera_Vertical = 0.0;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_game_world.html#ad07b1f650edb08ddb05e74a22588bda0">   68</a></span>&#160;                GLfloat Camera_X_Position = 0;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_game_world.html#ae3e7cab30494ff5a8e91dfa7406deb16">   69</a></span>&#160;                GLfloat Camera_Y_Position = 2;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_game_world.html#ad993ea24fbacfc98410894078e916927">   70</a></span>&#160;                GLfloat Camera_Z_Position = 0;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">   72</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">Old_Camera_X_Position</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">   73</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">Old_Camera_Y_Position</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">   74</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">Old_Camera_Z_Position</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_game_world.html#ad80e597474ea4c52a583e81788187571">   76</a></span>&#160;                glm::vec3 Camera_Position = glm::vec3(Camera_X_Position, Camera_Y_Position, Camera_Z_Position);</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_game_world.html#ade0aa1baaba6ac54674638cef313c0bb">   77</a></span>&#160;                glm::vec3 Old_Camera_Position = Camera_Position;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">   79</a></span>&#160;                glm::vec3 <a class="code" href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">Movement_Z</a>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">   81</a></span>&#160;                glm::vec3 <a class="code" href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">Movement_X</a>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordtype">void</span> UpdateCameraPosition(<a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9">Control</a> control, <span class="keywordtype">int</span> Mouse_X, <span class="keywordtype">int</span> Mouse_Y);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                glm::vec3 Spawn = glm::vec3(0.0f,0.0f,0.0f);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                glm::vec3 No_Rotation = glm::vec3(0.0f,0.0f,0.0f);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                glm::vec3 Normal_Rotation = glm::vec3(0.2f,0.2f,0.2f);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                glm::vec3 Fast_Rotation = glm::vec3(1.0f,1.0f,1.0f);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                glm::vec3 Normal_Size = glm::vec3(1.0f,1.0f,1.0f);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                glm::vec3 Double_Size = glm::vec3(2.0f,2.0f,2.0f); </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                glm::vec3 Giant_Size = glm::vec3(10.0f,10.0f,10.0f);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                std::shared_ptr&lt;GameAssetManager&gt; asset_manager;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                std::shared_ptr&lt;GameAsset&gt; Game_Asset;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="comment">//std::shared_ptr&lt;BoundingBox&gt; Bounding_Box;</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif // GAMEWORLD_H</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_game_world.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_world.html">GameWorld</a> {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="class_game_world.html">GameWorld</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_game_world.html#a54ccf4cf03172ab8779e9c326c8846ed">   42</a></span>&#160;                <span class="keywordtype">double</span> MinimumNumber = 0.50;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_game_world.html#a1cddcf233625a98581eaeb9fd7c8c574">   43</a></span>&#160;                <span class="keywordtype">double</span> MaximumNumber = 1.00;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_game_world.html#a56652cc9880b3ba1be61395066c863c3">   44</a></span>&#160;                <span class="keywordtype">double</span> Random = (double)rand() / RAND_MAX; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;             </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordtype">void</span> Draw();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;               <span class="comment">// void Camera_Control(char key);</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_game_world.html#a9bf4eb977e6ab9299aaef1345c4fa4dd">   63</a></span>&#160;                GLfloat Mouse_Sensitivity =  0.05f;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_game_world.html#ae8ab2ac372729cec44ea316f6bdf45ca">   64</a></span>&#160;                GLfloat Player_Speed = 1.0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_game_world.html#a7f4911dda9b3b4e4eb03ece87e16cd96">   66</a></span>&#160;                GLfloat Camera_Horizontal = 0.0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_game_world.html#a26658e739c4d267b1be35ed820089931">   67</a></span>&#160;                GLfloat Camera_Vertical = 0.0;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_game_world.html#ad07b1f650edb08ddb05e74a22588bda0">   69</a></span>&#160;                GLfloat Camera_X_Position = 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_game_world.html#ae3e7cab30494ff5a8e91dfa7406deb16">   70</a></span>&#160;                GLfloat Camera_Y_Position = 2;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_game_world.html#ad993ea24fbacfc98410894078e916927">   71</a></span>&#160;                GLfloat Camera_Z_Position = 0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">   73</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">Old_Camera_X_Position</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">   74</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">Old_Camera_Y_Position</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">   75</a></span>&#160;                GLfloat <a class="code" href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">Old_Camera_Z_Position</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_game_world.html#ad80e597474ea4c52a583e81788187571">   77</a></span>&#160;                glm::vec3 Camera_Position = glm::vec3(Camera_X_Position, Camera_Y_Position, Camera_Z_Position);</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_game_world.html#ade0aa1baaba6ac54674638cef313c0bb">   78</a></span>&#160;                glm::vec3 Old_Camera_Position = Camera_Position;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">   80</a></span>&#160;                glm::vec3 <a class="code" href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">Movement_Z</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">   82</a></span>&#160;                glm::vec3 <a class="code" href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">Movement_X</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordtype">void</span> UpdateCameraPosition(<a class="code" href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9">Control</a> control, <span class="keywordtype">int</span> Mouse_X, <span class="keywordtype">int</span> Mouse_Y);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                glm::vec3 Spawn = glm::vec3(0.0f,0.0f,0.0f);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                glm::vec3 No_Rotation = glm::vec3(0.0f,0.0f,0.0f);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                glm::vec3 Normal_Rotation = glm::vec3(0.2f,0.2f,0.2f);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                glm::vec3 Fast_Rotation = glm::vec3(1.0f,1.0f,1.0f);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                glm::vec3 Normal_Size = glm::vec3(1.0f,1.0f,1.0f);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                glm::vec3 Double_Size = glm::vec3(2.0f,2.0f,2.0f); </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                glm::vec3 Giant_Size = glm::vec3(10.0f,10.0f,10.0f);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                std::shared_ptr&lt;GameAssetManager&gt; asset_manager;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                std::shared_ptr&lt;GameAsset&gt; Game_Asset;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="comment">//std::shared_ptr&lt;BoundingBox&gt; Bounding_Box;</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;};</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif // GAMEWORLD_H</span></div>
 <div class="ttc" id="_diamond_asset_8h_html"><div class="ttname"><a href="_diamond_asset_8h.html">DiamondAsset.h</a></div></div>
 <div class="ttc" id="_grass_asset_8h_html"><div class="ttname"><a href="_grass_asset_8h.html">GrassAsset.h</a></div></div>
 <div class="ttc" id="_cube_asset_8h_html"><div class="ttname"><a href="_cube_asset_8h.html">CubeAsset.h</a></div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="class_game_world_html_a734c19bd480aef2a7af005e170d3d523"><div class="ttname"><a href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">GameWorld::Old_Camera_X_Position</a></div><div class="ttdeci">GLfloat Old_Camera_X_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:72</div></div>
-<div class="ttc" id="class_game_world_html_a8dd30ba92e7fa9b9b05075e31d1e7dd8"><div class="ttname"><a href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">GameWorld::Movement_Z</a></div><div class="ttdeci">glm::vec3 Movement_Z</div><div class="ttdef"><b>Definition:</b> GameWorld.h:79</div></div>
+<div class="ttc" id="class_game_world_html_a734c19bd480aef2a7af005e170d3d523"><div class="ttname"><a href="class_game_world.html#a734c19bd480aef2a7af005e170d3d523">GameWorld::Old_Camera_X_Position</a></div><div class="ttdeci">GLfloat Old_Camera_X_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:73</div></div>
+<div class="ttc" id="class_game_world_html_a8dd30ba92e7fa9b9b05075e31d1e7dd8"><div class="ttname"><a href="class_game_world.html#a8dd30ba92e7fa9b9b05075e31d1e7dd8">GameWorld::Movement_Z</a></div><div class="ttdeci">glm::vec3 Movement_Z</div><div class="ttdef"><b>Definition:</b> GameWorld.h:80</div></div>
 <div class="ttc" id="_game_asset_manager_8h_html"><div class="ttname"><a href="_game_asset_manager_8h.html">GameAssetManager.h</a></div></div>
 <div class="ttc" id="_pyramid_asset_8h_html"><div class="ttname"><a href="_pyramid_asset_8h.html">PyramidAsset.h</a></div></div>
-<div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9">Control</a></div><div class="ttdeci">Control</div><div class="ttdef"><b>Definition:</b> common.h:12</div></div>
-<div class="ttc" id="class_game_world_html_a968eb29424b68f7cd79a5896c62e944d"><div class="ttname"><a href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">GameWorld::Movement_X</a></div><div class="ttdeci">glm::vec3 Movement_X</div><div class="ttdef"><b>Definition:</b> GameWorld.h:81</div></div>
+<div class="ttc" id="common_8h_html_a0da83e35f29c11f7f3c637234f2149f9"><div class="ttname"><a href="common_8h.html#a0da83e35f29c11f7f3c637234f2149f9">Control</a></div><div class="ttdeci">Control</div><div class="ttdef"><b>Definition:</b> common.h:8</div></div>
+<div class="ttc" id="class_game_world_html_a968eb29424b68f7cd79a5896c62e944d"><div class="ttname"><a href="class_game_world.html#a968eb29424b68f7cd79a5896c62e944d">GameWorld::Movement_X</a></div><div class="ttdeci">glm::vec3 Movement_X</div><div class="ttdef"><b>Definition:</b> GameWorld.h:82</div></div>
 <div class="ttc" id="_ground_asset_8h_html"><div class="ttname"><a href="_ground_asset_8h.html">GroundAsset.h</a></div></div>
-<div class="ttc" id="class_game_world_html_acf69fc81410f4bb31d03b7551eb0bced"><div class="ttname"><a href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">GameWorld::Old_Camera_Z_Position</a></div><div class="ttdeci">GLfloat Old_Camera_Z_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:74</div></div>
+<div class="ttc" id="class_game_world_html_acf69fc81410f4bb31d03b7551eb0bced"><div class="ttname"><a href="class_game_world.html#acf69fc81410f4bb31d03b7551eb0bced">GameWorld::Old_Camera_Z_Position</a></div><div class="ttdeci">GLfloat Old_Camera_Z_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:75</div></div>
 <div class="ttc" id="_leaves_asset_8h_html"><div class="ttname"><a href="_leaves_asset_8h.html">LeavesAsset.h</a></div></div>
 <div class="ttc" id="_game_asset_8h_html"><div class="ttname"><a href="_game_asset_8h.html">GameAsset.h</a></div></div>
-<div class="ttc" id="class_game_world_html_ac1c9de2db7cb175f7a039a9f825190fc"><div class="ttname"><a href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">GameWorld::Old_Camera_Y_Position</a></div><div class="ttdeci">GLfloat Old_Camera_Y_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:73</div></div>
-<div class="ttc" id="class_game_world_html"><div class="ttname"><a href="class_game_world.html">GameWorld</a></div><div class="ttdef"><b>Definition:</b> GameWorld.h:31</div></div>
+<div class="ttc" id="class_game_world_html_ac1c9de2db7cb175f7a039a9f825190fc"><div class="ttname"><a href="class_game_world.html#ac1c9de2db7cb175f7a039a9f825190fc">GameWorld::Old_Camera_Y_Position</a></div><div class="ttdeci">GLfloat Old_Camera_Y_Position</div><div class="ttdef"><b>Definition:</b> GameWorld.h:74</div></div>
+<div class="ttc" id="class_game_world_html"><div class="ttname"><a href="class_game_world.html">GameWorld</a></div><div class="ttdef"><b>Definition:</b> GameWorld.h:32</div></div>
 <div class="ttc" id="common_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

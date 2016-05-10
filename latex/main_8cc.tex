@@ -12,22 +12,23 @@ Include dependency graph for main.\+cc\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{main_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+int \hyperlink{main_8cc_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\hypertarget{main_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\index{main.\+cc@{main.\+cc}!main@{main}}
+\hypertarget{main_8cc_a3c04138a5bfe5d72780bb7e82a18e627}{}\index{main.\+cc@{main.\+cc}!main@{main}}
 \index{main@{main}!main.\+cc@{main.\+cc}}
-\subsubsection[{main()}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\subsubsection[{main(int argc, char $\ast$$\ast$argv)}]{\setlength{\rightskip}{0pt plus 5cm}int main (
 \begin{DoxyParamCaption}
-{}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
 \end{DoxyParamCaption}
-)}\label{main_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}
+)}\label{main_8cc_a3c04138a5bfe5d72780bb7e82a18e627}
 Main Method This method gets called when starting the game then calls the Run method in the \hyperlink{class_game_loop}{Game\+Loop} class which is now able to be access by Python\+Binding 
 \begin{DoxyCode}
-7            \{
-8         std::shared\_ptr<GameLoop> Game\_Loop = std::make\_shared<GameLoop>();
+7                                 \{
+8         shared\_ptr<GameLoop> Game\_Loop = make\_shared<GameLoop>();
 9         Game\_Loop->Run();
 10 \}
 \end{DoxyCode}

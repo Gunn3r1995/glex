@@ -62,10 +62,8 @@ Send Data To Bounding Box This Method Sends all the Data from spawning the Asset
 12                                                       animateTo, translate\_bool, 
 13                                                       rotate, rotate\_bool, 
 14                                                       scale, scale\_bool, AssetType))\{
-15 
-16 
-17         \textcolor{comment}{//cout << "translateTO "<< glm::to\_string(translateTo) <<endl;}
-18 \}
+15                                                       
+16 \}
 \end{DoxyCode}
 
 
@@ -82,11 +80,11 @@ Send Data To Bounding Box This Method Sends all the Data from spawning the Asset
 \item[{glm\+::vec3}]{B\+B2\+\_\+\+Pos}
 \end{DoxyParamCaption}
 )}\label{class_game_asset_abd0491ffc6a601f8f3c47a2010f14039}
-
+Collision\+Detection Sends the values of B\+B1 \& B\+B2 to the Collision Detection method in the Bounding Box class 
 \begin{DoxyCode}
-39                                                                                       \{
-40     Bounding\_Box->CollisionDetection(BB1\_Max, BB1\_Min, BB1\_Pos, BB2\_Max, BB2\_Min, BB2\_Pos);
-41 \}
+44                                                                                       \{
+45         Bounding\_Box->CollisionDetection(BB1\_Max, BB1\_Min, BB1\_Pos, BB2\_Max, BB2\_Min, BB2\_Pos);
+46 \}
 \end{DoxyCode}
 \hypertarget{class_game_asset_a961aa51ca0a9961fc584c0b5d5431300}{}\index{Game\+Asset@{Game\+Asset}!Draw@{Draw}}
 \index{Draw@{Draw}!Game\+Asset@{Game\+Asset}}
@@ -106,16 +104,16 @@ Implemented in \hyperlink{class_ground_asset_a440f983638c7a7ccb6a39718444dfe95}{
 \item[{string}]{check}
 \end{DoxyParamCaption}
 )}\label{class_game_asset_a992a9c94083ee91bda85a4ec367c4fb3}
-
+Get\+A\+A\+B\+B Return the values of Max A\+A\+B\+B and Min A\+A\+B\+B to the Game Asset Manager Class 
 \begin{DoxyCode}
-29                                        \{
-30     \textcolor{keywordflow}{if}(check == \textcolor{stringliteral}{"Max"}) \{
-31         \textcolor{keywordflow}{return} Bounding\_Box->GetAABB(\textcolor{stringliteral}{"Max"});
-32     \}
-33     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(check == \textcolor{stringliteral}{"Min"}) \{
-34         \textcolor{keywordflow}{return} Bounding\_Box->GetAABB(\textcolor{stringliteral}{"Min"});
-35     \}
-36 \}
+30                                        \{
+31         \textcolor{keywordflow}{if}(check == \textcolor{stringliteral}{"Max"}) \{
+32                 \textcolor{keywordflow}{return} Bounding\_Box->GetAABB(\textcolor{stringliteral}{"Max"});
+33         \}
+34         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(check == \textcolor{stringliteral}{"Min"}) \{
+35                 \textcolor{keywordflow}{return} Bounding\_Box->GetAABB(\textcolor{stringliteral}{"Min"});
+36         \}
+37 \}
 \end{DoxyCode}
 \hypertarget{class_game_asset_a50a4795382fb55c7513314f82821e444}{}\index{Game\+Asset@{Game\+Asset}!Get\+Model@{Get\+Model}}
 \index{Get\+Model@{Get\+Model}!Game\+Asset@{Game\+Asset}}
@@ -126,9 +124,9 @@ Implemented in \hyperlink{class_ground_asset_a440f983638c7a7ccb6a39718444dfe95}{
 )}\label{class_game_asset_a50a4795382fb55c7513314f82821e444}
 Get Model This class Gets the Model from the Bounding Box class, This method is normally called by the Draw method in \hyperlink{class_game_asset_manager}{Game\+Asset\+Manager} 
 \begin{DoxyCode}
-25                             \{
-26     \textcolor{keywordflow}{return} Bounding\_Box->GetModel();
-27 \}
+23                             \{
+24     \textcolor{keywordflow}{return} Bounding\_Box->GetModel();
+25 \}
 \end{DoxyCode}
 \hypertarget{class_game_asset_a9fb9187dfca6160898344e79d41de224}{}\index{Game\+Asset@{Game\+Asset}!Get\+Rotate\+Bool@{Get\+Rotate\+Bool}}
 \index{Get\+Rotate\+Bool@{Get\+Rotate\+Bool}!Game\+Asset@{Game\+Asset}}
@@ -137,11 +135,11 @@ Get Model This class Gets the Model from the Bounding Box class, This method is 
 {}
 \end{DoxyParamCaption}
 )}\label{class_game_asset_a9fb9187dfca6160898344e79d41de224}
-
+Get\+Rotate\+Bools Returns the Get\+Rotate\+Bool bool to see if it is animated or not 
 \begin{DoxyCode}
-60                               \{
-61         \textcolor{keywordflow}{return} Bounding\_Box->GetRotateBool();
-62 \}
+74                               \{
+75         \textcolor{keywordflow}{return} Bounding\_Box->GetRotateBool();
+76 \}
 \end{DoxyCode}
 \hypertarget{class_game_asset_ae0a76a50ff3c6c119852c195053c9a38}{}\index{Game\+Asset@{Game\+Asset}!Get\+Scale\+Bool@{Get\+Scale\+Bool}}
 \index{Get\+Scale\+Bool@{Get\+Scale\+Bool}!Game\+Asset@{Game\+Asset}}
@@ -150,11 +148,11 @@ Get Model This class Gets the Model from the Bounding Box class, This method is 
 {}
 \end{DoxyParamCaption}
 )}\label{class_game_asset_ae0a76a50ff3c6c119852c195053c9a38}
-
+Get\+Scale\+Bool Returns the scale\+\_\+bool bool to see if it is animated or not 
 \begin{DoxyCode}
-56                              \{
-57         \textcolor{keywordflow}{return} Bounding\_Box->GetScaleBool();
-58 \}
+67                              \{
+68         \textcolor{keywordflow}{return} Bounding\_Box->GetScaleBool();
+69 \}
 \end{DoxyCode}
 \hypertarget{class_game_asset_af74bc1c4f6b87a4843217637b75290d4}{}\index{Game\+Asset@{Game\+Asset}!Get\+Translate\+Bool@{Get\+Translate\+Bool}}
 \index{Get\+Translate\+Bool@{Get\+Translate\+Bool}!Game\+Asset@{Game\+Asset}}
@@ -163,11 +161,11 @@ Get Model This class Gets the Model from the Bounding Box class, This method is 
 {}
 \end{DoxyParamCaption}
 )}\label{class_game_asset_af74bc1c4f6b87a4843217637b75290d4}
-
+Get\+Translate\+Bool Returns the translate\+\_\+bool bool to see if it is animated or not 
 \begin{DoxyCode}
-52                                  \{
-53     \textcolor{keywordflow}{return} Bounding\_Box->GetTranslateBool();
-54 \}
+60                                  \{
+61         \textcolor{keywordflow}{return} Bounding\_Box->GetTranslateBool();
+62 \}
 \end{DoxyCode}
 \hypertarget{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}{}\index{Game\+Asset@{Game\+Asset}!Get\+Translate\+To@{Get\+Translate\+To}}
 \index{Get\+Translate\+To@{Get\+Translate\+To}!Game\+Asset@{Game\+Asset}}
@@ -178,9 +176,9 @@ Get Model This class Gets the Model from the Bounding Box class, This method is 
 )}\label{class_game_asset_af19b5c6341758ee89c8dfb020eb678f6}
 Get Translate\+To This class Gets the Translate\+To from the Bounding Box class, Which is the current Position of the Asset 
 \begin{DoxyCode}
-48                                  \{
-49     \textcolor{keywordflow}{return} Bounding\_Box->GetTranslateTo();
-50 \}
+53                                  \{
+54         \textcolor{keywordflow}{return} Bounding\_Box->GetTranslateTo();
+55 \}
 \end{DoxyCode}
 \hypertarget{class_game_asset_a5c0479920e4aa2fea7830a47c1a4e3f3}{}\index{Game\+Asset@{Game\+Asset}!Translate@{Translate}}
 \index{Translate@{Translate}!Game\+Asset@{Game\+Asset}}

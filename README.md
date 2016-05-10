@@ -43,11 +43,11 @@ for usage instructions.
 
 # Python Bind Building #
 
-''' bash
-& cd src/
-$ export PYTHONPATH=`pwd`/.libs/
+``` bash
+$ cd src/
+$ export PYTHONPATH=`pwd`/.libs/ 
 $ cd .. &&make
-'''
+```
 
 # Python Running #
 
@@ -55,5 +55,6 @@ $ cd .. &&make
 
 #CPP CHECK#
 
-> $  cppcheck ./src --enable=all --check-config  2> CPPCheck.txt
+> $ cppcheck ./src --enable=all --check-config 2> CPPCheck.txt
+> $ cppcheck ./src --enable=all --check-config >> CPPCHECKGlex.txt 
 
